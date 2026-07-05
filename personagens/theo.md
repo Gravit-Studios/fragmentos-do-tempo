@@ -40,14 +40,12 @@ Theo não é um herói — é um observador que virou fugitivo. O design precisa
 
 ---
 
-## Notas de teste visual (em andamento)
+## Notas de teste visual — ESTILO APROVADO ✅
 
-Duas direções de estilo testadas até agora — ver imagens em `references/characters/theo/`:
+Após testar cel-shading duro (moodboard Zinkase/Bee Square), vetor semi-realista techwear (descartado) e referência "Survivor" (ArtStation, estrutura aproveitada), chegamos a uma versão de traço definido + shading em blocos que foi **aprovada como estilo oficial do projeto**. Ver `game-design/linha-visual.md` para a definição completa de estilo e prompt-base reutilizável.
 
-1. **Direção A (cel-shading duro):** alinhada ao moodboard original (Pablo Hernández/Zinkase). Tentativas internas via SVG não atingiram o nível de acabamento desejado.
-2. **Direção B (vetor limpo, tom adulto/techwear):** testada via Gemini com prompt de referência techwear/tático. Primeiro resultado ficou bom tecnicamente, mas com shading semi-realista pesado demais (textura, rugas) e rosto/postura envelhecidos e cansados demais para o personagem. Ajustes solicitados na segunda rodada:
-   - Simplificar shading para estilo flat/vetorizado (2-3 tons por superfície, sem gradiente suave, sem rim light).
-   - Rejuvenescer o personagem (mid-to-late 20s, sem olheiras/rugas profundas).
-   - Postura mais alerta e confiante, evitando aparência exausta/derrotada.
+Concept aprovado do Theo: contorno forte e definido, shading em 1-2 tons sólidos, todos os elementos fixos presentes e legíveis (óculos na testa, munhequeira cronométrica em formato de relógio, satchel cruzando o peito), paleta de produção documentada (Jacket/Pants/Vest/Boots/Hardware/Copper).
 
-**Decisão pendente:** qual direção (A ou B) seguirá como padrão definitivo do projeto.
+**Ponto de atenção para próximas iterações:** a expressão facial ficou levemente carrancuda/desconfiada — ajustar para ler como cauteloso/investigativo em vez de hostil/agressivo, consistente com a fase inicial do personagem (sem combate).
+
+**Próximo passo:** usar esta imagem aprovada como referência visual direta (não só prompt em texto) ao gerar Voss e Naiara, para herdar o mesmo traço e acabamento.

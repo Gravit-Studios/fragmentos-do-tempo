@@ -15,14 +15,17 @@ Voss começou como o parceiro que teve a ideia "impossível" e teve coragem (ou 
 - **Base:** vermelho profundo/vinho escuro — autoridade, decreto.
 - **Secundária:** preto quase absoluto, em grandes blocos.
 - **Acento:** o mesmo cobre/laranja da tecnologia, mas **exposto e ostentado** (insígnia, dispositivo central no peito) — ao contrário do uso discreto em Theo e quase invisível em Naiara.
-- **Neutro:** dourado envelhecido para detalhes cerimoniais.
+- **Neutro:** cinza metálico escuro para painéis estruturais (substituindo o dourado envelhecido original — ver nota de revisão abaixo).
 
 > Lógica de paleta: quem exibe a tecnologia é quem tem poder sobre ela; quem a esconde, não.
 
+> **Revisão de direção (pós primeiro concept):** a primeira versão gerada leu como "realeza medieval/vitoriana" (bordados dourados, gola ornamentada estilo antigo) em vez de "ditador tecnológico do futuro". Ajuste aplicado: trocar ornamento dourado entalhado por painéis geométricos com linhas de circuito sutilmente iluminadas (cobre/laranja), mantendo a silhueta imponente mas deslocando a leitura para autoridade tecnológica avançada, não realeza histórica.
+
 ## Elementos fixos
-1. **Dispositivo central no peito** — versão grande e ornamentada da tecnologia cronométrica, usada como joia de poder (contraponto direto à munhequeira discreta de Theo).
+1. **Dispositivo central no peito** — versão grande da tecnologia cronométrica, redesenhada como instrumento tecnológico preciso (mostrador circular geométrico com brilho cobre/laranja), não como relógio de bolso antigo — usada como joia de poder (contraponto direto à munhequeira discreta de Theo).
 2. **Resquício do jaleco original** — detalhe do figurino de cientista nunca completamente abandonado (gola, corte de colarinho, tecido interno) — prova visual de que já foi igual a Theo.
-3. **Olhar/expressão de calma** — nunca fúria, nunca gritando. Rosto controlado, quase gentil — deve parecer razoável, não vilanesco caricato.
+3. **Paineis geométricos com linhas de circuito** — substituem bordados/ornamentos históricos; reforçam que o poder dele é tecnológico, não hereditário/monárquico.
+4. **Olhar/expressão de calma** — nunca fúria, nunca gritando. Rosto controlado, quase gentil — deve parecer razoável, não vilanesco caricato.
 
 ## Comportamento visual em cena
 - Quase sempre mostrado de baixo para cima (câmera baixa) ou em composições simétricas — arquitetura reforça grandiosidade.
@@ -51,4 +54,9 @@ Ao contrário de Theo, Voss já é dominante em cada era desde o início — evo
 | Voss | Vermelho/vinho + preto + dourado | Exposto, ostentado |
 
 ## Notas de teste visual
-Ainda não testado externamente (Gemini/ilustrador). Próximo passo recomendado após definir a direção de estilo final com Theo (ver `theo.md`).
+
+**Primeira rodada (concept gerado):** rosto e postura aprovados — calma, controle, imponência bem capturados. Roupa reprovada: leu como realeza medieval/vitoriana (bordado dourado, gola ornamentada estilo antigo) em vez de "ditador tecnológico do futuro".
+
+**Ajuste em andamento (segunda rodada):** prompt revisado trocando ornamento dourado entalhado por painéis geométricos com linhas de circuito iluminadas (cobre/laranja) e dispositivo do peito redesenhado como instrumento tecnológico preciso. Objetivo: manter a silhueta imponente, deslocar a leitura de "rei histórico" para "autoridade tecnológica avançada". Aguardando geração e validação.
+
+**Nota técnica:** ao gerar, incluir instrução explícita para não renderizar texto/legendas na própria imagem (`no text, no labels rendered in the image`) — a primeira geração incluiu texto ilegível/incorreto na cena.
