@@ -9,6 +9,7 @@ Metroidvania / ação-plataforma 2D ambientado em um futuro de colapso ambiental
 - **[game-design/modelo-de-jogo.md](game-design/modelo-de-jogo.md)** — Estrutura de fases, evolução de personagem, estilo de diálogo, cutscenes, cenário e referência visual de arte, baseado em Guacamelee, Dead Cells, Castlevania: SOTN, Bloodstained, Prince of Persia: The Lost Crown, Blasphemous, Ori and the Blind Forest e Hades.
 - **[game-design/linha-visual.md](game-design/linha-visual.md)** — Estilo visual oficial de personagens (aprovado), com prompts reutilizáveis para Gemini/Midjourney.
 - **[game-design/epocas.md](game-design/epocas.md)** — As 6 épocas jogáveis, eixo temático de tirania/batalha, arma e cenário característicos de cada uma.
+- **[game-design/linha-visual-cenario.md](game-design/linha-visual-cenario.md)** — Pipeline técnico (2D/Paper2D), estrutura de camadas de parallax e diretriz visual de cenário.
 - **[narrativa/premissa-e-timeline.md](narrativa/premissa-e-timeline.md)** — Premissa da história, linha do tempo dos eventos e a regra da Anomalia.
 - **[personagens/theo.md](personagens/theo.md)** — Bíblia de personagem do protagonista.
 - **[personagens/voss.md](personagens/voss.md)** — Bíblia de personagem do vilão.
