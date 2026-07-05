@@ -40,23 +40,17 @@ Background: plain flat neutral gray background, no scene, no gradient.
 
 ## Prompts aplicados aos personagens principais
 
-### Theo (protagonista) — APROVADO
-```
-[ver prompt completo no histórico da conversa — cientista jovem 20-e-poucos anos, postura cautelosa, jaqueta terracota, colete preto, calça verde-azulada, óculos na testa, munhequeira cronométrica tipo relógio, satchel cruzando o peito, botas marrom-couro]
-```
-Resultado aprovado. Usar como referência de imagem para os próximos personagens.
+### Theo (protagonista) — ✅ APROVADO
+Cientista jovem 20-e-poucos anos, postura cautelosa, jaqueta terracota, colete preto, calça verde-azulada, óculos na testa, munhequeira cronométrica tipo relógio, satchel cruzando o peito, botas marrom-couro. Ver prompt completo no histórico da conversa.
 
-### Voss (vilão)
-```
-[ver prompt completo no histórico da conversa — postura imponente ereta, casaco cerimonial vermelho-vinho/preto/dourado, dispositivo cronométrico ostentado no peito, expressão calma e controlada]
-```
+### Voss (vilão) — ✅ APROVADO
+Postura imponente ereta, casaco futurista vermelho-vinho/preto com painéis geométricos e linhas de circuito em cobre (substituindo bordado dourado/realeza histórica), dispositivo com símbolo de "power" no peito, expressão calma e controlada. Ver prompt completo no histórico da conversa.
 
-### Naiara (linhagem)
-```
-[ver prompt completo no histórico da conversa — postura alerta observadora, traje de época com tom terroso neutro, marca herdada sutil em tom marfim, azul-acinzentado frio como cor base]
-```
+### Naiara (linhagem) — ✅ APROVADO
+Postura alerta observadora, traje de época com tom terroso neutro sobre base azul-acinzentada fria, marca herdada sutil (Ivory Mark) em posição fixa (cinto/quadril), leitura de "pessoa comum", sem nada místico. Ver prompt completo no histórico da conversa.
 
 ## Status
-- Estilo visual definido e validado com o Theo.
-- Próximo passo: gerar Voss e Naiara usando a imagem do Theo como referência visual direta + prompts acima.
-- Após os três personagens principais, aplicar a mesma linha visual a cenários e HUD.
+- ✅ Estilo visual definido e validado nos 3 personagens principais (Theo, Voss, Naiara).
+- ✅ Consistência confirmada entre os três: mesmo traço, mesmo shading, mesma estrutura de entrega (turnaround + paleta nomeada).
+- ⏳ Próximo passo: aplicar a mesma linha visual a cenários e HUD.
+- ⏳ Decisão em aberto: manter símbolo de "power" no dispositivo de Voss ou padronizar como mostrador com ponteiros igual ao Theo (recomendação atual: manter, para contraste narrativo).

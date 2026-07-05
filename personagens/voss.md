@@ -53,10 +53,10 @@ Ao contrário de Theo, Voss já é dominante em cada era desde o início — evo
 | Naiara | Azul-acinzentado frio + marfim | Quase invisível, diluído |
 | Voss | Vermelho/vinho + preto + dourado | Exposto, ostentado |
 
-## Notas de teste visual
+## Notas de teste visual — ESTILO APROVADO ✅
 
 **Primeira rodada (concept gerado):** rosto e postura aprovados — calma, controle, imponência bem capturados. Roupa reprovada: leu como realeza medieval/vitoriana (bordado dourado, gola ornamentada estilo antigo) em vez de "ditador tecnológico do futuro".
 
-**Ajuste em andamento (segunda rodada):** prompt revisado trocando ornamento dourado entalhado por painéis geométricos com linhas de circuito iluminadas (cobre/laranja) e dispositivo do peito redesenhado como instrumento tecnológico preciso. Objetivo: manter a silhueta imponente, deslocar a leitura de "rei histórico" para "autoridade tecnológica avançada". Aguardando geração e validação.
+**Segunda rodada (aprovada):** prompt revisado trocando ornamento dourado entalhado por painéis geométricos com linhas de circuito iluminadas (cobre/laranja) e dispositivo do peito redesenhado como instrumento tecnológico preciso com símbolo de "power" (liga/desliga) — reforça a ideia de Voss como "quem controla o poder" e cria contraste intencional com o mostrador tipo relógio do Theo. Traço, shading e estrutura de entrega consistentes com o Theo aprovado.
 
-**Nota técnica:** ao gerar, incluir instrução explícita para não renderizar texto/legendas na própria imagem (`no text, no labels rendered in the image`) — a primeira geração incluiu texto ilegível/incorreto na cena.
+**Decisão em aberto:** manter o símbolo de "power" no dispositivo (diferencia visualmente Voss de Theo) ou ajustar para mostrador com ponteiros (reforça que é a mesma tecnologia em mãos diferentes) — recomendação atual é manter o símbolo de power.

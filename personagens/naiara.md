@@ -43,5 +43,6 @@ Marca física ou objeto de herança que se repete geração após geração (cic
 
 ---
 
-## Notas de teste visual
-Ainda não testado externamente (Gemini/ilustrador). Próximo passo recomendado após definir a direção de estilo final com Theo (ver `theo.md`).
+## Notas de teste visual — ESTILO APROVADO ✅
+
+Concept gerado e aprovado na primeira rodada: leitura de "pessoa comum da época", sem nada místico/heroico. Elemento herdado (Ivory Mark) presente de forma discreta, na mesma posição de tela (altura do quadril/cinto) — consistente com a recomendação de posição fixa entre gerações. Traço, shading e estrutura de entrega consistentes com Theo e Voss.
