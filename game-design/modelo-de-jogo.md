@@ -24,6 +24,17 @@ A estrutura por **épocas históricas** (medieval, e outras a definir) funciona 
 
 ---
 
+### 1.6 Referência adicional — Split Fiction (Hazelight Studios, 2025)
+Guardado aqui como referência de estrutura/evolução de fases, não como influência de gênero (Split Fiction é co-op linear, o projeto é metroidvania exploratório — a lição é de **ritmo**, não de estrutura de mundo):
+
+- Cada capítulo/ambientação introduz **pelo menos um mecanismo único** que não se repete nos outros — aplicável a cada época: além da arma característica, vale garantir que cada época tenha ao menos uma mecânica de gameplay exclusiva daquele período (não só reskin visual).
+- **Equipamento evolui por capítulo**, reforçando a identidade mecânica de cada fase — já é o modelo adotado no projeto (ver seção 2.1).
+- **Histórias paralelas opcionais** (side stories) como conteúdo extra sem interromper a progressão principal — possível modelo para conteúdo secundário dentro de cada época.
+- O nível final combina elementos de ambientações já vistas separadamente — paralelo direto para como a Era Moderna/Futuro Próximo pode reunir visual/mecânicas das épocas anteriores no clímax.
+- **Ponto de atenção (o que NÃO copiar):** Split Fiction é criticado por ser muito linear e sem incentivo de exploração (sem colecionáveis, sem motivo para sair do caminho principal) — o oposto do que se busca aqui, já que o projeto é um metroidvania e deve recompensar exploração ativamente (ver seção 1.1).
+
+---
+
 ## 2. Evolução do Personagem
 
 | Jogo | Sistema de progressão |
