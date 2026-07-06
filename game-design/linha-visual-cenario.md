@@ -25,6 +25,7 @@
 - Paleta limitada por cena: 4-6 cores + barra de "production color" documentada.
 - Cor de acento (cobre/laranja) reservada para elementos tecnológicos, seguindo a mesma lógica usada nos personagens — presença discreta (Theo/fase inicial), ausente ou mínima em épocas históricas antigas, ostentada apenas nas cenas ligadas a Voss/tecnologia do futuro.
 - Cada época deve ter uma "assinatura de forma arquitetônica" reconhecível à distância (ex: colunas gregas, castelo medieval, trincheiras) — ver `epocas.md` para a lista de identidades visuais por período.
+- **Presença ambiental de Voss (obrigatória em toda época):** cada cenário deve reservar ao menos um elemento visual referenciando Voss, adaptado à linguagem daquele período — estátua/afresco (Egito, Grécia), retrato a óleo (Absolutismo), cartaz de propaganda (WWII), foto/tela digital (Internet, Era Moderna). Ver `personagens/voss.md`, seção "Comportamento visual em cena".
 
 ## Prompt-base reutilizável (cenário)
 

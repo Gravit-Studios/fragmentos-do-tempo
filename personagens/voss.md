@@ -29,8 +29,9 @@ Voss começou como o parceiro que teve a ideia "impossível" e teve coragem (ou 
 
 ## Comportamento visual em cena
 - Quase sempre mostrado de baixo para cima (câmera baixa) ou em composições simétricas — arquitetura reforça grandiosidade.
-- Raramente em combate direto no início — presença sentida pelo ambiente (estátuas, propaganda, símbolos) antes de aparecer fisicamente.
-- Primeiro encontro pessoal: um dos poucos momentos com câmera aproximada sem arquitetura grandiosa — contraste que mostra por um instante o cientista que ele já foi.
+- **Presença constante em toda época, mesmo sem aparecer fisicamente:** independente de quantas vezes ele aparece como personagem jogável de fato, sua figura deve estar sempre presente no ambiente de cada era — estátuas, retratos/afrescos, moedas, propaganda, símbolos de culto, ou (nas eras mais recentes) fotografias e telas — adaptado à linguagem visual e tecnológica daquele período (uma estátua no Egito, uma pintura a óleo na Era do Absolutismo, um cartaz de propaganda na WWII, uma foto/tela digital na Era da Internet). Isso reforça visualmente que ele já "venceu" antes mesmo do jogador chegar.
+- Aparições físicas diretas dele são deliberadamente raras e reservadas para momentos-chave — o grosso da presença dele em cada fase deve vir do ambiente, não do encontro pessoal.
+- Primeiro encontro pessoal em cada época: um dos poucos momentos com câmera aproximada sem arquitetura grandiosa — contraste que mostra por um instante o cientista que ele já foi.
 
 ## Evolução por época
 Ao contrário de Theo, Voss já é dominante em cada era desde o início — evolução de **acúmulo estético**, não de poder:
