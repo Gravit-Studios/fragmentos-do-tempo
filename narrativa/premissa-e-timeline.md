@@ -6,6 +6,7 @@
 2. **Subsidiária:** dois cientistas parceiros (protagonista + vilão) tentam construir uma máquina para resolver o problema de comida/água. Falham.
 3. **A ideia impossível:** o vilão propõe viajar no tempo para "corrigir os erros da humanidade" usando uma tecnologia secreta de testes. O protagonista descarta a ideia como impossível.
 4. **Explosão no laboratório** → protagonista vai investigar (trecho jogável introdutório: movimentação, ações, comandos básicos — sem combate).
+4.1. **Chamado à aventura:** no momento/logo após a explosão, uma versão de Naiara vinda do futuro (a era final da linhagem, Era Moderna/Futuro Próximo — o fim da história) chega até esse ponto exato da timeline para pedir ajuda a Theo diretamente, iniciando sua jornada para restaurar o tempo. Substitui/complementa a descoberta solitária de documentos como gatilho da jornada — agora há um mentor/arauto pessoal entregando o chamado. **Diálogos e motivação exatos dela nessa cena ainda a definir.**
 5. Lab destruído; protagonista encontra documentos sobre a máquina do tempo → dor de cabeça súbita, tela branca.
 6. **Timeline alterada:** protagonista volta a si em um laboratório intacto, mas com sinais estranhos (fotos do parceiro espalhadas de forma incomum) — primeira pista de que algo mudou.
 7. **Reviravolta:** o vilão já usou a máquina antes, alterou o passado e se tornou um ditador com poder ilimitado, criando sua própria linha do tempo.
