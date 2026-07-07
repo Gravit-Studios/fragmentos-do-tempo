@@ -58,8 +58,21 @@ Mesma paleta-base, mas mais calma/limpa — sem laranja de emergência, ilumina�
 
 > Prompts completos disponíveis no histórico da conversa.
 
+## Template de Ficha de Cenário (formato de entrega oficial)
+Paralelo ao template de concept sheet de personagens (ver `linha-visual.md`):
+
+```
+Authentic low-resolution pixel art environment reference sheet, hard pixel grid clearly visible — sharp, blocky pixel edges with NO anti-aliasing, NO smooth blending. Shading achieved through visible dithering patterns rather than smooth blends. Futuristic UI-style frame/border around the entire composition (thin glowing corner brackets, HUD-style accent lines).
+
+LAYOUT:
+- Main wide environment illustration, composed as a 2.5D side-scrolling game background with clear parallax depth layers (background/midground gameplay path/foreground silhouette).
+- 2-3 small detail close-up insets (a specific set-piece prop, light source, or symbol from the scene).
+- Location name (bold pixel-font-style) + one-line description, positioned like a level-select screen.
+- Small labeled "FLAT COLORS" swatch bar.
+```
+
 ## Status
 - ✅ Pipeline técnico definido (2D + Paper2D + parallax).
 - ✅ Estrutura de camadas e regras de estilo fechadas.
-- 🔄 Primeiro teste de cenário (Laboratório, versões A e B) gerado — aguardando avaliação visual.
-- ⏳ Próximo passo: aplicar a mesma diretriz às 6 épocas históricas definidas em `epocas.md`.
+- ✅ Template de ficha de cenário definido, com 3 primeiros ambientes gerados (Laboratório intacto, Laboratório pós-explosão, Egito Antigo — câmara do templo).
+- ⏳ Próximo passo: aplicar a mesma diretriz às 6 épocas históricas restantes.
