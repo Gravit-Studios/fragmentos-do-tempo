@@ -3,11 +3,16 @@
 
 ## Decisão de pipeline técnico
 
-**Abordagem definida: 2D puro (sprites com parallax), via Unreal Paper2D.**
+**Motor: Unity** (revisado — substitui a decisão anterior de Unreal Engine).
 
-- **Paper2D** (plugin nativo da Unreal Engine) cuida de sprites, animação por flipbook e tilemaps — não requer engine externa.
-- **Parallax** é resolvido com múltiplas camadas de sprite em profundidades Z diferentes, cada uma rolando a uma velocidade distinta em relação à câmera.
-- Consequência direta para produção: **todo concept de cenário deve ser pensado já separado em camadas**, não como uma ilustração única.
+> **Nota de revisão:** o projeto começou sendo planejado em Unreal Engine (Paper2D), mas essa decisão foi revista após avaliação de que Unity oferece ferramentas 2D nativas mais maduras (Tilemap, pacote 2D Animation com esqueleto/bones para sprites), um ecossistema de assets muito maior voltado a jogos 2D indie, e uma comunidade/tutoriais mais robustos para quem não tem experiência prévia em modelagem 3D — relevante já que a equipe não é composta por modeladores profissionais e precisa de apoio em animação de personagem, montagem de cenário e mecânicas prontas/adaptáveis via asset store. Unreal permanece uma alternativa válida caso o projeto migre para 3D no futuro, mas não é a recomendação atual.
+
+**Abordagem definida: 2D puro (sprites com parallax), via Unity.**
+
+- **Tilemap** (sistema nativo da Unity) cuida da montagem de cenário em grade, com suporte nativo a múltiplas camadas (tilemap layers) para parallax.
+- **2D Animation** (pacote oficial da Unity) permite animação de personagem por esqueleto/bones aplicado a sprites 2D, sem precisar desenhar frame a frame nem modelar em 3D.
+- **Parallax** é resolvido com múltiplas camadas de sprite/tilemap em profundidades diferentes, cada uma rolando a uma velocidade distinta em relação à câmera (via scripts simples de parallax, amplamente documentados na comunidade Unity).
+- Consequência direta para produção: **todo concept de cenário deve ser pensado já separado em camadas**, não como uma ilustração única — essa parte da diretriz não muda com a troca de motor.
 
 ## Estrutura de camadas (padrão para todas as épocas)
 
