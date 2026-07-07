@@ -58,7 +58,9 @@ Ainda não testados no novo estilo pixel art — próximo passo recomendado, rea
 Baseado em referências de character sheet (estilo Riot/Ekko), adotando apenas a **estrutura de composição**, não o estilo de arte (que continua pixel art):
 
 ```
-Authentic low-resolution pixel art character reference sheet, hard pixel grid clearly visible — sharp, blocky pixel edges with NO anti-aliasing, NO smooth blending, NO soft painterly gradients. Shading achieved through visible dithering patterns rather than smooth blends. Futuristic UI-style frame/border around the entire composition (thin glowing corner brackets, HUD-style accent lines), dark neutral background inside the frame.
+Authentic low-resolution pixel art character reference sheet, hard pixel grid clearly visible — sharp, blocky pixel edges with NO anti-aliasing, NO smooth blending, NO soft painterly gradients. Shading achieved through visible dithering patterns rather than smooth blends. Futuristic UI-style frame/border around the entire composition (thin glowing corner brackets, HUD-style accent lines).
+
+BACKGROUND: instead of a flat empty background, use a low-detail, low-contrast environment silhouette suggesting the character's era/context (e.g. faint temple columns for Egypt, a smoky lab corridor for the explosion scene) — heavily muted/desaturated and darker or lower-contrast than the character, kept simple enough to never compete with the character's silhouette or readability. Think of it as a soft contextual backdrop, not a detailed scene.
 
 LAYOUT:
 - Three full-body poses: front, 3/4 profile, back — consistent proportions and outfit.
