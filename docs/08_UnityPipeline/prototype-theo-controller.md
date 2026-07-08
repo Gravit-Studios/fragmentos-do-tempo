@@ -29,7 +29,7 @@ Primeira cena jogavel para validar a sensacao basica de controle, combate e obje
 - Plataformas elevadas com colisao somente no topo para evitar travamento lateral durante o pulo.
 - Materiais de fisica sem atrito para reduzir travamento em bordas.
 - Camera 2D seguindo Theo por script temporario.
-- Camera 2D com limites temporarios da sala.
+- Camera 2D com limites temporarios da sala e enquadramento ajustado ao tamanho visivel.
 - Sistema temporario de vida, dano e respawn.
 - HUD temporario de vida.
 - Ataque basico placeholder com hitbox visual curta.

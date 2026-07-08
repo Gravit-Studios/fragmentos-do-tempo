@@ -18,8 +18,8 @@ namespace FragmentosDoAmanha.Editor
         private const float EnvironmentZ = 0f;
         private const float GameplayZ = -1f;
         private const float TopPlatformEdgeInset = 0.22f;
-        private static readonly Vector2 CameraMin = new Vector2(-9f, -1.2f);
-        private static readonly Vector2 CameraMax = new Vector2(11f, 2.35f);
+        private static readonly Vector2 CameraMin = new Vector2(-12.5f, -3.15f);
+        private static readonly Vector2 CameraMax = new Vector2(13.5f, 3.15f);
         private static readonly PhysicsMaterial2D NoFrictionMaterial = new PhysicsMaterial2D("Prototype No Friction")
         {
             friction = 0f,
