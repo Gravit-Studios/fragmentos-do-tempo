@@ -45,6 +45,7 @@ Objetivo: validar sensacao de controle.
 - [x] Ataque basico.
 - [x] Inimigo simples.
 - [x] Respawn/checkpoint temporario.
+- [x] Fragmento coletavel placeholder.
 
 ## Fase 3 — Arte Integrada
 
@@ -66,7 +67,7 @@ Objetivo: uma fatia curta, jogavel e apresentavel.
 - [ ] Sala introdutoria Era Zero.
 - [ ] Pequena area do Egito.
 - [ ] Transicao temporal placeholder.
-- [ ] Fragmento coletavel.
+- [x] Fragmento coletavel.
 - [ ] Inimigo comum do Egito.
 - [ ] Primeira presenca ambiental forte de Voss.
 - [ ] Aparicao/indicacao de Naiara.

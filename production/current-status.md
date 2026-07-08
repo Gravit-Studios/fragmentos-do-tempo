@@ -46,6 +46,7 @@ Ja existe:
 - HUD temporario de vida.
 - ataque basico placeholder.
 - inimigo placeholder com patrulha, dano de contato, vida e morte.
+- fragmento temporal coletavel com contador no HUD.
 
 Ainda nao existe:
 
@@ -129,6 +130,7 @@ Implementado:
 - HUD temporario de vida;
 - ataque basico placeholder;
 - inimigo placeholder;
+- fragmento temporal coletavel;
 - respawn temporario;
 - zona de dano placeholder;
 - blockout do laboratorio Era Zero;
@@ -148,8 +150,8 @@ Proximo teste recomendado:
 1. Abrir `unity/FragmentosDoAmanha` no Unity Hub.
 2. Abrir `Assets/Scenes/Prototype_Theo_Controller.unity`.
 3. Rodar Play Mode.
-4. Avaliar peso do pulo, velocidade horizontal, camera, zona de dano, HUD, ataque e inimigo.
-5. Ajustar `TheoController`, `CameraFollow2D`, `PlayerHealth`, `PrototypeHealthHud`, `PlayerAttack` e `PrototypeEnemy`.
+4. Avaliar peso do pulo, velocidade horizontal, camera, zona de dano, HUD, ataque, inimigo e fragmento coletavel.
+5. Ajustar `TheoController`, `CameraFollow2D`, `PlayerHealth`, `PrototypeHealthHud`, `PrototypeFragmentHud`, `PlayerAttack`, `PrototypeEnemy` e `TemporalFragment`.
 
 ## Arte e referencias
 
@@ -240,8 +242,8 @@ git pull origin main
 5. Criar tileset placeholder da Era Zero.
 6. Criar tileset placeholder do Egito.
 7. Testar primeiro loop de combate Theo versus inimigo placeholder.
-8. Ajustar alcance, cooldown e feedback do ataque.
-9. Planejar primeira sala curta com inimigo e perigo.
+8. Testar coleta do fragmento temporal.
+9. Planejar primeira sala curta com inimigo, perigo e objetivo.
 10. Planejar primeira transicao temporal jogavel.
 
 ## Prompt de retomada para nova conversa

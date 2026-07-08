@@ -39,6 +39,7 @@ namespace FragmentosDoAmanha.Editor
             CreateVossMonitor(environment.transform);
             CreateDamageZone(environment.transform);
             CreatePrototypeEnemy(environment.transform);
+            CreateTemporalFragment(environment.transform);
 
             GameObject theo = CreateTheo(new Vector2(-9f, -1.5f));
             theo.transform.SetParent(root.transform);
@@ -46,7 +47,7 @@ namespace FragmentosDoAmanha.Editor
             GameObject mainCamera = CreateCamera(theo.transform);
             mainCamera.transform.SetParent(root.transform);
 
-            GameObject hud = CreatePrototypeHud(theo.GetComponent<PlayerHealth>());
+            GameObject hud = CreatePrototypeHud(theo.GetComponent<PlayerHealth>(), theo.GetComponent<FragmentInventory>());
             hud.transform.SetParent(root.transform);
 
             EditorSceneManager.SaveScene(scene, ScenePath);
@@ -77,6 +78,7 @@ namespace FragmentosDoAmanha.Editor
             serializedController.ApplyModifiedPropertiesWithoutUndo();
 
             theo.AddComponent<PlayerHealth>();
+            theo.AddComponent<FragmentInventory>();
             PlayerAttack attack = theo.AddComponent<PlayerAttack>();
             GameObject hitboxPreview = CreateBox("Attack Hitbox Preview", new Vector2(position.x + 0.85f, position.y + 0.05f), new Vector2(1.15f, 0.85f), new Color(1f, 0.72f, 0.22f, 0.55f), "Default", GameplayZ);
             hitboxPreview.transform.SetParent(theo.transform);
@@ -89,11 +91,13 @@ namespace FragmentosDoAmanha.Editor
             return theo;
         }
 
-        private static GameObject CreatePrototypeHud(PlayerHealth playerHealth)
+        private static GameObject CreatePrototypeHud(PlayerHealth playerHealth, FragmentInventory fragmentInventory)
         {
             GameObject hudObject = new GameObject("Prototype HUD");
-            PrototypeHealthHud hud = hudObject.AddComponent<PrototypeHealthHud>();
-            hud.SetPlayerHealth(playerHealth);
+            PrototypeHealthHud healthHud = hudObject.AddComponent<PrototypeHealthHud>();
+            healthHud.SetPlayerHealth(playerHealth);
+            PrototypeFragmentHud fragmentHud = hudObject.AddComponent<PrototypeFragmentHud>();
+            fragmentHud.SetInventory(fragmentInventory);
             return hudObject;
         }
 
@@ -152,6 +156,15 @@ namespace FragmentosDoAmanha.Editor
             body.gravityScale = 4.2f;
             enemy.AddComponent<PrototypeEnemy>();
             enemy.transform.SetParent(parent);
+        }
+
+        private static void CreateTemporalFragment(Transform parent)
+        {
+            GameObject fragment = CreateBox("Temporal Fragment", new Vector2(8.8f, -1.25f), new Vector2(0.55f, 0.55f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ);
+            BoxCollider2D collider = fragment.AddComponent<BoxCollider2D>();
+            collider.isTrigger = true;
+            fragment.AddComponent<TemporalFragment>();
+            fragment.transform.SetParent(parent);
         }
 
         private static GameObject CreatePlatform(Transform parent, string name, Vector2 position, Vector2 size, Color color)
