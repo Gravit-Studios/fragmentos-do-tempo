@@ -19,11 +19,11 @@ Status: em andamento.
 Objetivo: preparar tudo que precisa existir antes da primeira cena jogavel.
 
 - [x] Definir versao alvo da Unity: Unity 6 LTS.
-- [ ] Instalar Unity Hub / Unity 6 LTS na maquina de producao.
+- [x] Instalar Unity Hub / Unity 6 LTS na maquina de producao.
 - [ ] Instalar Git LFS na maquina de producao.
-- [ ] Criar projeto Unity real em `unity/FragmentosDoAmanha/`.
-- [ ] Configurar URP 2D.
-- [ ] Configurar Input System.
+- [x] Criar projeto Unity real em `unity/FragmentosDoAmanha/`.
+- [x] Configurar URP 2D.
+- [x] Configurar Input System.
 - [ ] Configurar Pixel Perfect Camera.
 - [ ] Configurar Cinemachine.
 - [ ] Configurar Git LFS antes de adicionar binarios pesados.

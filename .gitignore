@@ -56,4 +56,4 @@ sysinfo.txt
 # Local temporary folders
 .tmp.driveupload/
 .unity-home/
-unity/create-project.log
+unity/*.log

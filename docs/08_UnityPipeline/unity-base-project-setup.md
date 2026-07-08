@@ -13,18 +13,40 @@ Criar o primeiro projeto Unity real do repositorio de forma limpa, sem arquivos 
 
 ## Estado atual
 
-Neste ambiente do Codex, Unity/Unity Hub e Git LFS nao estao disponiveis. Por isso, o repositorio foi preparado com:
+Unity 6 foi encontrada em:
 
-- `.gitignore` compatível com Unity.
-- `.gitattributes` com plano de rastreamento por Git LFS.
-- Documentacao da estrutura esperada.
+```text
+/Applications/Unity/Hub/Editor/6000.5.2f1/Unity.app
+```
 
-O projeto Unity real ainda deve ser criado pela Unity Hub.
+O projeto Unity real foi criado em:
+
+```text
+unity/FragmentosDoAmanha/
+```
+
+Ja existem:
+
+- `Assets/`
+- `Packages/`
+- `ProjectSettings/`
+- Universal Render Pipeline `17.5.0`
+- Input System `1.19.0`
+- estrutura base de pastas em `Assets/`
+
+Ainda pendente:
+
+- Git LFS na maquina de producao.
+- Cinemachine.
+- 2D Pixel Perfect.
+- 2D Animation.
+- 2D Sprite.
+- Confirmar/instalar pacotes 2D restantes pelo Package Manager da Unity.
 
 ## Passo a passo no Mac
 
-1. Instalar Unity Hub.
-2. Instalar Unity 6 LTS, preferindo o template 2D/URP quando disponivel.
+1. Instalar Unity Hub. **Concluido.**
+2. Instalar Unity 6 LTS, preferindo o template 2D/URP quando disponivel. **Concluido.**
 3. Instalar Git LFS:
 
 ```bash
@@ -52,7 +74,7 @@ unity/FragmentosDoAmanha/Packages/
 unity/FragmentosDoAmanha/ProjectSettings/
 ```
 
-7. Fazer o primeiro commit do projeto base Unity.
+7. Fazer o primeiro commit do projeto base Unity. **Concluido via Codex.**
 
 ## Estrutura esperada dentro de Assets
 
