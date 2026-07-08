@@ -64,7 +64,7 @@ Objetivo: substituir placeholders principais por assets direcionais.
 
 Objetivo: uma fatia curta, jogavel e apresentavel.
 
-- [ ] Sala introdutoria Era Zero.
+- [x] Sala introdutoria Era Zero.
 - [ ] Pequena area do Egito.
 - [ ] Transicao temporal placeholder.
 - [x] Fragmento coletavel.

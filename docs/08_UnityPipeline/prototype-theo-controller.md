@@ -6,7 +6,7 @@
 
 ## Objetivo
 
-Primeira cena jogavel para validar a sensacao basica de controle antes de integrar sprite final, tileset e Cinemachine.
+Primeira cena jogavel para validar a sensacao basica de controle, combate e objetivo antes de integrar sprite final, tileset e Cinemachine.
 
 ## Controles
 
@@ -23,6 +23,7 @@ Primeira cena jogavel para validar a sensacao basica de controle antes de integr
 - Gravidade via `Rigidbody2D`.
 - Plataformas com colisao.
 - Camera 2D seguindo Theo por script temporario.
+- Camera 2D com limites temporarios da sala.
 - Sistema temporario de vida, dano e respawn.
 - HUD temporario de vida.
 - Ataque basico placeholder com hitbox visual curta.
@@ -30,6 +31,7 @@ Primeira cena jogavel para validar a sensacao basica de controle antes de integr
 - Fragmento temporal coletavel com contador no HUD.
 - Zona de dano placeholder para validar colisao de perigo.
 - Blockout inicial do laboratorio Era Zero.
+- Primeira sala curta com inicio seguro, salto, perigo, inimigo e fragmento.
 - Elementos de direcao visual: nucleo temporal, monitor de Voss, luz fria e acento cobre.
 
 ## Ainda pendente
@@ -38,6 +40,7 @@ Primeira cena jogavel para validar a sensacao basica de controle antes de integr
 - Teste manual do timing e alcance do ataque basico.
 - Teste manual do loop Theo ataca, inimigo toma dano e desaparece.
 - Teste manual do coletavel `Temporal Fragment` e contador `FRAG`.
+- Teste manual da leitura da sala curta: entrada, perigo, combate e recompensa.
 - Substituir placeholders por sprites e tiles.
 - Integrar Pixel Perfect Camera quando o pacote estiver instalado.
 - Trocar camera temporaria por Cinemachine quando o pacote estiver instalado.

@@ -47,6 +47,7 @@ Ja existe:
 - ataque basico placeholder.
 - inimigo placeholder com patrulha, dano de contato, vida e morte.
 - fragmento temporal coletavel com contador no HUD.
+- primeira sala curta de vertical slice com inicio, perigo, inimigo e objetivo.
 
 Ainda nao existe:
 
@@ -126,6 +127,7 @@ Implementado:
 - gravidade;
 - colisoes com plataformas;
 - camera 2D seguindo Theo;
+- limites temporarios de camera na sala;
 - vida/dano temporario;
 - HUD temporario de vida;
 - ataque basico placeholder;
@@ -134,6 +136,7 @@ Implementado:
 - respawn temporario;
 - zona de dano placeholder;
 - blockout do laboratorio Era Zero;
+- primeira sala curta com inicio seguro, salto, perigo, inimigo e fragmento;
 - nucleo temporal;
 - monitor do Voss;
 - cena adicionada ao Build Settings.
@@ -150,7 +153,7 @@ Proximo teste recomendado:
 1. Abrir `unity/FragmentosDoAmanha` no Unity Hub.
 2. Abrir `Assets/Scenes/Prototype_Theo_Controller.unity`.
 3. Rodar Play Mode.
-4. Avaliar peso do pulo, velocidade horizontal, camera, zona de dano, HUD, ataque, inimigo e fragmento coletavel.
+4. Avaliar peso do pulo, velocidade horizontal, camera, zona de dano, HUD, ataque, inimigo, fragmento coletavel e leitura da sala.
 5. Ajustar `TheoController`, `CameraFollow2D`, `PlayerHealth`, `PrototypeHealthHud`, `PrototypeFragmentHud`, `PlayerAttack`, `PrototypeEnemy` e `TemporalFragment`.
 
 ## Arte e referencias
@@ -243,7 +246,7 @@ git pull origin main
 6. Criar tileset placeholder do Egito.
 7. Testar primeiro loop de combate Theo versus inimigo placeholder.
 8. Testar coleta do fragmento temporal.
-9. Planejar primeira sala curta com inimigo, perigo e objetivo.
+9. Ajustar a primeira sala curta com base no teste manual.
 10. Planejar primeira transicao temporal jogavel.
 
 ## Prompt de retomada para nova conversa

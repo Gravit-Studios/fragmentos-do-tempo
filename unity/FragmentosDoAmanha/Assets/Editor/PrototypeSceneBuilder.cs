@@ -17,6 +17,8 @@ namespace FragmentosDoAmanha.Editor
         private const float BackgroundZ = 2f;
         private const float EnvironmentZ = 0f;
         private const float GameplayZ = -1f;
+        private static readonly Vector2 CameraMin = new Vector2(-9f, -1.2f);
+        private static readonly Vector2 CameraMax = new Vector2(11f, 2.35f);
 
         [MenuItem("Fragmentos do Amanha/Create Prototype Theo Scene")]
         public static void CreatePrototypeTheoScene()
@@ -31,10 +33,7 @@ namespace FragmentosDoAmanha.Editor
             environment.transform.SetParent(root.transform);
 
             CreateLabBackground(environment.transform);
-            CreatePlatform(environment.transform, "Main Floor", new Vector2(0f, -2.6f), new Vector2(24f, 1f), new Color(0.16f, 0.19f, 0.22f));
-            CreatePlatform(environment.transform, "Left Catwalk", new Vector2(-7f, 0.1f), new Vector2(5.5f, 0.35f), new Color(0.22f, 0.28f, 0.32f));
-            CreatePlatform(environment.transform, "Right Catwalk", new Vector2(6.8f, 1.15f), new Vector2(6f, 0.35f), new Color(0.22f, 0.28f, 0.32f));
-            CreatePlatform(environment.transform, "Short Step", new Vector2(0.5f, -1.25f), new Vector2(2.4f, 0.35f), new Color(0.24f, 0.28f, 0.29f));
+            CreateVerticalSliceRoom(environment.transform);
             CreateTemporalMachine(environment.transform);
             CreateVossMonitor(environment.transform);
             CreateDamageZone(environment.transform);
@@ -112,35 +111,53 @@ namespace FragmentosDoAmanha.Editor
 
             CameraFollow2D follow = cameraObject.AddComponent<CameraFollow2D>();
             follow.SetTarget(target);
+            follow.SetBounds(CameraMin, CameraMax);
             cameraObject.transform.position = new Vector3(target.position.x, target.position.y + 1.25f, -10f);
             return cameraObject;
         }
 
         private static void CreateLabBackground(Transform parent)
         {
-            CreateBox("Back Wall", new Vector2(0f, 0f), new Vector2(26f, 8f), new Color(0.08f, 0.12f, 0.15f), "Default", BackgroundZ).transform.SetParent(parent);
-            CreateBox("Cold Light Strip", new Vector2(-4.5f, 2.75f), new Vector2(5.5f, 0.15f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ).transform.SetParent(parent);
-            CreateBox("Cold Light Strip Right", new Vector2(6f, 3.15f), new Vector2(4.8f, 0.15f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ).transform.SetParent(parent);
-            CreateBox("Server Rack A", new Vector2(-10f, -0.35f), new Vector2(1.4f, 3.6f), new Color(0.1f, 0.13f, 0.15f), "Default").transform.SetParent(parent);
-            CreateBox("Server Rack B", new Vector2(10f, -0.1f), new Vector2(1.6f, 4f), new Color(0.1f, 0.13f, 0.15f), "Default").transform.SetParent(parent);
+            CreateBox("Back Wall", new Vector2(2f, 0f), new Vector2(32f, 8f), new Color(0.08f, 0.12f, 0.15f), "Default", BackgroundZ).transform.SetParent(parent);
+            CreateBox("Start Bay Light", new Vector2(-9.5f, 2.65f), new Vector2(4.2f, 0.15f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ).transform.SetParent(parent);
+            CreateBox("Hazard Warning Light", new Vector2(-3.6f, 2.45f), new Vector2(2.4f, 0.15f), new Color(1f, 0.24f, 0.08f), "Default", GameplayZ).transform.SetParent(parent);
+            CreateBox("Fragment Goal Light", new Vector2(9.5f, 2.75f), new Vector2(3.8f, 0.15f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ).transform.SetParent(parent);
+            CreateBox("Server Rack A", new Vector2(-12.6f, -0.25f), new Vector2(1.4f, 3.6f), new Color(0.1f, 0.13f, 0.15f), "Default").transform.SetParent(parent);
+            CreateBox("Server Rack B", new Vector2(13.2f, -0.1f), new Vector2(1.6f, 4f), new Color(0.1f, 0.13f, 0.15f), "Default").transform.SetParent(parent);
+        }
+
+        private static void CreateVerticalSliceRoom(Transform parent)
+        {
+            CreatePlatform(parent, "Start Floor", new Vector2(-8.5f, -2.6f), new Vector2(7f, 1f), new Color(0.16f, 0.19f, 0.22f));
+            CreatePlatform(parent, "Hazard Approach Floor", new Vector2(-1.9f, -2.6f), new Vector2(4.4f, 1f), new Color(0.16f, 0.19f, 0.22f));
+            CreatePlatform(parent, "Combat Floor", new Vector2(4.8f, -2.6f), new Vector2(6f, 1f), new Color(0.16f, 0.19f, 0.22f));
+            CreatePlatform(parent, "Fragment Pedestal Floor", new Vector2(10.2f, -2.6f), new Vector2(4.2f, 1f), new Color(0.16f, 0.19f, 0.22f));
+
+            CreatePlatform(parent, "Training Step", new Vector2(-5.35f, -1.25f), new Vector2(2.2f, 0.35f), new Color(0.24f, 0.28f, 0.29f));
+            CreatePlatform(parent, "Upper Recovery Catwalk", new Vector2(-1.2f, 0.05f), new Vector2(3.2f, 0.35f), new Color(0.22f, 0.28f, 0.32f));
+            CreatePlatform(parent, "Combat Catwalk", new Vector2(5.8f, 0.95f), new Vector2(4.8f, 0.35f), new Color(0.22f, 0.28f, 0.32f));
+            CreatePlatform(parent, "Fragment Step", new Vector2(8.75f, -1.25f), new Vector2(2f, 0.35f), new Color(0.24f, 0.28f, 0.29f));
+
+            CreateBox("Start Marker", new Vector2(-10.9f, -1.85f), new Vector2(0.18f, 1.5f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ).transform.SetParent(parent);
+            CreateBox("Goal Marker", new Vector2(12.1f, -1.65f), new Vector2(0.18f, 1.9f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ).transform.SetParent(parent);
         }
 
         private static void CreateTemporalMachine(Transform parent)
         {
-            CreateBox("Temporal Machine Core", new Vector2(0f, 0.55f), new Vector2(1.6f, 2.6f), new Color(0.35f, 0.23f, 0.13f), "Default").transform.SetParent(parent);
-            CreateBox("Temporal Machine Glow", new Vector2(0f, 0.55f), new Vector2(0.75f, 0.75f), new Color(1f, 0.48f, 0.12f), "Default").transform.SetParent(parent);
-            CreateBox("Temporal Machine Base", new Vector2(0f, -0.95f), new Vector2(3f, 0.45f), new Color(0.18f, 0.18f, 0.18f), "Default").transform.SetParent(parent);
+            CreateBox("Temporal Machine Core", new Vector2(0.4f, 0.55f), new Vector2(1.6f, 2.6f), new Color(0.35f, 0.23f, 0.13f), "Default").transform.SetParent(parent);
+            CreateBox("Temporal Machine Glow", new Vector2(0.4f, 0.55f), new Vector2(0.75f, 0.75f), new Color(1f, 0.48f, 0.12f), "Default").transform.SetParent(parent);
+            CreateBox("Temporal Machine Base", new Vector2(0.4f, -0.95f), new Vector2(3f, 0.45f), new Color(0.18f, 0.18f, 0.18f), "Default").transform.SetParent(parent);
         }
 
         private static void CreateVossMonitor(Transform parent)
         {
-            CreateBox("Voss Monitor", new Vector2(7.2f, -0.25f), new Vector2(2.2f, 1.25f), new Color(0.05f, 0.28f, 0.34f), "Default").transform.SetParent(parent);
-            CreateBox("Voss Portrait Signal", new Vector2(7.2f, -0.2f), new Vector2(0.62f, 0.82f), new Color(0.06f, 0.06f, 0.07f), "Default").transform.SetParent(parent);
+            CreateBox("Voss Monitor", new Vector2(6.9f, -0.2f), new Vector2(2.2f, 1.25f), new Color(0.05f, 0.28f, 0.34f), "Default").transform.SetParent(parent);
+            CreateBox("Voss Portrait Signal", new Vector2(6.9f, -0.15f), new Vector2(0.62f, 0.82f), new Color(0.06f, 0.06f, 0.07f), "Default").transform.SetParent(parent);
         }
 
         private static void CreateDamageZone(Transform parent)
         {
-            GameObject zone = CreateBox("Unstable Time Field", new Vector2(-3.6f, -1.95f), new Vector2(2.2f, 0.75f), new Color(1f, 0.08f, 0.04f), "Default", GameplayZ);
+            GameObject zone = CreateBox("Unstable Time Field", new Vector2(-3.05f, -1.95f), new Vector2(1.9f, 0.75f), new Color(1f, 0.08f, 0.04f), "Default", GameplayZ);
             BoxCollider2D collider = zone.AddComponent<BoxCollider2D>();
             collider.isTrigger = true;
             zone.AddComponent<DamageZone>();
@@ -149,7 +166,7 @@ namespace FragmentosDoAmanha.Editor
 
         private static void CreatePrototypeEnemy(Transform parent)
         {
-            GameObject enemy = CreateBox("Prototype Enemy", new Vector2(3.2f, -1.55f), new Vector2(0.9f, 1.25f), new Color(0.64f, 0.12f, 0.75f), "Default", GameplayZ);
+            GameObject enemy = CreateBox("Prototype Enemy", new Vector2(4.2f, -1.55f), new Vector2(0.9f, 1.25f), new Color(0.64f, 0.12f, 0.75f), "Default", GameplayZ);
             enemy.AddComponent<BoxCollider2D>();
             Rigidbody2D body = enemy.AddComponent<Rigidbody2D>();
             body.freezeRotation = true;
@@ -160,7 +177,7 @@ namespace FragmentosDoAmanha.Editor
 
         private static void CreateTemporalFragment(Transform parent)
         {
-            GameObject fragment = CreateBox("Temporal Fragment", new Vector2(8.8f, -1.25f), new Vector2(0.55f, 0.55f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ);
+            GameObject fragment = CreateBox("Temporal Fragment", new Vector2(10.25f, -1.2f), new Vector2(0.55f, 0.55f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ);
             BoxCollider2D collider = fragment.AddComponent<BoxCollider2D>();
             collider.isTrigger = true;
             fragment.AddComponent<TemporalFragment>();
