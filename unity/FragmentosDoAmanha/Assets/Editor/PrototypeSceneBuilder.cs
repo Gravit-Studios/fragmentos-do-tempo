@@ -19,6 +19,11 @@ namespace FragmentosDoAmanha.Editor
         private const float GameplayZ = -1f;
         private static readonly Vector2 CameraMin = new Vector2(-9f, -1.2f);
         private static readonly Vector2 CameraMax = new Vector2(11f, 2.35f);
+        private static readonly PhysicsMaterial2D NoFrictionMaterial = new PhysicsMaterial2D("Prototype No Friction")
+        {
+            friction = 0f,
+            bounciness = 0f
+        };
 
         [MenuItem("Fragmentos do Amanha/Create Prototype Theo Scene")]
         public static void CreatePrototypeTheoScene()
@@ -37,6 +42,7 @@ namespace FragmentosDoAmanha.Editor
             CreateTemporalMachine(environment.transform);
             CreateVossMonitor(environment.transform);
             CreateDamageZone(environment.transform);
+            CreateFallRespawnZone(environment.transform);
             CreatePrototypeEnemy(environment.transform);
             CreateTemporalFragment(environment.transform);
 
@@ -61,18 +67,14 @@ namespace FragmentosDoAmanha.Editor
         private static GameObject CreateTheo(Vector2 position)
         {
             GameObject theo = CreateBox("Theo Placeholder", position, new Vector2(0.8f, 1.6f), new Color(1f, 0.72f, 0.22f), "Default", GameplayZ);
-            theo.AddComponent<BoxCollider2D>();
+            BoxCollider2D theoCollider = theo.AddComponent<BoxCollider2D>();
+            theoCollider.sharedMaterial = NoFrictionMaterial;
             Rigidbody2D body = theo.AddComponent<Rigidbody2D>();
             body.freezeRotation = true;
             body.gravityScale = 4.2f;
 
-            GameObject groundCheck = new GameObject("Ground Check");
-            groundCheck.transform.SetParent(theo.transform);
-            groundCheck.transform.localPosition = new Vector3(0f, -0.86f, 0f);
-
             TheoController controller = theo.AddComponent<TheoController>();
             SerializedObject serializedController = new SerializedObject(controller);
-            serializedController.FindProperty("groundCheck").objectReferenceValue = groundCheck.transform;
             serializedController.FindProperty("groundMask").intValue = LayerMask.GetMask(GroundLayerName);
             serializedController.ApplyModifiedPropertiesWithoutUndo();
 
@@ -164,10 +166,20 @@ namespace FragmentosDoAmanha.Editor
             zone.transform.SetParent(parent);
         }
 
+        private static void CreateFallRespawnZone(Transform parent)
+        {
+            GameObject fallZone = CreateBox("Fall Respawn Zone", new Vector2(1.5f, -6.2f), new Vector2(34f, 1f), new Color(0.1f, 0.02f, 0.02f), "Default", GameplayZ);
+            BoxCollider2D collider = fallZone.AddComponent<BoxCollider2D>();
+            collider.isTrigger = true;
+            fallZone.AddComponent<FallRespawnZone>();
+            fallZone.transform.SetParent(parent);
+        }
+
         private static void CreatePrototypeEnemy(Transform parent)
         {
             GameObject enemy = CreateBox("Prototype Enemy", new Vector2(4.2f, -1.55f), new Vector2(0.9f, 1.25f), new Color(0.64f, 0.12f, 0.75f), "Default", GameplayZ);
             enemy.AddComponent<BoxCollider2D>();
+            enemy.GetComponent<BoxCollider2D>().sharedMaterial = NoFrictionMaterial;
             Rigidbody2D body = enemy.AddComponent<Rigidbody2D>();
             body.freezeRotation = true;
             body.gravityScale = 4.2f;
@@ -187,7 +199,8 @@ namespace FragmentosDoAmanha.Editor
         private static GameObject CreatePlatform(Transform parent, string name, Vector2 position, Vector2 size, Color color)
         {
             GameObject platform = CreateBox(name, position, size, color, GroundLayerName);
-            platform.AddComponent<BoxCollider2D>();
+            BoxCollider2D collider = platform.AddComponent<BoxCollider2D>();
+            collider.sharedMaterial = NoFrictionMaterial;
             platform.transform.SetParent(parent);
             return platform;
         }

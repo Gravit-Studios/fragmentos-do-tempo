@@ -9,11 +9,12 @@ namespace FragmentosDoAmanha.Player
     {
         [SerializeField] private float moveSpeed = 7f;
         [SerializeField] private float jumpForce = 14f;
-        [SerializeField] private Transform groundCheck;
         [SerializeField] private LayerMask groundMask;
-        [SerializeField] private float groundCheckRadius = 0.12f;
+        [SerializeField] private float groundCheckDistance = 0.08f;
+        [SerializeField] private float groundCheckWidth = 0.86f;
 
         private Rigidbody2D body;
+        private Collider2D bodyCollider;
         private float horizontalInput;
         private bool jumpPressed;
         private int facingDirection = 1;
@@ -23,6 +24,7 @@ namespace FragmentosDoAmanha.Player
         private void Awake()
         {
             body = GetComponent<Rigidbody2D>();
+            bodyCollider = GetComponent<Collider2D>();
         }
 
         private void Update()
@@ -66,12 +68,15 @@ namespace FragmentosDoAmanha.Player
 
         private bool IsGrounded()
         {
-            if (groundCheck == null)
+            if (bodyCollider == null)
             {
                 return false;
             }
 
-            return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundMask) != null;
+            Bounds bounds = bodyCollider.bounds;
+            Vector2 boxSize = new Vector2(bounds.size.x * groundCheckWidth, bounds.size.y);
+            RaycastHit2D hit = Physics2D.BoxCast(bounds.center, boxSize, 0f, Vector2.down, groundCheckDistance, groundMask);
+            return hit.collider != null;
         }
     }
 }

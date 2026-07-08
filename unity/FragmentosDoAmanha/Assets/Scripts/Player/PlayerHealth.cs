@@ -43,6 +43,16 @@ namespace FragmentosDoAmanha.Player
             respawnPoint = newRespawnPoint;
         }
 
+        public void RespawnNow()
+        {
+            if (isRespawning)
+            {
+                return;
+            }
+
+            StartCoroutine(RespawnRoutine());
+        }
+
         public void TakeDamage(int damage, Vector2 sourcePosition)
         {
             if (damage <= 0 || isInvulnerable || isRespawning)

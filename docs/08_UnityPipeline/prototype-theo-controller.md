@@ -20,8 +20,10 @@ Primeira cena jogavel para validar a sensacao basica de controle, combate e obje
 - Theo placeholder com `Rigidbody2D`, `BoxCollider2D` e controller basico.
 - Movimento horizontal.
 - Pulo com checagem de chao.
+- Checagem de chao por `BoxCast`, mais estavel em plataformas.
 - Gravidade via `Rigidbody2D`.
 - Plataformas com colisao.
+- Materiais de fisica sem atrito para reduzir travamento em bordas.
 - Camera 2D seguindo Theo por script temporario.
 - Camera 2D com limites temporarios da sala.
 - Sistema temporario de vida, dano e respawn.
@@ -30,6 +32,7 @@ Primeira cena jogavel para validar a sensacao basica de controle, combate e obje
 - Inimigo placeholder com patrulha, dano de contato, vida e morte.
 - Fragmento temporal coletavel com contador no HUD.
 - Zona de dano placeholder para validar colisao de perigo.
+- Zona de queda que faz respawn quando Theo cai fora da sala.
 - Blockout inicial do laboratorio Era Zero.
 - Primeira sala curta com inicio seguro, salto, perigo, inimigo e fragmento.
 - Elementos de direcao visual: nucleo temporal, monitor de Voss, luz fria e acento cobre.
@@ -41,6 +44,7 @@ Primeira cena jogavel para validar a sensacao basica de controle, combate e obje
 - Teste manual do loop Theo ataca, inimigo toma dano e desaparece.
 - Teste manual do coletavel `Temporal Fragment` e contador `FRAG`.
 - Teste manual da leitura da sala curta: entrada, perigo, combate e recompensa.
+- Teste manual de pulo em cima de plataformas, movimento no ar e respawn por queda.
 - Substituir placeholders por sprites e tiles.
 - Integrar Pixel Perfect Camera quando o pacote estiver instalado.
 - Trocar camera temporaria por Cinemachine quando o pacote estiver instalado.

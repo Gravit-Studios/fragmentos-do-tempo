@@ -128,6 +128,8 @@ Implementado:
 - colisoes com plataformas;
 - camera 2D seguindo Theo;
 - limites temporarios de camera na sala;
+- checagem de chao por `BoxCast`;
+- colisores sem atrito para reduzir travamento em bordas;
 - vida/dano temporario;
 - HUD temporario de vida;
 - ataque basico placeholder;
@@ -135,6 +137,7 @@ Implementado:
 - fragmento temporal coletavel;
 - respawn temporario;
 - zona de dano placeholder;
+- zona de queda com respawn;
 - blockout do laboratorio Era Zero;
 - primeira sala curta com inicio seguro, salto, perigo, inimigo e fragmento;
 - nucleo temporal;
@@ -153,7 +156,7 @@ Proximo teste recomendado:
 1. Abrir `unity/FragmentosDoAmanha` no Unity Hub.
 2. Abrir `Assets/Scenes/Prototype_Theo_Controller.unity`.
 3. Rodar Play Mode.
-4. Avaliar peso do pulo, velocidade horizontal, camera, zona de dano, HUD, ataque, inimigo, fragmento coletavel e leitura da sala.
+4. Avaliar peso do pulo, velocidade horizontal, pulo em plataformas, movimento no ar, queda/respawn, camera, zona de dano, HUD, ataque, inimigo, fragmento coletavel e leitura da sala.
 5. Ajustar `TheoController`, `CameraFollow2D`, `PlayerHealth`, `PrototypeHealthHud`, `PrototypeFragmentHud`, `PlayerAttack`, `PrototypeEnemy` e `TemporalFragment`.
 
 ## Arte e referencias
