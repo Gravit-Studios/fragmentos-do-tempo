@@ -37,6 +37,7 @@ Primeira cena jogavel para validar a sensacao basica de controle, combate e obje
 - Inimigo placeholder com patrulha, dano de contato, vida e morte.
 - Fragmento temporal coletavel com contador no HUD.
 - Objetivo temporario no HUD: coletar o fragmento e chegar ao marcador final.
+- Feedback visual no HUD quando o objetivo muda ou e concluido.
 - Zona de dano placeholder para validar colisao de perigo.
 - Zona de queda que faz respawn quando Theo cai fora da sala.
 - Blockout inicial do laboratorio Era Zero.
