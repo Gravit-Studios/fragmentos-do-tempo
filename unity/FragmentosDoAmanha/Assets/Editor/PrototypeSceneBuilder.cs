@@ -248,6 +248,13 @@ namespace FragmentosDoAmanha.Editor
                 new Vector2(halfColliderWidth, 0f)
             };
             collider.sharedMaterial = NoFrictionMaterial;
+            collider.usedByEffector = true;
+
+            PlatformEffector2D platformEffector = topCollider.AddComponent<PlatformEffector2D>();
+            platformEffector.useOneWay = true;
+            platformEffector.useSideFriction = false;
+            platformEffector.useSideBounce = false;
+            platformEffector.surfaceArc = 160f;
             return platform;
         }
 

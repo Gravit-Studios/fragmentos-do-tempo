@@ -26,6 +26,7 @@ Primeira cena jogavel para validar a sensacao basica de controle, combate e obje
 - Collider em capsula para reduzir travamento em quinas de plataformas.
 - Gravidade via `Rigidbody2D`.
 - Plataformas de chao e elevadas com colisao somente no topo para evitar travamento lateral durante o pulo.
+- Plataformas com `PlatformEffector2D`: Theo atravessa por baixo e pousa por cima.
 - Movimento horizontal no ar nao continua empurrando Theo contra laterais de plataformas.
 - Materiais de fisica sem atrito para reduzir travamento em bordas.
 - Camera 2D seguindo Theo por script temporario.
