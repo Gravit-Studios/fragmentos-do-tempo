@@ -1,5 +1,8 @@
 using FragmentosDoAmanha.CameraTools;
+using FragmentosDoAmanha.Combat;
 using FragmentosDoAmanha.Player;
+using FragmentosDoAmanha.Systems;
+using FragmentosDoAmanha.UI;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -10,6 +13,9 @@ namespace FragmentosDoAmanha.Editor
     {
         private const string ScenePath = "Assets/Scenes/Prototype_Theo_Controller.unity";
         private const string GroundLayerName = "Ground";
+        private const float BackgroundZ = 2f;
+        private const float EnvironmentZ = 0f;
+        private const float GameplayZ = -1f;
 
         [MenuItem("Fragmentos do Amanha/Create Prototype Theo Scene")]
         public static void CreatePrototypeTheoScene()
@@ -30,12 +36,16 @@ namespace FragmentosDoAmanha.Editor
             CreatePlatform(environment.transform, "Short Step", new Vector2(0.5f, -1.25f), new Vector2(2.4f, 0.35f), new Color(0.24f, 0.28f, 0.29f));
             CreateTemporalMachine(environment.transform);
             CreateVossMonitor(environment.transform);
+            CreateDamageZone(environment.transform);
 
             GameObject theo = CreateTheo(new Vector2(-9f, -1.5f));
             theo.transform.SetParent(root.transform);
 
             GameObject mainCamera = CreateCamera(theo.transform);
             mainCamera.transform.SetParent(root.transform);
+
+            GameObject hud = CreatePrototypeHud(theo.GetComponent<PlayerHealth>());
+            hud.transform.SetParent(root.transform);
 
             EditorSceneManager.SaveScene(scene, ScenePath);
             EditorBuildSettings.scenes = new[]
@@ -48,7 +58,7 @@ namespace FragmentosDoAmanha.Editor
 
         private static GameObject CreateTheo(Vector2 position)
         {
-            GameObject theo = CreateBox("Theo Placeholder", position, new Vector2(0.8f, 1.6f), new Color(0.74f, 0.36f, 0.16f), "Default");
+            GameObject theo = CreateBox("Theo Placeholder", position, new Vector2(0.8f, 1.6f), new Color(1f, 0.72f, 0.22f), "Default", GameplayZ);
             theo.AddComponent<BoxCollider2D>();
             Rigidbody2D body = theo.AddComponent<Rigidbody2D>();
             body.freezeRotation = true;
@@ -64,7 +74,25 @@ namespace FragmentosDoAmanha.Editor
             serializedController.FindProperty("groundMask").intValue = LayerMask.GetMask(GroundLayerName);
             serializedController.ApplyModifiedPropertiesWithoutUndo();
 
+            theo.AddComponent<PlayerHealth>();
+            PlayerAttack attack = theo.AddComponent<PlayerAttack>();
+            GameObject hitboxPreview = CreateBox("Attack Hitbox Preview", new Vector2(position.x + 0.85f, position.y + 0.05f), new Vector2(1.15f, 0.85f), new Color(1f, 0.72f, 0.22f, 0.55f), "Default", GameplayZ);
+            hitboxPreview.transform.SetParent(theo.transform);
+            Object.DestroyImmediate(hitboxPreview.GetComponent<MeshCollider>());
+            SerializedObject serializedAttack = new SerializedObject(attack);
+            serializedAttack.FindProperty("hitboxPreview").objectReferenceValue = hitboxPreview.transform;
+            serializedAttack.ApplyModifiedPropertiesWithoutUndo();
+            hitboxPreview.SetActive(false);
+
             return theo;
+        }
+
+        private static GameObject CreatePrototypeHud(PlayerHealth playerHealth)
+        {
+            GameObject hudObject = new GameObject("Prototype HUD");
+            PrototypeHealthHud hud = hudObject.AddComponent<PrototypeHealthHud>();
+            hud.SetPlayerHealth(playerHealth);
+            return hudObject;
         }
 
         private static GameObject CreateCamera(Transform target)
@@ -84,9 +112,9 @@ namespace FragmentosDoAmanha.Editor
 
         private static void CreateLabBackground(Transform parent)
         {
-            CreateBox("Back Wall", new Vector2(0f, 0f), new Vector2(26f, 8f), new Color(0.08f, 0.12f, 0.15f), "Default").transform.SetParent(parent);
-            CreateBox("Cold Light Strip", new Vector2(-4.5f, 2.75f), new Vector2(5.5f, 0.15f), new Color(0.35f, 0.9f, 1f), "Default").transform.SetParent(parent);
-            CreateBox("Cold Light Strip Right", new Vector2(6f, 3.15f), new Vector2(4.8f, 0.15f), new Color(0.35f, 0.9f, 1f), "Default").transform.SetParent(parent);
+            CreateBox("Back Wall", new Vector2(0f, 0f), new Vector2(26f, 8f), new Color(0.08f, 0.12f, 0.15f), "Default", BackgroundZ).transform.SetParent(parent);
+            CreateBox("Cold Light Strip", new Vector2(-4.5f, 2.75f), new Vector2(5.5f, 0.15f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ).transform.SetParent(parent);
+            CreateBox("Cold Light Strip Right", new Vector2(6f, 3.15f), new Vector2(4.8f, 0.15f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ).transform.SetParent(parent);
             CreateBox("Server Rack A", new Vector2(-10f, -0.35f), new Vector2(1.4f, 3.6f), new Color(0.1f, 0.13f, 0.15f), "Default").transform.SetParent(parent);
             CreateBox("Server Rack B", new Vector2(10f, -0.1f), new Vector2(1.6f, 4f), new Color(0.1f, 0.13f, 0.15f), "Default").transform.SetParent(parent);
         }
@@ -104,6 +132,15 @@ namespace FragmentosDoAmanha.Editor
             CreateBox("Voss Portrait Signal", new Vector2(7.2f, -0.2f), new Vector2(0.62f, 0.82f), new Color(0.06f, 0.06f, 0.07f), "Default").transform.SetParent(parent);
         }
 
+        private static void CreateDamageZone(Transform parent)
+        {
+            GameObject zone = CreateBox("Unstable Time Field", new Vector2(-3.6f, -1.95f), new Vector2(2.2f, 0.75f), new Color(1f, 0.08f, 0.04f), "Default", GameplayZ);
+            BoxCollider2D collider = zone.AddComponent<BoxCollider2D>();
+            collider.isTrigger = true;
+            zone.AddComponent<DamageZone>();
+            zone.transform.SetParent(parent);
+        }
+
         private static GameObject CreatePlatform(Transform parent, string name, Vector2 position, Vector2 size, Color color)
         {
             GameObject platform = CreateBox(name, position, size, color, GroundLayerName);
@@ -114,9 +151,14 @@ namespace FragmentosDoAmanha.Editor
 
         private static GameObject CreateBox(string name, Vector2 position, Vector2 size, Color color, string layerName)
         {
+            return CreateBox(name, position, size, color, layerName, EnvironmentZ);
+        }
+
+        private static GameObject CreateBox(string name, Vector2 position, Vector2 size, Color color, string layerName, float zPosition)
+        {
             GameObject box = GameObject.CreatePrimitive(PrimitiveType.Cube);
             box.name = name;
-            box.transform.position = new Vector3(position.x, position.y, 0f);
+            box.transform.position = new Vector3(position.x, position.y, zPosition);
             box.transform.localScale = new Vector3(size.x, size.y, 0.2f);
             Object.DestroyImmediate(box.GetComponent<BoxCollider>());
             int layer = LayerMask.NameToLayer(layerName);

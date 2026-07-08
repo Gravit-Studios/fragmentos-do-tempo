@@ -17,13 +17,13 @@ https://github.com/Gravit-Studios/fragmentos-do-amanha
 Repositorio local atual:
 
 ```text
-/Users/geansantos/Projetos/fragmentos-do-amanha
+C:\Users\Gean Santos\Documents\Codex\fragmentos-do-amanha
 ```
 
 Projeto Unity:
 
 ```text
-/Users/geansantos/Projetos/fragmentos-do-amanha/unity/FragmentosDoAmanha
+C:\Users\Gean Santos\Documents\Codex\fragmentos-do-amanha\unity\FragmentosDoAmanha
 ```
 
 Ao abrir pelo Unity Hub, selecionar a pasta `FragmentosDoAmanha`, nao a raiz `fragmentos-do-amanha`.
@@ -42,6 +42,9 @@ Ja existe:
 - artes iniciais de cenarios em concept art e pixel art;
 - projeto Unity real;
 - primeira cena jogavel placeholder do Theo.
+- sistema temporario de vida, dano e respawn.
+- HUD temporario de vida.
+- ataque basico placeholder.
 
 Ainda nao existe:
 
@@ -50,7 +53,6 @@ Ainda nao existe:
 - tileset real do Egito;
 - combate;
 - inimigo;
-- sistema de vida/dano;
 - fragmentos coletaveis;
 - transicao temporal jogavel;
 - build interna jogavel.
@@ -73,14 +75,16 @@ e6b3bec docs: align world bible with current production direction
 Versao usada:
 
 ```text
-Unity 6000.5.2f1
+Unity 6000.5.3f1
 ```
 
 Instalacao local encontrada:
 
 ```text
-/Applications/Unity/Hub/Editor/6000.5.2f1/Unity.app
+C:\Program Files\Unity\Hub\Editor\6000.5.3f1\Editor\Unity.exe
 ```
+
+Observacao Windows: o projeto foi aberto e salvo neste PC com Unity `6000.5.3f1`, atualizando `ProjectSettings/ProjectVersion.txt` a partir de `6000.5.2f1`.
 
 Pacotes ja registrados:
 
@@ -120,6 +124,11 @@ Implementado:
 - gravidade;
 - colisoes com plataformas;
 - camera 2D seguindo Theo;
+- vida/dano temporario;
+- HUD temporario de vida;
+- ataque basico placeholder;
+- respawn temporario;
+- zona de dano placeholder;
 - blockout do laboratorio Era Zero;
 - nucleo temporal;
 - monitor do Voss;
@@ -130,14 +139,15 @@ Controles:
 - `A` / seta esquerda: mover para esquerda;
 - `D` / seta direita: mover para direita;
 - `Space` / `W` / seta para cima: pular.
+- `J` / clique esquerdo: ataque basico placeholder.
 
 Proximo teste recomendado:
 
 1. Abrir `unity/FragmentosDoAmanha` no Unity Hub.
 2. Abrir `Assets/Scenes/Prototype_Theo_Controller.unity`.
 3. Rodar Play Mode.
-4. Avaliar peso do pulo, velocidade horizontal e camera.
-5. Ajustar `TheoController` e `CameraFollow2D`.
+4. Avaliar peso do pulo, velocidade horizontal, camera, zona de dano, HUD e ataque.
+5. Ajustar `TheoController`, `CameraFollow2D`, `PlayerHealth`, `PrototypeHealthHud` e `PlayerAttack`.
 
 ## Arte e referencias
 
@@ -227,9 +237,9 @@ git pull origin main
 4. Trocar camera temporaria por Cinemachine.
 5. Criar tileset placeholder da Era Zero.
 6. Criar tileset placeholder do Egito.
-7. Adicionar ataque basico.
-8. Adicionar vida/dano.
-9. Adicionar inimigo simples.
+7. Adicionar inimigo simples.
+8. Criar primeiro loop de combate Theo versus inimigo placeholder.
+9. Ajustar alcance, cooldown e feedback do ataque.
 10. Planejar primeira transicao temporal jogavel.
 
 ## Prompt de retomada para nova conversa

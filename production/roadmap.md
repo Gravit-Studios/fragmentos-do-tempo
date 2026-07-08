@@ -40,10 +40,11 @@ Objetivo: validar sensacao de controle.
 - [x] Queda/gravidade.
 - [x] Camera seguindo o jogador.
 - [x] Colisoes e plataformas.
-- [ ] Vida e dano.
-- [ ] Ataque basico.
+- [x] Vida e dano.
+- [x] HUD temporario de vida.
+- [x] Ataque basico.
 - [ ] Inimigo simples.
-- [ ] Respawn/checkpoint temporario.
+- [x] Respawn/checkpoint temporario.
 
 ## Fase 3 — Arte Integrada
 
@@ -56,7 +57,7 @@ Objetivo: substituir placeholders principais por assets direcionais.
 - [ ] Props de Voss na Era Zero.
 - [ ] Props de Voss no Egito.
 - [ ] FX inicial de tecnologia temporal.
-- [ ] HUD temporario de vida.
+- [x] HUD temporario de vida.
 
 ## Fase 4 — Vertical Slice
 

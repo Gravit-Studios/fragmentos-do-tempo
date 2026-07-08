@@ -16,6 +16,9 @@ namespace FragmentosDoAmanha.Player
         private Rigidbody2D body;
         private float horizontalInput;
         private bool jumpPressed;
+        private int facingDirection = 1;
+
+        public int FacingDirection => facingDirection;
 
         private void Awake()
         {
@@ -34,6 +37,14 @@ namespace FragmentosDoAmanha.Player
             float left = keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed ? -1f : 0f;
             float right = keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed ? 1f : 0f;
             horizontalInput = left + right;
+            if (horizontalInput > 0f)
+            {
+                facingDirection = 1;
+            }
+            else if (horizontalInput < 0f)
+            {
+                facingDirection = -1;
+            }
 
             if (keyboard.spaceKey.wasPressedThisFrame || keyboard.wKey.wasPressedThisFrame || keyboard.upArrowKey.wasPressedThisFrame)
             {
