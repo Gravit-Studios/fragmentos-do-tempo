@@ -43,7 +43,7 @@ Objetivo: validar sensacao de controle.
 - [x] Vida e dano.
 - [x] HUD temporario de vida.
 - [x] Ataque basico.
-- [ ] Inimigo simples.
+- [x] Inimigo simples.
 - [x] Respawn/checkpoint temporario.
 
 ## Fase 3 — Arte Integrada

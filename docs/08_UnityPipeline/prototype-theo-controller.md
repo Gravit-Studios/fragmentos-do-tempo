@@ -26,6 +26,7 @@ Primeira cena jogavel para validar a sensacao basica de controle antes de integr
 - Sistema temporario de vida, dano e respawn.
 - HUD temporario de vida.
 - Ataque basico placeholder com hitbox visual curta.
+- Inimigo placeholder com patrulha, dano de contato, vida e morte.
 - Zona de dano placeholder para validar colisao de perigo.
 - Blockout inicial do laboratorio Era Zero.
 - Elementos de direcao visual: nucleo temporal, monitor de Voss, luz fria e acento cobre.
@@ -34,6 +35,7 @@ Primeira cena jogavel para validar a sensacao basica de controle antes de integr
 
 - Teste manual no Play Mode do fluxo de dano/respawn e HUD.
 - Teste manual do timing e alcance do ataque basico.
+- Teste manual do loop Theo ataca, inimigo toma dano e desaparece.
 - Substituir placeholders por sprites e tiles.
 - Integrar Pixel Perfect Camera quando o pacote estiver instalado.
 - Trocar camera temporaria por Cinemachine quando o pacote estiver instalado.

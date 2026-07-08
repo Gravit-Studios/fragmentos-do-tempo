@@ -1,5 +1,6 @@
 using FragmentosDoAmanha.CameraTools;
 using FragmentosDoAmanha.Combat;
+using FragmentosDoAmanha.Enemies;
 using FragmentosDoAmanha.Player;
 using FragmentosDoAmanha.Systems;
 using FragmentosDoAmanha.UI;
@@ -37,6 +38,7 @@ namespace FragmentosDoAmanha.Editor
             CreateTemporalMachine(environment.transform);
             CreateVossMonitor(environment.transform);
             CreateDamageZone(environment.transform);
+            CreatePrototypeEnemy(environment.transform);
 
             GameObject theo = CreateTheo(new Vector2(-9f, -1.5f));
             theo.transform.SetParent(root.transform);
@@ -139,6 +141,17 @@ namespace FragmentosDoAmanha.Editor
             collider.isTrigger = true;
             zone.AddComponent<DamageZone>();
             zone.transform.SetParent(parent);
+        }
+
+        private static void CreatePrototypeEnemy(Transform parent)
+        {
+            GameObject enemy = CreateBox("Prototype Enemy", new Vector2(3.2f, -1.55f), new Vector2(0.9f, 1.25f), new Color(0.64f, 0.12f, 0.75f), "Default", GameplayZ);
+            enemy.AddComponent<BoxCollider2D>();
+            Rigidbody2D body = enemy.AddComponent<Rigidbody2D>();
+            body.freezeRotation = true;
+            body.gravityScale = 4.2f;
+            enemy.AddComponent<PrototypeEnemy>();
+            enemy.transform.SetParent(parent);
         }
 
         private static GameObject CreatePlatform(Transform parent, string name, Vector2 position, Vector2 size, Color color)
