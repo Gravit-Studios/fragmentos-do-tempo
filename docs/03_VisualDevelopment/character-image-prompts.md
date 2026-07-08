@@ -126,6 +126,7 @@ Visual DNA:
 - Dark teal technical clothing beneath the jacket.
 - Practical boots, gloves, small scanner/lantern device.
 - Copper/orange technology accent, used sparingly.
+- Jacket silhouette must stay practical and clean: no white or translucent hanging cloth, no scarf tail, no cape tail, no robe fabric, no loose pale fabric behind the coat.
 
 Personality:
 Cautious, focused, analytical, improvised, emotionally under pressure.
@@ -134,7 +135,7 @@ Pose:
 Dynamic three-quarter pose, one foot back, holding scanner/lantern, wrist chronometer visible. He should feel ready to run, not ready to pose.
 
 Avoid:
-Do not make him look like a soldier, superhero, cyberpunk mercenary, or fantasy rogue. Keep him grounded as a scientist adapting under pressure.
+Do not make him look like a soldier, superhero, cyberpunk mercenary, or fantasy rogue. Keep him grounded as a scientist adapting under pressure. Do not add any white/translucent cloth, dangling fabric tail, sash, cape, robe, or ghost-like fabric behind the jacket.
 ```
 
 ---
@@ -231,6 +232,7 @@ Visual DNA:
 - Central chest device as a precise technological power symbol.
 - Recognizable beard and severe controlled expression.
 - Hints of former scientist identity in collar, internal garment, or lab-coat-derived structure.
+- In the back-view thumbnail, hands must be anatomically clear and separated from the coat's vertical gold/copper details. Do not place fingers underneath or visually behind glowing coat lines.
 
 Personality:
 Absolute certainty, control, cold conviction, accumulated authority.
@@ -239,5 +241,5 @@ Pose:
 Formal three-quarter pose, upright and calm, one hand near chest device or behind back, looking directly at the viewer.
 
 Avoid:
-Do not make him look like a generic fantasy king, vampire noble, or chaotic villain. He is a technological tyrant with scientific origins and authoritarian elegance.
+Do not make him look like a generic fantasy king, vampire noble, or chaotic villain. He is a technological tyrant with scientific origins and authoritarian elegance. Avoid hand/finger tangents, avoid hands hidden under coat details, and avoid overlapping the back-view hand with vertical gold/copper lines.
 ```
