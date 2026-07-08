@@ -89,7 +89,7 @@ Detalhamento completo em `game-design/linha-visual.md` (personagens) e `game-des
 - ✅ 3 personagens principais com bíblia completa.
 - ✅ 7 épocas definidas com identidade temática, visual e de combate.
 - ✅ Direção de arte validada (pixel art) para personagens e primeiro teste de cenário (Egito Antigo).
-- 🔄 Em andamento: concepts de Voss e Naiara em pixel art; retroaplicação do estilo às demais 6 épocas.
+- 🔄 Em andamento: concepts de Voss e Naiara em pixel art; retroaplicação do estilo às épocas ainda não testadas.
 - ⏳ Pendente: nomes definitivos (jogo, protagonista, vilão, linhagem); bosses/representantes locais de Voss por época; inimigos comuns detalhados; mecânica exata de fragmentos; pipeline de produção 3D/importação de assets (avaliar quando modelagem entrar em pauta).
 
 ---

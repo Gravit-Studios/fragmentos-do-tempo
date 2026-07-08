@@ -36,4 +36,4 @@ Ver prompts completos no histórico da conversa — resumo do conteúdo específ
 ## Status
 - ✅ Estilo definido e prompts dos 3 personagens principais gerados.
 - ⏳ Aguardando geração e avaliação visual.
-- ⏳ Próximo passo (se aprovado): decidir quais materiais usarão esse estilo (artbook completo? só capa do pitch? posts de divulgação?) e replicar para as 6 épocas restantes se fizer sentido.
+- ⏳ Próximo passo (se aprovado): decidir quais materiais usarão esse estilo (artbook completo? só capa do pitch? posts de divulgação?) e replicar para as 7 épocas jogáveis se fizer sentido.

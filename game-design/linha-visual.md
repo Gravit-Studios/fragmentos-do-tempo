@@ -14,7 +14,7 @@
 6. **Pixel art autêntico (v2, ESTILO ATUAL):** testado a partir de referências de pixel art atmosférico (dithering, dramatic lighting) — resultado aprovado após duas iterações (primeira versão ficou "pixel art suavizado/com filtro"; segunda versão, com instruções explícitas contra anti-aliasing e a favor de dithering real, foi aprovada).
 
 ## Por que pixel art e não low-poly 3D
-Pixel art é sprite 2D genuíno — **100% alinhado ao pipeline técnico já decidido** (Unreal Paper2D + parallax em camadas), sem a ambiguidade que o teste low-poly 3D introduzia (aquele exigiria repensar pipeline para modelos 3D reais). Pixel art resolve o "traço duro sem gradiente" que sempre foi a meta do projeto, mas com uma técnica que tem economia de produção mais previsível para um estúdio pequeno.
+Pixel art é sprite 2D genuíno — **100% alinhado ao pipeline técnico vigente** (Unity 2D + Tilemap + 2D Animation + parallax em camadas), sem a ambiguidade que o teste low-poly 3D introduzia (aquele exigiria repensar pipeline para modelos 3D reais). Pixel art resolve o "traço duro sem gradiente" que sempre foi a meta do projeto, mas com uma técnica que tem economia de produção mais previsível para um estúdio pequeno.
 
 ## Definição de estilo (fechada e aprovada)
 
@@ -73,6 +73,6 @@ LAYOUT:
 ## Status
 - ✅ Estilo pixel art aprovado como direção oficial (substitui vetor flat e descarta low-poly 3D como padrão principal).
 - ✅ Template de concept sheet definido (frame + 3 poses + detalhes + variações de cabeça + nome/descrição).
-- ✅ Alinhado ao pipeline técnico (Paper2D + parallax) sem necessidade de revisão.
+- ✅ Alinhado ao pipeline técnico (Unity 2D + Tilemap + 2D Animation + parallax) sem necessidade de revisão.
 - 🔄 Teste de cenário em andamento no mesmo estilo (ver `linha-visual-cenario.md`).
 - ⏳ Próximo passo: gerar Voss e Naiara em pixel art, e retroaplicar o estilo às 7 épocas já roteirizadas em vetor/low-poly.

@@ -23,7 +23,7 @@ Essa mesma anomalia:
 
 ## Perguntas em aberto
 
-- ~~Detalhamento de cada época histórica~~ — **resolvido**, ver `game-design/epocas.md` (6 épocas definidas: Egito Antigo, Grécia Antiga, Medieval, Era do Absolutismo, Segunda Guerra Mundial, Era Moderna/Futuro Próximo).
+- ~~Detalhamento de cada época histórica~~ — **resolvido**, ver `game-design/epocas.md` (Era Zero + 7 épocas definidas: Egito Antigo, Grécia Antiga, Medieval, Piratas, Segunda Guerra Mundial, Início da Internet, Futuro Próximo/Era Tecnológica Final).
 - Como e quando o protagonista descobre a extensão total da traição do vilão.
 - Mecânica exata de obtenção/uso dos fragmentos entre fases.
 - Ordem de progressão das épocas dentro do jogo (cronológica ou embaralhada por decisão de design).

@@ -30,7 +30,7 @@
 - Paleta limitada por cena: 4-6 cores + barra de "production color" documentada.
 - Cor de acento (cobre/laranja) reservada para elementos tecnológicos, seguindo a mesma lógica usada nos personagens — presença discreta (Theo/fase inicial), ausente ou mínima em épocas históricas antigas, ostentada apenas nas cenas ligadas a Voss/tecnologia do futuro.
 - Cada época deve ter uma "assinatura de forma arquitetônica" reconhecível à distância (ex: colunas gregas, castelo medieval, trincheiras) — ver `epocas.md` para a lista de identidades visuais por período.
-- **Presença ambiental de Voss (obrigatória em toda época):** cada cenário deve reservar ao menos um elemento visual referenciando Voss, adaptado à linguagem daquele período — estátua/afresco (Egito, Grécia), retrato a óleo (Absolutismo), cartaz de propaganda (WWII), foto/tela digital (Internet, Era Moderna). Ver `personagens/voss.md`, seção "Comportamento visual em cena".
+- **Presença ambiental de Voss (obrigatória em toda época):** cada cenário deve reservar ao menos um elemento visual referenciando Voss, adaptado à linguagem daquele período — estátua/afresco (Egito, Grécia), brasão/vitral (Medieval), bandeira/moeda/mapa (Piratas), cartaz de propaganda (WWII), foto/tela digital (Início da Internet, Futuro Próximo). Ver `personagens/voss.md`, seção "Comportamento visual em cena".
 
 ## Prompt-base reutilizável (cenário)
 
@@ -77,7 +77,7 @@ LAYOUT:
 ```
 
 ## Status
-- ✅ Pipeline técnico definido (2D + Paper2D + parallax).
+- ✅ Pipeline técnico definido (Unity 2D + Tilemap + 2D Animation + parallax).
 - ✅ Estrutura de camadas e regras de estilo fechadas.
 - ✅ Template de ficha de cenário definido, com 3 primeiros ambientes gerados (Laboratório intacto, Laboratório pós-explosão, Egito Antigo — câmara do templo).
-- ⏳ Próximo passo: aplicar a mesma diretriz às 6 épocas históricas restantes.
+- ⏳ Próximo passo: aplicar a mesma diretriz às 7 épocas jogáveis e priorizar o vertical slice Era Zero/Egito.
