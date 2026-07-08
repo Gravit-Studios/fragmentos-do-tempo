@@ -17,6 +17,7 @@ namespace FragmentosDoAmanha.Editor
         private const float BackgroundZ = 2f;
         private const float EnvironmentZ = 0f;
         private const float GameplayZ = -1f;
+        private const float TopPlatformEdgeInset = 0.22f;
         private static readonly Vector2 CameraMin = new Vector2(-9f, -1.2f);
         private static readonly Vector2 CameraMax = new Vector2(11f, 2.35f);
         private static readonly PhysicsMaterial2D NoFrictionMaterial = new PhysicsMaterial2D("Prototype No Friction")
@@ -215,14 +216,15 @@ namespace FragmentosDoAmanha.Editor
 
             GameObject topCollider = new GameObject($"{name} Top Collider");
             topCollider.layer = LayerMask.NameToLayer(GroundLayerName);
-            topCollider.transform.position = new Vector3(position.x, position.y + (size.y * 0.5f), GameplayZ);
+            topCollider.transform.position = new Vector3(position.x, position.y + (size.y * 0.5f) - 0.02f, GameplayZ);
             topCollider.transform.SetParent(parent);
 
+            float halfColliderWidth = Mathf.Max(0.05f, (size.x * 0.5f) - TopPlatformEdgeInset);
             EdgeCollider2D collider = topCollider.AddComponent<EdgeCollider2D>();
             collider.points = new[]
             {
-                new Vector2(size.x * -0.5f, 0f),
-                new Vector2(size.x * 0.5f, 0f)
+                new Vector2(-halfColliderWidth, 0f),
+                new Vector2(halfColliderWidth, 0f)
             };
             collider.sharedMaterial = NoFrictionMaterial;
             return platform;

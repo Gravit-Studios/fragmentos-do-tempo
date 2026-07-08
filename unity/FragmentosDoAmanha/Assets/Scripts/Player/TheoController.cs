@@ -12,10 +12,14 @@ namespace FragmentosDoAmanha.Player
         [SerializeField] private LayerMask groundMask;
         [SerializeField] private float groundCheckDistance = 0.08f;
         [SerializeField] private float groundCheckWidth = 0.68f;
+        [SerializeField] private float coyoteTime = 0.12f;
+        [SerializeField] private float sideCheckDistance = 0.08f;
+        [SerializeField] private float antiSnagFallSpeed = -0.75f;
 
         private Rigidbody2D body;
         private Collider2D bodyCollider;
         private float horizontalInput;
+        private float groundedTimer;
         private bool jumpPressed;
         private int facingDirection = 1;
 
@@ -56,11 +60,19 @@ namespace FragmentosDoAmanha.Player
 
         private void FixedUpdate()
         {
+            bool grounded = IsGrounded();
+            groundedTimer = grounded ? coyoteTime : Mathf.Max(0f, groundedTimer - Time.fixedDeltaTime);
+
             body.linearVelocity = new Vector2(horizontalInput * moveSpeed, body.linearVelocity.y);
 
-            if (jumpPressed && IsGrounded())
+            if (jumpPressed && groundedTimer > 0f)
             {
                 body.linearVelocity = new Vector2(body.linearVelocity.x, jumpForce);
+                groundedTimer = 0f;
+            }
+            else if (!grounded && IsTouchingSide() && Mathf.Abs(body.linearVelocity.y) < 0.05f)
+            {
+                body.linearVelocity = new Vector2(body.linearVelocity.x, antiSnagFallSpeed);
             }
 
             jumpPressed = false;
@@ -78,6 +90,22 @@ namespace FragmentosDoAmanha.Player
             Vector2 boxCenter = new Vector2(bounds.center.x, bounds.min.y + 0.04f);
             RaycastHit2D hit = Physics2D.BoxCast(boxCenter, boxSize, 0f, Vector2.down, groundCheckDistance, groundMask);
             return hit.collider != null;
+        }
+
+        private bool IsTouchingSide()
+        {
+            if (bodyCollider == null)
+            {
+                return false;
+            }
+
+            Bounds bounds = bodyCollider.bounds;
+            Vector2 boxSize = new Vector2(0.08f, bounds.size.y * 0.72f);
+            Vector2 leftCenter = new Vector2(bounds.min.x, bounds.center.y);
+            Vector2 rightCenter = new Vector2(bounds.max.x, bounds.center.y);
+            bool touchingLeft = Physics2D.BoxCast(leftCenter, boxSize, 0f, Vector2.left, sideCheckDistance, groundMask).collider != null;
+            bool touchingRight = Physics2D.BoxCast(rightCenter, boxSize, 0f, Vector2.right, sideCheckDistance, groundMask).collider != null;
+            return touchingLeft || touchingRight;
         }
     }
 }

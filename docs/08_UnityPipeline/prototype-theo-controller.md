@@ -21,6 +21,8 @@ Primeira cena jogavel para validar a sensacao basica de controle, combate e obje
 - Movimento horizontal.
 - Pulo com checagem de chao.
 - Checagem de chao por `BoxCast`, mais estavel em plataformas.
+- Pequena tolerancia de pulo em beiradas para evitar perda de comando.
+- Protecao anti-travamento quando Theo encosta em quinas de plataforma no ar.
 - Collider em capsula para reduzir travamento em quinas de plataformas.
 - Gravidade via `Rigidbody2D`.
 - Plataformas de chao com colisao solida.
