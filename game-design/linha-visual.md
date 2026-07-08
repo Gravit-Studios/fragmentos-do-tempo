@@ -49,10 +49,10 @@ Background: flat solid color, no gradient, no scene detail (for character sheets
 ## Prompts aplicados aos personagens principais (Era Zero)
 
 ### Theo (cientista, fase inicial) — ✅ APROVADO
-Ver prompt completo no histórico da conversa. Jaqueta terracota com capuz, capa fluida atrás, óculos na testa, cronômetro brilhante no pulso (ponto focal), lanterna/scanner na mão com feixe de luz em cone de pixel duro.
+Prompt completo salvo em `docs/03_VisualDevelopment/character-image-prompts.md`. Jaqueta terracota com capuz, capa fluida atrás, óculos na testa, cronômetro brilhante no pulso (ponto focal), lanterna/scanner na mão com feixe de luz em cone de pixel duro.
 
 ### Voss e Naiara
-Ainda não testados no novo estilo pixel art — próximo passo recomendado, reaproveitando as descrições de figurino já aprovadas nas versões anteriores (low-poly/vetorial), adaptadas para a técnica de pixel art acima.
+Prompts completos salvos em `docs/03_VisualDevelopment/character-image-prompts.md`, reaproveitando as descrições de figurino já aprovadas nas versões anteriores e adaptando para a técnica de pixel art vigente.
 
 ## Template de Concept Sheet (formato de entrega oficial)
 Baseado em referências de character sheet (estilo Riot/Ekko), adotando apenas a **estrutura de composição**, não o estilo de arte (que continua pixel art):

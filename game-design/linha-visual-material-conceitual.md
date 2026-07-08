@@ -27,7 +27,7 @@ Background: soft minimal gradient or plain neutral background, no busy scene, ke
 
 ## Prompts aplicados aos 3 personagens principais
 
-Ver prompts completos no histórico da conversa — resumo do conteúdo específico de cada um:
+Prompts completos salvos em `docs/03_VisualDevelopment/character-image-prompts.md` — resumo do conteúdo específico de cada um:
 
 - **Theo:** jaqueta terracota, óculos na testa, munhequeira cronométrica brilhante, postura cautelosa mesmo em pose dinâmica.
 - **Voss:** casaco vermelho-vinho/preto com painéis geométricos, dispositivo do peito ostentado, barba marcante, olhar severo (nunca sereno).

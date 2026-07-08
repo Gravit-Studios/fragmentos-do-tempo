@@ -52,6 +52,8 @@ ProjectSettings/
 
 ## Configuracoes recomendadas
 
+- Unity 6 LTS ou versao LTS vigente definida antes do inicio.
+- URP 2D.
 - Projeto 2D.
 - Pixel Perfect Camera quando a direcao de resolucao estiver validada.
 - PPU inicial: 32.
@@ -60,6 +62,7 @@ ProjectSettings/
 - Tilemap para blocagem e tilesets iniciais.
 - Cinemachine pode ser avaliado para camera 2D.
 - Unity 2D Animation pode ser avaliado para personagens modulares.
+- Git LFS antes de adicionar imagens grandes, audio ou binarios do projeto Unity.
 
 ## Ordem de implementacao sugerida
 

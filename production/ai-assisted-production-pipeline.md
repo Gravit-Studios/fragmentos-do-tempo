@@ -17,6 +17,24 @@ A IA e assistente de producao, nao diretora criativa. Ela ajuda a acelerar pesqu
 - Documentacao tecnica.
 - Revisao de pipeline.
 
+## Departamentos de IA
+
+### IA 01 — Visual Development
+
+Concepts, turnarounds, color keys, estudos de materiais, equipment callouts e mood visual por epoca.
+
+### IA 02 — Pixel Assistant
+
+Traducao de concept para pixel layout, estudos de clusters, variacoes de paleta, sprites conceituais e leitura de silhueta.
+
+### IA 03 — Animation Assistant
+
+Poses-chave, ciclos de caminhada/corrida, variacoes de ataque, referencias de timing e sugestoes de breakdowns.
+
+### IA 04 — Programming Assistant
+
+Arquitetura de sistemas, C#, state machines, ScriptableObjects, Animator Controller, editor tools e sistemas futuros.
+
 ## Pipeline geral
 
 1. Pesquisa historica.

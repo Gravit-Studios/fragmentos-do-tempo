@@ -11,6 +11,7 @@ Definir uma estrategia inicial de animacao para personagens, inimigos, bosses e 
 3. Ataques precisam ter antecipacao, impacto e recuperacao claros.
 4. Cada epoca pode alterar armas e postura, mas o controle de Theo deve continuar familiar.
 5. Economia de frames e melhor que excesso de frames sem leitura.
+6. Nao finalizar visual de personagem antes de entender como ele anda, pula e luta.
 
 ## Estrategia tecnica
 
