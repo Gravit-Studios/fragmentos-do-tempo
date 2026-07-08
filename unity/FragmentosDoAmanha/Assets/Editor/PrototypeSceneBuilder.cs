@@ -67,11 +67,14 @@ namespace FragmentosDoAmanha.Editor
         private static GameObject CreateTheo(Vector2 position)
         {
             GameObject theo = CreateBox("Theo Placeholder", position, new Vector2(0.8f, 1.6f), new Color(1f, 0.72f, 0.22f), "Default", GameplayZ);
-            BoxCollider2D theoCollider = theo.AddComponent<BoxCollider2D>();
+            CapsuleCollider2D theoCollider = theo.AddComponent<CapsuleCollider2D>();
+            theoCollider.direction = CapsuleDirection2D.Vertical;
+            theoCollider.size = new Vector2(0.68f, 1.52f);
             theoCollider.sharedMaterial = NoFrictionMaterial;
             Rigidbody2D body = theo.AddComponent<Rigidbody2D>();
             body.freezeRotation = true;
             body.gravityScale = 4.2f;
+            body.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
             TheoController controller = theo.AddComponent<TheoController>();
             SerializedObject serializedController = new SerializedObject(controller);
@@ -135,10 +138,10 @@ namespace FragmentosDoAmanha.Editor
             CreatePlatform(parent, "Combat Floor", new Vector2(4.8f, -2.6f), new Vector2(6f, 1f), new Color(0.16f, 0.19f, 0.22f));
             CreatePlatform(parent, "Fragment Pedestal Floor", new Vector2(10.2f, -2.6f), new Vector2(4.2f, 1f), new Color(0.16f, 0.19f, 0.22f));
 
-            CreatePlatform(parent, "Training Step", new Vector2(-5.35f, -1.25f), new Vector2(2.2f, 0.35f), new Color(0.24f, 0.28f, 0.29f));
-            CreatePlatform(parent, "Upper Recovery Catwalk", new Vector2(-1.2f, 0.05f), new Vector2(3.2f, 0.35f), new Color(0.22f, 0.28f, 0.32f));
-            CreatePlatform(parent, "Combat Catwalk", new Vector2(5.8f, 0.95f), new Vector2(4.8f, 0.35f), new Color(0.22f, 0.28f, 0.32f));
-            CreatePlatform(parent, "Fragment Step", new Vector2(8.75f, -1.25f), new Vector2(2f, 0.35f), new Color(0.24f, 0.28f, 0.29f));
+            CreateTopOnlyPlatform(parent, "Training Step", new Vector2(-5.35f, -1.25f), new Vector2(2.2f, 0.35f), new Color(0.24f, 0.28f, 0.29f));
+            CreateTopOnlyPlatform(parent, "Upper Recovery Catwalk", new Vector2(-1.2f, 0.05f), new Vector2(3.2f, 0.35f), new Color(0.22f, 0.28f, 0.32f));
+            CreateTopOnlyPlatform(parent, "Combat Catwalk", new Vector2(5.8f, 0.95f), new Vector2(4.8f, 0.35f), new Color(0.22f, 0.28f, 0.32f));
+            CreateTopOnlyPlatform(parent, "Fragment Step", new Vector2(8.75f, -1.25f), new Vector2(2f, 0.35f), new Color(0.24f, 0.28f, 0.29f));
 
             CreateBox("Start Marker", new Vector2(-10.9f, -1.85f), new Vector2(0.18f, 1.5f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ).transform.SetParent(parent);
             CreateBox("Goal Marker", new Vector2(12.1f, -1.65f), new Vector2(0.18f, 1.9f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ).transform.SetParent(parent);
@@ -202,6 +205,26 @@ namespace FragmentosDoAmanha.Editor
             BoxCollider2D collider = platform.AddComponent<BoxCollider2D>();
             collider.sharedMaterial = NoFrictionMaterial;
             platform.transform.SetParent(parent);
+            return platform;
+        }
+
+        private static GameObject CreateTopOnlyPlatform(Transform parent, string name, Vector2 position, Vector2 size, Color color)
+        {
+            GameObject platform = CreateBox(name, position, size, color, "Default");
+            platform.transform.SetParent(parent);
+
+            GameObject topCollider = new GameObject($"{name} Top Collider");
+            topCollider.layer = LayerMask.NameToLayer(GroundLayerName);
+            topCollider.transform.position = new Vector3(position.x, position.y + (size.y * 0.5f), GameplayZ);
+            topCollider.transform.SetParent(parent);
+
+            EdgeCollider2D collider = topCollider.AddComponent<EdgeCollider2D>();
+            collider.points = new[]
+            {
+                new Vector2(size.x * -0.5f, 0f),
+                new Vector2(size.x * 0.5f, 0f)
+            };
+            collider.sharedMaterial = NoFrictionMaterial;
             return platform;
         }
 

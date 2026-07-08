@@ -11,7 +11,7 @@ namespace FragmentosDoAmanha.Player
         [SerializeField] private float jumpForce = 14f;
         [SerializeField] private LayerMask groundMask;
         [SerializeField] private float groundCheckDistance = 0.08f;
-        [SerializeField] private float groundCheckWidth = 0.86f;
+        [SerializeField] private float groundCheckWidth = 0.68f;
 
         private Rigidbody2D body;
         private Collider2D bodyCollider;
@@ -74,8 +74,9 @@ namespace FragmentosDoAmanha.Player
             }
 
             Bounds bounds = bodyCollider.bounds;
-            Vector2 boxSize = new Vector2(bounds.size.x * groundCheckWidth, bounds.size.y);
-            RaycastHit2D hit = Physics2D.BoxCast(bounds.center, boxSize, 0f, Vector2.down, groundCheckDistance, groundMask);
+            Vector2 boxSize = new Vector2(bounds.size.x * groundCheckWidth, 0.08f);
+            Vector2 boxCenter = new Vector2(bounds.center.x, bounds.min.y + 0.04f);
+            RaycastHit2D hit = Physics2D.BoxCast(boxCenter, boxSize, 0f, Vector2.down, groundCheckDistance, groundMask);
             return hit.collider != null;
         }
     }

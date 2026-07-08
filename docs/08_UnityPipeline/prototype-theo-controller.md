@@ -17,12 +17,14 @@ Primeira cena jogavel para validar a sensacao basica de controle, combate e obje
 
 ## Implementado
 
-- Theo placeholder com `Rigidbody2D`, `BoxCollider2D` e controller basico.
+- Theo placeholder com `Rigidbody2D`, `CapsuleCollider2D` e controller basico.
 - Movimento horizontal.
 - Pulo com checagem de chao.
 - Checagem de chao por `BoxCast`, mais estavel em plataformas.
+- Collider em capsula para reduzir travamento em quinas de plataformas.
 - Gravidade via `Rigidbody2D`.
-- Plataformas com colisao.
+- Plataformas de chao com colisao solida.
+- Plataformas elevadas com colisao somente no topo para evitar travamento lateral durante o pulo.
 - Materiais de fisica sem atrito para reduzir travamento em bordas.
 - Camera 2D seguindo Theo por script temporario.
 - Camera 2D com limites temporarios da sala.
