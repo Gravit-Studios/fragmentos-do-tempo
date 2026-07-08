@@ -16,6 +16,7 @@ sysinfo.txt
 *.stackdump
 
 # Unity crash reports
+mono_crash*.json
 *.pidb
 *.booproj
 *.svd

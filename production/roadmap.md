@@ -27,7 +27,7 @@ Objetivo: preparar tudo que precisa existir antes da primeira cena jogavel.
 - [ ] Configurar Pixel Perfect Camera.
 - [ ] Configurar Cinemachine.
 - [ ] Configurar Git LFS antes de adicionar binarios pesados.
-- [ ] Criar cena de teste do Theo.
+- [x] Criar cena de teste do Theo.
 - [ ] Criar tileset placeholder da Era Zero.
 - [ ] Criar tileset placeholder do Egito.
 
@@ -35,11 +35,11 @@ Objetivo: preparar tudo que precisa existir antes da primeira cena jogavel.
 
 Objetivo: validar sensacao de controle.
 
-- [ ] Movimento horizontal.
-- [ ] Pulo.
-- [ ] Queda/gravidade.
-- [ ] Camera seguindo o jogador.
-- [ ] Colisoes e plataformas.
+- [x] Movimento horizontal.
+- [x] Pulo.
+- [x] Queda/gravidade.
+- [x] Camera seguindo o jogador.
+- [x] Colisoes e plataformas.
 - [ ] Vida e dano.
 - [ ] Ataque basico.
 - [ ] Inimigo simples.

@@ -33,6 +33,7 @@ Ja existem:
 - Universal Render Pipeline `17.5.0`
 - Input System `1.19.0`
 - estrutura base de pastas em `Assets/`
+- primeira cena jogavel em `Assets/Scenes/Prototype_Theo_Controller.unity`
 
 Ainda pendente:
 
@@ -42,6 +43,7 @@ Ainda pendente:
 - 2D Animation.
 - 2D Sprite.
 - Confirmar/instalar pacotes 2D restantes pelo Package Manager da Unity.
+- Testar manualmente a cena `Prototype_Theo_Controller` no Play Mode.
 
 ## Passo a passo no Mac
 
