@@ -35,11 +35,12 @@ namespace FragmentosDoAmanha.Editor
             scene.name = "Prototype_Theo_Controller";
 
             GameObject root = new GameObject("Prototype_Theo_Controller");
+            PrototypeObjectiveState objectiveState = root.AddComponent<PrototypeObjectiveState>();
             GameObject environment = new GameObject("Era Zero Lab Blockout");
             environment.transform.SetParent(root.transform);
 
             CreateLabBackground(environment.transform);
-            CreateVerticalSliceRoom(environment.transform);
+            CreateVerticalSliceRoom(environment.transform, objectiveState);
             CreateTemporalMachine(environment.transform);
             CreateVossMonitor(environment.transform);
             CreateDamageZone(environment.transform);
@@ -49,11 +50,12 @@ namespace FragmentosDoAmanha.Editor
 
             GameObject theo = CreateTheo(new Vector2(-9f, -1.5f));
             theo.transform.SetParent(root.transform);
+            objectiveState.SetInventory(theo.GetComponent<FragmentInventory>());
 
             GameObject mainCamera = CreateCamera(theo.transform);
             mainCamera.transform.SetParent(root.transform);
 
-            GameObject hud = CreatePrototypeHud(theo.GetComponent<PlayerHealth>(), theo.GetComponent<FragmentInventory>());
+            GameObject hud = CreatePrototypeHud(theo.GetComponent<PlayerHealth>(), theo.GetComponent<FragmentInventory>(), objectiveState);
             hud.transform.SetParent(root.transform);
 
             EditorSceneManager.SaveScene(scene, ScenePath);
@@ -96,13 +98,15 @@ namespace FragmentosDoAmanha.Editor
             return theo;
         }
 
-        private static GameObject CreatePrototypeHud(PlayerHealth playerHealth, FragmentInventory fragmentInventory)
+        private static GameObject CreatePrototypeHud(PlayerHealth playerHealth, FragmentInventory fragmentInventory, PrototypeObjectiveState objectiveState)
         {
             GameObject hudObject = new GameObject("Prototype HUD");
             PrototypeHealthHud healthHud = hudObject.AddComponent<PrototypeHealthHud>();
             healthHud.SetPlayerHealth(playerHealth);
             PrototypeFragmentHud fragmentHud = hudObject.AddComponent<PrototypeFragmentHud>();
             fragmentHud.SetInventory(fragmentInventory);
+            PrototypeObjectiveHud objectiveHud = hudObject.AddComponent<PrototypeObjectiveHud>();
+            objectiveHud.SetObjectiveState(objectiveState);
             return hudObject;
         }
 
@@ -132,7 +136,7 @@ namespace FragmentosDoAmanha.Editor
             CreateBox("Server Rack B", new Vector2(13.2f, -0.1f), new Vector2(1.6f, 4f), new Color(0.1f, 0.13f, 0.15f), "Default").transform.SetParent(parent);
         }
 
-        private static void CreateVerticalSliceRoom(Transform parent)
+        private static void CreateVerticalSliceRoom(Transform parent, PrototypeObjectiveState objectiveState)
         {
             CreatePlatform(parent, "Start Floor", new Vector2(-8.5f, -2.6f), new Vector2(7f, 1f), new Color(0.16f, 0.19f, 0.22f));
             CreatePlatform(parent, "Hazard Approach Floor", new Vector2(-1.9f, -2.6f), new Vector2(4.4f, 1f), new Color(0.16f, 0.19f, 0.22f));
@@ -146,6 +150,7 @@ namespace FragmentosDoAmanha.Editor
 
             CreateBox("Start Marker", new Vector2(-10.9f, -1.85f), new Vector2(0.18f, 1.5f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ).transform.SetParent(parent);
             CreateBox("Goal Marker", new Vector2(12.1f, -1.65f), new Vector2(0.18f, 1.9f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ).transform.SetParent(parent);
+            CreateGoalZone(parent, objectiveState);
         }
 
         private static void CreateTemporalMachine(Transform parent)
@@ -198,6 +203,17 @@ namespace FragmentosDoAmanha.Editor
             collider.isTrigger = true;
             fragment.AddComponent<TemporalFragment>();
             fragment.transform.SetParent(parent);
+        }
+
+        private static void CreateGoalZone(Transform parent, PrototypeObjectiveState objectiveState)
+        {
+            GameObject goalZone = CreateBox("Prototype Goal Zone", new Vector2(12.1f, -1.55f), new Vector2(1.15f, 2.25f), new Color(0.35f, 0.9f, 1f, 0.25f), "Default", GameplayZ);
+            Object.DestroyImmediate(goalZone.GetComponent<MeshRenderer>());
+            BoxCollider2D collider = goalZone.AddComponent<BoxCollider2D>();
+            collider.isTrigger = true;
+            PrototypeGoalZone goal = goalZone.AddComponent<PrototypeGoalZone>();
+            goal.SetObjectiveState(objectiveState);
+            goalZone.transform.SetParent(parent);
         }
 
         private static GameObject CreatePlatform(Transform parent, string name, Vector2 position, Vector2 size, Color color)
