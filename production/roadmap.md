@@ -9,6 +9,7 @@ Status: em andamento.
 - [x] Salvar prompts oficiais de personagem.
 - [x] Organizar primeiros assets por personagem.
 - [x] Criar Production Handbook v1.0.
+- [x] Preparar `.gitignore` e `.gitattributes` para Unity/Git LFS.
 - [ ] Revisar nomes finais do jogo e personagens.
 - [ ] Definir lista de habilidades do Theo.
 - [ ] Definir mecanica de fragmentos.
@@ -17,7 +18,9 @@ Status: em andamento.
 
 Objetivo: preparar tudo que precisa existir antes da primeira cena jogavel.
 
-- [ ] Definir versao da Unity.
+- [x] Definir versao alvo da Unity: Unity 6 LTS.
+- [ ] Instalar Unity Hub / Unity 6 LTS na maquina de producao.
+- [ ] Instalar Git LFS na maquina de producao.
 - [ ] Criar projeto Unity real em `unity/FragmentosDoAmanha/`.
 - [ ] Configurar URP 2D.
 - [ ] Configurar Input System.

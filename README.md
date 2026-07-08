@@ -31,6 +31,7 @@ O jogo usa duas camadas de arte:
 - [Character DNA](docs/04_Characters/character-dna.md)
 - [Animation Bible](docs/06_Animation/animation-bible.md)
 - [Unity Production Pipeline](docs/08_UnityPipeline/unity-production-pipeline.md)
+- [Unity Base Project Setup](docs/08_UnityPipeline/unity-base-project-setup.md)
 - [Production Handbook](production/production-handbook.md)
 - [Roadmap](production/roadmap.md)
 - [AI-Assisted Production Pipeline](production/ai-assisted-production-pipeline.md)

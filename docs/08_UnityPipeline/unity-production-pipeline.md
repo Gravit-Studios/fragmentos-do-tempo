@@ -8,6 +8,8 @@ Local planejado:
 
 `unity/FragmentosDoAmanha/`
 
+Guia de criacao do projeto base: `docs/08_UnityPipeline/unity-base-project-setup.md`.
+
 ## Estrutura esperada dentro do projeto Unity
 
 ```text
@@ -26,6 +28,7 @@ Assets/
     Enemies/
   Gameplay/
   Prefabs/
+  Resources/
   Scenes/
   Scripts/
     Core/
