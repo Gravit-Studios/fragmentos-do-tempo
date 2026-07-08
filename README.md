@@ -28,6 +28,7 @@ O jogo usa duas camadas de arte:
 - [Visual Development Guide](docs/03_VisualDevelopment/visual-development-guide.md)
 - [Pixel Art Bible](docs/03_VisualDevelopment/pixel-art-bible.md)
 - [Character Image Prompts](docs/03_VisualDevelopment/character-image-prompts.md)
+- [Environment Image Prompts](docs/03_VisualDevelopment/environment-image-prompts.md)
 - [Character DNA](docs/04_Characters/character-dna.md)
 - [Animation Bible](docs/06_Animation/animation-bible.md)
 - [Unity Production Pipeline](docs/08_UnityPipeline/unity-production-pipeline.md)

@@ -61,7 +61,7 @@ Paleta: azul-acinzentado frio (estrutura) + preto carvão (dano/sombra) + laranj
 ### B — Laboratório intacto (timeline alterada, fotos espalhadas)
 Mesma paleta-base, mas mais calma/limpa — sem laranja de emergência, iluminação branca/fria neutra, acento cobre só em telas/tecnologia funcional. Tom: quieto, ordeiro, mas perturbador pelo excesso de fotos repetidas, não por destruição.
 
-> Prompts completos disponíveis no histórico da conversa.
+Prompts completos salvos em `docs/03_VisualDevelopment/environment-image-prompts.md`.
 
 ## Template de Ficha de Cenário (formato de entrega oficial)
 Paralelo ao template de concept sheet de personagens (ver `linha-visual.md`):
