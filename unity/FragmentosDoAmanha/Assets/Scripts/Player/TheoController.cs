@@ -62,15 +62,21 @@ namespace FragmentosDoAmanha.Player
         {
             bool grounded = IsGrounded();
             groundedTimer = grounded ? coyoteTime : Mathf.Max(0f, groundedTimer - Time.fixedDeltaTime);
+            int sideContactDirection = GetSideContactDirection();
+            float desiredHorizontalVelocity = horizontalInput * moveSpeed;
+            if (!grounded && sideContactDirection != 0 && Mathf.Sign(horizontalInput) == sideContactDirection)
+            {
+                desiredHorizontalVelocity = 0f;
+            }
 
-            body.linearVelocity = new Vector2(horizontalInput * moveSpeed, body.linearVelocity.y);
+            body.linearVelocity = new Vector2(desiredHorizontalVelocity, body.linearVelocity.y);
 
             if (jumpPressed && groundedTimer > 0f)
             {
                 body.linearVelocity = new Vector2(body.linearVelocity.x, jumpForce);
                 groundedTimer = 0f;
             }
-            else if (!grounded && IsTouchingSide() && Mathf.Abs(body.linearVelocity.y) < 0.05f)
+            else if (!grounded && sideContactDirection != 0 && Mathf.Abs(body.linearVelocity.y) < 0.05f)
             {
                 body.linearVelocity = new Vector2(body.linearVelocity.x, antiSnagFallSpeed);
             }
@@ -92,11 +98,11 @@ namespace FragmentosDoAmanha.Player
             return hit.collider != null;
         }
 
-        private bool IsTouchingSide()
+        private int GetSideContactDirection()
         {
             if (bodyCollider == null)
             {
-                return false;
+                return 0;
             }
 
             Bounds bounds = bodyCollider.bounds;
@@ -105,7 +111,17 @@ namespace FragmentosDoAmanha.Player
             Vector2 rightCenter = new Vector2(bounds.max.x, bounds.center.y);
             bool touchingLeft = Physics2D.BoxCast(leftCenter, boxSize, 0f, Vector2.left, sideCheckDistance, groundMask).collider != null;
             bool touchingRight = Physics2D.BoxCast(rightCenter, boxSize, 0f, Vector2.right, sideCheckDistance, groundMask).collider != null;
-            return touchingLeft || touchingRight;
+            if (touchingLeft && horizontalInput < 0f)
+            {
+                return -1;
+            }
+
+            if (touchingRight && horizontalInput > 0f)
+            {
+                return 1;
+            }
+
+            return 0;
         }
     }
 }

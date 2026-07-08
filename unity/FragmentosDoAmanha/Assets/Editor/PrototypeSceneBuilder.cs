@@ -138,10 +138,10 @@ namespace FragmentosDoAmanha.Editor
 
         private static void CreateVerticalSliceRoom(Transform parent, PrototypeObjectiveState objectiveState)
         {
-            CreatePlatform(parent, "Start Floor", new Vector2(-8.5f, -2.6f), new Vector2(7f, 1f), new Color(0.16f, 0.19f, 0.22f));
-            CreatePlatform(parent, "Hazard Approach Floor", new Vector2(-1.9f, -2.6f), new Vector2(4.4f, 1f), new Color(0.16f, 0.19f, 0.22f));
-            CreatePlatform(parent, "Combat Floor", new Vector2(4.8f, -2.6f), new Vector2(6f, 1f), new Color(0.16f, 0.19f, 0.22f));
-            CreatePlatform(parent, "Fragment Pedestal Floor", new Vector2(10.2f, -2.6f), new Vector2(4.2f, 1f), new Color(0.16f, 0.19f, 0.22f));
+            CreateTopOnlyPlatform(parent, "Start Floor", new Vector2(-8.5f, -2.6f), new Vector2(7f, 1f), new Color(0.16f, 0.19f, 0.22f), 0.05f);
+            CreateTopOnlyPlatform(parent, "Hazard Approach Floor", new Vector2(-1.9f, -2.6f), new Vector2(4.4f, 1f), new Color(0.16f, 0.19f, 0.22f), 0.05f);
+            CreateTopOnlyPlatform(parent, "Combat Floor", new Vector2(4.8f, -2.6f), new Vector2(6f, 1f), new Color(0.16f, 0.19f, 0.22f), 0.05f);
+            CreateTopOnlyPlatform(parent, "Fragment Pedestal Floor", new Vector2(10.2f, -2.6f), new Vector2(4.2f, 1f), new Color(0.16f, 0.19f, 0.22f), 0.05f);
 
             CreateTopOnlyPlatform(parent, "Training Step", new Vector2(-5.35f, -1.25f), new Vector2(2.2f, 0.35f), new Color(0.24f, 0.28f, 0.29f));
             CreateTopOnlyPlatform(parent, "Upper Recovery Catwalk", new Vector2(-1.2f, 0.05f), new Vector2(3.2f, 0.35f), new Color(0.22f, 0.28f, 0.32f));
@@ -227,6 +227,11 @@ namespace FragmentosDoAmanha.Editor
 
         private static GameObject CreateTopOnlyPlatform(Transform parent, string name, Vector2 position, Vector2 size, Color color)
         {
+            return CreateTopOnlyPlatform(parent, name, position, size, color, TopPlatformEdgeInset);
+        }
+
+        private static GameObject CreateTopOnlyPlatform(Transform parent, string name, Vector2 position, Vector2 size, Color color, float edgeInset)
+        {
             GameObject platform = CreateBox(name, position, size, color, "Default");
             platform.transform.SetParent(parent);
 
@@ -235,7 +240,7 @@ namespace FragmentosDoAmanha.Editor
             topCollider.transform.position = new Vector3(position.x, position.y + (size.y * 0.5f) - 0.02f, GameplayZ);
             topCollider.transform.SetParent(parent);
 
-            float halfColliderWidth = Mathf.Max(0.05f, (size.x * 0.5f) - TopPlatformEdgeInset);
+            float halfColliderWidth = Mathf.Max(0.05f, (size.x * 0.5f) - edgeInset);
             EdgeCollider2D collider = topCollider.AddComponent<EdgeCollider2D>();
             collider.points = new[]
             {
