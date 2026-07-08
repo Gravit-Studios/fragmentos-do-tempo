@@ -1,31 +1,59 @@
-# Fragmentos do Tempo — Documentação do Projeto
+# Fragmentos do Amanha
 
-Repositório de documentação de design, narrativa e referências visuais do jogo (nome de trabalho: *Fragmentos do Amanhã* / *Era Zero* — ver `nomes/candidatos.md`).
+Documentacao de producao de *Fragmentos do Amanha* / *Era Zero*, um metroidvania 2D de acao-plataforma sobre viagem no tempo, desenvolvido na Unity com apoio de IA em documentacao, arte, animacao, pipeline e programacao.
 
-Metroidvania / ação-plataforma 2D ambientado em um futuro de colapso ambiental, com viagem no tempo através de eras históricas.
+O objetivo deste repositorio e manter a visao criativa, o planejamento de producao e a futura base Unity organizados desde o inicio, sem misturar material conceitual, arquivos de jogo e entregas de planejamento.
 
-## Índice
+## Visao rapida
 
-- **[game-design/modelo-de-jogo.md](game-design/modelo-de-jogo.md)** — Estrutura de fases, evolução de personagem, estilo de diálogo, cutscenes, cenário e referência visual de arte, baseado em Guacamelee, Dead Cells, Castlevania: SOTN, Bloodstained, Prince of Persia: The Lost Crown, Blasphemous, Ori and the Blind Forest e Hades.
-- **[game-design/linha-visual.md](game-design/linha-visual.md)** — Estilo visual oficial de personagens (aprovado), com prompts reutilizáveis para Gemini/Midjourney.
-- **[game-design/epocas.md](game-design/epocas.md)** — As 6 épocas jogáveis, eixo temático de tirania/batalha, arma e cenário característicos de cada uma.
-- **[game-design/linha-visual-cenario.md](game-design/linha-visual-cenario.md)** — Pipeline técnico (2D/Paper2D), estrutura de camadas de parallax e diretriz visual de cenário.
-- **[narrativa/premissa-e-timeline.md](narrativa/premissa-e-timeline.md)** — Premissa da história, linha do tempo dos eventos e a regra da Anomalia.
-- **[personagens/theo.md](personagens/theo.md)** — Bíblia de personagem do protagonista.
-- **[personagens/voss.md](personagens/voss.md)** — Bíblia de personagem do vilão.
-- **[personagens/naiara.md](personagens/naiara.md)** — Bíblia de personagem da terceira personagem (linhagem).
-- **[nomes/candidatos.md](nomes/candidatos.md)** — Candidatos a nome do jogo e dos personagens.
-- **references/** — Imagens e prompts de referência visual, separados por categoria:
-  - `characters/` — concepts e moodboards de personagens
-  - `scenario/` — referências de ambientação por época
-  - `hud/` — referências de UI/HUD (a iniciar)
-- **concepts/** — outputs de geração de imagem (Gemini, etc.), organizados por data/versão
+Theo, um cientista inicialmente nao-combatente, foge pelo tempo para desfazer o golpe de Voss, seu ex-parceiro, que reescreveu a historia para se tornar um tirano absoluto. Em cada epoca, uma versao da linhagem de Naiara atua como resistencia contra essa tirania.
 
-## Status atual
+O jogo usa duas camadas de arte:
 
-- ✅ Modelo de jogo e referências de estrutura definidos
-- ✅ Premissa narrativa e timeline fechadas
-- ✅ Bíblias de personagem escritas para os 3 personagens principais
-- 🔄 Estilo visual final em teste (cel-shading duro vs. vetor limpo — ver `references/characters/`)
-- ⏳ Nomes definitivos ainda em aberto
-- ⏳ Detalhamento de épocas históricas além da medieval
+- **Artbook e apresentacao:** ilustracoes detalhadas para lore, direcao visual e comunicacao.
+- **In-game:** pixel art limpa, legivel, animavel e otimizada para gameplay.
+
+## Estrutura do repositorio
+
+- `docs/` - Documentacao viva do projeto, organizada por area de producao.
+- `production/` - Planejamento pratico, vertical slice, pipeline com IA e roadmap.
+- `art/` - Estrutura para concepts, pixel art, animacao, UI, FX e marketing.
+- `unity/` - Local reservado para o projeto Unity real quando ele for criado.
+- `GDD.md` - Documento de game design existente, mantido como referencia historica e criativa.
+- `game-design/`, `narrativa/`, `personagens/`, `nomes/` - Documentos iniciais ja existentes no repositorio remoto, preservados.
+
+## Documentos principais
+
+- [Project Overview](docs/00_Project/project-overview.md)
+- [Visual Development Guide](docs/03_VisualDevelopment/visual-development-guide.md)
+- [Pixel Art Bible](docs/03_VisualDevelopment/pixel-art-bible.md)
+- [Character DNA](docs/04_Characters/character-dna.md)
+- [Animation Bible](docs/06_Animation/animation-bible.md)
+- [Unity Production Pipeline](docs/08_UnityPipeline/unity-production-pipeline.md)
+- [AI-Assisted Production Pipeline](production/ai-assisted-production-pipeline.md)
+- [Vertical Slice Plan](production/vertical-slice-plan.md)
+
+## Escopo inicial
+
+O primeiro objetivo de producao e um vertical slice com:
+
+- Era Zero e Egito Antigo.
+- Theo jogavel.
+- Movimento basico, camera e leitura de plataforma.
+- Combate basico.
+- Um inimigo simples.
+- Sistema de vida e dano.
+- Tileset inicial.
+- Prefabs modulares quando o projeto Unity existir.
+
+## Unity
+
+O projeto Unity ainda nao deve ser simulado por arquivos falsos. Quando for criado, ele deve ficar em:
+
+`unity/FragmentosDoAmanha/`
+
+A estrutura esperada para o projeto Unity esta documentada em [Unity Production Pipeline](docs/08_UnityPipeline/unity-production-pipeline.md).
+
+## Uso de IA
+
+A IA deve atuar como assistente de producao, nao como diretora criativa. Ela pode apoiar pesquisa, documentacao, concepts, variacoes, sprites base, poses-chave, scripts e revisao de pipeline. A validacao final permanece manual.
