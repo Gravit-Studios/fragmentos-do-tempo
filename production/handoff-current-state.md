@@ -41,12 +41,15 @@ O projeto ja tem:
 - primeira sala curta de laboratorio Era Zero;
 - portal temporal placeholder preparado para carregar cena alvo;
 - menu de editor para gerar `VS_Egypt_Blockout`;
+- rascunho de lista de habilidades do Theo por epoca (`docs/04_Characters/theo-abilities.md`), aguardando revisao do usuario;
+- rascunho de mecanica de fragmentos com dois niveis, comum e de epoca (`docs/00_Project/fragments-mechanic.md`), aguardando revisao do usuario;
 - concept book em producao;
 - direcao de artbook definida para paginas ricas, nao blocadas;
 - capa/logotipo em exploracao com simbolo temporal, ciano e textura sutil.
 
 Ainda precisa:
 
+- revisar/aprovar os rascunhos de habilidades do Theo e mecanica de fragmentos (Fase 0 do roadmap);
 - testar no Play Mode no PC principal;
 - gerar e testar a cena `VS_Egypt_Blockout` pela Unity;
 - validar portal Era Zero -> Egito;

@@ -11,8 +11,8 @@ Status: em andamento.
 - [x] Criar Production Handbook v1.0.
 - [x] Preparar `.gitignore` e `.gitattributes` para Unity/Git LFS.
 - [ ] Revisar nomes finais do jogo e personagens.
-- [ ] Definir lista de habilidades do Theo.
-- [ ] Definir mecanica de fragmentos.
+- [ ] Definir lista de habilidades do Theo. Rascunho pronto para revisao em `docs/04_Characters/theo-abilities.md`.
+- [ ] Definir mecanica de fragmentos. Rascunho pronto para revisao em `docs/00_Project/fragments-mechanic.md`.
 
 ## Fase 1 — Pre-producao do Vertical Slice
 

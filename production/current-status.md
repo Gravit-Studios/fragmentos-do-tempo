@@ -1,6 +1,6 @@
 # Current Status
 
-Atualizado em: 2026-07-09
+Atualizado em: 2026-07-09 (sessao Codex web)
 
 ## Objetivo deste documento
 
@@ -54,7 +54,9 @@ Ja existe:
 - primeira sala curta de vertical slice com inicio, perigo, inimigo e objetivo.
 - scripts e menu de editor para gerar `VS_Egypt_Blockout`.
 - cena `VS_Egypt_Blockout` gerada localmente e adicionada ao Build Settings;
-- portal temporal placeholder preparado para carregar a cena do Egito apos completar o objetivo.
+- portal temporal placeholder preparado para carregar a cena do Egito apos completar o objetivo;
+- rascunho de lista de habilidades do Theo por epoca (`docs/04_Characters/theo-abilities.md`), aguardando revisao;
+- rascunho de mecanica de fragmentos com dois niveis (`docs/00_Project/fragments-mechanic.md`), aguardando revisao.
 
 Ainda nao existe:
 
@@ -255,6 +257,7 @@ git pull origin main
 
 ## Proximos passos recomendados
 
+0. Revisar e aprovar (ou ajustar) os rascunhos de habilidades do Theo e mecanica de fragmentos.
 1. Testar `Prototype_Theo_Controller` no Play Mode.
 2. Ajustar sensacao de movimento do Theo.
 3. Instalar/confirmar Cinemachine e Pixel Perfect.
