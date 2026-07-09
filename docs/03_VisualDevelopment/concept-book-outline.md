@@ -12,6 +12,12 @@ A direcao detalhada de pagina, composicao e densidade visual esta em:
 docs/03_VisualDevelopment/concept-book-art-direction.md
 ```
 
+O fluxo para receber, separar e validar referencias externas esta em:
+
+```text
+docs/03_VisualDevelopment/concept-book-reference-intake.md
+```
+
 ## Formato fisico alvo
 
 Formato escolhido:
@@ -188,16 +194,19 @@ Status: pendente.
 
 ## Ordem recomendada de producao visual
 
-1. Explorar logotipo e simbolo.
-2. Definir paleta de marca.
-3. Criar props essenciais da Era Zero.
-4. Criar tileset placeholder da Era Zero.
-5. Criar props essenciais do Egito.
-6. Criar tileset placeholder do Egito.
-7. Criar sprite base do Theo.
-8. Criar inimigo visual do Egito.
-9. Criar HUD final inicial.
-10. Montar primeira versao exportavel do concept book.
+1. Triar referencias por categoria.
+2. Validar personagens principais: Theo, Voss e Naiara.
+3. Validar cenarios principais: Era Zero e Egito.
+4. Explorar logotipo e simbolo.
+5. Definir paleta de marca.
+6. Criar props essenciais da Era Zero.
+7. Criar tileset placeholder da Era Zero.
+8. Criar props essenciais do Egito.
+9. Criar tileset placeholder do Egito.
+10. Criar sprite base do Theo.
+11. Criar inimigo visual do Egito.
+12. Criar HUD final inicial.
+13. Montar primeira versao exportavel do concept book.
 
 ## Regras de consistencia
 

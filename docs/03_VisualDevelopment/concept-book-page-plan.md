@@ -30,6 +30,12 @@ Referencia principal de direcao:
 docs/03_VisualDevelopment/concept-book-art-direction.md
 ```
 
+Referencias externas devem ser recebidas em lotes pequenos e triadas antes de virar pagina final:
+
+```text
+docs/03_VisualDevelopment/concept-book-reference-intake.md
+```
+
 Prioridades:
 
 - abrir cada bloco com uma imagem ou composicao que conte algo do mundo;
@@ -184,6 +190,8 @@ Depois de validar as tres primeiras:
 4. Pagina 007 — Naiara / resistencia.
 5. Pagina 008 — Egito Antigo / camara do templo.
 6. Pagina 009 — Fragmentos, HUD e objetivos.
+
+Cada pagina do segundo lote deve nascer de um micro-brief aprovado a partir das referencias recebidas.
 
 ## Regras visuais para paginas
 
