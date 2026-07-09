@@ -1,5 +1,26 @@
 # Roadmap
 
+## Escopo da Demo Inicial
+
+Decisao: focar em **Era Zero + Egito** ate existir uma fatia funcional, padronizada e polida, antes de expandir para as outras 5 epocas (Grecia, Medieval, Piratas, Segunda Guerra, Inicio da Internet, Futuro proximo continuam fora do escopo ate aqui fechar).
+
+Checklist de definicao de "pronto" para a demo inicial:
+
+- [ ] Controle de Theo responsivo e validado em Play Mode (movimento, pulo, coyote time, colisao).
+- [ ] Ataque basico de Theo com timing e alcance validados.
+- [x] Inimigo comunica ataque antes de causar dano (telegraph visual antes da hitbox ativar).
+- [ ] Telegraph do inimigo testado em Play Mode e com timing validado (nao muito rapido nem muito lento).
+- [ ] Vida, dano, invulnerabilidade e respawn testados de ponta a ponta.
+- [ ] Fragmento coletavel e HUD (vida, fragmento, objetivo) testados de ponta a ponta.
+- [ ] Portal temporal Era Zero -> Egito testado e sem bugs de carregamento.
+- [ ] Pixel Perfect Camera e Cinemachine integrados (substituindo camera temporaria).
+- [ ] Tileset placeholder proprio para Era Zero e para Egito (mesmo que simples, cada epoca visualmente distinta).
+- [ ] Sprite/animacao minima do Theo (ainda que placeholder) substituindo o blockout de caixas.
+- [ ] Lista de habilidades de movimento do Theo (dash etc.) definida e com pelo menos uma implementada e testada.
+- [ ] Build interna jogavel cobrindo Era Zero + Egito.
+
+So depois de fechar essa checklist a prioridade avanca para a proxima epoca do roadmap de conteudo.
+
 ## Fase 0 — Organizacao e Direcao
 
 Status: em andamento.
