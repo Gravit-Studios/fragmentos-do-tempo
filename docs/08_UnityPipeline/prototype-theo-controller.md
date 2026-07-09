@@ -45,6 +45,7 @@ Primeira cena jogavel para validar a sensacao basica de controle, combate e obje
 - Primeira sala curta com inicio seguro, salto, perigo, inimigo e fragmento.
 - Elementos de direcao visual: nucleo temporal, monitor de Voss, luz fria e acento cobre.
 - Portal temporal placeholder preparado para carregar `VS_Egypt_Blockout` apos o objetivo completo.
+- Feedback textual de ruptura temporal antes do carregamento da cena do Egito.
 - Menu de editor para gerar `VS_Egypt_Blockout`.
 
 ## Como gerar a cena do Egito
