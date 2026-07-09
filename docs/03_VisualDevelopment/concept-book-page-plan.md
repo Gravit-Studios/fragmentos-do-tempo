@@ -24,6 +24,12 @@ Objetivo: validar linguagem visual, densidade de informacao, uso do logo, equili
 
 O concept book deve parecer um artbook do jogo, nao apenas um catalogo tecnico de assets. A estrutura pode usar fichas e estudos quando necessario, mas cada pagina deve ter um ponto de vista narrativo.
 
+Referencia principal de direcao:
+
+```text
+docs/03_VisualDevelopment/concept-book-art-direction.md
+```
+
 Prioridades:
 
 - abrir cada bloco com uma imagem ou composicao que conte algo do mundo;
@@ -31,6 +37,10 @@ Prioridades:
 - deixar a historia aparecer no layout: ruptura temporal, arquivos de laboratorio, propaganda de Voss, marcas de resistencia, fragmentos e contaminacao das eras;
 - alternar paginas de atmosfera com paginas de estudo;
 - evitar repetir o mesmo grid de fichas em todas as paginas;
+- evitar conteudo muito blocado, com cards ou colunas rigidas;
+- compor como material visual de artista, com imagem principal, estudos, line art, props, notas e textura em camadas;
+- permitir assimetria, sobreposicao controlada e fundos com desenhos quase apagados;
+- usar bastante informacao visual, mas em camadas orbitando a arte principal;
 - usar o azul/ciano como assinatura de ruptura temporal;
 - usar cobre/laranja como energia do nucleo, alerta ou tecnologia ativa;
 - usar grafite/marfim como base editorial;
@@ -119,9 +129,12 @@ art/branding/logo/round-02/logo-a-temporal-core-cyan-refinement-v01.png
 
 Composicao proposta:
 
-- tres colunas: Theo, Voss, Naiara;
-- faixa central ou superior com simbolo temporal;
-- notas curtas de direcao, nao blocos longos;
+- abertura narrativa, nao ficha de tres colunas;
+- Theo, Voss e Naiara devem aparecer conectados por ruptura temporal, escala, direcao de olhar ou sobreposicao;
+- usar o simbolo temporal como textura/fenda central, nao como bloco grafico isolado;
+- fundo com line art quase invisivel de laboratorio, propaganda de Voss e marcas de resistencia;
+- notas curtas de conceito/historia em pontos de respiro;
+- pequenos estudos orbitais: equipamento de Theo, ornamento de Voss, sinal de Naiara, fragmento;
 - paleta: grafite, marfim, cobre, azul/ciano.
 
 Perguntas para validar:
@@ -148,10 +161,12 @@ art/pixel/environments/era-zero-explosion/era-zero-explosion-pixel-environment-v
 
 Composicao proposta:
 
-- imagem concept art grande como hero;
-- faixa menor com pixel art e leitura de camadas;
-- detalhes: nucleo temporal, monitores, Voss ambiental, luz fria;
-- pequenas amostras de cor.
+- imagem concept art grande como hero, ocupando a maior parte da pagina;
+- line art do laboratorio no fundo em baixa opacidade;
+- recortes menores com pixel art, props e leitura de camadas;
+- detalhes orbitais: nucleo temporal, monitores, Voss ambiental, luz fria, sinal de perigo;
+- pequenas amostras de cor integradas, nao como tabela isolada;
+- texto como anotacao curta de artista/direcao, nao bloco explicativo.
 
 Perguntas para validar:
 
@@ -179,6 +194,9 @@ Depois de validar as tres primeiras:
 - Nao usar blocos longos de lore nas primeiras paginas.
 - Priorizar composicoes ilustradas/contextuais quando a pagina for de abertura ou historia.
 - Usar fichas tecnicas apenas quando elas forem o melhor formato para validacao.
+- Evitar grids rigidos como solucao padrao.
+- Misturar pintura final, line art, estudos menores, props, notas e paleta na mesma composicao.
+- Fazer a informacao parecer descoberta visual, nao planilha.
 - Repetir azul/ciano como linguagem temporal.
 - Usar cobre/laranja como energia, nao como cor dominante.
 - Adaptar a cor da moldura conforme era, faccao ou clima da pagina.

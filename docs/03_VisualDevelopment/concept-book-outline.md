@@ -6,6 +6,12 @@ Organizar a producao visual de *Fragmentos do Amanha* em formato de concept book
 
 Este documento nao substitui os arquivos de producao da Unity. Ele consolida a linguagem visual em paginas planejadas, assets-chave e lacunas de arte.
 
+A direcao detalhada de pagina, composicao e densidade visual esta em:
+
+```text
+docs/03_VisualDevelopment/concept-book-art-direction.md
+```
+
 ## Formato fisico alvo
 
 Formato escolhido:
@@ -29,6 +35,7 @@ Esse formato favorece:
 - folhas de personagens com pose principal, detalhes e variacoes;
 - apresentacao de UI/HUD em largura parecida com tela de jogo;
 - capas com logo horizontal forte.
+- paginas ricas em camadas visuais, com arte principal, estudos, notas e texturas de fundo.
 
 Recomendacao para producao grafica futura:
 
@@ -200,3 +207,5 @@ Status: pendente.
 - Naiara/resistencia deve aparecer por sinais discretos antes de aparecer como personagem completo.
 - Evitar excesso de roxo/azul generico de sci-fi; usar contraste frio/cobre, com variacoes por era.
 - Logos e simbolos devem funcionar em silhueta antes de ganhar textura.
+- Paginas devem parecer material visual de artista, nao catalogo de cards.
+- Conteudo tecnico deve entrar como estudo integrado a composicao, nao como bloco separado por padrao.
