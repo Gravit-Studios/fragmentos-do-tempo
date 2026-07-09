@@ -44,6 +44,27 @@ Tipos de pagina recomendados:
 - **Documento in-world:** pagina que parece arquivo, relatorio, propaganda ou artefato encontrado no universo do jogo.
 - **Estudo tecnico:** pagina limpa para validar sprite, tileset, HUD ou sistema.
 
+## Sistema de moldura e energia
+
+A moldura pode seguir como assinatura editorial do concept book: uma estrutura fina, limpa e recorrente, com area de respiro e rodape discreto. Ela deve funcionar como pagina de arquivo/artbook, mas sem dominar a arte.
+
+Direcao:
+
+- usar a moldura como elemento constante para dar unidade ao livro;
+- variar cor, intensidade e pequenos detalhes conforme era, faccao ou tom da pagina;
+- substituir linhas retas demais da borda por feixes falhados, brilhos curtos e fagulhas inspirados no logo;
+- evitar molduras com cara de grade tecnica quando a pagina for mais narrativa;
+- manter a energia mais concentrada no nucleo, nos rasgos temporais e em pontos de foco da composicao;
+- usar particulas ciano para ruptura temporal e particulas cobre/laranja para energia ativa, alerta ou instabilidade.
+
+Paleta por contexto:
+
+- **Era Zero / laboratorio:** grafite, ciano frio, cobre controlado.
+- **Explosao temporal:** ciano intenso, branco queimado, cobre/laranja em fagulhas.
+- **Primeira era:** base mais mineral/terrosa com ciano como elemento invasor do tempo.
+- **Voss / propaganda:** preto, dourado envelhecido, vermelho ou cobre autoritario, ciano usado como contaminacao/controle.
+- **Resistencia / Naiara:** tons naturais, tecido, pedra, luz quente moderada, ciano como sinal raro de ruptura.
+
 ### Pagina 001 — Capa / Identidade
 
 Objetivo:
@@ -65,6 +86,8 @@ Composicao proposta:
 - logo menor, centralizado e com respiro;
 - remover simbolo secundario no canto inferior;
 - nucleo temporal como foco discreto;
+- usar moldura como fecho de luz falhado, com fagulhas e brilhos nas bordas;
+- evitar bordas retas demais ou grade tecnica dominante;
 - acento azul/ciano mais forte que o laranja;
 - textura sutil, sem poluir;
 - sem textos secundarios narrativos nesta primeira versao.
@@ -156,4 +179,6 @@ Depois de validar as tres primeiras:
 - Usar fichas tecnicas apenas quando elas forem o melhor formato para validacao.
 - Repetir azul/ciano como linguagem temporal.
 - Usar cobre/laranja como energia, nao como cor dominante.
+- Adaptar a cor da moldura conforme era, faccao ou clima da pagina.
+- Usar feixes falhados e fagulhas nas molduras como linguagem de ruptura temporal, evitando linhas rigidas demais.
 - Manter Voss como presenca visual recorrente, mesmo em paginas de ambiente.
