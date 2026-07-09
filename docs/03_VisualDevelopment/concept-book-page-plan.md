@@ -20,13 +20,37 @@ Para layout de pagina:
 
 Objetivo: validar linguagem visual, densidade de informacao, uso do logo, equilibrio entre concept art e pixel art, e formato das paginas antes de produzir o concept book completo.
 
+## Direcao de arte para o livro
+
+O concept book deve parecer um artbook do jogo, nao apenas um catalogo tecnico de assets. A estrutura pode usar fichas e estudos quando necessario, mas cada pagina deve ter um ponto de vista narrativo.
+
+Prioridades:
+
+- abrir cada bloco com uma imagem ou composicao que conte algo do mundo;
+- usar detalhes tecnicos como apoio, nao como centro da pagina;
+- deixar a historia aparecer no layout: ruptura temporal, arquivos de laboratorio, propaganda de Voss, marcas de resistencia, fragmentos e contaminacao das eras;
+- alternar paginas de atmosfera com paginas de estudo;
+- evitar repetir o mesmo grid de fichas em todas as paginas;
+- usar o azul/ciano como assinatura de ruptura temporal;
+- usar cobre/laranja como energia do nucleo, alerta ou tecnologia ativa;
+- usar grafite/marfim como base editorial;
+- preservar respiro e margens de livro fisico.
+
+Tipos de pagina recomendados:
+
+- **Abertura narrativa:** imagem grande, pouca tipografia, atmosfera forte.
+- **Dossie de personagem:** retrato/pose principal, silhueta, equipamentos e notas curtas.
+- **Ambiente contextual:** concept art grande com recortes de props, pixel art e leitura de gameplay.
+- **Documento in-world:** pagina que parece arquivo, relatorio, propaganda ou artefato encontrado no universo do jogo.
+- **Estudo tecnico:** pagina limpa para validar sprite, tileset, HUD ou sistema.
+
 ### Pagina 001 — Capa / Identidade
 
 Objetivo:
 
 - Testar o impacto do logo no formato paisagem.
 - Validar a direcao preferida: nucleo temporal fraturado com detalhes azul/ciano.
-- Definir se o livro deve abrir com atmosfera de Era Zero ou com identidade mais limpa.
+- Definir uma capa mais editorial e atmosferica, com logo centralizado e espaco de respiro.
 
 Assets base:
 
@@ -37,12 +61,13 @@ art/branding/logo/round-02/logo-a-temporal-core-cyan-refinement-v01.png
 
 Composicao proposta:
 
-- fundo escuro grafite;
-- logo grande centralizado;
-- nucleo temporal como foco;
+- fundo escuro grafite com textura integrada ao proprio logo;
+- logo menor, centralizado e com respiro;
+- remover simbolo secundario no canto inferior;
+- nucleo temporal como foco discreto;
 - acento azul/ciano mais forte que o laranja;
 - textura sutil, sem poluir;
-- sem textos secundarios nesta primeira versao.
+- sem textos secundarios narrativos nesta primeira versao.
 
 Perguntas para validar:
 
@@ -127,6 +152,8 @@ Depois de validar as tres primeiras:
 - Texto sempre secundario a imagem.
 - Manter margens generosas para o formato fisico.
 - Nao usar blocos longos de lore nas primeiras paginas.
+- Priorizar composicoes ilustradas/contextuais quando a pagina for de abertura ou historia.
+- Usar fichas tecnicas apenas quando elas forem o melhor formato para validacao.
 - Repetir azul/ciano como linguagem temporal.
 - Usar cobre/laranja como energia, nao como cor dominante.
 - Manter Voss como presenca visual recorrente, mesmo em paginas de ambiente.
