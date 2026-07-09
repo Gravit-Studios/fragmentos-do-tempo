@@ -47,6 +47,8 @@ Primeira cena jogavel para validar a sensacao basica de controle, combate e obje
 - Portal temporal placeholder preparado para carregar `VS_Egypt_Blockout` apos o objetivo completo.
 - Feedback textual de ruptura temporal antes do carregamento da cena do Egito.
 - Menu de editor para gerar `VS_Egypt_Blockout`.
+- Dash de Theo (`Shift`), com i-frames curtos e cooldown fixo.
+- Menu de editor para gerar `VS_EraZero_Lab` como cena separada (mesmo blockout do laboratorio, reaproveitando o gerador do `Prototype_Theo_Controller`).
 
 ## Como gerar a cena do Egito
 
@@ -64,6 +66,22 @@ Assets/Scenes/VS_Egypt_Blockout.unity
 
 A cena inclui chegada por fenda temporal, plataformas de templo, dois inimigos placeholder, fragmento coletavel, obelisco com presenca de Voss, sinal visual de Naiara, marcador final, camera temporaria, HUD e zona de queda com respawn.
 
+## Como gerar a cena separada VS_EraZero_Lab
+
+No Unity, depois de abrir o projeto:
+
+```text
+Fragmentos do Amanha > Create VS Era Zero Lab Scene
+```
+
+Isso cria/salva:
+
+```text
+Assets/Scenes/VS_EraZero_Lab.unity
+```
+
+Reaproveita o mesmo gerador do `Prototype_Theo_Controller` (agora um metodo compartilhado `BuildScene`), entao o conteudo da sala e identico ao blockout atual do laboratorio. `Prototype_Theo_Controller` continua existindo como cena de sandbox/teste; `VS_EraZero_Lab` fica reservada para a fatia oficial da demo, ao lado de `VS_Egypt_Blockout`.
+
 ## Ainda pendente
 
 - Teste manual no Play Mode do fluxo de dano/respawn e HUD.
@@ -72,8 +90,10 @@ A cena inclui chegada por fenda temporal, plataformas de templo, dois inimigos p
 - Teste manual do coletavel `Temporal Fragment` e contador `FRAG`.
 - Teste manual da leitura da sala curta: entrada, perigo, combate e recompensa.
 - Teste manual de pulo em cima de plataformas, movimento no ar e respawn por queda.
+- Teste manual do dash (`Shift`): distancia, cooldown e sensacao de perda de controle durante a rajada.
+- Teste manual do telegraph do inimigo (`Patrol -> Telegraph -> Attacking -> Cooldown`): tempo de aviso.
 - Substituir placeholders por sprites e tiles.
 - Integrar Pixel Perfect Camera quando o pacote estiver instalado.
 - Trocar camera temporaria por Cinemachine quando o pacote estiver instalado.
 - Testar carregamento do portal temporal entre `Prototype_Theo_Controller` e `VS_Egypt_Blockout`.
-- Criar cena separada `VS_EraZero_Lab`.
+- Gerar e testar `VS_EraZero_Lab` pelo menu de editor.

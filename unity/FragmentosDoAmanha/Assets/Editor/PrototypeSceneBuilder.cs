@@ -1,3 +1,4 @@
+using System.Linq;
 using FragmentosDoAmanha.CameraTools;
 using FragmentosDoAmanha.Combat;
 using FragmentosDoAmanha.Enemies;
@@ -13,6 +14,7 @@ namespace FragmentosDoAmanha.Editor
     public static class PrototypeSceneBuilder
     {
         private const string ScenePath = "Assets/Scenes/Prototype_Theo_Controller.unity";
+        private const string EraZeroLabScenePath = "Assets/Scenes/VS_EraZero_Lab.unity";
         private const string EgyptScenePath = "Assets/Scenes/VS_Egypt_Blockout.unity";
         private const string GroundLayerName = "Ground";
         private const float BackgroundZ = 2f;
@@ -30,12 +32,23 @@ namespace FragmentosDoAmanha.Editor
         [MenuItem("Fragmentos do Amanha/Create Prototype Theo Scene")]
         public static void CreatePrototypeTheoScene()
         {
+            BuildScene(ScenePath, "Prototype_Theo_Controller");
+        }
+
+        [MenuItem("Fragmentos do Amanha/Create VS Era Zero Lab Scene")]
+        public static void CreateEraZeroLabScene()
+        {
+            BuildScene(EraZeroLabScenePath, "VS_EraZero_Lab");
+        }
+
+        private static void BuildScene(string scenePath, string sceneName)
+        {
             EnsureGroundLayer();
 
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
-            scene.name = "Prototype_Theo_Controller";
+            scene.name = sceneName;
 
-            GameObject root = new GameObject("Prototype_Theo_Controller");
+            GameObject root = new GameObject(sceneName);
             PrototypeObjectiveState objectiveState = root.AddComponent<PrototypeObjectiveState>();
             GameObject environment = new GameObject("Era Zero Lab Blockout");
             environment.transform.SetParent(root.transform);
@@ -59,14 +72,23 @@ namespace FragmentosDoAmanha.Editor
             GameObject hud = CreatePrototypeHud(theo.GetComponent<PlayerHealth>(), theo.GetComponent<FragmentInventory>(), objectiveState);
             hud.transform.SetParent(root.transform);
 
-            EditorSceneManager.SaveScene(scene, ScenePath);
-            EditorBuildSettings.scenes = new[]
-            {
-                new EditorBuildSettingsScene(ScenePath, true),
-                new EditorBuildSettingsScene(EgyptScenePath, true)
-            };
+            EditorSceneManager.SaveScene(scene, scenePath);
+            AddSceneToBuildSettings(scenePath);
+            AddSceneToBuildSettings(EgyptScenePath);
             AssetDatabase.Refresh();
-            Debug.Log($"Fragmentos do Amanha: prototype scene saved at {ScenePath}");
+            Debug.Log($"Fragmentos do Amanha: scene saved at {scenePath}");
+        }
+
+        private static void AddSceneToBuildSettings(string scenePath)
+        {
+            var scenes = EditorBuildSettings.scenes.ToList();
+            if (scenes.Any(existing => existing.path == scenePath))
+            {
+                return;
+            }
+
+            scenes.Add(new EditorBuildSettingsScene(scenePath, true));
+            EditorBuildSettings.scenes = scenes.ToArray();
         }
 
         private static GameObject CreateTheo(Vector2 position)

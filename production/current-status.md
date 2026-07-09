@@ -153,13 +153,17 @@ Implementado:
 - cena adicionada ao Build Settings.
 - menu `Fragmentos do Amanha > Create VS Egypt Blockout Scene`;
 - script `TemporalScenePortal` para carregar cena alvo apos objetivo completo.
-- cena `VS_Egypt_Blockout` com chegada por fenda temporal, inimigos placeholder, obelisco de Voss, sinal de Naiara, fragmento, HUD e zona de queda.
+- cena `VS_Egypt_Blockout` com chegada por fenda temporal, inimigos placeholder, obelisco de Voss, sinal de Naiara, fragmento, HUD e zona de queda;
+- inimigo com telegraph antes do ataque (`Patrol -> Telegraph -> Attacking -> Cooldown`), substituindo o dano por contato instantaneo;
+- dash de Theo (`Shift`) com i-frames curtos e cooldown fixo;
+- menu `Fragmentos do Amanha > Create VS Era Zero Lab Scene`, reaproveitando o gerador do `Prototype_Theo_Controller` para salvar `VS_EraZero_Lab.unity` (ainda nao gerado localmente, so o script existe).
 
 Controles:
 
 - `A` / seta esquerda: mover para esquerda;
 - `D` / seta direita: mover para direita;
-- `Space` / `W` / seta para cima: pular.
+- `Space` / `W` / seta para cima: pular;
+- `Shift`: dash;
 - `J` / clique esquerdo: ataque basico placeholder.
 
 Proximo teste recomendado:
@@ -167,10 +171,11 @@ Proximo teste recomendado:
 1. Abrir `unity/FragmentosDoAmanha` no Unity Hub.
 2. Abrir `Assets/Scenes/Prototype_Theo_Controller.unity`.
 3. Rodar Play Mode.
-4. Avaliar peso do pulo, velocidade horizontal, pulo em plataformas, movimento no ar, queda/respawn, camera, zona de dano, HUD, ataque, inimigo, fragmento coletavel e leitura da sala.
+4. Avaliar peso do pulo, velocidade horizontal, pulo em plataformas, movimento no ar, queda/respawn, camera, zona de dano, HUD, ataque, dash, inimigo com telegraph, fragmento coletavel e leitura da sala.
 5. Coletar o fragmento e entrar no marcador final para validar o portal para `VS_Egypt_Blockout`.
 6. Abrir/testar `Assets/Scenes/VS_Egypt_Blockout.unity` diretamente.
-7. Ajustar `TheoController`, `CameraFollow2D`, `PlayerHealth`, `PrototypeHealthHud`, `PrototypeFragmentHud`, `PlayerAttack`, `PrototypeEnemy`, `TemporalFragment` e `TemporalScenePortal`.
+7. Rodar `Fragmentos do Amanha > Create VS Era Zero Lab Scene` e testar `VS_EraZero_Lab.unity`.
+8. Ajustar `TheoController`, `CameraFollow2D`, `PlayerHealth`, `PrototypeHealthHud`, `PrototypeFragmentHud`, `PlayerAttack`, `PrototypeEnemy`, `TemporalFragment` e `TemporalScenePortal`.
 
 ## Arte e referencias
 

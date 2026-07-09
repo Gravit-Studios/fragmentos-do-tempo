@@ -13,6 +13,7 @@ Checklist de definicao de "pronto" para a demo inicial:
 - [ ] Vida, dano, invulnerabilidade e respawn testados de ponta a ponta.
 - [ ] Fragmento coletavel e HUD (vida, fragmento, objetivo) testados de ponta a ponta.
 - [ ] Portal temporal Era Zero -> Egito testado e sem bugs de carregamento.
+- [ ] Cena oficial `VS_EraZero_Lab` gerada e testada (script pronto: `Fragmentos do Amanha > Create VS Era Zero Lab Scene`), separada da cena de sandbox `Prototype_Theo_Controller`.
 - [ ] Pixel Perfect Camera e Cinemachine integrados (substituindo camera temporaria).
 - [ ] Tileset placeholder proprio para Era Zero e para Egito (mesmo que simples, cada epoca visualmente distinta).
 - [ ] Sprite/animacao minima do Theo (ainda que placeholder) substituindo o blockout de caixas.
