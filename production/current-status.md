@@ -1,6 +1,6 @@
 # Current Status
 
-Atualizado em: 2026-07-08
+Atualizado em: 2026-07-09
 
 ## Objetivo deste documento
 
@@ -40,6 +40,9 @@ Ja existe:
 - prompts oficiais de cenarios;
 - artes iniciais de personagens;
 - artes iniciais de cenarios em concept art e pixel art;
+- estrutura inicial do concept book;
+- primeiro lote de paginas de validacao do concept book;
+- prompts de exploracao de logotipo;
 - projeto Unity real;
 - primeira cena jogavel placeholder do Theo.
 - sistema temporario de vida, dano e respawn.
@@ -54,9 +57,6 @@ Ainda nao existe:
 - sprite final do Theo integrado na Unity;
 - tileset real de Era Zero;
 - tileset real do Egito;
-- combate;
-- inimigo;
-- fragmentos coletaveis;
 - transicao temporal jogavel;
 - build interna jogavel.
 
@@ -192,7 +192,10 @@ production/vertical-slice-plan.md
 production/production-handbook.md
 docs/00_Project/project-overview.md
 docs/03_VisualDevelopment/visual-development-guide.md
+docs/03_VisualDevelopment/concept-book-outline.md
+docs/03_VisualDevelopment/concept-book-page-plan.md
 docs/03_VisualDevelopment/pixel-art-bible.md
+docs/03_VisualDevelopment/logo-exploration-prompts.md
 docs/04_Characters/character-dna.md
 docs/06_Animation/animation-bible.md
 docs/08_UnityPipeline/unity-base-project-setup.md
