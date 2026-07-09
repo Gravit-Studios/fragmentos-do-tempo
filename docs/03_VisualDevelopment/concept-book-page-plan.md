@@ -54,6 +54,7 @@ Direcao:
 - variar cor, intensidade e pequenos detalhes conforme era, faccao ou tom da pagina;
 - substituir linhas retas demais da borda por feixes falhados, brilhos curtos e fagulhas inspirados no logo;
 - evitar molduras com cara de grade tecnica quando a pagina for mais narrativa;
+- usar texturas de simbolo em escala grande como fundo centralizado, quase imperceptivel, sem repetir como padrao;
 - manter a energia mais concentrada no nucleo, nos rasgos temporais e em pontos de foco da composicao;
 - usar particulas ciano para ruptura temporal e particulas cobre/laranja para energia ativa, alerta ou instabilidade.
 
@@ -88,6 +89,7 @@ Composicao proposta:
 - nucleo temporal como foco discreto;
 - usar moldura como fecho de luz falhado, com fagulhas e brilhos nas bordas;
 - evitar bordas retas demais ou grade tecnica dominante;
+- usar um simbolo ampliado e centralizado no fundo como textura quase invisivel;
 - acento azul/ciano mais forte que o laranja;
 - textura sutil, sem poluir;
 - sem textos secundarios narrativos nesta primeira versao.
