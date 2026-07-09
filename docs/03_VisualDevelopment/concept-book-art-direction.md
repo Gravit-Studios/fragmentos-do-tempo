@@ -6,6 +6,8 @@ O concept book de *Fragmentos do Amanha* deve parecer um material visual criado 
 
 A direcao desejada e rica visualmente, com muita informacao, mas organizada por composicao artistica: uma imagem principal conduz o olhar, enquanto estudos, props, silhuetas, notas e detalhes tecnicos orbitam ao redor.
 
+A nova prioridade e reduzir explicacao literal. O artbook deve sugerir contexto por imagem, silhueta, material, postura, mapa, atmosfera e contraste visual. Texto entra como apoio discreto, nao como a principal ferramenta de compreensao.
+
 ## Principios
 
 - Compor paginas como spreads de artbook, nao como slides.
@@ -33,6 +35,7 @@ Direcao aprovada a partir das referencias recebidas em `art/concept-book/referen
 - evitar rodape invadindo moldura ou texto colado em borda;
 - manter a marca d'agua apenas em versoes de producao, sempre legivel mas sem destruir a arte;
 - trocar fontes padrao por uma combinacao editorial: titulo com serif historica, notas tecnicas com fonte estreita e limpa.
+- evitar explicar demais a funcao da imagem; a pagina deve convidar leitura visual antes de virar documento tecnico.
 
 Aplicacao em *Fragmentos do Amanha*:
 
@@ -40,6 +43,30 @@ Aplicacao em *Fragmentos do Amanha*:
 - Egito deve parecer arqueologia contaminada por tecnologia temporal e propaganda de Voss.
 - Personagens devem parecer paginas de estudo de producao, com pose, silhueta, equipamento, detalhe de gameplay e motivacao narrativa.
 - Historia deve aparecer como relacao visual entre arte, mapa, simbolo e anotacao, nao como texto explicativo separado.
+
+### Linha De Producao Conceitual
+
+Ordem de producao aprovada:
+
+1. Concept art e linguagem visual.
+2. Personagens, NPCs, faccoes, cenarios e levels em prancha de conceito.
+3. Validacao de silhueta, mundo, atmosfera e funcao jogavel.
+4. So depois traduzir para pixel art.
+5. So depois integrar na Unity.
+
+Essa ordem evita transformar uma ideia fraca em asset final cedo demais. O pixel art deve nascer de uma direcao conceitual aprovada, nao tentar descobrir sozinho a identidade do jogo.
+
+### Continuidade Com As Artes Iniciais
+
+As artes em `art/illustration/` sao a referencia principal de continuidade visual. Novas geracoes devem consultar primeiro:
+
+- Theo: humano, analitico, improvisador, terracota e petroleo escuro.
+- Voss: simetria, verticalidade, preto/ouro/cobre e autoridade absoluta.
+- Naiara: tecido natural, movimento, resistencia pratica e objeto herdado.
+- Era Zero: laboratorio cinematografico, grafite, vidro, cabos, cobre e ciano controlado.
+- Egito: pedra, areia, luz quente, escala vertical e intervencao de Voss no ambiente.
+
+Novas artes podem explorar, mas nao devem quebrar esses codigos. Se uma geracao ficar mais suja, pos-apocaliptica, neon ou fantasiosa do que a base, ela deve ser tratada como estudo e nao como direcao aprovada.
 
 ### Personagens
 
