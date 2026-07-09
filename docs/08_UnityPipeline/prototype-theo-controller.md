@@ -18,6 +18,7 @@ Primeira cena jogavel para validar a sensacao basica de controle, combate e obje
 ## Implementado
 
 - Theo placeholder com `Rigidbody2D`, `CapsuleCollider2D` e controller basico.
+- Theo blockout visual com oculos, jaqueta terracota, roupa escura e cronometro temporal nas cenas Era Zero e Egito.
 - Movimento horizontal.
 - Pulo com checagem de chao.
 - Checagem de chao por `BoxCast`, mais estavel em plataformas.

@@ -45,6 +45,7 @@ Ja existe:
 - prompts de exploracao de logotipo;
 - projeto Unity real;
 - primeira cena jogavel placeholder do Theo.
+- Theo com blockout visual direcional baseado no concept art;
 - sistema temporario de vida, dano e respawn.
 - HUD temporario de vida.
 - ataque basico placeholder.
@@ -52,6 +53,7 @@ Ja existe:
 - fragmento temporal coletavel com contador no HUD.
 - primeira sala curta de vertical slice com inicio, perigo, inimigo e objetivo.
 - scripts e menu de editor para gerar `VS_Egypt_Blockout`.
+- cena `VS_Egypt_Blockout` gerada localmente e adicionada ao Build Settings;
 - portal temporal placeholder preparado para carregar a cena do Egito apos completar o objetivo.
 
 Ainda nao existe:
@@ -107,12 +109,13 @@ Pendencias de pacote:
 
 Observacao: `brew` nao estava disponivel no terminal local, entao o Git LFS ainda nao foi instalado por Homebrew.
 
-## Cena jogavel atual
+## Cenas jogaveis atuais
 
 Cena:
 
 ```text
 unity/FragmentosDoAmanha/Assets/Scenes/Prototype_Theo_Controller.unity
+unity/FragmentosDoAmanha/Assets/Scenes/VS_Egypt_Blockout.unity
 ```
 
 Documentacao:
@@ -124,6 +127,7 @@ docs/08_UnityPipeline/prototype-theo-controller.md
 Implementado:
 
 - Theo placeholder;
+- Theo blockout visual com jaqueta terracota, roupa escura, oculos e cronometro temporal;
 - movimento horizontal;
 - pulo;
 - gravidade;
@@ -147,6 +151,7 @@ Implementado:
 - cena adicionada ao Build Settings.
 - menu `Fragmentos do Amanha > Create VS Egypt Blockout Scene`;
 - script `TemporalScenePortal` para carregar cena alvo apos objetivo completo.
+- cena `VS_Egypt_Blockout` com chegada por fenda temporal, inimigos placeholder, obelisco de Voss, sinal de Naiara, fragmento, HUD e zona de queda.
 
 Controles:
 
@@ -161,7 +166,9 @@ Proximo teste recomendado:
 2. Abrir `Assets/Scenes/Prototype_Theo_Controller.unity`.
 3. Rodar Play Mode.
 4. Avaliar peso do pulo, velocidade horizontal, pulo em plataformas, movimento no ar, queda/respawn, camera, zona de dano, HUD, ataque, inimigo, fragmento coletavel e leitura da sala.
-5. Ajustar `TheoController`, `CameraFollow2D`, `PlayerHealth`, `PrototypeHealthHud`, `PrototypeFragmentHud`, `PlayerAttack`, `PrototypeEnemy` e `TemporalFragment`.
+5. Coletar o fragmento e entrar no marcador final para validar o portal para `VS_Egypt_Blockout`.
+6. Abrir/testar `Assets/Scenes/VS_Egypt_Blockout.unity` diretamente.
+7. Ajustar `TheoController`, `CameraFollow2D`, `PlayerHealth`, `PrototypeHealthHud`, `PrototypeFragmentHud`, `PlayerAttack`, `PrototypeEnemy`, `TemporalFragment` e `TemporalScenePortal`.
 
 ## Arte e referencias
 

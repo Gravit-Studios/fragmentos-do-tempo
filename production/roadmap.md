@@ -69,9 +69,9 @@ Objetivo: uma fatia curta, jogavel e apresentavel.
 - [x] Pequena area do Egito.
 - [x] Transicao temporal placeholder.
 - [x] Fragmento coletavel.
-- [ ] Inimigo comum do Egito.
-- [ ] Primeira presenca ambiental forte de Voss.
-- [ ] Aparicao/indicacao de Naiara.
+- [x] Inimigo comum placeholder do Egito.
+- [x] Primeira presenca ambiental placeholder de Voss.
+- [x] Indicacao placeholder de Naiara.
 - [ ] Build jogavel interna.
 
 ## Fase 5 — Pos-slice

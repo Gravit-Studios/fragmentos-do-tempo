@@ -13,6 +13,7 @@ namespace FragmentosDoAmanha.Editor
     public static class PrototypeSceneBuilder
     {
         private const string ScenePath = "Assets/Scenes/Prototype_Theo_Controller.unity";
+        private const string EgyptScenePath = "Assets/Scenes/VS_Egypt_Blockout.unity";
         private const string GroundLayerName = "Ground";
         private const float BackgroundZ = 2f;
         private const float EnvironmentZ = 0f;
@@ -61,7 +62,8 @@ namespace FragmentosDoAmanha.Editor
             EditorSceneManager.SaveScene(scene, ScenePath);
             EditorBuildSettings.scenes = new[]
             {
-                new EditorBuildSettingsScene(ScenePath, true)
+                new EditorBuildSettingsScene(ScenePath, true),
+                new EditorBuildSettingsScene(EgyptScenePath, true)
             };
             AssetDatabase.Refresh();
             Debug.Log($"Fragmentos do Amanha: prototype scene saved at {ScenePath}");
@@ -70,6 +72,8 @@ namespace FragmentosDoAmanha.Editor
         private static GameObject CreateTheo(Vector2 position)
         {
             GameObject theo = CreateBox("Theo Placeholder", position, new Vector2(0.8f, 1.6f), new Color(1f, 0.72f, 0.22f), "Default", GameplayZ);
+            Object.DestroyImmediate(theo.GetComponent<MeshRenderer>());
+            Object.DestroyImmediate(theo.GetComponent<MeshFilter>());
             CapsuleCollider2D theoCollider = theo.AddComponent<CapsuleCollider2D>();
             theoCollider.direction = CapsuleDirection2D.Vertical;
             theoCollider.size = new Vector2(0.68f, 1.52f);
@@ -95,7 +99,40 @@ namespace FragmentosDoAmanha.Editor
             serializedAttack.ApplyModifiedPropertiesWithoutUndo();
             hitboxPreview.SetActive(false);
 
+            CreateTheoBlockoutVisual(theo.transform);
             return theo;
+        }
+
+        private static void CreateTheoBlockoutVisual(Transform parent)
+        {
+            Color jacket = new Color(0.82f, 0.36f, 0.14f);
+            Color undersuit = new Color(0.05f, 0.22f, 0.25f);
+            Color skin = new Color(0.86f, 0.58f, 0.39f);
+            Color dark = new Color(0.03f, 0.04f, 0.05f);
+            Color copperGlow = new Color(1f, 0.55f, 0.12f);
+            Color lensGlow = new Color(0.35f, 0.9f, 1f);
+
+            CreateTheoVisualPart(parent, "Theo Undersuit", new Vector2(0f, -0.16f), new Vector2(0.48f, 0.95f), undersuit);
+            CreateTheoVisualPart(parent, "Theo Jacket", new Vector2(-0.03f, -0.12f), new Vector2(0.62f, 0.82f), jacket);
+            CreateTheoVisualPart(parent, "Theo Asymmetric Strap", new Vector2(0.16f, 0.01f), new Vector2(0.1f, 0.74f), dark);
+            CreateTheoVisualPart(parent, "Theo Head", new Vector2(0f, 0.62f), new Vector2(0.42f, 0.36f), skin);
+            CreateTheoVisualPart(parent, "Theo Hair", new Vector2(0.02f, 0.82f), new Vector2(0.46f, 0.16f), dark);
+            CreateTheoVisualPart(parent, "Theo Goggles", new Vector2(0.02f, 0.77f), new Vector2(0.5f, 0.08f), lensGlow);
+            CreateTheoVisualPart(parent, "Theo Left Arm", new Vector2(-0.39f, -0.1f), new Vector2(0.14f, 0.72f), jacket);
+            CreateTheoVisualPart(parent, "Theo Right Arm", new Vector2(0.38f, -0.09f), new Vector2(0.13f, 0.68f), undersuit);
+            CreateTheoVisualPart(parent, "Theo Chronometer", new Vector2(0.46f, -0.33f), new Vector2(0.16f, 0.12f), copperGlow);
+            CreateTheoVisualPart(parent, "Theo Left Leg", new Vector2(-0.16f, -0.82f), new Vector2(0.16f, 0.5f), undersuit);
+            CreateTheoVisualPart(parent, "Theo Right Leg", new Vector2(0.16f, -0.8f), new Vector2(0.16f, 0.54f), undersuit);
+            CreateTheoVisualPart(parent, "Theo Boots", new Vector2(0f, -1.1f), new Vector2(0.58f, 0.12f), dark);
+        }
+
+        private static GameObject CreateTheoVisualPart(Transform parent, string name, Vector2 localPosition, Vector2 size, Color color)
+        {
+            GameObject part = CreateBox(name, Vector2.zero, size, color, "Default", GameplayZ - 0.02f);
+            part.transform.SetParent(parent);
+            part.transform.localPosition = new Vector3(localPosition.x, localPosition.y, 0f);
+            Object.DestroyImmediate(part.GetComponent<MeshCollider>());
+            return part;
         }
 
         private static GameObject CreatePrototypeHud(PlayerHealth playerHealth, FragmentInventory fragmentInventory, PrototypeObjectiveState objectiveState)
