@@ -24,6 +24,7 @@ O jogo usa duas camadas de arte:
 
 ## Documentos principais
 
+- [Codex Project Guide](AGENTS.md)
 - [Current Status](production/current-status.md)
 - [Project Overview](docs/00_Project/project-overview.md)
 - [Visual Development Guide](docs/03_VisualDevelopment/visual-development-guide.md)
