@@ -6,12 +6,13 @@ namespace FragmentosDoAmanha.UI
     public sealed class PrototypeHealthHud : MonoBehaviour
     {
         [SerializeField] private PlayerHealth playerHealth;
-        [SerializeField] private string filledPip = "#";
-        [SerializeField] private string emptyPip = "-";
 
         private int currentHealth;
         private int maxHealth;
-        private GUIStyle style;
+        private GUIStyle labelStyle;
+        private Texture2D fillTexture;
+        private Texture2D emptyTexture;
+        private Texture2D shadowTexture;
 
         public void SetPlayerHealth(PlayerHealth newPlayerHealth)
         {
@@ -31,12 +32,15 @@ namespace FragmentosDoAmanha.UI
 
         private void Awake()
         {
-            style = new GUIStyle
+            labelStyle = new GUIStyle
             {
-                fontSize = 28,
+                fontSize = 22,
                 fontStyle = FontStyle.Bold
             };
-            style.normal.textColor = new Color(1f, 0.72f, 0.22f);
+            labelStyle.normal.textColor = new Color(1f, 0.72f, 0.22f);
+            fillTexture = CreateTexture(new Color(1f, 0.72f, 0.22f));
+            emptyTexture = CreateTexture(new Color(0.18f, 0.13f, 0.08f));
+            shadowTexture = CreateTexture(new Color(0f, 0f, 0f, 0.55f));
         }
 
         private void OnEnable()
@@ -64,23 +68,28 @@ namespace FragmentosDoAmanha.UI
 
         private void OnGUI()
         {
-            if (style == null)
+            if (labelStyle == null)
             {
                 Awake();
             }
 
-            GUI.Label(new Rect(24f, 20f, 240f, 48f), $"HP {BuildPips(currentHealth, maxHealth)}", style);
-        }
+            GUI.Label(new Rect(24f, 18f, 48f, 32f), "HP", labelStyle);
 
-        private string BuildPips(int currentHealth, int maxHealth)
-        {
-            string pips = string.Empty;
             for (int i = 0; i < maxHealth; i++)
             {
-                pips += i < currentHealth ? filledPip : emptyPip;
+                Rect shadowRect = new Rect(67f + (i * 25f), 25f, 20f, 16f);
+                Rect pipRect = new Rect(65f + (i * 25f), 23f, 20f, 16f);
+                GUI.DrawTexture(shadowRect, shadowTexture);
+                GUI.DrawTexture(pipRect, i < currentHealth ? fillTexture : emptyTexture);
             }
+        }
 
-            return pips;
+        private static Texture2D CreateTexture(Color color)
+        {
+            Texture2D texture = new Texture2D(1, 1);
+            texture.SetPixel(0, 0, color);
+            texture.Apply();
+            return texture;
         }
     }
 }

@@ -33,7 +33,7 @@ Primeira cena jogavel para validar a sensacao basica de controle, combate e obje
 - Camera 2D seguindo Theo por script temporario.
 - Camera 2D com limites temporarios da sala e enquadramento ajustado ao tamanho visivel.
 - Sistema temporario de vida, dano e respawn.
-- HUD temporario de vida.
+- HUD temporario de vida com pips visuais.
 - Ataque basico placeholder com hitbox visual curta.
 - Inimigo placeholder com patrulha, dano de contato, vida e morte.
 - Fragmento temporal coletavel com contador no HUD.
