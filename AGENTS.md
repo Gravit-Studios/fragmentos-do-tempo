@@ -7,9 +7,11 @@ Este repositorio e a fonte central do projeto **Fragmentos do Amanha / Era Zero*
 1. Leia este arquivo.
 2. Leia `production/current-status.md`.
 3. Leia `production/roadmap.md`.
-4. Para trabalho na Unity, leia tambem `docs/08_UnityPipeline/prototype-theo-controller.md`.
-5. Verifique o estado do Git antes de editar.
-6. Se estiver em maquina local, atualize a branch antes de trabalhar:
+4. Leia `production/handoff-current-state.md`.
+5. Para trabalho na Unity, leia tambem `docs/08_UnityPipeline/prototype-theo-controller.md`.
+6. Para trabalho no concept book, leia tambem `docs/03_VisualDevelopment/concept-book-art-direction.md`.
+7. Verifique o estado do Git antes de editar.
+8. Se estiver em maquina local, atualize a branch antes de trabalhar:
 
 ```bash
 git pull --ff-only origin main
@@ -143,6 +145,7 @@ Documentacao:
 
 ```text
 docs/08_UnityPipeline/prototype-theo-controller.md
+production/handoff-current-state.md
 ```
 
 Controles atuais:
@@ -225,6 +228,7 @@ Use este prompt em nova conversa, Codex web, tablet, celular ou outro PC:
 Estamos trabalhando no projeto Fragmentos do Amanha / Era Zero.
 Use o repositorio GitHub https://github.com/Gravit-Studios/fragmentos-do-amanha como fonte principal.
 Leia AGENTS.md, production/current-status.md, production/roadmap.md e docs/08_UnityPipeline/prototype-theo-controller.md antes de agir.
+Leia tambem production/handoff-current-state.md para pegar o estado final mais recente.
 Continue do estado atual do projeto.
 Se estiver no Codex web, nao assuma que consegue testar Unity; prepare mudancas versionadas e marque Play Mode como pendente.
 Se estiver no PC principal com Unity, priorize testar Prototype_Theo_Controller no Play Mode e ajustar controle, camera, combate, HUD e leitura da sala.
