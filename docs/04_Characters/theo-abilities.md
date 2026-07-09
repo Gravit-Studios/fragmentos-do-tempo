@@ -34,6 +34,7 @@ Esse kit cobre a base de Era Zero. As habilidades abaixo sao propostas de evoluc
 
 - **Passo Temporal (Dash):** deslocamento curto com i-frames, custa 1 uso de energia recarregavel. Abre gaps e desvia de armadilhas. Primeira habilidade de mobilidade real.
 - Uso de metroidvania: abre acesso a fendas estreitas e desvia da zona de perigo ja existente no blockout.
+- Status: implementado no prototipo (`TheoController.cs`, tecla Shift), sem custo de energia ainda (dash livre com cooldown fixo). Aguardando teste em Play Mode para validar velocidade, duracao e cooldown.
 
 ### Grecia Antiga
 

@@ -16,19 +16,33 @@ namespace FragmentosDoAmanha.Player
         [SerializeField] private float sideCheckDistance = 0.08f;
         [SerializeField] private float antiSnagFallSpeed = -0.75f;
 
+        [Header("Dash")]
+        [SerializeField] private float dashSpeed = 16f;
+        [SerializeField] private float dashDuration = 0.16f;
+        [SerializeField] private float dashCooldown = 0.5f;
+        [SerializeField] private float dashInvulnerabilityDuration = 0.16f;
+
         private Rigidbody2D body;
         private Collider2D bodyCollider;
+        private PlayerHealth playerHealth;
         private float horizontalInput;
         private float groundedTimer;
         private bool jumpPressed;
         private int facingDirection = 1;
+        private bool dashPressed;
+        private bool isDashing;
+        private float dashTimer;
+        private float dashCooldownTimer;
+        private int dashDirection = 1;
 
         public int FacingDirection => facingDirection;
+        public bool IsDashing => isDashing;
 
         private void Awake()
         {
             body = GetComponent<Rigidbody2D>();
             bodyCollider = GetComponent<Collider2D>();
+            playerHealth = GetComponent<PlayerHealth>();
         }
 
         private void Update()
@@ -56,10 +70,40 @@ namespace FragmentosDoAmanha.Player
             {
                 jumpPressed = true;
             }
+
+            if (keyboard.leftShiftKey.wasPressedThisFrame || keyboard.rightShiftKey.wasPressedThisFrame)
+            {
+                dashPressed = true;
+            }
         }
 
         private void FixedUpdate()
         {
+            if (isDashing)
+            {
+                dashTimer -= Time.fixedDeltaTime;
+                body.linearVelocity = new Vector2(dashDirection * dashSpeed, 0f);
+                if (dashTimer <= 0f)
+                {
+                    isDashing = false;
+                    dashCooldownTimer = dashCooldown;
+                }
+
+                jumpPressed = false;
+                dashPressed = false;
+                return;
+            }
+
+            dashCooldownTimer = Mathf.Max(0f, dashCooldownTimer - Time.fixedDeltaTime);
+            if (dashPressed && dashCooldownTimer <= 0f)
+            {
+                dashPressed = false;
+                StartDash();
+                return;
+            }
+
+            dashPressed = false;
+
             bool grounded = IsGrounded();
             groundedTimer = grounded ? coyoteTime : Mathf.Max(0f, groundedTimer - Time.fixedDeltaTime);
             int sideContactDirection = GetSideContactDirection();
@@ -82,6 +126,18 @@ namespace FragmentosDoAmanha.Player
             }
 
             jumpPressed = false;
+        }
+
+        private void StartDash()
+        {
+            isDashing = true;
+            dashTimer = dashDuration;
+            dashDirection = facingDirection;
+
+            if (playerHealth != null)
+            {
+                playerHealth.GrantInvulnerability(dashInvulnerabilityDuration);
+            }
         }
 
         private bool IsGrounded()

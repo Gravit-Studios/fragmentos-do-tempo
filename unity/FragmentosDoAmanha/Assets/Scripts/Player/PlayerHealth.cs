@@ -43,6 +43,16 @@ namespace FragmentosDoAmanha.Player
             respawnPoint = newRespawnPoint;
         }
 
+        public void GrantInvulnerability(float duration)
+        {
+            if (duration <= 0f || isRespawning)
+            {
+                return;
+            }
+
+            StartCoroutine(TemporaryInvulnerabilityRoutine(duration));
+        }
+
         public void RespawnNow()
         {
             if (isRespawning)
@@ -84,6 +94,16 @@ namespace FragmentosDoAmanha.Player
             isInvulnerable = true;
             yield return new WaitForSeconds(invulnerabilityDuration);
             isInvulnerable = false;
+        }
+
+        private IEnumerator TemporaryInvulnerabilityRoutine(float duration)
+        {
+            isInvulnerable = true;
+            yield return new WaitForSeconds(duration);
+            if (!isRespawning)
+            {
+                isInvulnerable = false;
+            }
         }
 
         private IEnumerator RespawnRoutine()
