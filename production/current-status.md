@@ -51,13 +51,15 @@ Ja existe:
 - inimigo placeholder com patrulha, dano de contato, vida e morte.
 - fragmento temporal coletavel com contador no HUD.
 - primeira sala curta de vertical slice com inicio, perigo, inimigo e objetivo.
+- scripts e menu de editor para gerar `VS_Egypt_Blockout`.
+- portal temporal placeholder preparado para carregar a cena do Egito apos completar o objetivo.
 
 Ainda nao existe:
 
 - sprite final do Theo integrado na Unity;
 - tileset real de Era Zero;
 - tileset real do Egito;
-- transicao temporal jogavel;
+- transicao temporal final com arte/FX;
 - build interna jogavel.
 
 ## Commits importantes
@@ -143,6 +145,8 @@ Implementado:
 - nucleo temporal;
 - monitor do Voss;
 - cena adicionada ao Build Settings.
+- menu `Fragmentos do Amanha > Create VS Egypt Blockout Scene`;
+- script `TemporalScenePortal` para carregar cena alvo apos objetivo completo.
 
 Controles:
 

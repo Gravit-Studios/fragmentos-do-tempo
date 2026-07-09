@@ -29,7 +29,8 @@ Objetivo: preparar tudo que precisa existir antes da primeira cena jogavel.
 - [ ] Configurar Git LFS antes de adicionar binarios pesados.
 - [x] Criar cena de teste do Theo.
 - [ ] Criar tileset placeholder da Era Zero.
-- [ ] Criar tileset placeholder do Egito.
+- [x] Criar blockout placeholder do Egito.
+- [ ] Criar tileset placeholder visual do Egito.
 
 ## Fase 2 — Prototipo Jogavel
 
@@ -65,8 +66,8 @@ Objetivo: substituir placeholders principais por assets direcionais.
 Objetivo: uma fatia curta, jogavel e apresentavel.
 
 - [x] Sala introdutoria Era Zero.
-- [ ] Pequena area do Egito.
-- [ ] Transicao temporal placeholder.
+- [x] Pequena area do Egito.
+- [x] Transicao temporal placeholder.
 - [x] Fragmento coletavel.
 - [ ] Inimigo comum do Egito.
 - [ ] Primeira presenca ambiental forte de Voss.

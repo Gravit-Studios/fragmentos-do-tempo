@@ -43,6 +43,24 @@ Primeira cena jogavel para validar a sensacao basica de controle, combate e obje
 - Blockout inicial do laboratorio Era Zero.
 - Primeira sala curta com inicio seguro, salto, perigo, inimigo e fragmento.
 - Elementos de direcao visual: nucleo temporal, monitor de Voss, luz fria e acento cobre.
+- Portal temporal placeholder preparado para carregar `VS_Egypt_Blockout` apos o objetivo completo.
+- Menu de editor para gerar `VS_Egypt_Blockout`.
+
+## Como gerar a cena do Egito
+
+No Unity, depois de abrir o projeto:
+
+```text
+Fragmentos do Amanha > Create VS Egypt Blockout Scene
+```
+
+Isso cria/salva:
+
+```text
+Assets/Scenes/VS_Egypt_Blockout.unity
+```
+
+A cena inclui chegada por fenda temporal, plataformas de templo, dois inimigos placeholder, fragmento coletavel, obelisco com presenca de Voss, sinal visual de Naiara, marcador final, camera temporaria, HUD e zona de queda com respawn.
 
 ## Ainda pendente
 
@@ -55,4 +73,5 @@ Primeira cena jogavel para validar a sensacao basica de controle, combate e obje
 - Substituir placeholders por sprites e tiles.
 - Integrar Pixel Perfect Camera quando o pacote estiver instalado.
 - Trocar camera temporaria por Cinemachine quando o pacote estiver instalado.
-- Criar cenas separadas `VS_EraZero_Lab` e `VS_Egypt_Blockout`.
+- Testar carregamento do portal temporal entre `Prototype_Theo_Controller` e `VS_Egypt_Blockout`.
+- Criar cena separada `VS_EraZero_Lab`.

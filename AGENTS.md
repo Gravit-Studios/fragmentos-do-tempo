@@ -93,6 +93,8 @@ O projeto ja tem:
 - fragmento temporal coletavel;
 - HUD temporario de vida, fragmento e objetivo;
 - primeira sala curta de laboratorio Era Zero.
+- scripts e menu de editor para gerar o blockout `VS_Egypt_Blockout`;
+- portal temporal placeholder para carregar a cena do Egito apos objetivo completo.
 
 O projeto ainda precisa:
 
@@ -103,8 +105,8 @@ O projeto ainda precisa:
 - tileset placeholder da Era Zero;
 - tileset placeholder do Egito;
 - sprites e animacoes reais do Theo;
-- transicao temporal placeholder;
-- area inicial do Egito;
+- FX/arte final de transicao temporal;
+- teste manual da area inicial do Egito;
 - build interna jogavel.
 
 ## Unity

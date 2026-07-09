@@ -10,45 +10,45 @@ using UnityEngine;
 
 namespace FragmentosDoAmanha.Editor
 {
-    public static class PrototypeSceneBuilder
+    public static class EgyptBlockoutSceneBuilder
     {
-        private const string ScenePath = "Assets/Scenes/Prototype_Theo_Controller.unity";
+        private const string ScenePath = "Assets/Scenes/VS_Egypt_Blockout.unity";
+        private const string PrototypeScenePath = "Assets/Scenes/Prototype_Theo_Controller.unity";
         private const string GroundLayerName = "Ground";
         private const float BackgroundZ = 2f;
         private const float EnvironmentZ = 0f;
         private const float GameplayZ = -1f;
         private const float TopPlatformEdgeInset = 0.22f;
-        private static readonly Vector2 CameraMin = new Vector2(-12.5f, -3.15f);
-        private static readonly Vector2 CameraMax = new Vector2(13.5f, 3.15f);
+        private static readonly Vector2 CameraMin = new Vector2(-12.5f, -4f);
+        private static readonly Vector2 CameraMax = new Vector2(18.5f, 4f);
         private static readonly PhysicsMaterial2D NoFrictionMaterial = new PhysicsMaterial2D("Prototype No Friction")
         {
             friction = 0f,
             bounciness = 0f
         };
 
-        [MenuItem("Fragmentos do Amanha/Create Prototype Theo Scene")]
-        public static void CreatePrototypeTheoScene()
+        [MenuItem("Fragmentos do Amanha/Create VS Egypt Blockout Scene")]
+        public static void CreateEgyptBlockoutScene()
         {
             EnsureGroundLayer();
 
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
-            scene.name = "Prototype_Theo_Controller";
+            scene.name = "VS_Egypt_Blockout";
 
-            GameObject root = new GameObject("Prototype_Theo_Controller");
+            GameObject root = new GameObject("VS_Egypt_Blockout");
             PrototypeObjectiveState objectiveState = root.AddComponent<PrototypeObjectiveState>();
-            GameObject environment = new GameObject("Era Zero Lab Blockout");
+            GameObject environment = new GameObject("Ancient Egypt Temple Blockout");
             environment.transform.SetParent(root.transform);
 
-            CreateLabBackground(environment.transform);
-            CreateVerticalSliceRoom(environment.transform, objectiveState);
-            CreateTemporalMachine(environment.transform);
-            CreateVossMonitor(environment.transform);
-            CreateDamageZone(environment.transform);
-            CreateFallRespawnZone(environment.transform);
-            CreatePrototypeEnemy(environment.transform);
+            CreateBackground(environment.transform);
+            CreateRoom(environment.transform, objectiveState);
+            CreateTempleProps(environment.transform);
+            CreatePrototypeEnemy(environment.transform, new Vector2(5.2f, -1.55f));
+            CreatePrototypeEnemy(environment.transform, new Vector2(12.5f, -1.55f));
             CreateTemporalFragment(environment.transform);
+            CreateFallRespawnZone(environment.transform);
 
-            GameObject theo = CreateTheo(new Vector2(-9f, -1.5f));
+            GameObject theo = CreateTheo(new Vector2(-10f, -1.5f));
             theo.transform.SetParent(root.transform);
             objectiveState.SetInventory(theo.GetComponent<FragmentInventory>());
 
@@ -61,10 +61,11 @@ namespace FragmentosDoAmanha.Editor
             EditorSceneManager.SaveScene(scene, ScenePath);
             EditorBuildSettings.scenes = new[]
             {
+                new EditorBuildSettingsScene(PrototypeScenePath, true),
                 new EditorBuildSettingsScene(ScenePath, true)
             };
             AssetDatabase.Refresh();
-            Debug.Log($"Fragmentos do Amanha: prototype scene saved at {ScenePath}");
+            Debug.Log($"Fragmentos do Amanha: Egypt blockout scene saved at {ScenePath}");
         }
 
         private static GameObject CreateTheo(Vector2 position)
@@ -74,6 +75,7 @@ namespace FragmentosDoAmanha.Editor
             theoCollider.direction = CapsuleDirection2D.Vertical;
             theoCollider.size = new Vector2(0.68f, 1.52f);
             theoCollider.sharedMaterial = NoFrictionMaterial;
+
             Rigidbody2D body = theo.AddComponent<Rigidbody2D>();
             body.freezeRotation = true;
             body.gravityScale = 4.2f;
@@ -116,7 +118,7 @@ namespace FragmentosDoAmanha.Editor
             Camera camera = cameraObject.AddComponent<Camera>();
             camera.orthographic = true;
             camera.orthographicSize = 5f;
-            camera.backgroundColor = new Color(0.03f, 0.05f, 0.07f);
+            camera.backgroundColor = new Color(0.055f, 0.048f, 0.038f);
             camera.clearFlags = CameraClearFlags.SolidColor;
 
             CameraFollow2D follow = cameraObject.AddComponent<CameraFollow2D>();
@@ -126,69 +128,46 @@ namespace FragmentosDoAmanha.Editor
             return cameraObject;
         }
 
-        private static void CreateLabBackground(Transform parent)
+        private static void CreateBackground(Transform parent)
         {
-            CreateBox("Back Wall", new Vector2(2f, 0f), new Vector2(32f, 8f), new Color(0.08f, 0.12f, 0.15f), "Default", BackgroundZ).transform.SetParent(parent);
-            CreateBox("Start Bay Light", new Vector2(-9.5f, 2.65f), new Vector2(4.2f, 0.15f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ).transform.SetParent(parent);
-            CreateBox("Hazard Warning Light", new Vector2(-3.6f, 2.45f), new Vector2(2.4f, 0.15f), new Color(1f, 0.24f, 0.08f), "Default", GameplayZ).transform.SetParent(parent);
-            CreateBox("Fragment Goal Light", new Vector2(9.5f, 2.75f), new Vector2(3.8f, 0.15f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ).transform.SetParent(parent);
-            CreateBox("Server Rack A", new Vector2(-12.6f, -0.25f), new Vector2(1.4f, 3.6f), new Color(0.1f, 0.13f, 0.15f), "Default").transform.SetParent(parent);
-            CreateBox("Server Rack B", new Vector2(13.2f, -0.1f), new Vector2(1.6f, 4f), new Color(0.1f, 0.13f, 0.15f), "Default").transform.SetParent(parent);
+            CreateBox("Temple Back Wall", new Vector2(3f, 0f), new Vector2(36f, 8.5f), new Color(0.13f, 0.1f, 0.075f), "Default", BackgroundZ).transform.SetParent(parent);
+            CreateBox("Sand Haze", new Vector2(4f, -2.25f), new Vector2(34f, 1.2f), new Color(0.34f, 0.25f, 0.13f, 0.65f), "Default", BackgroundZ).transform.SetParent(parent);
+            CreateBox("Cyan Temporal Scar", new Vector2(-8.9f, 0.35f), new Vector2(0.18f, 3.4f), new Color(0.25f, 0.95f, 1f), "Default", GameplayZ).transform.SetParent(parent);
+            CreateBox("Distant Door Glow", new Vector2(15.8f, -0.15f), new Vector2(1.8f, 3.2f), new Color(0.06f, 0.28f, 0.31f), "Default", BackgroundZ).transform.SetParent(parent);
         }
 
-        private static void CreateVerticalSliceRoom(Transform parent, PrototypeObjectiveState objectiveState)
+        private static void CreateRoom(Transform parent, PrototypeObjectiveState objectiveState)
         {
-            CreateTopOnlyPlatform(parent, "Start Floor", new Vector2(-8.5f, -2.6f), new Vector2(7f, 1f), new Color(0.16f, 0.19f, 0.22f), 0.05f);
-            CreateTopOnlyPlatform(parent, "Hazard Approach Floor", new Vector2(-1.9f, -2.6f), new Vector2(4.4f, 1f), new Color(0.16f, 0.19f, 0.22f), 0.05f);
-            CreateTopOnlyPlatform(parent, "Combat Floor", new Vector2(4.8f, -2.6f), new Vector2(6f, 1f), new Color(0.16f, 0.19f, 0.22f), 0.05f);
-            CreateTopOnlyPlatform(parent, "Fragment Pedestal Floor", new Vector2(10.2f, -2.6f), new Vector2(4.2f, 1f), new Color(0.16f, 0.19f, 0.22f), 0.05f);
+            CreateTopOnlyPlatform(parent, "Arrival Sand Floor", new Vector2(-8.8f, -2.6f), new Vector2(6.4f, 1f), new Color(0.36f, 0.27f, 0.15f), 0.05f);
+            CreateTopOnlyPlatform(parent, "Broken Temple Floor A", new Vector2(-2.6f, -2.6f), new Vector2(4.2f, 1f), new Color(0.31f, 0.25f, 0.18f), 0.05f);
+            CreateTopOnlyPlatform(parent, "Combat Causeway", new Vector2(4.6f, -2.6f), new Vector2(6.2f, 1f), new Color(0.29f, 0.24f, 0.18f), 0.05f);
+            CreateTopOnlyPlatform(parent, "Obelisk Floor", new Vector2(11.8f, -2.6f), new Vector2(5.6f, 1f), new Color(0.29f, 0.24f, 0.18f), 0.05f);
+            CreateTopOnlyPlatform(parent, "Exit Platform", new Vector2(16.1f, -1.15f), new Vector2(2.8f, 0.35f), new Color(0.34f, 0.26f, 0.17f));
 
-            CreateTopOnlyPlatform(parent, "Training Step", new Vector2(-5.35f, -1.25f), new Vector2(2.2f, 0.35f), new Color(0.24f, 0.28f, 0.29f));
-            CreateTopOnlyPlatform(parent, "Upper Recovery Catwalk", new Vector2(-1.2f, 0.05f), new Vector2(3.2f, 0.35f), new Color(0.22f, 0.28f, 0.32f));
-            CreateTopOnlyPlatform(parent, "Combat Catwalk", new Vector2(5.8f, 0.95f), new Vector2(4.8f, 0.35f), new Color(0.22f, 0.28f, 0.32f));
-            CreateTopOnlyPlatform(parent, "Fragment Step", new Vector2(8.75f, -1.25f), new Vector2(2f, 0.35f), new Color(0.24f, 0.28f, 0.29f));
+            CreateTopOnlyPlatform(parent, "Collapsed Column Step", new Vector2(-5.3f, -1.25f), new Vector2(2f, 0.35f), new Color(0.39f, 0.31f, 0.22f));
+            CreateTopOnlyPlatform(parent, "Temple Mid Platform", new Vector2(0.3f, 0.2f), new Vector2(3.4f, 0.35f), new Color(0.38f, 0.3f, 0.21f));
+            CreateTopOnlyPlatform(parent, "Glyph Catwalk", new Vector2(7.4f, 0.95f), new Vector2(4.6f, 0.35f), new Color(0.34f, 0.28f, 0.2f));
+            CreateTopOnlyPlatform(parent, "Fragment Ledge", new Vector2(10.8f, -0.85f), new Vector2(2f, 0.35f), new Color(0.42f, 0.33f, 0.22f));
 
-            CreateBox("Start Marker", new Vector2(-10.9f, -1.85f), new Vector2(0.18f, 1.5f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ).transform.SetParent(parent);
-            CreateBox("Goal Marker", new Vector2(12.1f, -1.65f), new Vector2(0.18f, 1.9f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ).transform.SetParent(parent);
+            CreateBox("Arrival Rift Marker", new Vector2(-10.65f, -1.75f), new Vector2(0.18f, 1.7f), new Color(0.25f, 0.95f, 1f), "Default", GameplayZ).transform.SetParent(parent);
+            CreateBox("Naiara Signal Cloth", new Vector2(14.2f, -1.25f), new Vector2(0.45f, 1.55f), new Color(0.72f, 0.42f, 0.18f), "Default", GameplayZ).transform.SetParent(parent);
             CreateGoalZone(parent, objectiveState);
         }
 
-        private static void CreateTemporalMachine(Transform parent)
+        private static void CreateTempleProps(Transform parent)
         {
-            CreateBox("Temporal Machine Core", new Vector2(0.4f, 0.55f), new Vector2(1.6f, 2.6f), new Color(0.35f, 0.23f, 0.13f), "Default").transform.SetParent(parent);
-            CreateBox("Temporal Machine Glow", new Vector2(0.4f, 0.55f), new Vector2(0.75f, 0.75f), new Color(1f, 0.48f, 0.12f), "Default").transform.SetParent(parent);
-            CreateBox("Temporal Machine Base", new Vector2(0.4f, -0.95f), new Vector2(3f, 0.45f), new Color(0.18f, 0.18f, 0.18f), "Default").transform.SetParent(parent);
+            CreateBox("Fallen Column", new Vector2(-4.8f, -2.05f), new Vector2(2.4f, 0.35f), new Color(0.48f, 0.39f, 0.28f), "Default").transform.SetParent(parent);
+            CreateBox("Voss Glyph Obelisk", new Vector2(12.4f, -0.95f), new Vector2(0.8f, 3.15f), new Color(0.1f, 0.08f, 0.07f), "Default").transform.SetParent(parent);
+            CreateBox("Obelisk Gold Line", new Vector2(12.4f, -0.9f), new Vector2(0.12f, 2.45f), new Color(0.86f, 0.52f, 0.14f), "Default", GameplayZ).transform.SetParent(parent);
+            CreateBox("Temporal Corruption Light", new Vector2(12.4f, 0.65f), new Vector2(0.52f, 0.18f), new Color(0.25f, 0.95f, 1f), "Default", GameplayZ).transform.SetParent(parent);
+            CreateBox("Temple Exit Rift", new Vector2(16.15f, 0.35f), new Vector2(0.28f, 2.8f), new Color(0.25f, 0.95f, 1f), "Default", GameplayZ).transform.SetParent(parent);
         }
 
-        private static void CreateVossMonitor(Transform parent)
+        private static void CreatePrototypeEnemy(Transform parent, Vector2 position)
         {
-            CreateBox("Voss Monitor", new Vector2(6.9f, -0.2f), new Vector2(2.2f, 1.25f), new Color(0.05f, 0.28f, 0.34f), "Default").transform.SetParent(parent);
-            CreateBox("Voss Portrait Signal", new Vector2(6.9f, -0.15f), new Vector2(0.62f, 0.82f), new Color(0.06f, 0.06f, 0.07f), "Default").transform.SetParent(parent);
-        }
-
-        private static void CreateDamageZone(Transform parent)
-        {
-            GameObject zone = CreateBox("Unstable Time Field", new Vector2(-3.05f, -1.95f), new Vector2(1.9f, 0.75f), new Color(1f, 0.08f, 0.04f), "Default", GameplayZ);
-            BoxCollider2D collider = zone.AddComponent<BoxCollider2D>();
-            collider.isTrigger = true;
-            zone.AddComponent<DamageZone>();
-            zone.transform.SetParent(parent);
-        }
-
-        private static void CreateFallRespawnZone(Transform parent)
-        {
-            GameObject fallZone = CreateBox("Fall Respawn Zone", new Vector2(1.5f, -6.2f), new Vector2(34f, 1f), new Color(0.1f, 0.02f, 0.02f), "Default", GameplayZ);
-            BoxCollider2D collider = fallZone.AddComponent<BoxCollider2D>();
-            collider.isTrigger = true;
-            fallZone.AddComponent<FallRespawnZone>();
-            fallZone.transform.SetParent(parent);
-        }
-
-        private static void CreatePrototypeEnemy(Transform parent)
-        {
-            GameObject enemy = CreateBox("Prototype Enemy", new Vector2(4.2f, -1.55f), new Vector2(0.9f, 1.25f), new Color(0.64f, 0.12f, 0.75f), "Default", GameplayZ);
-            enemy.AddComponent<BoxCollider2D>();
-            enemy.GetComponent<BoxCollider2D>().sharedMaterial = NoFrictionMaterial;
+            GameObject enemy = CreateBox("Egypt Prototype Enemy", position, new Vector2(0.9f, 1.25f), new Color(0.62f, 0.24f, 0.1f), "Default", GameplayZ);
+            BoxCollider2D collider = enemy.AddComponent<BoxCollider2D>();
+            collider.sharedMaterial = NoFrictionMaterial;
             Rigidbody2D body = enemy.AddComponent<Rigidbody2D>();
             body.freezeRotation = true;
             body.gravityScale = 4.2f;
@@ -198,34 +177,31 @@ namespace FragmentosDoAmanha.Editor
 
         private static void CreateTemporalFragment(Transform parent)
         {
-            GameObject fragment = CreateBox("Temporal Fragment", new Vector2(10.25f, -1.2f), new Vector2(0.55f, 0.55f), new Color(0.35f, 0.9f, 1f), "Default", GameplayZ);
+            GameObject fragment = CreateBox("Temple Temporal Fragment", new Vector2(10.8f, -0.35f), new Vector2(0.55f, 0.55f), new Color(0.25f, 0.95f, 1f), "Default", GameplayZ);
             BoxCollider2D collider = fragment.AddComponent<BoxCollider2D>();
             collider.isTrigger = true;
             fragment.AddComponent<TemporalFragment>();
             fragment.transform.SetParent(parent);
         }
 
+        private static void CreateFallRespawnZone(Transform parent)
+        {
+            GameObject fallZone = CreateBox("Egypt Fall Respawn Zone", new Vector2(3f, -6.45f), new Vector2(38f, 1f), new Color(0.12f, 0.05f, 0.025f), "Default", GameplayZ);
+            BoxCollider2D collider = fallZone.AddComponent<BoxCollider2D>();
+            collider.isTrigger = true;
+            fallZone.AddComponent<FallRespawnZone>();
+            fallZone.transform.SetParent(parent);
+        }
+
         private static void CreateGoalZone(Transform parent, PrototypeObjectiveState objectiveState)
         {
-            GameObject goalZone = CreateBox("Prototype Goal Zone", new Vector2(12.1f, -1.55f), new Vector2(1.15f, 2.25f), new Color(0.35f, 0.9f, 1f, 0.25f), "Default", GameplayZ);
+            GameObject goalZone = CreateBox("Egypt Goal Zone", new Vector2(16.15f, 0.05f), new Vector2(1.25f, 3.1f), new Color(0.25f, 0.95f, 1f, 0.25f), "Default", GameplayZ);
             Object.DestroyImmediate(goalZone.GetComponent<MeshRenderer>());
             BoxCollider2D collider = goalZone.AddComponent<BoxCollider2D>();
             collider.isTrigger = true;
             PrototypeGoalZone goal = goalZone.AddComponent<PrototypeGoalZone>();
             goal.SetObjectiveState(objectiveState);
-            TemporalScenePortal portal = goalZone.AddComponent<TemporalScenePortal>();
-            portal.SetObjectiveState(objectiveState);
-            portal.SetTargetScene("VS_Egypt_Blockout");
             goalZone.transform.SetParent(parent);
-        }
-
-        private static GameObject CreatePlatform(Transform parent, string name, Vector2 position, Vector2 size, Color color)
-        {
-            GameObject platform = CreateBox(name, position, size, color, GroundLayerName);
-            BoxCollider2D collider = platform.AddComponent<BoxCollider2D>();
-            collider.sharedMaterial = NoFrictionMaterial;
-            platform.transform.SetParent(parent);
-            return platform;
         }
 
         private static GameObject CreateTopOnlyPlatform(Transform parent, string name, Vector2 position, Vector2 size, Color color)
