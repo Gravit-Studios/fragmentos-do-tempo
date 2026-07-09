@@ -40,6 +40,7 @@ Prioridades:
 
 - abrir cada bloco com uma imagem ou composicao que conte algo do mundo;
 - usar detalhes tecnicos como apoio, nao como centro da pagina;
+- usar mapas, plantas, rascunhos, chamadas e detalhes ampliados para explicar como o mundo vira gameplay;
 - deixar a historia aparecer no layout: ruptura temporal, arquivos de laboratorio, propaganda de Voss, marcas de resistencia, fragmentos e contaminacao das eras;
 - alternar paginas de atmosfera com paginas de estudo;
 - evitar repetir o mesmo grid de fichas em todas as paginas;
@@ -51,6 +52,7 @@ Prioridades:
 - usar cobre/laranja como energia do nucleo, alerta ou tecnologia ativa;
 - usar grafite/marfim como base editorial;
 - preservar respiro e margens de livro fisico.
+- manter rodape, numeracao e marca de producao fora da moldura interna.
 
 Tipos de pagina recomendados:
 
@@ -67,6 +69,7 @@ A moldura pode seguir como assinatura editorial do concept book: uma estrutura f
 Direcao:
 
 - usar a moldura como elemento constante para dar unidade ao livro;
+- reservar area externa para rodape tecnico, sem texto preso sob a moldura;
 - variar cor, intensidade e pequenos detalhes conforme era, faccao ou tom da pagina;
 - substituir linhas retas demais da borda por feixes falhados, brilhos curtos e fagulhas inspirados no logo;
 - evitar molduras com cara de grade tecnica quando a pagina for mais narrativa;

@@ -20,6 +20,27 @@ A direcao desejada e rica visualmente, com muita informacao, mas organizada por 
 
 ## Linguagem Visual Das Referencias
 
+### Linha Editorial V02
+
+Direcao aprovada a partir das referencias recebidas em `art/concept-book/references/06_editorial_layout/`:
+
+- construir paginas como pranchas de mundo, nao como colecao de caixas;
+- usar uma arte dominante para conduzir a leitura e deixar estudos orbitarem essa arte;
+- misturar mapa, planta, rascunho, detalhe ampliado, recorte de gameplay e anotacao curta na mesma composicao;
+- permitir que desenhos em baixa opacidade ocupem o fundo como memoria visual da pagina;
+- usar textura de papel, arquivo, blueprint ou superficie historica conforme o tema;
+- deixar linhas de chamada, selos, pequenas marcas e paletas agirem como explicacao visual;
+- evitar rodape invadindo moldura ou texto colado em borda;
+- manter a marca d'agua apenas em versoes de producao, sempre legivel mas sem destruir a arte;
+- trocar fontes padrao por uma combinacao editorial: titulo com serif historica, notas tecnicas com fonte estreita e limpa.
+
+Aplicacao em *Fragmentos do Amanha*:
+
+- Era Zero deve parecer um arquivo tecnico atravessado por ruptura temporal.
+- Egito deve parecer arqueologia contaminada por tecnologia temporal e propaganda de Voss.
+- Personagens devem parecer paginas de estudo de producao, com pose, silhueta, equipamento, detalhe de gameplay e motivacao narrativa.
+- Historia deve aparecer como relacao visual entre arte, mapa, simbolo e anotacao, nao como texto explicativo separado.
+
 ### Personagens
 
 Direcao:
@@ -147,6 +168,18 @@ Evitar:
 - pagina dividida em caixas independentes;
 - repeticao da mesma moldura em todas as paginas;
 - excesso de UI grafica competindo com a arte.
+
+## Tipografia E Rodape
+
+Direcao:
+
+- usar fonte serifada com presenca historica/editorial em titulos e chamadas principais;
+- usar fonte sem serifa estreita e limpa para legendas, marcadores e informacao tecnica;
+- evitar Helvetica/Arial como linguagem principal do livro;
+- manter titulos em areas de respiro, nunca sobre detalhes importantes da arte;
+- manter rodape abaixo da area visual da pagina, fora da moldura interna;
+- alinhar numeracao, versao e data como informacao de producao discreta;
+- se a moldura existir, ela deve enquadrar a arte, nao prender texto pequeno por baixo dela.
 
 ## Direcao Para As Proximas Paginas
 
