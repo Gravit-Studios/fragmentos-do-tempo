@@ -151,6 +151,13 @@ Status:
 4. Assets/props: fragmento, cronometro, nucleo temporal, obelisco de Voss.
 5. UI/HUD/molduras.
 
+## Lotes registrados
+
+| Lote | Documento | Categoria principal | Status |
+|---|---|---|---|
+| 01 | `docs/03_VisualDevelopment/concept-book-art-direction.md` | Direcao editorial inicial | Aprovada |
+| 02 | `docs/03_VisualDevelopment/reference-batch-02-pinterest-artbook.md` | Pinterest / artbook / molduras / tipografia | Aprovada como direcao editorial |
+
 ## Como enviar referencias aqui
 
 Voce pode mandar:

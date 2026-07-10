@@ -37,6 +37,20 @@ Direcao aprovada a partir das referencias recebidas em `art/concept-book/referen
 - trocar fontes padrao por uma combinacao editorial: titulo com serif historica, notas tecnicas com fonte estreita e limpa.
 - evitar explicar demais a funcao da imagem; a pagina deve convidar leitura visual antes de virar documento tecnico.
 
+Direcao complementar a partir do segundo lote de referencias de Pinterest:
+
+- personagens devem ter uma pose principal grande com estudos, props, turnarounds e anotacoes orbitando;
+- cenarios devem misturar arte final, estudos arquitetonicos, thumbnails, props, paleta e mapa pequeno;
+- tilesets e pixel art devem ser apresentados como traducao jogavel da direcao conceitual;
+- molduras devem mudar conforme contexto: arquivo temporal, papel de era, propaganda de Voss, caderno da resistencia ou prancha tecnica;
+- tipografia deve ter personalidade historica/editorial, evitando fonte neutra como linguagem principal;
+- pagina rica nao significa pagina lotada: a hierarquia deve sempre partir de uma imagem dominante.
+
+Documentos relacionados:
+
+- `docs/03_VisualDevelopment/reference-batch-02-pinterest-artbook.md`
+- `docs/03_VisualDevelopment/concept-book-frame-type-system.md`
+
 Aplicacao em *Fragmentos do Amanha*:
 
 - Era Zero deve parecer um arquivo tecnico atravessado por ruptura temporal.
@@ -118,6 +132,31 @@ Aplicacao no projeto:
 - Aberturas de era: devem ter uma imagem dominante e pequenos estudos que revelam gameplay, props e lore.
 
 ## Sistema De Paginas
+
+## Fluxo De Aprovacao Por Partes
+
+O concept book deve ser produzido em ciclos pequenos. Cada ciclo precisa gerar algo visualmente avaliavel antes de seguir para a proxima pagina ou secao.
+
+Ordem recomendada:
+
+1. **Padrao visual:** validar moldura, tipografia, textura e densidade.
+2. **Pagina piloto:** aplicar o padrao em uma pagina real.
+3. **Revisao de direcao:** ajustar hierarquia, cor, texto, borda e ritmo.
+4. **Secao curta:** produzir 2 a 4 paginas com a mesma linguagem.
+5. **Consolidacao:** atualizar guia, asset index e proximas tarefas.
+
+Escala de aprovacao:
+
+- uma pagina quando a direcao ainda estiver sendo descoberta;
+- uma dupla de paginas quando a linguagem ja estiver aprovada;
+- uma secao apenas depois de validar capa, personagem e ambiente.
+
+Primeiras aprovacoes sugeridas:
+
+- pagina 002: abertura narrativa de premissa;
+- pagina 003: laboratorio Era Zero como prancha de mundo;
+- pagina 005: Theo como estudo de personagem jogavel;
+- pagina 008: Egito como pagina de ambiente/fase.
 
 ### Pagina Hero
 
@@ -207,6 +246,12 @@ Direcao:
 - manter rodape abaixo da area visual da pagina, fora da moldura interna;
 - alinhar numeracao, versao e data como informacao de producao discreta;
 - se a moldura existir, ela deve enquadrar a arte, nao prender texto pequeno por baixo dela.
+
+Sistema detalhado:
+
+```text
+docs/03_VisualDevelopment/concept-book-frame-type-system.md
+```
 
 ## Direcao Para As Proximas Paginas
 
