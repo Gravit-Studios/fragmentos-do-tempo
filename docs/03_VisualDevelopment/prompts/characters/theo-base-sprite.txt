@@ -1,0 +1,51 @@
+Authentic low-resolution pixel art character reference sheet, hard pixel grid clearly visible, sharp blocky pixel edges, no anti-aliasing, no smooth blending, no soft painterly gradients. Shading achieved through visible dithering patterns and clean color clusters rather than smooth blends. Effective sprite scale should read as roughly 64 to 96 pixels tall before upscaling.
+
+Create a production-facing character sheet for a 2D metroidvania game.
+
+Layout:
+- Main full-body front-facing sprite at 100% scale, standing neutral idle pose.
+- Smaller scale readability samples at 75%, 50%, 25%, and 16x.
+- Small detail callouts for fixed identity elements.
+- Small flat color palette swatch bar.
+- Character name and one-line function label.
+
+Critical requirement: the main sprite must be fully contained and centered in its own space, straight and upright (no rotation, no tilt), with no visible background box, frame, or white margin bleeding into the character silhouette. Background behind the character must be flat/transparent, clearly separate from the character art.
+
+Character:
+THEO, the scientist protagonist. Initially non-combatant, cautious, intelligent, improvised, and physically capable but not a trained warrior.
+
+Era:
+Era Zero / near-future laboratory introduction.
+
+Visual DNA:
+- Protective goggles on forehead.
+- Wrist-mounted temporal chronometer device.
+- Copper/orange technological accent.
+- Functional asymmetric outfit.
+- Terracotta/orange jacket with practical pockets and straps.
+- Dark teal or desaturated green undersuit/pants.
+- Worn boots and utility belt.
+- Small scanner/lantern tool with hard pixel cone-light.
+
+Pose and attitude:
+- Alert and defensive, as if escaping a damaged laboratory.
+- Not heroic swagger.
+- Slight forward lean, ready to move.
+
+Lighting:
+- Main light from upper left at 45 degrees.
+- Strong readable shadow shapes.
+- Moderate dithering only where it helps material transitions.
+
+Style constraints:
+- Clean silhouette first.
+- Colored outline, not pure black.
+- Details must not compete with animation.
+- No painterly texture.
+- No vector smoothing.
+- No photorealism.
+- No 3D render.
+- No UI clutter beyond a simple reference-sheet frame.
+
+Important identity rule:
+Even at tiny scale, Theo must be readable through goggles, wrist chronometer, copper/orange accent, and practical asymmetric silhouette.
