@@ -99,15 +99,14 @@ Pacotes ja registrados:
 
 - Universal Render Pipeline `17.5.0`
 - Input System `1.19.0`
-- Cinemachine `3.1.4` (adicionado ao `manifest.json`, versao nao confirmada no registry da Unity)
-- 2D Pixel Perfect `5.0.3` (adicionado ao `manifest.json`, versao nao confirmada no registry da Unity)
-- 2D Animation `10.1.5` (adicionado ao `manifest.json`, versao nao confirmada no registry da Unity)
+- Cinemachine `3.1.4` (adicionado ao `manifest.json`, resolveu sem erro em teste local)
+- 2D Pixel Perfect `5.0.3` (adicionado ao `manifest.json`, resolveu sem erro em teste local)
 - 2D Sprite `1.0.0` (adicionado ao `manifest.json`)
 
 Pendencias de pacote:
 
 - Git LFS na maquina de producao;
-- confirmar no Package Manager, ao abrir o projeto localmente, se Cinemachine/2D Animation/2D Pixel Perfect resolveram corretamente. Se o Package Manager mostrar erro de resolucao em algum desses, abra `Window > Package Manager > + > Add package by name` e adicione o pacote pelo nome (sem versao fixa) para deixar a Unity resolver a versao correta automaticamente, depois me avise a versao certa para eu corrigir o `manifest.json`.
+- 2D Animation: tentativa inicial (`10.1.5`) nao existe no registry (`Package [com.unity.2d.animation@10.1.5] cannot be found`, confirmado em teste local). Removido do `manifest.json` para nao travar a resolucao dos outros pacotes. Adicionar depois pelo Package Manager (`Window > Package Manager > + > Add package by name`, digitando so `com.unity.2d.animation` sem versao) quando for integrar animacao 2D, e avisar a versao resolvida para registrar aqui.
 
 Observacao: `brew` nao estava disponivel no terminal local, entao o Git LFS ainda nao foi instalado por Homebrew.
 

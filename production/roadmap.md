@@ -46,8 +46,8 @@ Objetivo: preparar tudo que precisa existir antes da primeira cena jogavel.
 - [x] Criar projeto Unity real em `unity/FragmentosDoAmanha/`.
 - [x] Configurar URP 2D.
 - [x] Configurar Input System.
-- [ ] Configurar Pixel Perfect Camera. Pacote adicionado ao `manifest.json` (versao nao confirmada, ver nota abaixo).
-- [ ] Configurar Cinemachine. Pacote adicionado ao `manifest.json` (versao nao confirmada, ver nota abaixo).
+- [ ] Configurar Pixel Perfect Camera. Pacote adicionado ao `manifest.json`, resolveu sem erro em teste local.
+- [ ] Configurar Cinemachine. Pacote adicionado ao `manifest.json`, resolveu sem erro em teste local.
 - [ ] Configurar Git LFS antes de adicionar binarios pesados.
 - [x] Criar cena de teste do Theo.
 - [ ] Criar tileset placeholder da Era Zero.
