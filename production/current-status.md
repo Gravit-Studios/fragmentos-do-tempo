@@ -17,13 +17,15 @@ https://github.com/Gravit-Studios/fragmentos-do-amanha
 Repositorio local atual:
 
 ```text
-C:\Users\Gean Santos\Documents\Codex\fragmentos-do-amanha
+C:\Users\Gean Santos\Downloads\Projeto\Fragmentos do Amanhã\fragmentos-do-amanha
 ```
+
+Clonado via GitHub Desktop. Este e o caminho padrao para atualizacao manual pelo PC; nao usar mais o caminho antigo em `Documents\Codex`.
 
 Projeto Unity:
 
 ```text
-C:\Users\Gean Santos\Documents\Codex\fragmentos-do-amanha\unity\FragmentosDoAmanha
+C:\Users\Gean Santos\Downloads\Projeto\Fragmentos do Amanhã\fragmentos-do-amanha\unity\FragmentosDoAmanha
 ```
 
 Ao abrir pelo Unity Hub, selecionar a pasta `FragmentosDoAmanha`, nao a raiz `fragmentos-do-amanha`.
