@@ -15,7 +15,7 @@ Checklist de definicao de "pronto" para a demo inicial:
 - [ ] Portal temporal Era Zero -> Egito testado e sem bugs de carregamento.
 - [ ] Cena oficial `VS_EraZero_Lab` gerada e testada (script pronto: `Fragmentos do Amanha > Create VS Era Zero Lab Scene`), separada da cena de sandbox `Prototype_Theo_Controller`.
 - [ ] Pixel Perfect Camera e Cinemachine integrados (substituindo camera temporaria).
-- [x] Tileset placeholder proprio para Era Zero e para Egito (mesmo que simples, cada epoca visualmente distinta). Sheets completos (`era-zero-lab-pixel-environment-v03.png`, `egypt-temple-pixel-environment-v03.png`) e tiles individuais prontos pra ladrilhar (`era-zero-lab-tiles-core-v01.png`, `egypt-temple-tiles-core-v01.png`) gerados. Antes de integrar ao Tilemap: redimensionar cada tile pra um tamanho fixo multiplo de 32px e testar emenda lado a lado (nenhuma das duas coisas foi validada ainda).
+- [x] Tileset placeholder proprio para Era Zero e para Egito (mesmo que simples, cada epoca visualmente distinta). Sheets completos (`era-zero-lab-pixel-environment-v03.png`, `egypt-temple-pixel-environment-v03.png`) e tiles individuais (`era-zero-lab-tiles-core-v02.png`, `egypt-temple-tiles-core-v02.png`, corrigidos para preenchimento total sem rotacao/margem branca) ja importados, fatiados (`TilesetImportSetup.cs`) e testados no Tilemap da Unity — emenda validada visualmente sem costura no chao do Egito.
 - [ ] Sprite/animacao minima do Theo (ainda que placeholder) substituindo o blockout de caixas.
 - [ ] Lista de habilidades de movimento do Theo (dash etc.) definida e com pelo menos uma implementada e testada. Dash implementado e testado em Play Mode (`TheoController.cs`, tecla Shift), confirmado funcionando no PC Windows e no Mac.
 - [ ] Build interna jogavel cobrindo Era Zero + Egito.
@@ -50,9 +50,9 @@ Objetivo: preparar tudo que precisa existir antes da primeira cena jogavel.
 - [ ] Configurar Cinemachine. Tentativa via `manifest.json` gerou erro de compilacao (API obsoleta na Unity `6000.5.3f1`); removido. Adicionar pelo Package Manager quando for integrar.
 - [ ] Configurar Git LFS antes de adicionar binarios pesados.
 - [x] Criar cena de teste do Theo.
-- [x] Criar tileset placeholder da Era Zero. `art/pixel/environments/era-zero-lab/era-zero-lab-pixel-environment-v02.png`, ainda nao integrado ao Tilemap da Unity.
+- [x] Criar tileset placeholder da Era Zero. Tiles individuais (`era-zero-lab-tiles-core-v02.png`) fatiados e integrados ao Tilemap da Unity, emenda testada.
 - [x] Criar blockout placeholder do Egito.
-- [x] Criar tileset placeholder visual do Egito. `art/pixel/environments/egypt-temple/egypt-temple-pixel-environment-v02.png`, ainda nao integrado ao Tilemap da Unity.
+- [x] Criar tileset placeholder visual do Egito. Tiles individuais (`egypt-temple-tiles-core-v02.png`) fatiados e integrados ao Tilemap da Unity, emenda testada e sem costura no chao.
 
 ## Fase 2 — Prototipo Jogavel
 
