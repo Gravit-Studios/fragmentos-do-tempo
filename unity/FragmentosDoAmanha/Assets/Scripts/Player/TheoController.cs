@@ -74,6 +74,7 @@ namespace FragmentosDoAmanha.Player
             if (keyboard.leftShiftKey.wasPressedThisFrame || keyboard.rightShiftKey.wasPressedThisFrame)
             {
                 dashPressed = true;
+                Debug.Log("Fragmentos do Amanha [debug]: Shift detectado.");
             }
         }
 
@@ -133,6 +134,7 @@ namespace FragmentosDoAmanha.Player
             isDashing = true;
             dashTimer = dashDuration;
             dashDirection = facingDirection;
+            Debug.Log($"Fragmentos do Amanha [debug]: dash iniciado, direcao {dashDirection}, posicao {transform.position}.");
 
             if (playerHealth != null)
             {
