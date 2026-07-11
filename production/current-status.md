@@ -21,15 +21,15 @@ Duas maquinas locais ativas, sincronizadas via GitHub. Sempre commitar e enviar 
 Repositorio local:
 
 ```text
-C:\Users\Gean Santos\Downloads\Projeto\Fragmentos do Amanhã\fragmentos-do-amanha
+C:\Users\Gean Santos\Downloads\fragmentos-do-amanha
 ```
 
-Clonado via GitHub Desktop. Nao usar mais o caminho antigo em `Documents\Codex`.
+Clonado direto pelo Unity Hub (import project from Git). Nao usar mais os caminhos antigos: `Documents\Codex\fragmentos-do-amanha` e `Downloads\Projeto\Fragmentos do Amanhã\fragmentos-do-amanha` (esse ultimo ficou com um clone duplicado acidental dentro de `unity\FragmentosDoAmanha\fragmentos-do-amanha\...` — nao abrir, so ignorar/apagar quando sobrar tempo).
 
 Projeto Unity:
 
 ```text
-C:\Users\Gean Santos\Downloads\Projeto\Fragmentos do Amanhã\fragmentos-do-amanha\unity\FragmentosDoAmanha
+C:\Users\Gean Santos\Downloads\fragmentos-do-amanha\unity\FragmentosDoAmanha
 ```
 
 ### Mac
