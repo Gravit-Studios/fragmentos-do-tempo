@@ -99,15 +99,15 @@ Pacotes ja registrados:
 
 - Universal Render Pipeline `17.5.0`
 - Input System `1.19.0`
+- Cinemachine `3.1.4` (adicionado ao `manifest.json`, versao nao confirmada no registry da Unity)
+- 2D Pixel Perfect `5.0.3` (adicionado ao `manifest.json`, versao nao confirmada no registry da Unity)
+- 2D Animation `10.1.5` (adicionado ao `manifest.json`, versao nao confirmada no registry da Unity)
+- 2D Sprite `1.0.0` (adicionado ao `manifest.json`)
 
 Pendencias de pacote:
 
 - Git LFS na maquina de producao;
-- Cinemachine;
-- 2D Pixel Perfect;
-- 2D Animation;
-- 2D Sprite;
-- confirmar pacotes 2D restantes pelo Package Manager da Unity.
+- confirmar no Package Manager, ao abrir o projeto localmente, se Cinemachine/2D Animation/2D Pixel Perfect resolveram corretamente. Se o Package Manager mostrar erro de resolucao em algum desses, abra `Window > Package Manager > + > Add package by name` e adicione o pacote pelo nome (sem versao fixa) para deixar a Unity resolver a versao correta automaticamente, depois me avise a versao certa para eu corrigir o `manifest.json`.
 
 Observacao: `brew` nao estava disponivel no terminal local, entao o Git LFS ainda nao foi instalado por Homebrew.
 
