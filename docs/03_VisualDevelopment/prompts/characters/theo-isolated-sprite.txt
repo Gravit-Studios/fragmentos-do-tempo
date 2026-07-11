@@ -1,0 +1,9 @@
+Using this exact same Theo character design, style, palette, and pose as the reference sheet, generate a single isolated sprite image, ready to import as a game asset.
+
+Requirements:
+- Only the character, centered, full body, front-facing idle pose (the "100%" pose from the reference sheet).
+- No text, no labels, no frame, no scale references, no identity-detail callouts, no palette swatches — just the character art itself.
+- Fully transparent background (or flat solid magenta #ff00ff if transparency isn't supported, so it can be chroma-keyed later).
+- The character must be fully contained within the canvas with consistent padding on all sides, upright and straight (no rotation, no tilt).
+- Keep the exact same proportions, colors, and identity details (goggles, wrist chronometer, copper/orange accent, utility belt, scanner/lantern in hand, asymmetric silhouette) as the approved reference sheet.
+- Same pixel art style as the reference sheet (do not change the rendering style).
