@@ -1,0 +1,109 @@
+# Tileset Image Prompts
+
+## Objetivo
+
+Guardar prompts oficiais para gerar **tilesets placeholder** de Era Zero e Egito Antigo — pecas de tile reutilizaveis para o Tilemap da Unity, diferente das pixel art environment sheets (`docs/03_VisualDevelopment/environment-image-prompts.md`), que sao ilustracoes de referencia unicas, nao tiles individuais recortaveis.
+
+Este documento cobre o item liberado no roadmap: "Criar tileset placeholder da Era Zero" e "Criar tileset placeholder visual do Egito" (Fase 1 / Escopo da Demo Inicial).
+
+## Como usar no ChatGPT
+
+1. Se possivel, anexe junto do prompt a pixel art environment sheet ja aprovada da mesma epoca (`art/pixel/environments/era-zero-lab/era-zero-lab-pixel-environment-v01.png` ou `art/pixel/environments/egypt-temple/egypt-temple-pixel-environment-v01.png`) como referencia visual/de paleta.
+2. Cole o "Prompt Base — Tileset Sheet" e depois o bloco especifico da epoca.
+3. Gere, avalie contra o checklist de sprite/tileset pronto (`pixel-art-bible.md`), e salve o resultado aprovado em `art/pixel/environments/<epoca>/` com nome versionado (`-tileset-v01.png`), atualizando o `asset-index.md` da pasta.
+4. Validacao final e sempre manual — a IA e assistente de producao, nao diretora criativa.
+
+## Regras herdadas (nao repetir por epoca)
+
+- Canvas de personagem: 64x96 px. Tile grid: 32x32 px. PPU: 32.
+- Luz superior esquerda, ~45 graus.
+- Outline colorido e contextual, nunca preto puro.
+- Dithering moderado, nunca competindo com leitura em movimento.
+- Cobre/laranja reservado para tecnologia temporal. Preto/dourado reservado para presenca de Voss.
+- Cada tileset deve cobrir: chao principal, plataformas, paredes, bordas, props de leitura, props narrativos, elementos destrutiveis/interativos, elementos de fundo sem colisao.
+
+---
+
+## Prompt Base — Tileset Sheet
+
+```text
+Authentic low-resolution pixel art tileset sheet for a 2D metroidvania game built in Unity (Tilemap, Pixel Perfect Camera). Hard pixel grid clearly visible, sharp blocky pixel edges, no anti-aliasing, no smooth blending, no soft painterly gradients, no photorealism, no 3D render. Shading achieved through visible dithering patterns and clean pixel clusters.
+
+Grid and scale:
+- Individual tiles designed on a 32x32 pixel grid.
+- Character scale reference: a humanoid character is roughly 64px wide by 96px tall (2x3 tiles), so tile detail must read clearly at that relative scale.
+- Present tiles laid out in clean rows on a neutral or transparent-looking background, not composed into a finished scene.
+
+Required tile categories (label each group):
+1. Main ground/floor tiles (top edge + fill + variations).
+2. Platform tiles (one-way/elevated, distinct from main ground).
+3. Wall tiles (vertical surfaces, corners, edges).
+4. Border/edge tiles (transition pieces between materials or into void/background).
+5. Readable gameplay props (small interactive-looking objects: switches, crates, machinery panels, torch/light sources — whatever fits the era).
+6. Narrative props (small background-only decoration reflecting story elements of the era).
+7. Destructible/interactive elements (cracked variants, breakable panels, or triggerable objects).
+8. Non-collision background filler tiles (no gameplay function, pure atmosphere).
+
+Lighting:
+- Consistent single light source, upper-left, ~45 degrees, across every tile.
+- Colored outlines that respond to material (never pure black).
+
+Avoid:
+- Photoreal textures or noisy photo-bashed materials.
+- Tiles that only make sense as part of one large illustration (each tile must be reusable on its own).
+- Excessive detail that would flicker or distract during tile repetition.
+- Text or UI elements inside the sheet.
+```
+
+---
+
+## Era Zero — Laboratorio / Tileset
+
+```text
+Use the Tileset Sheet prompt base.
+
+Era: ERA ZERO — near-future research laboratory, before/around the temporal catastrophe.
+
+Material language:
+- Cold blue-gray structural panels and graphite-dark shadows as the main floor/wall material.
+- Sterile white/cyan light strips as accents on floor edges or wall trim.
+- Restrained copper/orange glow reserved for temporal-technology props only (cables, small reactor/core fragments, console screens) — matching Theo's own copper/orange technological accent, so character and environment read as the same visual world.
+- Voss presence as narrative prop: a small repeated framed portrait, ID badge silhouette, or corporate symbol tile, rendered in the same restrained black/gold used for Voss elsewhere.
+
+Gameplay tiles:
+- Main ground: dark graphite/blue-gray floor panel tiles with subtle seams.
+- Platforms: raised metal catwalk/floor tiles, visually distinct from main ground.
+- Walls: server-rack-like paneling, glass partition tiles, cable conduits.
+- Borders: damaged/cracked panel variants (for later use once the explosion state is needed).
+- Props: consoles, floor grates, warning lights, server racks, small temporal-core fragment (copper/orange glow).
+- Destructible/interactive: crackable glass panel, sparking exposed panel.
+- Background filler: distant pipework, faint monitor glow, non-collision cable silhouettes.
+
+Mood: quiet, controlled, scientific, with hidden tension — consistent with the approved Era Zero lab reference sheet.
+```
+
+## Egito Antigo — Camara do Templo / Tileset
+
+```text
+Use the Tileset Sheet prompt base.
+
+Era: EGITO ANTIGO — ancient temple chamber, first playable historical era.
+
+Material language:
+- Warm sandstone and deep umber shadow as the main floor/wall material.
+- Gold accent trim and lapis/teal secondary color for carved details.
+- Voss presence as narrative prop: a small corrupted cartouche or black/gold emblem tile subtly inserted into the Egyptian iconography.
+- Naiara/resistance hint as narrative prop: a small ivory symbol or cloth-marker tile, distinct from Voss's black/gold language, hinting at local resistance.
+- Restrained cyan accent reserved for any temporal-technology intrusion into this era (matching the project's rule that cyan marks temporal rupture).
+
+Gameplay tiles:
+- Main ground: carved sandstone floor tiles with subtle wear/sand drift.
+- Platforms: raised stone block/ledge tiles, distinct from main ground.
+- Walls: carved pillar sections, hieroglyph wall panels, torch alcoves.
+- Borders: sand-drift transition tiles, broken stone edge variants.
+- Props: torch/brazier (warm light source), hanging cloth, carved statue fragment.
+- Destructible/interactive: crackable stone block, collapsing column piece.
+- Background filler: distant columns, faint sunbeam shafts, non-collision sand/dust silhouettes.
+
+Mood: ancient, oppressive, sacred, exploratory — consistent with the approved Egypt temple reference sheet.
+```
