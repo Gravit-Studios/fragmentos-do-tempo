@@ -15,7 +15,7 @@ namespace FragmentosDoAmanha.Editor
         public static void SliceEraZeroCoreTiles()
         {
             SliceCoreTileSheet(
-                "Assets/Art/Tilesets/EraZero/era-zero-lab-tiles-core-v01.png",
+                "Assets/Art/Tilesets/EraZero/era-zero-lab-tiles-core-v02.png",
                 "Assets/Art/Tilesets/EraZero/Tiles",
                 "EraZero");
         }
