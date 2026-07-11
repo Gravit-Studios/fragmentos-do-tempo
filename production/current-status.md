@@ -37,15 +37,15 @@ C:\Users\Gean Santos\Downloads\Projeto\Fragmentos do Amanhã\fragmentos-do-amanh
 Repositorio local:
 
 ```text
-/Users/geansantos/Downloads/Projetos/fragmentos-do-amanha
+/Users/geansantos/fragmentos-do-amanha
 ```
 
-Clonado via `git clone`. Git LFS ja instalado nesta maquina.
+Movido para fora de `Downloads` porque o macOS (Sonoma+) restringe acesso de apps a Downloads/Desktop/Documents sem permissao explicita, o que travava a Unity Hub num loop de "Restricted Editor Version" ao tentar abrir o projeto. Nao usar mais o caminho antigo em `Downloads/Projetos`. Git LFS instalado via Homebrew nesta maquina.
 
 Projeto Unity:
 
 ```text
-/Users/geansantos/Downloads/Projetos/fragmentos-do-amanha/unity/FragmentosDoAmanha
+/Users/geansantos/fragmentos-do-amanha/unity/FragmentosDoAmanha
 ```
 
 ### Regra comum
