@@ -18,6 +18,7 @@ namespace FragmentosDoAmanha.Player
         private int currentHealth;
         private bool isInvulnerable;
         private bool isRespawning;
+        private float invulnerabilityEndTime;
 
         public int CurrentHealth => currentHealth;
         public int MaxHealth => maxHealth;
@@ -38,9 +39,28 @@ namespace FragmentosDoAmanha.Player
             HealthChanged?.Invoke(currentHealth, maxHealth);
         }
 
+        private void Update()
+        {
+            if (isInvulnerable && !isRespawning && Time.time >= invulnerabilityEndTime)
+            {
+                isInvulnerable = false;
+            }
+        }
+
         public void SetRespawnPoint(Transform newRespawnPoint)
         {
             respawnPoint = newRespawnPoint;
+        }
+
+        public void GrantInvulnerability(float duration)
+        {
+            if (duration <= 0f || isRespawning)
+            {
+                return;
+            }
+
+            isInvulnerable = true;
+            invulnerabilityEndTime = Mathf.Max(invulnerabilityEndTime, Time.time + duration);
         }
 
         public void RespawnNow()
@@ -70,20 +90,13 @@ namespace FragmentosDoAmanha.Player
                 return;
             }
 
-            StartCoroutine(InvulnerabilityRoutine());
+            GrantInvulnerability(invulnerabilityDuration);
         }
 
         private void ApplyKnockback(Vector2 sourcePosition)
         {
             float direction = transform.position.x >= sourcePosition.x ? 1f : -1f;
             body.linearVelocity = new Vector2(direction * knockbackForce.x, knockbackForce.y);
-        }
-
-        private IEnumerator InvulnerabilityRoutine()
-        {
-            isInvulnerable = true;
-            yield return new WaitForSeconds(invulnerabilityDuration);
-            isInvulnerable = false;
         }
 
         private IEnumerator RespawnRoutine()

@@ -1,5 +1,27 @@
 # Roadmap
 
+## Escopo da Demo Inicial
+
+Decisao: focar em **Era Zero + Egito** ate existir uma fatia funcional, padronizada e polida, antes de expandir para as outras 5 epocas (Grecia, Medieval, Piratas, Segunda Guerra, Inicio da Internet, Futuro proximo continuam fora do escopo ate aqui fechar).
+
+Checklist de definicao de "pronto" para a demo inicial:
+
+- [ ] Controle de Theo responsivo e validado em Play Mode (movimento, pulo, coyote time, colisao).
+- [ ] Ataque basico de Theo com timing e alcance validados.
+- [x] Inimigo comunica ataque antes de causar dano (telegraph visual antes da hitbox ativar).
+- [ ] Telegraph do inimigo testado em Play Mode e com timing validado (nao muito rapido nem muito lento).
+- [ ] Vida, dano, invulnerabilidade e respawn testados de ponta a ponta.
+- [ ] Fragmento coletavel e HUD (vida, fragmento, objetivo) testados de ponta a ponta.
+- [ ] Portal temporal Era Zero -> Egito testado e sem bugs de carregamento.
+- [ ] Cena oficial `VS_EraZero_Lab` gerada e testada (script pronto: `Fragmentos do Amanha > Create VS Era Zero Lab Scene`), separada da cena de sandbox `Prototype_Theo_Controller`.
+- [ ] Pixel Perfect Camera e Cinemachine integrados (substituindo camera temporaria).
+- [ ] Tileset placeholder proprio para Era Zero e para Egito (mesmo que simples, cada epoca visualmente distinta).
+- [ ] Sprite/animacao minima do Theo (ainda que placeholder) substituindo o blockout de caixas.
+- [ ] Lista de habilidades de movimento do Theo (dash etc.) definida e com pelo menos uma implementada e testada. Dash implementado (`TheoController.cs`, tecla Shift), aguardando teste em Play Mode.
+- [ ] Build interna jogavel cobrindo Era Zero + Egito.
+
+So depois de fechar essa checklist a prioridade avanca para a proxima epoca do roadmap de conteudo.
+
 ## Fase 0 — Organizacao e Direcao
 
 Status: em andamento.
@@ -11,8 +33,8 @@ Status: em andamento.
 - [x] Criar Production Handbook v1.0.
 - [x] Preparar `.gitignore` e `.gitattributes` para Unity/Git LFS.
 - [ ] Revisar nomes finais do jogo e personagens.
-- [ ] Definir lista de habilidades do Theo.
-- [ ] Definir mecanica de fragmentos.
+- [ ] Definir lista de habilidades do Theo. Rascunho pronto para revisao em `docs/04_Characters/theo-abilities.md`.
+- [ ] Definir mecanica de fragmentos. Rascunho pronto para revisao em `docs/00_Project/fragments-mechanic.md`.
 
 ## Fase 1 — Pre-producao do Vertical Slice
 
@@ -24,8 +46,8 @@ Objetivo: preparar tudo que precisa existir antes da primeira cena jogavel.
 - [x] Criar projeto Unity real em `unity/FragmentosDoAmanha/`.
 - [x] Configurar URP 2D.
 - [x] Configurar Input System.
-- [ ] Configurar Pixel Perfect Camera.
-- [ ] Configurar Cinemachine.
+- [ ] Configurar Pixel Perfect Camera. Pacote adicionado ao `manifest.json`, resolveu sem erro em teste local.
+- [ ] Configurar Cinemachine. Pacote adicionado ao `manifest.json`, resolveu sem erro em teste local.
 - [ ] Configurar Git LFS antes de adicionar binarios pesados.
 - [x] Criar cena de teste do Theo.
 - [ ] Criar tileset placeholder da Era Zero.

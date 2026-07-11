@@ -1,6 +1,6 @@
 # Current Status
 
-Atualizado em: 2026-07-09
+Atualizado em: 2026-07-09 (sessao Codex web)
 
 ## Objetivo deste documento
 
@@ -54,7 +54,9 @@ Ja existe:
 - primeira sala curta de vertical slice com inicio, perigo, inimigo e objetivo.
 - scripts e menu de editor para gerar `VS_Egypt_Blockout`.
 - cena `VS_Egypt_Blockout` gerada localmente e adicionada ao Build Settings;
-- portal temporal placeholder preparado para carregar a cena do Egito apos completar o objetivo.
+- portal temporal placeholder preparado para carregar a cena do Egito apos completar o objetivo;
+- rascunho de lista de habilidades do Theo por epoca (`docs/04_Characters/theo-abilities.md`), aguardando revisao;
+- rascunho de mecanica de fragmentos com dois niveis (`docs/00_Project/fragments-mechanic.md`), aguardando revisao.
 
 Ainda nao existe:
 
@@ -97,15 +99,14 @@ Pacotes ja registrados:
 
 - Universal Render Pipeline `17.5.0`
 - Input System `1.19.0`
+- Cinemachine `3.1.4` (adicionado ao `manifest.json`, resolveu sem erro em teste local)
+- 2D Pixel Perfect `5.0.3` (adicionado ao `manifest.json`, resolveu sem erro em teste local)
+- 2D Sprite `1.0.0` (adicionado ao `manifest.json`)
 
 Pendencias de pacote:
 
 - Git LFS na maquina de producao;
-- Cinemachine;
-- 2D Pixel Perfect;
-- 2D Animation;
-- 2D Sprite;
-- confirmar pacotes 2D restantes pelo Package Manager da Unity.
+- 2D Animation: tentativa inicial (`10.1.5`) nao existe no registry (`Package [com.unity.2d.animation@10.1.5] cannot be found`, confirmado em teste local). Removido do `manifest.json` para nao travar a resolucao dos outros pacotes. Adicionar depois pelo Package Manager (`Window > Package Manager > + > Add package by name`, digitando so `com.unity.2d.animation` sem versao) quando for integrar animacao 2D, e avisar a versao resolvida para registrar aqui.
 
 Observacao: `brew` nao estava disponivel no terminal local, entao o Git LFS ainda nao foi instalado por Homebrew.
 
@@ -151,13 +152,17 @@ Implementado:
 - cena adicionada ao Build Settings.
 - menu `Fragmentos do Amanha > Create VS Egypt Blockout Scene`;
 - script `TemporalScenePortal` para carregar cena alvo apos objetivo completo.
-- cena `VS_Egypt_Blockout` com chegada por fenda temporal, inimigos placeholder, obelisco de Voss, sinal de Naiara, fragmento, HUD e zona de queda.
+- cena `VS_Egypt_Blockout` com chegada por fenda temporal, inimigos placeholder, obelisco de Voss, sinal de Naiara, fragmento, HUD e zona de queda;
+- inimigo com telegraph antes do ataque (`Patrol -> Telegraph -> Attacking -> Cooldown`), substituindo o dano por contato instantaneo;
+- dash de Theo (`Shift`) com i-frames curtos e cooldown fixo;
+- menu `Fragmentos do Amanha > Create VS Era Zero Lab Scene`, reaproveitando o gerador do `Prototype_Theo_Controller` para salvar `VS_EraZero_Lab.unity` (ainda nao gerado localmente, so o script existe).
 
 Controles:
 
 - `A` / seta esquerda: mover para esquerda;
 - `D` / seta direita: mover para direita;
-- `Space` / `W` / seta para cima: pular.
+- `Space` / `W` / seta para cima: pular;
+- `Shift`: dash;
 - `J` / clique esquerdo: ataque basico placeholder.
 
 Proximo teste recomendado:
@@ -165,10 +170,11 @@ Proximo teste recomendado:
 1. Abrir `unity/FragmentosDoAmanha` no Unity Hub.
 2. Abrir `Assets/Scenes/Prototype_Theo_Controller.unity`.
 3. Rodar Play Mode.
-4. Avaliar peso do pulo, velocidade horizontal, pulo em plataformas, movimento no ar, queda/respawn, camera, zona de dano, HUD, ataque, inimigo, fragmento coletavel e leitura da sala.
+4. Avaliar peso do pulo, velocidade horizontal, pulo em plataformas, movimento no ar, queda/respawn, camera, zona de dano, HUD, ataque, dash, inimigo com telegraph, fragmento coletavel e leitura da sala.
 5. Coletar o fragmento e entrar no marcador final para validar o portal para `VS_Egypt_Blockout`.
 6. Abrir/testar `Assets/Scenes/VS_Egypt_Blockout.unity` diretamente.
-7. Ajustar `TheoController`, `CameraFollow2D`, `PlayerHealth`, `PrototypeHealthHud`, `PrototypeFragmentHud`, `PlayerAttack`, `PrototypeEnemy`, `TemporalFragment` e `TemporalScenePortal`.
+7. Rodar `Fragmentos do Amanha > Create VS Era Zero Lab Scene` e testar `VS_EraZero_Lab.unity`.
+8. Ajustar `TheoController`, `CameraFollow2D`, `PlayerHealth`, `PrototypeHealthHud`, `PrototypeFragmentHud`, `PlayerAttack`, `PrototypeEnemy`, `TemporalFragment` e `TemporalScenePortal`.
 
 ## Arte e referencias
 
@@ -255,6 +261,7 @@ git pull origin main
 
 ## Proximos passos recomendados
 
+0. Revisar e aprovar (ou ajustar) os rascunhos de habilidades do Theo e mecanica de fragmentos.
 1. Testar `Prototype_Theo_Controller` no Play Mode.
 2. Ajustar sensacao de movimento do Theo.
 3. Instalar/confirmar Cinemachine e Pixel Perfect.
