@@ -1,0 +1,10 @@
+Please regenerate this Theo character sheet with two corrections:
+
+1. Remove the round shoulder emblem/patch entirely (the circular symbol with an arrow/letter mark on the jacket sleeve). Theo's jacket should have no faction logo, no emblem, no printed symbol anywhere — just plain terracotta/orange fabric with practical pockets and straps.
+
+2. Push the art style to be much more authentic hard-edge pixel art, not a smooth painterly illustration with a pixel-art filter look. Specifically:
+- Use a visible, consistent pixel grid — sharp blocky pixel edges throughout, no anti-aliasing, no soft blending, no smooth gradients on skin, fabric, or metal.
+- Replace smooth shading transitions with visible dithering patterns and clean flat color clusters (limited palette per area, not continuous gradients).
+- The result should look like it could be scaled down to a 64-96 pixel tall sprite and still read as genuine low-resolution pixel art, not a downscaled painting.
+
+Keep everything else the same: pose, identity details (goggles, wrist chronometer, copper/orange accent, utility belt, scanner/lantern with hard pixel cone-light), palette hues, and the scale reference / identity detail layout.
