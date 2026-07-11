@@ -14,13 +14,17 @@ Repositorio GitHub:
 https://github.com/Gravit-Studios/fragmentos-do-amanha
 ```
 
-Repositorio local atual:
+Duas maquinas locais ativas, sincronizadas via GitHub. Sempre commitar e enviar (`git push`) em uma antes de puxar (`git pull`) na outra, para evitar trabalho divergente.
+
+### PC Windows
+
+Repositorio local:
 
 ```text
 C:\Users\Gean Santos\Downloads\Projeto\Fragmentos do Amanhã\fragmentos-do-amanha
 ```
 
-Clonado via GitHub Desktop. Este e o caminho padrao para atualizacao manual pelo PC; nao usar mais o caminho antigo em `Documents\Codex`.
+Clonado via GitHub Desktop. Nao usar mais o caminho antigo em `Documents\Codex`.
 
 Projeto Unity:
 
@@ -28,7 +32,25 @@ Projeto Unity:
 C:\Users\Gean Santos\Downloads\Projeto\Fragmentos do Amanhã\fragmentos-do-amanha\unity\FragmentosDoAmanha
 ```
 
-Ao abrir pelo Unity Hub, selecionar a pasta `FragmentosDoAmanha`, nao a raiz `fragmentos-do-amanha`.
+### Mac
+
+Repositorio local:
+
+```text
+/Users/geansantos/Downloads/Projetos/fragmentos-do-amanha
+```
+
+Clonado via `git clone`. Git LFS ja instalado nesta maquina.
+
+Projeto Unity:
+
+```text
+/Users/geansantos/Downloads/Projetos/fragmentos-do-amanha/unity/FragmentosDoAmanha
+```
+
+### Regra comum
+
+Ao abrir pelo Unity Hub, selecionar a pasta `FragmentosDoAmanha`, nao a raiz `fragmentos-do-amanha`. Se a versao do Unity nessa maquina for diferente da registrada abaixo e o `ProjectSettings/ProjectVersion.txt` mudar ao abrir, registrar a nova versao aqui.
 
 ## Estado geral
 
