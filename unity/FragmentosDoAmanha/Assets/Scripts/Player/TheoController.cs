@@ -71,9 +71,15 @@ namespace FragmentosDoAmanha.Player
                 jumpPressed = true;
             }
 
+            if (keyboard.leftShiftKey.isPressed || keyboard.rightShiftKey.isPressed)
+            {
+                Debug.Log($"Fragmentos do Amanha [debug]: Shift segurado (left={keyboard.leftShiftKey.isPressed}, right={keyboard.rightShiftKey.isPressed}).");
+            }
+
             if (keyboard.leftShiftKey.wasPressedThisFrame || keyboard.rightShiftKey.wasPressedThisFrame)
             {
                 dashPressed = true;
+                Debug.Log("Fragmentos do Amanha [debug]: Shift detectado (wasPressedThisFrame).");
             }
         }
 
