@@ -42,7 +42,6 @@ namespace FragmentosDoAmanha.Enemies
         private float flashEndTime;
         private State state = State.Patrol;
         private PlayerHealth trackedPlayer;
-        private Coroutine attackRoutine;
 
         private void Awake()
         {
@@ -108,7 +107,7 @@ namespace FragmentosDoAmanha.Enemies
                 }
 
                 trackedPlayer = playerHealth;
-                attackRoutine = StartCoroutine(TelegraphAndAttackRoutine());
+                StartCoroutine(TelegraphAndAttackRoutine());
                 return;
             }
         }
@@ -149,7 +148,6 @@ namespace FragmentosDoAmanha.Enemies
             yield return new WaitForSeconds(cooldownDuration);
 
             state = State.Patrol;
-            attackRoutine = null;
         }
 
         private Vector2 GetHitboxCenter()
