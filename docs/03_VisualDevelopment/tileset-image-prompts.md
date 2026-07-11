@@ -137,3 +137,189 @@ Lighting: single light source, upper-left, ~45 degrees, consistent with the rest
 Avoid: scene composition, multiple tiles, labels, UI, borders/frames, photorealism, 3D render.
 ```
 
+## Prompts Prontos — Era Zero (4 tiles essenciais)
+
+### Era Zero — Chao Principal
+
+```text
+Single isolated pixel art game tile, exactly one tile, no scene, no composition, no other objects, no text, no label, no frame or border decoration around it.
+
+Canvas: square, designed on a 32x32 pixel grid (export at 128x128 or 256x256 for quality, keeping hard pixel edges — no anti-aliasing, no smooth blending, no soft gradients, no photorealism).
+
+Background: fully transparent (or flat solid magenta #ff00ff if transparency is not supported, so it can be chroma-keyed later).
+
+Tile: main ground/floor tile for a near-future research laboratory.
+
+Material language: cold blue-gray structural floor panel, graphite-dark shadows, a thin sterile white/cyan light strip accent along one edge. No copper/orange in this tile (that color is reserved for temporal-technology props elsewhere).
+
+Tiling requirement:
+- The left and right edges must align seamlessly with a copy of itself repeated side by side (no visible seam).
+- The top edge is the walkable surface and must read clearly as "safe to stand on" from above.
+- Keep detail simple and centered enough that it still reads at small scale.
+
+Lighting: single light source, upper-left, ~45 degrees, consistent with the rest of the tileset.
+
+Avoid: scene composition, multiple tiles, labels, UI, borders/frames, photorealism, 3D render.
+```
+
+### Era Zero — Plataforma
+
+```text
+Single isolated pixel art game tile, exactly one tile, no scene, no composition, no other objects, no text, no label, no frame or border decoration around it.
+
+Canvas: square, designed on a 32x32 pixel grid (export at 128x128 or 256x256 for quality, keeping hard pixel edges — no anti-aliasing, no smooth blending, no soft gradients, no photorealism).
+
+Background: fully transparent (or flat solid magenta #ff00ff if transparency is not supported, so it can be chroma-keyed later).
+
+Tile: one-way elevated platform/catwalk tile for a near-future research laboratory, visually distinct from the main ground tile (thinner, metal-grate or raised-walkway look).
+
+Material language: cold blue-gray metal catwalk, graphite-dark shadows, a thin sterile white/cyan light strip accent on the top edge.
+
+Tiling requirement:
+- The left and right edges must align seamlessly with a copy of itself repeated side by side (no visible seam).
+- The top edge is the walkable surface and must read clearly as "safe to stand on" from above.
+- Keep detail simple and centered enough that it still reads at small scale.
+
+Lighting: single light source, upper-left, ~45 degrees, consistent with the rest of the tileset.
+
+Avoid: scene composition, multiple tiles, labels, UI, borders/frames, photorealism, 3D render.
+```
+
+### Era Zero — Parede
+
+```text
+Single isolated pixel art game tile, exactly one tile, no scene, no composition, no other objects, no text, no label, no frame or border decoration around it.
+
+Canvas: square, designed on a 32x32 pixel grid (export at 128x128 or 256x256 for quality, keeping hard pixel edges — no anti-aliasing, no smooth blending, no soft gradients, no photorealism).
+
+Background: fully transparent (or flat solid magenta #ff00ff if transparency is not supported, so it can be chroma-keyed later).
+
+Tile: vertical wall panel tile for a near-future research laboratory (server-rack-like paneling or glass partition look).
+
+Material language: cold blue-gray structural panel, graphite-dark shadows, sterile white/cyan light strip accent, small restrained copper/orange glow only if depicting a cable or console detail.
+
+Tiling requirement:
+- The left and right edges must align seamlessly with a copy of itself repeated side by side (no visible seam).
+- The top and bottom edges must also align seamlessly if stacked vertically.
+- Keep detail simple and centered enough that it still reads at small scale.
+
+Lighting: single light source, upper-left, ~45 degrees, consistent with the rest of the tileset.
+
+Avoid: scene composition, multiple tiles, labels, UI, borders/frames, photorealism, 3D render.
+```
+
+### Era Zero — Borda/Transicao
+
+```text
+Single isolated pixel art game tile, exactly one tile, no scene, no composition, no other objects, no text, no label, no frame or border decoration around it.
+
+Canvas: square, designed on a 32x32 pixel grid (export at 128x128 or 256x256 for quality, keeping hard pixel edges — no anti-aliasing, no smooth blending, no soft gradients, no photorealism).
+
+Background: fully transparent (or flat solid magenta #ff00ff if transparency is not supported, so it can be chroma-keyed later).
+
+Tile: outer corner/edge transition tile for the laboratory floor panel material, showing the floor tile transitioning into empty space/void at a 90-degree outer corner.
+
+Material language: same cold blue-gray structural panel and graphite-dark shadow as the main ground tile, so it visually matches when placed next to it.
+
+Tiling requirement:
+- Must align seamlessly against the main ground/floor tile on the sides that touch it.
+- Keep detail simple and centered enough that it still reads at small scale.
+
+Lighting: single light source, upper-left, ~45 degrees, consistent with the rest of the tileset.
+
+Avoid: scene composition, multiple tiles, labels, UI, borders/frames, photorealism, 3D render.
+```
+
+## Prompts Prontos — Egito Antigo (4 tiles essenciais)
+
+### Egito — Chao Principal
+
+```text
+Single isolated pixel art game tile, exactly one tile, no scene, no composition, no other objects, no text, no label, no frame or border decoration around it.
+
+Canvas: square, designed on a 32x32 pixel grid (export at 128x128 or 256x256 for quality, keeping hard pixel edges — no anti-aliasing, no smooth blending, no soft gradients, no photorealism).
+
+Background: fully transparent (or flat solid magenta #ff00ff if transparency is not supported, so it can be chroma-keyed later).
+
+Tile: main ground/floor tile for an ancient Egyptian temple chamber.
+
+Material language: carved sandstone floor block, deep umber shadow, subtle sand wear, thin gold accent trim along one edge.
+
+Tiling requirement:
+- The left and right edges must align seamlessly with a copy of itself repeated side by side (no visible seam).
+- The top edge is the walkable surface and must read clearly as "safe to stand on" from above.
+- Keep detail simple and centered enough that it still reads at small scale.
+
+Lighting: single light source, upper-left, ~45 degrees, consistent with the rest of the tileset.
+
+Avoid: scene composition, multiple tiles, labels, UI, borders/frames, photorealism, 3D render.
+```
+
+### Egito — Plataforma
+
+```text
+Single isolated pixel art game tile, exactly one tile, no scene, no composition, no other objects, no text, no label, no frame or border decoration around it.
+
+Canvas: square, designed on a 32x32 pixel grid (export at 128x128 or 256x256 for quality, keeping hard pixel edges — no anti-aliasing, no smooth blending, no soft gradients, no photorealism).
+
+Background: fully transparent (or flat solid magenta #ff00ff if transparency is not supported, so it can be chroma-keyed later).
+
+Tile: one-way elevated stone ledge/platform tile for an ancient Egyptian temple chamber, visually distinct from the main ground tile (thinner carved stone block look).
+
+Material language: carved sandstone block, deep umber shadow, thin gold accent trim on the top edge.
+
+Tiling requirement:
+- The left and right edges must align seamlessly with a copy of itself repeated side by side (no visible seam).
+- The top edge is the walkable surface and must read clearly as "safe to stand on" from above.
+- Keep detail simple and centered enough that it still reads at small scale.
+
+Lighting: single light source, upper-left, ~45 degrees, consistent with the rest of the tileset.
+
+Avoid: scene composition, multiple tiles, labels, UI, borders/frames, photorealism, 3D render.
+```
+
+### Egito — Parede
+
+```text
+Single isolated pixel art game tile, exactly one tile, no scene, no composition, no other objects, no text, no label, no frame or border decoration around it.
+
+Canvas: square, designed on a 32x32 pixel grid (export at 128x128 or 256x256 for quality, keeping hard pixel edges — no anti-aliasing, no smooth blending, no soft gradients, no photorealism).
+
+Background: fully transparent (or flat solid magenta #ff00ff if transparency is not supported, so it can be chroma-keyed later).
+
+Tile: vertical carved pillar/wall panel tile for an ancient Egyptian temple chamber, with subtle hieroglyph-style carving.
+
+Material language: carved sandstone, deep umber shadow, gold accent trim, small lapis/teal secondary color detail.
+
+Tiling requirement:
+- The left and right edges must align seamlessly with a copy of itself repeated side by side (no visible seam).
+- The top and bottom edges must also align seamlessly if stacked vertically.
+- Keep detail simple and centered enough that it still reads at small scale.
+
+Lighting: single light source, upper-left, ~45 degrees, consistent with the rest of the tileset.
+
+Avoid: scene composition, multiple tiles, labels, UI, borders/frames, photorealism, 3D render.
+```
+
+### Egito — Borda/Transicao
+
+```text
+Single isolated pixel art game tile, exactly one tile, no scene, no composition, no other objects, no text, no label, no frame or border decoration around it.
+
+Canvas: square, designed on a 32x32 pixel grid (export at 128x128 or 256x256 for quality, keeping hard pixel edges — no anti-aliasing, no smooth blending, no soft gradients, no photorealism).
+
+Background: fully transparent (or flat solid magenta #ff00ff if transparency is not supported, so it can be chroma-keyed later).
+
+Tile: outer corner/edge transition tile for the sandstone floor material, showing the floor tile transitioning into sand drift/void at a 90-degree outer corner.
+
+Material language: same carved sandstone and deep umber shadow as the main ground tile, so it visually matches when placed next to it.
+
+Tiling requirement:
+- Must align seamlessly against the main ground/floor tile on the sides that touch it.
+- Keep detail simple and centered enough that it still reads at small scale.
+
+Lighting: single light source, upper-left, ~45 degrees, consistent with the rest of the tileset.
+
+Avoid: scene composition, multiple tiles, labels, UI, borders/frames, photorealism, 3D render.
+```
+
