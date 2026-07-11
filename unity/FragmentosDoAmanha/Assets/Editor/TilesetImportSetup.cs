@@ -24,7 +24,7 @@ namespace FragmentosDoAmanha.Editor
         public static void SliceEgyptCoreTiles()
         {
             SliceCoreTileSheet(
-                "Assets/Art/Tilesets/Egypt/egypt-temple-tiles-core-v01.png",
+                "Assets/Art/Tilesets/Egypt/egypt-temple-tiles-core-v02.png",
                 "Assets/Art/Tilesets/Egypt/Tiles",
                 "Egypt");
         }
