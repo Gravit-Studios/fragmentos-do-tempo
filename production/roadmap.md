@@ -15,7 +15,7 @@ Checklist de definicao de "pronto" para a demo inicial:
 - [ ] Portal temporal Era Zero -> Egito testado e sem bugs de carregamento.
 - [ ] Cena oficial `VS_EraZero_Lab` gerada e testada (script pronto: `Fragmentos do Amanha > Create VS Era Zero Lab Scene`), separada da cena de sandbox `Prototype_Theo_Controller`.
 - [ ] Pixel Perfect Camera e Cinemachine integrados (substituindo camera temporaria).
-- [x] Tileset placeholder proprio para Era Zero e para Egito (mesmo que simples, cada epoca visualmente distinta). Era Zero (`era-zero-lab-pixel-environment-v02.png`) e Egito (`egypt-temple-pixel-environment-v02.png`) prontos, ainda nao integrados ao Tilemap da Unity.
+- [x] Tileset placeholder proprio para Era Zero e para Egito (mesmo que simples, cada epoca visualmente distinta). Sheets completos (`era-zero-lab-pixel-environment-v03.png`, `egypt-temple-pixel-environment-v03.png`) e tiles individuais prontos pra ladrilhar (`era-zero-lab-tiles-core-v01.png`, `egypt-temple-tiles-core-v01.png`) gerados. Antes de integrar ao Tilemap: redimensionar cada tile pra um tamanho fixo multiplo de 32px e testar emenda lado a lado (nenhuma das duas coisas foi validada ainda).
 - [ ] Sprite/animacao minima do Theo (ainda que placeholder) substituindo o blockout de caixas.
 - [ ] Lista de habilidades de movimento do Theo (dash etc.) definida e com pelo menos uma implementada e testada. Dash implementado e testado em Play Mode (`TheoController.cs`, tecla Shift), confirmado funcionando no PC Windows e no Mac.
 - [ ] Build interna jogavel cobrindo Era Zero + Egito.
