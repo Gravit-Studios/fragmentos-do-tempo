@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: Egypt_Platform
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.Tilemaps.Tile
-  m_Sprite: {fileID: -4703396873669460520, guid: df24594a7c9d35c4382467660f9c7c91, type: 3}
+  m_Sprite: {fileID: -4703396873669460520, guid: 976b5489e6cc66240b65777e9ca02768, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

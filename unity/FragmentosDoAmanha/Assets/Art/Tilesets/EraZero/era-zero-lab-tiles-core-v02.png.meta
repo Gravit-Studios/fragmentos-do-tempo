@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e52efa0f8bfa208478da8fe396c4d3b7
+guid: 8ab3ccf7e9be0ea4b90bb7dbab9d6925
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -114,9 +114,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 627
-        width: 627
-        height: 627
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,10 +135,10 @@ TextureImporter:
       name: EraZero_Platform
       rect:
         serializedVersion: 2
-        x: 627
-        y: 627
-        width: 627
-        height: 627
+        x: 512
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,8 +159,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 627
-        height: 627
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,10 +179,10 @@ TextureImporter:
       name: EraZero_Border
       rect:
         serializedVersion: 2
-        x: 627
+        x: 512
         y: 0
-        width: 627
-        height: 627
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
