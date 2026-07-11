@@ -99,14 +99,14 @@ Pacotes ja registrados:
 
 - Universal Render Pipeline `17.5.0`
 - Input System `1.19.0`
-- Cinemachine `3.1.4` (adicionado ao `manifest.json`, resolveu sem erro em teste local)
-- 2D Pixel Perfect `5.0.3` (adicionado ao `manifest.json`, resolveu sem erro em teste local)
-- 2D Sprite `1.0.0` (adicionado ao `manifest.json`)
+- 2D Sprite `1.0.0` (adicionado ao `manifest.json`, resolveu sem erro em teste local)
 
 Pendencias de pacote:
 
 - Git LFS na maquina de producao;
-- 2D Animation: tentativa inicial (`10.1.5`) nao existe no registry (`Package [com.unity.2d.animation@10.1.5] cannot be found`, confirmado em teste local). Removido do `manifest.json` para nao travar a resolucao dos outros pacotes. Adicionar depois pelo Package Manager (`Window > Package Manager > + > Add package by name`, digitando so `com.unity.2d.animation` sem versao) quando for integrar animacao 2D, e avisar a versao resolvida para registrar aqui.
+- 2D Animation: tentativa inicial (`10.1.5`) nao existe no registry (`Package [com.unity.2d.animation@10.1.5] cannot be found`, confirmado em teste local). Removido do `manifest.json`.
+- Cinemachine e 2D Pixel Perfect: as versoes tentadas (`3.1.4` e `5.0.3`) existem no registry mas usam APIs de Editor obsoletas/removidas nesta versao da Unity (`6000.5.3f1`), gerando `error CS0619`/`CS0246` dentro do proprio pacote e travando o Play Mode do projeto inteiro. Removidos do `manifest.json` para destravar o teste (confirmado em teste local).
+- Cinemachine, 2D Pixel Perfect e 2D Animation devem ser adicionados pelo Package Manager (`Window > Package Manager > + > Add package by name`, sem fixar versao) quando forem de fato integrados, para a Unity escolher sozinha uma versao compativel com `6000.5.3f1`. Avisar a versao resolvida para registrar aqui.
 
 Observacao: `brew` nao estava disponivel no terminal local, entao o Git LFS ainda nao foi instalado por Homebrew.
 
