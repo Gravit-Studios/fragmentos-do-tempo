@@ -8,7 +8,6 @@ namespace FragmentosDoAmanha.Editor
 {
     public static class TilesetImportSetup
     {
-        private const float SpritePixelsPerUnit = 32f;
         private static readonly string[] QuadrantNames = { "Ground", "Platform", "Wall", "Border" };
 
         [MenuItem("Fragmentos do Amanha/Slice Era Zero Core Tiles")]
@@ -38,17 +37,24 @@ namespace FragmentosDoAmanha.Editor
                 return;
             }
 
+            Texture2D texture = AssetDatabase.LoadAssetAtPath<Texture2D>(texturePath);
+            if (texture == null)
+            {
+                Debug.LogError($"Fragmentos do Amanha: could not read texture at {texturePath}. Make sure the file was imported by Unity first (not just an LFS pointer).");
+                return;
+            }
+
+            float halfWidth = texture.width * 0.5f;
+            float halfHeight = texture.height * 0.5f;
+
             importer.textureType = TextureImporterType.Sprite;
             importer.spriteImportMode = SpriteImportMode.Multiple;
             importer.filterMode = FilterMode.Point;
             importer.textureCompression = TextureImporterCompression.Uncompressed;
             importer.mipmapEnabled = false;
             importer.alphaIsTransparency = true;
-            importer.spritePixelsPerUnit = SpritePixelsPerUnit;
-
-            Texture2D texture = AssetDatabase.LoadAssetAtPath<Texture2D>(texturePath);
-            float halfWidth = texture.width * 0.5f;
-            float halfHeight = texture.height * 0.5f;
+            // One sliced quadrant = 1 world unit, matching the existing prototype's tile/platform scale.
+            importer.spritePixelsPerUnit = halfWidth;
 
             Rect[] quadrantRects =
             {

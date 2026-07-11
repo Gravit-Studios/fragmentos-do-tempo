@@ -15,6 +15,7 @@ namespace FragmentosDoAmanha.Editor
     {
         private const string ScenePath = "Assets/Scenes/Prototype_Theo_Controller.unity";
         private const string EraZeroLabScenePath = "Assets/Scenes/VS_EraZero_Lab.unity";
+        private const string TheoSpritePath = "Assets/Art/Characters/Theo/theo-sprite-v01.png";
         private const string EgyptScenePath = "Assets/Scenes/VS_Egypt_Blockout.unity";
         private const string GroundLayerName = "Ground";
         private const float BackgroundZ = 2f;
@@ -121,8 +122,21 @@ namespace FragmentosDoAmanha.Editor
             serializedAttack.ApplyModifiedPropertiesWithoutUndo();
             hitboxPreview.SetActive(false);
 
-            CreateTheoBlockoutVisual(theo.transform);
+            CreateTheoVisual(theo.transform);
             return theo;
+        }
+
+        private static void CreateTheoVisual(Transform parent)
+        {
+            Sprite theoSprite = AssetDatabase.LoadAssetAtPath<Sprite>(TheoSpritePath);
+            if (theoSprite != null)
+            {
+                SpriteRenderer spriteRenderer = parent.gameObject.AddComponent<SpriteRenderer>();
+                spriteRenderer.sprite = theoSprite;
+                return;
+            }
+
+            CreateTheoBlockoutVisual(parent);
         }
 
         private static void CreateTheoBlockoutVisual(Transform parent)
