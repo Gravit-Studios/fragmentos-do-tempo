@@ -107,3 +107,33 @@ Gameplay tiles:
 
 Mood: ancient, oppressive, sacred, exploratory — consistent with the approved Egypt temple reference sheet.
 ```
+
+---
+
+## Prompt — Tile Individual (arquivo unico, pronto pra ladrilhar)
+
+O ChatGPT gera uma imagem por pedido, entao nao existe um botao unico que devolve "um pacote de arquivos". Para os tiles que realmente precisam repetir sem costura (chao, plataforma, parede, borda), o caminho mais confiavel e pedir **um arquivo por vez**, um por tile, em vez de tentar recortar um sheet de referencia (que nao esta num grid limpo). Repita o prompt abaixo trocando `[TILE NAME]` e a lista de `[MATERIAL LANGUAGE]` da epoca (ver secoes acima) para cada tile que faltar.
+
+Props, props narrativos, elementos destrutiveis e fundo **nao precisam** desse tratamento — esses podem continuar vindo do sheet de referencia ja aprovado e ser recortados manualmente na Unity (Sprite Editor, modo Multiple, retangulo manual), porque sao posicionados uma vez, nao repetidos lado a lado.
+
+```text
+Single isolated pixel art game tile, exactly one tile, no scene, no composition, no other objects, no text, no label, no frame or border decoration around it.
+
+Canvas: square, designed on a 32x32 pixel grid (export at 128x128 or 256x256 for quality, keeping hard pixel edges — no anti-aliasing, no smooth blending, no soft gradients, no photorealism).
+
+Background: fully transparent (or flat solid magenta #ff00ff if transparency is not supported, so it can be chroma-keyed later).
+
+Tile: [TILE NAME] — e.g. "main ground floor tile", "one-way platform tile", "wall panel tile", "outer corner border tile".
+
+Material language: [MATERIAL LANGUAGE — colar a lista da era correspondente, secao acima].
+
+Tiling requirement:
+- The left and right edges must align seamlessly with a copy of itself repeated side by side (no visible seam).
+- If it is a floor/platform tile, the top edge is the walkable surface and must read clearly as "safe to stand on" from above.
+- Keep detail simple and centered enough that it still reads at small scale.
+
+Lighting: single light source, upper-left, ~45 degrees, consistent with the rest of the tileset.
+
+Avoid: scene composition, multiple tiles, labels, UI, borders/frames, photorealism, 3D render.
+```
+
