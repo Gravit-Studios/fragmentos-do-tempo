@@ -17,7 +17,7 @@ Checklist de definicao de "pronto" para a demo inicial:
 - [ ] Pixel Perfect Camera e Cinemachine integrados (substituindo camera temporaria).
 - [x] Tileset placeholder proprio para Era Zero e para Egito (mesmo que simples, cada epoca visualmente distinta). Era Zero (`era-zero-lab-pixel-environment-v02.png`) e Egito (`egypt-temple-pixel-environment-v02.png`) prontos, ainda nao integrados ao Tilemap da Unity.
 - [ ] Sprite/animacao minima do Theo (ainda que placeholder) substituindo o blockout de caixas.
-- [ ] Lista de habilidades de movimento do Theo (dash etc.) definida e com pelo menos uma implementada e testada. Dash implementado e testado em Play Mode (`TheoController.cs`, tecla Shift), confirmado funcionando.
+- [ ] Lista de habilidades de movimento do Theo (dash etc.) definida e com pelo menos uma implementada e testada. Dash implementado e testado em Play Mode (`TheoController.cs`, tecla Shift), confirmado funcionando no PC Windows e no Mac.
 - [ ] Build interna jogavel cobrindo Era Zero + Egito.
 
 So depois de fechar essa checklist a prioridade avanca para a proxima epoca do roadmap de conteudo.
