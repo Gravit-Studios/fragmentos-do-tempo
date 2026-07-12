@@ -16,8 +16,8 @@ Checklist de definicao de "pronto" para a demo inicial:
 - [ ] Cena oficial `VS_EraZero_Lab` gerada e testada (script pronto: `Fragmentos do Amanha > Create VS Era Zero Lab Scene`), separada da cena de sandbox `Prototype_Theo_Controller`.
 - [ ] Pixel Perfect Camera e Cinemachine integrados (substituindo camera temporaria).
 - [x] Tileset placeholder proprio para Era Zero e para Egito (mesmo que simples, cada epoca visualmente distinta). Sheets completos (`era-zero-lab-pixel-environment-v03.png`, `egypt-temple-pixel-environment-v03.png`) e tiles individuais (`era-zero-lab-tiles-core-v02.png`, `egypt-temple-tiles-core-v02.png`, corrigidos para preenchimento total sem rotacao/margem branca) ja importados, fatiados (`TilesetImportSetup.cs`) e testados no Tilemap da Unity — emenda validada visualmente sem costura no chao do Egito.
-- [ ] Sprite/animacao minima do Theo (ainda que placeholder) substituindo o blockout de caixas.
-- [ ] Lista de habilidades de movimento do Theo (dash etc.) definida e com pelo menos uma implementada e testada. Dash implementado e testado em Play Mode (`TheoController.cs`, tecla Shift), confirmado funcionando no PC Windows e no Mac.
+- [x] Sprite/animacao minima do Theo (ainda que placeholder) substituindo o blockout de caixas. `theo-sprite-v01.png` (pose idle) importado e integrado via `TheoSpriteSetup.cs`, aguardando ajuste fino de escala apos teste visual.
+- [x] Lista de habilidades de movimento do Theo (dash etc.) definida e com pelo menos uma implementada e testada. Dash implementado e testado em Play Mode (`TheoController.cs`, tecla Shift), confirmado funcionando no PC Windows e no Mac. Decisao registrada em `docs/04_Characters/theo-abilities.md`: para esta demo (Era Zero + Egito), o kit fica no ataque basico + dash; habilidades das proximas epocas ficam para depois da fatia fechar.
 - [ ] Build interna jogavel cobrindo Era Zero + Egito.
 
 So depois de fechar essa checklist a prioridade avanca para a proxima epoca do roadmap de conteudo.
