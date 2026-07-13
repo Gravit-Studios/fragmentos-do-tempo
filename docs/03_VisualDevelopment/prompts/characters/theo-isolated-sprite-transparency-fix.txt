@@ -1,0 +1,8 @@
+This isolated Theo sprite has a faint light/white halo or matte fringe bleeding around the edges of the silhouette — it's not fully transparent at the border. Against a dark background this shows up as a visible rectangular box/glow around the character.
+
+Please regenerate with a completely clean cutout:
+- True full transparency (alpha = 0) everywhere outside the character's silhouette, with no semi-transparent halo, glow, or light fringe bleeding past the edge of the body, hair, jacket, or tools.
+- The edge between character and transparent background must be crisp, not feathered or soft-glowing.
+- Keep everything else identical: pose, proportions, colors, identity details (goggles, wrist chronometer, copper/orange accent, utility belt, scanner/lantern with hard pixel cone-light, asymmetric silhouette), and the same pixel art style.
+
+Test criteria: the result must look clean when placed over both a very dark background and a light background, with no visible box, glow, or edge artifact in either case.

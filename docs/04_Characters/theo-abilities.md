@@ -23,6 +23,12 @@ Propor uma progressao de habilidades para Theo, amarrada a estrutura de 7 epocas
 
 Esse kit cobre a base de Era Zero. As habilidades abaixo sao propostas de evolucao, uma por epoca.
 
+## Escopo para a demo inicial (Era Zero + Egito)
+
+O `roadmap.md` trava o escopo atual em Era Zero + Egito ate essa fatia fechar (`Escopo da Demo Inicial`). Dentro dessa trava, a demo so precisa das duas primeiras entradas desta lista (Golpe Improvisado + Passo Temporal/Dash), ja implementadas. As habilidades de Grecia em diante ficam propositalmente fora de escopo agora — nao sao "trabalho perdido", sao a continuacao natural depois que a fatia inicial provar o ciclo do jogo (mover, explorar, combate simples, objetivo, transicao de era).
+
+Antes de implementar qualquer habilidade nova (pulo duplo, parry, etc.), decidir: a demo inicial precisa provar so o ciclo basico com o kit minimo atual, ou ja precisa mostrar mais profundidade de combate? Ver `Fase 5 — Pos-slice` do roadmap, que ja reserva esse tipo de decisao para depois da fatia fechar.
+
 ## Progressao proposta por epoca
 
 ### Era Zero — Laboratorio (intro)
