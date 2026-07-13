@@ -131,7 +131,12 @@ namespace FragmentosDoAmanha.Editor
             Sprite theoSprite = AssetDatabase.LoadAssetAtPath<Sprite>(TheoSpritePath);
             if (theoSprite != null)
             {
-                SpriteRenderer spriteRenderer = parent.gameObject.AddComponent<SpriteRenderer>();
+                GameObject visual = new GameObject("Theo Sprite");
+                visual.transform.SetParent(parent);
+                visual.transform.localPosition = Vector3.zero;
+                Vector3 parentScale = parent.localScale;
+                visual.transform.localScale = new Vector3(1f / parentScale.x, 1f / parentScale.y, 1f / parentScale.z);
+                SpriteRenderer spriteRenderer = visual.AddComponent<SpriteRenderer>();
                 spriteRenderer.sprite = theoSprite;
                 return;
             }

@@ -67,10 +67,23 @@ namespace FragmentosDoAmanha.Editor
                 Object.DestroyImmediate(child.gameObject);
             }
 
-            SpriteRenderer spriteRenderer = theo.GetComponent<SpriteRenderer>();
+            SpriteRenderer existingOnRoot = theo.GetComponent<SpriteRenderer>();
+            if (existingOnRoot != null)
+            {
+                Object.DestroyImmediate(existingOnRoot);
+            }
+
+            Transform visualTransform = theo.transform.Find("Theo Sprite");
+            GameObject visual = visualTransform != null ? visualTransform.gameObject : new GameObject("Theo Sprite");
+            visual.transform.SetParent(theo.transform);
+            visual.transform.localPosition = Vector3.zero;
+            Vector3 parentScale = theo.transform.localScale;
+            visual.transform.localScale = new Vector3(1f / parentScale.x, 1f / parentScale.y, 1f / parentScale.z);
+
+            SpriteRenderer spriteRenderer = visual.GetComponent<SpriteRenderer>();
             if (spriteRenderer == null)
             {
-                spriteRenderer = theo.AddComponent<SpriteRenderer>();
+                spriteRenderer = visual.AddComponent<SpriteRenderer>();
             }
 
             spriteRenderer.sprite = sprite;
