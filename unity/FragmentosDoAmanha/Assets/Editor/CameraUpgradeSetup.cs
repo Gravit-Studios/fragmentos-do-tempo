@@ -15,19 +15,21 @@ namespace FragmentosDoAmanha.Editor
 
         // Tiles and Theo were imported at different source resolutions (Era Zero
         // tiles ~627 PPU, Egypt tiles ~512 PPU, Theo ~795 PPU), so no single value
-        // gives crisp per-pixel snapping for every asset yet. 100 is a neutral
+        // gives crisp per-pixel snapping for every asset yet. 54 is a neutral
         // placeholder; revisit once the art pipeline settles on one native
         // resolution per pixel-art tile/sprite.
-        private const int PlaceholderAssetsPpu = 100;
+        private const int PlaceholderAssetsPpu = 54;
 
         // Pixel Perfect Camera recomputes the orthographic size at runtime as
         // refResolutionY / (2 * assetsPPU), ignoring whatever the Cinemachine
-        // lens is set to. 1920x1080 with the 100 PPU above works out to ~5.4,
+        // lens is set to. 960x540 with the 54 PPU above works out to exactly 5,
         // matching the room framing the old fixed camera used (orthographicSize
-        // 5) instead of the previous 480x270 value, which zoomed in ~3.7x too
-        // close (visible rooms became unreadable in the build).
-        private const int ReferenceResolutionX = 1920;
-        private const int ReferenceResolutionY = 1080;
+        // 5). Also kept deliberately smaller than common window/build
+        // resolutions (unlike the earlier 1920x1080 attempt) so Pixel Perfect
+        // Camera upscales instead of warning that the screen is smaller than
+        // the reference resolution.
+        private const int ReferenceResolutionX = 960;
+        private const int ReferenceResolutionY = 540;
 
         [MenuItem("Fragmentos do Amanha/Upgrade Camera To Cinemachine + Pixel Perfect (Current Scene)")]
         public static void UpgradeCamera()
