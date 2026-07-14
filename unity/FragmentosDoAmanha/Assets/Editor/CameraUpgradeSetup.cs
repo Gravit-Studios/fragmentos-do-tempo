@@ -87,7 +87,7 @@ namespace FragmentosDoAmanha.Editor
 
             vcam.Follow = theo.transform;
             LensSettings lens = vcam.Lens;
-            lens.Orthographic = true;
+            lens.ModeOverride = LensSettings.OverrideModes.Orthographic;
             lens.OrthographicSize = orthographicSize;
             vcam.Lens = lens;
 
