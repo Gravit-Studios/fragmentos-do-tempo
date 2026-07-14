@@ -6,17 +6,17 @@ Decisao: focar em **Era Zero + Egito** ate existir uma fatia funcional, padroniz
 
 Checklist de definicao de "pronto" para a demo inicial:
 
-- [ ] Controle de Theo responsivo e validado em Play Mode (movimento, pulo, coyote time, colisao).
-- [ ] Ataque basico de Theo com timing e alcance validados.
+- [x] Controle de Theo responsivo e validado em Play Mode (movimento, pulo, coyote time, colisao). Confirmado em Play Mode no PC Windows e no Mac.
+- [x] Ataque basico de Theo com timing e alcance validados. Confirmado funcionando em Play Mode (`PlayerAttack.cs`).
 - [x] Inimigo comunica ataque antes de causar dano (telegraph visual antes da hitbox ativar).
-- [ ] Telegraph do inimigo testado em Play Mode e com timing validado (nao muito rapido nem muito lento).
-- [ ] Vida, dano, invulnerabilidade e respawn testados de ponta a ponta.
-- [ ] Fragmento coletavel e HUD (vida, fragmento, objetivo) testados de ponta a ponta.
-- [ ] Portal temporal Era Zero -> Egito testado e sem bugs de carregamento.
-- [ ] Cena oficial `VS_EraZero_Lab` gerada e testada (script pronto: `Fragmentos do Amanha > Create VS Era Zero Lab Scene`), separada da cena de sandbox `Prototype_Theo_Controller`.
+- [x] Telegraph do inimigo testado em Play Mode e com timing validado (nao muito rapido nem muito lento). Confirmado funcionando (`PrototypeEnemy.cs`).
+- [x] Vida, dano, invulnerabilidade e respawn testados de ponta a ponta. Confirmado funcionando (`PlayerHealth.cs`).
+- [x] Fragmento coletavel e HUD (vida, fragmento, objetivo) testados de ponta a ponta. Confirmado funcionando.
+- [x] Portal temporal Era Zero -> Egito testado e sem bugs de carregamento. Confirmado funcionando (`TemporalScenePortal.cs`).
+- [x] Cena oficial `VS_EraZero_Lab` gerada e testada (script pronto: `Fragmentos do Amanha > Create VS Era Zero Lab Scene`), separada da cena de sandbox `Prototype_Theo_Controller`. Gerada do zero ja com o sprite do Theo integrado (sem precisar de "Replace Theo Blockout With Sprite"), HUD, fragmento, inimigo e portal para o Egito confirmados funcionando em Play Mode.
 - [ ] Pixel Perfect Camera e Cinemachine integrados (substituindo camera temporaria).
 - [x] Tileset placeholder proprio para Era Zero e para Egito (mesmo que simples, cada epoca visualmente distinta). Sheets completos (`era-zero-lab-pixel-environment-v03.png`, `egypt-temple-pixel-environment-v03.png`) e tiles individuais (`era-zero-lab-tiles-core-v02.png`, `egypt-temple-tiles-core-v02.png`, corrigidos para preenchimento total sem rotacao/margem branca) ja importados, fatiados (`TilesetImportSetup.cs`) e testados no Tilemap da Unity — emenda validada visualmente sem costura no chao do Egito.
-- [x] Sprite/animacao minima do Theo (ainda que placeholder) substituindo o blockout de caixas. `theo-sprite-v01.png` (pose idle) importado e integrado via `TheoSpriteSetup.cs`, aguardando ajuste fino de escala apos teste visual.
+- [x] Sprite/animacao minima do Theo (ainda que placeholder) substituindo o blockout de caixas. `theo-sprite-v01.png` (pose idle) importado e integrado via `TheoSpriteSetup.cs`. Corrigidos: transparencia real (fundo nao era alpha=0, era um xadrez cinza opaco desenhado na imagem), esticamento (SpriteRenderer estava herdando a escala nao-uniforme do collider do "Theo Placeholder", corrigido com objeto filho "Theo Sprite" com escala inversa) e franja branca residual nas bordas. Validado em Play Mode: proporcao correta, sem esticamento, sem caixa/halo branco. Feixe de luz da lanterna descendo do personagem e efeito de arte intencional, nao bug. Confirmado nas duas cenas (`Prototype_Theo_Controller` e `VS_Egypt_Blockout`) apos rodar `Replace Theo Blockout With Sprite (Current Scene)` em cada uma (cenas ja existentes nao sao atualizadas automaticamente pela troca de codigo).
 - [x] Lista de habilidades de movimento do Theo (dash etc.) definida e com pelo menos uma implementada e testada. Dash implementado e testado em Play Mode (`TheoController.cs`, tecla Shift), confirmado funcionando no PC Windows e no Mac. Decisao registrada em `docs/04_Characters/theo-abilities.md`: para esta demo (Era Zero + Egito), o kit fica no ataque basico + dash; habilidades das proximas epocas ficam para depois da fatia fechar.
 - [ ] Build interna jogavel cobrindo Era Zero + Egito.
 
