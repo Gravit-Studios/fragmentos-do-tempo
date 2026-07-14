@@ -52,6 +52,24 @@ namespace FragmentosDoAmanha.Enemies
             {
                 baseColor = enemyRenderer.sharedMaterial.color;
             }
+
+            IgnorePlayerBodyCollision();
+        }
+
+        private void IgnorePlayerBodyCollision()
+        {
+            PlayerHealth player = FindFirstObjectByType<PlayerHealth>();
+            Collider2D ownCollider = GetComponent<Collider2D>();
+            if (player == null || ownCollider == null)
+            {
+                return;
+            }
+
+            Collider2D playerCollider = player.GetComponent<Collider2D>();
+            if (playerCollider != null)
+            {
+                Physics2D.IgnoreCollision(ownCollider, playerCollider, true);
+            }
         }
 
         private void Update()
