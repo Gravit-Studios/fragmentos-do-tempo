@@ -10,7 +10,7 @@ Checklist de definicao de "pronto" para a demo inicial:
 - [x] Ataque basico de Theo com timing e alcance validados. Confirmado funcionando em Play Mode (`PlayerAttack.cs`).
 - [x] Inimigo comunica ataque antes de causar dano (telegraph visual antes da hitbox ativar).
 - [x] Telegraph do inimigo testado em Play Mode e com timing validado (nao muito rapido nem muito lento). Confirmado funcionando (`PrototypeEnemy.cs`).
-- [x] Vida, dano, invulnerabilidade e respawn testados de ponta a ponta. Confirmado funcionando (`PlayerHealth.cs`).
+- [x] Vida, dano, invulnerabilidade e respawn testados de ponta a ponta. Confirmado funcionando (`PlayerHealth.cs`). Corrigido bug real: cair num buraco (`FallRespawnZone`) chamava `RespawnNow()`, que reposicionava e sempre curava a vida cheia sem custo algum; agora aplica `fallDamage` (1 coracao) antes de respawnar, so curando tudo se isso zerar a vida.
 - [x] Fragmento coletavel e HUD (vida, fragmento, objetivo) testados de ponta a ponta. Confirmado funcionando.
 - [x] Portal temporal Era Zero -> Egito testado e sem bugs de carregamento. Confirmado funcionando (`TemporalScenePortal.cs`).
 - [x] Cena oficial `VS_EraZero_Lab` gerada e testada (script pronto: `Fragmentos do Amanha > Create VS Era Zero Lab Scene`), separada da cena de sandbox `Prototype_Theo_Controller`. Gerada do zero ja com o sprite do Theo integrado (sem precisar de "Replace Theo Blockout With Sprite"), HUD, fragmento, inimigo e portal para o Egito confirmados funcionando em Play Mode.
