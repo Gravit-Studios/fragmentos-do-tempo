@@ -9,7 +9,7 @@ Checklist de definicao de "pronto" para a demo inicial:
 - [x] Controle de Theo responsivo e validado em Play Mode (movimento, pulo, coyote time, colisao). Confirmado em Play Mode no PC Windows e no Mac.
 - [x] Ataque basico de Theo com timing e alcance validados. Confirmado funcionando em Play Mode (`PlayerAttack.cs`).
 - [x] Inimigo comunica ataque antes de causar dano (telegraph visual antes da hitbox ativar).
-- [ ] Telegraph do inimigo testado em Play Mode e com timing validado (nao muito rapido nem muito lento).
+- [x] Telegraph do inimigo testado em Play Mode e com timing validado (nao muito rapido nem muito lento). Confirmado funcionando (`PrototypeEnemy.cs`).
 - [ ] Vida, dano, invulnerabilidade e respawn testados de ponta a ponta.
 - [ ] Fragmento coletavel e HUD (vida, fragmento, objetivo) testados de ponta a ponta.
 - [ ] Portal temporal Era Zero -> Egito testado e sem bugs de carregamento.
