@@ -8,6 +8,7 @@ namespace FragmentosDoAmanha.Player
     public sealed class PlayerHealth : MonoBehaviour
     {
         [SerializeField] private int maxHealth = 3;
+        [SerializeField] private int fallDamage = 1;
         [SerializeField] private float invulnerabilityDuration = 0.75f;
         [SerializeField] private float respawnDelay = 0.35f;
         [SerializeField] private Vector2 knockbackForce = new Vector2(7f, 6f);
@@ -70,7 +71,9 @@ namespace FragmentosDoAmanha.Player
                 return;
             }
 
-            StartCoroutine(RespawnRoutine());
+            currentHealth = Mathf.Max(0, currentHealth - fallDamage);
+            HealthChanged?.Invoke(currentHealth, maxHealth);
+            StartCoroutine(RespawnRoutine(currentHealth == 0));
         }
 
         public void TakeDamage(int damage, Vector2 sourcePosition)
@@ -86,7 +89,7 @@ namespace FragmentosDoAmanha.Player
 
             if (currentHealth == 0)
             {
-                StartCoroutine(RespawnRoutine());
+                StartCoroutine(RespawnRoutine(true));
                 return;
             }
 
@@ -99,7 +102,7 @@ namespace FragmentosDoAmanha.Player
             body.linearVelocity = new Vector2(direction * knockbackForce.x, knockbackForce.y);
         }
 
-        private IEnumerator RespawnRoutine()
+        private IEnumerator RespawnRoutine(bool healToFull)
         {
             isRespawning = true;
             isInvulnerable = true;
@@ -108,7 +111,10 @@ namespace FragmentosDoAmanha.Player
             yield return new WaitForSeconds(respawnDelay);
 
             transform.position = respawnPoint != null ? respawnPoint.position : fallbackRespawnPosition;
-            currentHealth = maxHealth;
+            if (healToFull)
+            {
+                currentHealth = maxHealth;
+            }
             HealthChanged?.Invoke(currentHealth, maxHealth);
             body.linearVelocity = Vector2.zero;
 
