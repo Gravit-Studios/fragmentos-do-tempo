@@ -20,6 +20,15 @@ namespace FragmentosDoAmanha.Editor
         // resolution per pixel-art tile/sprite.
         private const int PlaceholderAssetsPpu = 100;
 
+        // Pixel Perfect Camera recomputes the orthographic size at runtime as
+        // refResolutionY / (2 * assetsPPU), ignoring whatever the Cinemachine
+        // lens is set to. 1920x1080 with the 100 PPU above works out to ~5.4,
+        // matching the room framing the old fixed camera used (orthographicSize
+        // 5) instead of the previous 480x270 value, which zoomed in ~3.7x too
+        // close (visible rooms became unreadable in the build).
+        private const int ReferenceResolutionX = 1920;
+        private const int ReferenceResolutionY = 1080;
+
         [MenuItem("Fragmentos do Amanha/Upgrade Camera To Cinemachine + Pixel Perfect (Current Scene)")]
         public static void UpgradeCamera()
         {
@@ -64,8 +73,8 @@ namespace FragmentosDoAmanha.Editor
             }
 
             pixelPerfect.assetsPPU = PlaceholderAssetsPpu;
-            pixelPerfect.refResolutionX = 480;
-            pixelPerfect.refResolutionY = 270;
+            pixelPerfect.refResolutionX = ReferenceResolutionX;
+            pixelPerfect.refResolutionY = ReferenceResolutionY;
             pixelPerfect.upscaleRT = true;
             pixelPerfect.pixelSnapping = true;
             pixelPerfect.cropFrameX = false;
