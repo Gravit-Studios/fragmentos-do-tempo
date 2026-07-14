@@ -1,0 +1,16 @@
+Please regenerate this Theo run-cycle sprite sheet with three corrections:
+
+1. Background: fully transparent (or flat solid magenta #ff00ff if transparency is not supported, so it can be chroma-keyed later). The last version had a solid white background, which is not usable.
+
+2. Exactly 6 frames, no more, no less, all fully contained within the canvas with equal spacing — the last version had a 7th frame cut off at the right edge. Make the canvas wide enough (or the frames narrow enough) that all 6 fit completely with consistent padding on both sides.
+
+3. Make the 6 poses clearly distinct running phases of a single stride, not near-repeats of the same pose. Use a classic running cycle progression across the 6 frames:
+   - Frame 1: right leg forward at ground contact, left leg trailing back.
+   - Frame 2: recoil/passing position, legs crossing under the body.
+   - Frame 3: left leg driving forward and up (high point of the stride).
+   - Frame 4: left leg forward at ground contact, right leg trailing back (mirror of frame 1).
+   - Frame 5: recoil/passing position again, legs crossing under the body (mirror of frame 2).
+   - Frame 6: right leg driving forward and up (high point, mirror of frame 3).
+   Arms should swing opposite to the legs at each phase.
+
+Keep everything else the same as the last version: side view facing right, same character design/palette/proportions, lantern clipped to the belt (not held), hard-edge pixel art style with no anti-aliasing, feet aligned to the same ground line across all frames, no text/labels/frame numbers/watermark.
