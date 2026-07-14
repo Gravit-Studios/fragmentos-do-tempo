@@ -1,0 +1,23 @@
+Redesign this Theo character with a more mature, serious, atmospheric pixel art style, closer to moody isometric/action-RPG pixel art (think tall, grounded proportions and cinematic lighting), instead of the current small, cute, cartoonish look.
+
+Keep these identity elements exactly as established (do not remove or replace them):
+- Visible face, no hood, no mask — Theo is not a mysterious/hidden character.
+- Goggles (worn pushed up on the forehead).
+- Wrist chronometer / temporal device, glowing copper/orange.
+- Jacket in copper/terracotta orange as his signature tech color, with an asymmetric silhouette (straps, pouches, uneven layering — not a symmetric uniform).
+- Dark teal undersuit underneath the jacket.
+- Brown utility belt with pouches.
+- Handheld scanner/lantern tool with a warm copper/orange glow.
+- Brown boots.
+
+Change these things:
+- Proportions: taller and more grounded/realistic body proportions (roughly 7-8 head-heights tall), not a short chibi-style body with an oversized head. Keep him looking capable but still a scientist/improviser, not a bulky warrior.
+- Expression and face: more serious, focused, slightly weathered — not a big-eyed, round-cheeked, "cute" anime face. Subtle, grounded facial detail.
+- Color grading and lighting: muted, desaturated base palette with one dominant cool ambient tone (e.g. dark teal/blue-green atmosphere) and the copper/orange tech elements (jacket, chronometer, lantern glow) as the main warm accent that pops against it — similar mood to a moody dungeon-crawler pixel art character, not flat bright cartoon colors.
+- Rendering: still genuine hard-edge pixel art (visible pixel grid, dithering for shading, no smooth painterly blending), but with more atmospheric depth (subtle rim lighting from the lantern glow, soft ambient falloff) rather than flat even lighting.
+
+Composition:
+- Single isolated character, full body, front-facing idle standing pose, centered.
+- No text, no labels, no frame, no scale references, no palette swatches.
+- Fully transparent background (or flat solid magenta #ff00ff if transparency is not supported, so it can be chroma-keyed later).
+- Character fully contained within the canvas with consistent padding on all sides, upright and straight (no rotation, no tilt).
