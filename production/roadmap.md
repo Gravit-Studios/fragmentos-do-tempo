@@ -12,7 +12,7 @@ Checklist de definicao de "pronto" para a demo inicial:
 - [x] Telegraph do inimigo testado em Play Mode e com timing validado (nao muito rapido nem muito lento). Confirmado funcionando (`PrototypeEnemy.cs`).
 - [x] Vida, dano, invulnerabilidade e respawn testados de ponta a ponta. Confirmado funcionando (`PlayerHealth.cs`).
 - [x] Fragmento coletavel e HUD (vida, fragmento, objetivo) testados de ponta a ponta. Confirmado funcionando.
-- [ ] Portal temporal Era Zero -> Egito testado e sem bugs de carregamento.
+- [x] Portal temporal Era Zero -> Egito testado e sem bugs de carregamento. Confirmado funcionando (`TemporalScenePortal.cs`).
 - [ ] Cena oficial `VS_EraZero_Lab` gerada e testada (script pronto: `Fragmentos do Amanha > Create VS Era Zero Lab Scene`), separada da cena de sandbox `Prototype_Theo_Controller`.
 - [ ] Pixel Perfect Camera e Cinemachine integrados (substituindo camera temporaria).
 - [x] Tileset placeholder proprio para Era Zero e para Egito (mesmo que simples, cada epoca visualmente distinta). Sheets completos (`era-zero-lab-pixel-environment-v03.png`, `egypt-temple-pixel-environment-v03.png`) e tiles individuais (`era-zero-lab-tiles-core-v02.png`, `egypt-temple-tiles-core-v02.png`, corrigidos para preenchimento total sem rotacao/margem branca) ja importados, fatiados (`TilesetImportSetup.cs`) e testados no Tilemap da Unity — emenda validada visualmente sem costura no chao do Egito.
