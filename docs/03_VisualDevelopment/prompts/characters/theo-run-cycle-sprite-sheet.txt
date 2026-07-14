@@ -1,0 +1,11 @@
+Using this exact same Theo character design, palette, proportions, and identity details as the approved reference (goggles pushed up on forehead, messy brown hair, terracotta/orange jacket with no shoulder emblem or logo, dark teal undersuit, brown utility belt with pouches, copper/orange wrist chronometer on the right wrist, brown boots), generate a run-cycle sprite sheet for a 2D side-scrolling platformer.
+
+Requirements:
+- Side view (profile), character facing right, legs and arms mid-stride.
+- 6 frames of a single smooth running cycle, arranged left to right in one horizontal row, evenly spaced.
+- Each frame must be the same fixed canvas size, with the character's feet aligned to the exact same ground line/baseline across all 6 frames (so the sheet can be sliced into equal-width frames in a game engine without the character jumping up or down between frames).
+- The handheld lantern/scanner tool should be clipped to the utility belt (not held in hand) for this animation, so both arms are free to pump naturally while running.
+- Hard-edge pixel art style: sharp blocky pixel edges, no anti-aliasing, no soft blending or smooth gradients — use visible dithering patterns and flat color clusters instead, consistent with the approved reference (should read as genuine low-resolution pixel art if scaled down to 64-96 pixels tall, not a downscaled painting).
+- No text, no labels, no frame numbers, no watermark, no scale references, no palette swatches — just the 6 running frames.
+- Background: fully transparent (or flat solid magenta #ff00ff if transparency is not supported, so it can be chroma-keyed later).
+- Keep the character upright and consistently sized/proportioned across all 6 frames (only the pose changes, not the scale or camera angle).
