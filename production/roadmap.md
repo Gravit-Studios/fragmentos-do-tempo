@@ -74,7 +74,7 @@ Objetivo: validar sensacao de controle.
 
 Objetivo: substituir placeholders principais por assets direcionais.
 
-- [ ] Sprite base do Theo.
+- [x] Sprite base do Theo. `theo-sprite-v01.png` (pose idle) integrado via `TheoSpriteSetup.cs`, ver nota na `Escopo da Demo Inicial`.
 - [ ] Idle/run/jump/land.
 - [ ] Ataque basico.
 - [ ] Hit/death placeholder.
@@ -94,11 +94,13 @@ Objetivo: uma fatia curta, jogavel e apresentavel.
 - [x] Inimigo comum placeholder do Egito.
 - [x] Primeira presenca ambiental placeholder de Voss.
 - [x] Indicacao placeholder de Naiara.
-- [ ] Build jogavel interna.
+- [x] Build jogavel interna. Ver detalhe na `Escopo da Demo Inicial`.
 
 ## Fase 5 — Pos-slice
 
 Objetivo: decidir se o pipeline escala.
+
+Decisao (2026-07-14): nao avancar para a proxima epoca (Grecia) ainda. Prioridade agora e fechar Era Zero + Egito como demo completa e polida antes de expandir — visual correto (animacoes do Theo, personagens Voss e Naiara em arte real em vez de placeholder), funcionalidades (fechar pontas soltas encontradas nos testes) e personagens. Nao e para fechar o jogo completo (8 epocas), so essa fatia.
 
 - [ ] Revisar sensacao de controle.
 - [ ] Revisar pipeline de arte.
