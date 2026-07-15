@@ -74,7 +74,7 @@ Objetivo: validar sensacao de controle.
 
 Objetivo: substituir placeholders principais por assets direcionais.
 
-- [x] Sprite base do Theo. `theo-sprite-v01.png` (pose idle) integrado via `TheoSpriteSetup.cs`, ver nota na `Escopo da Demo Inicial`.
+- [x] Sprite base do Theo. `theo-sprite-v02.png` (redesign mais alto, tom serio, iluminacao atmosferica, aprovado pelo usuario) integrado via `TheoSpriteSetup.cs`, ver nota na `Escopo da Demo Inicial`. Escala ajustada para ~24% da altura de tela (`TargetWorldHeight` 2.4), entre a proporcao do Symphony of the Night (~20%) e do Guacamelee (~28-30%), referencias pedidas pelo usuario.
 - [ ] Idle/run/jump/land.
 - [ ] Ataque basico.
 - [ ] Hit/death placeholder.
