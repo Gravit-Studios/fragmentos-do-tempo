@@ -11,7 +11,7 @@ namespace FragmentosDoAmanha.Editor
         // area), this puts Theo at ~24% of screen height -- between Symphony of
         // the Night's ~20% (320x224, sprite ~46px) and Guacamelee's ~28-30%
         // (rough estimates, not pixel-verified against the actual games).
-        private const float TargetWorldHeight = 2.4f;
+        internal const float TargetWorldHeight = 2.4f;
 
         [MenuItem("Fragmentos do Amanha/Import Theo Sprite")]
         public static void ImportTheoSprite()

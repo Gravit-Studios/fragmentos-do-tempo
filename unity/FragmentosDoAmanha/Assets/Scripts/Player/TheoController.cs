@@ -25,6 +25,8 @@ namespace FragmentosDoAmanha.Player
         private Rigidbody2D body;
         private Collider2D bodyCollider;
         private PlayerHealth playerHealth;
+        private SpriteRenderer visualRenderer;
+        private Animator visualAnimator;
         private float horizontalInput;
         private float groundedTimer;
         private bool jumpPressed;
@@ -43,6 +45,8 @@ namespace FragmentosDoAmanha.Player
             body = GetComponent<Rigidbody2D>();
             bodyCollider = GetComponent<Collider2D>();
             playerHealth = GetComponent<PlayerHealth>();
+            visualRenderer = GetComponentInChildren<SpriteRenderer>();
+            visualAnimator = GetComponentInChildren<Animator>();
         }
 
         private void Update()
@@ -65,6 +69,8 @@ namespace FragmentosDoAmanha.Player
             {
                 facingDirection = -1;
             }
+
+            UpdateVisual();
 
             if (keyboard.spaceKey.wasPressedThisFrame || keyboard.wKey.wasPressedThisFrame || keyboard.upArrowKey.wasPressedThisFrame)
             {
@@ -126,6 +132,19 @@ namespace FragmentosDoAmanha.Player
             }
 
             jumpPressed = false;
+        }
+
+        private void UpdateVisual()
+        {
+            if (visualRenderer != null)
+            {
+                visualRenderer.flipX = facingDirection < 0;
+            }
+
+            if (visualAnimator != null)
+            {
+                visualAnimator.SetFloat("Speed", Mathf.Abs(horizontalInput));
+            }
         }
 
         private void StartDash()
