@@ -6,7 +6,12 @@ namespace FragmentosDoAmanha.Editor
     public static class TheoSpriteSetup
     {
         private const string SpritePath = "Assets/Art/Characters/Theo/theo-sprite-v02.png";
-        private const float TargetWorldHeight = 1.9f;
+
+        // With the camera's orthographicSize of 5 (10 world units tall visible
+        // area), this puts Theo at ~24% of screen height -- between Symphony of
+        // the Night's ~20% (320x224, sprite ~46px) and Guacamelee's ~28-30%
+        // (rough estimates, not pixel-verified against the actual games).
+        private const float TargetWorldHeight = 2.4f;
 
         [MenuItem("Fragmentos do Amanha/Import Theo Sprite")]
         public static void ImportTheoSprite()
