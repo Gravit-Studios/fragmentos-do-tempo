@@ -15,11 +15,15 @@ namespace FragmentosDoAmanha.Editor
 
         // The character's actual silhouette height in theo-sprite-v02.png is
         // ~1049px within its 1536px canvas (measured via PIL, excluding the
-        // lantern light-spray effect) -- NOT the same proportion as the run
-        // frames (~532px average), so PPU can't be derived from canvas height
-        // alone. This is measured/hardcoded per asset; re-measure if the art
-        // is regenerated. 1049 / TargetWorldHeight.
-        private const float IdleSpritePixelsPerUnit = 437.08f;
+        // lantern light-spray effect). PPU can't be derived from canvas
+        // height alone since that proportion isn't guaranteed across
+        // separately-generated art. The run frames were re-composited
+        // (cropped, rescaled, and re-pasted so the character fills the same
+        // ~1049px at the same foot line within their own 1536px-tall canvas,
+        // see normalize_run_frames.py) specifically so they can share this
+        // same constant. This is measured/hardcoded per asset; re-measure if
+        // the art is regenerated. 1049 / TargetWorldHeight.
+        internal const float IdleSpritePixelsPerUnit = 437.08f;
 
         [MenuItem("Fragmentos do Amanha/Import Theo Sprite")]
         public static void ImportTheoSprite()
