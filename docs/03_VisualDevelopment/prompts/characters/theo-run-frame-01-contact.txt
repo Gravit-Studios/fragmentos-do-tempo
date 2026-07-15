@@ -1,0 +1,11 @@
+Using the attached approved Theo character image as the exact reference for design, proportions, palette, and identity details (taller grounded proportions, serious/focused expression, muted desaturated palette with cool ambient tone and warm copper/orange accents, goggles pushed up on forehead, terracotta/orange jacket with no shoulder emblem, dark teal undersuit, brown utility belt with pouches, copper/orange wrist chronometer, brown boots), generate a single running pose frame for a 2D side-scrolling platformer.
+
+Pose: side view (profile), character facing right, mid-run "ground contact" pose — right leg forward and planted on the ground, left leg trailing back and bent, torso leaning slightly forward, right arm swung back, left arm swung forward (opposite to the legs).
+
+Requirements:
+- Only the character, single isolated frame, centered, full body, no other pose or frame in the image.
+- The handheld lantern/scanner tool must be clipped to the utility belt (not held in hand), so both arms are free to pump naturally while running.
+- Same rendering as the attached reference: hard-edge pixel art, visible pixel grid, dithering, muted/desaturated grading with atmospheric depth — do not revert to a smaller, cuter, more cartoonish proportion; keep the same taller, serious redesign exactly.
+- No text, no labels, no frame, no scale references, no palette swatches.
+- Fully transparent background (or flat solid magenta #ff00ff if transparency is not supported, so it can be chroma-keyed later).
+- Character fully contained within the canvas with consistent padding on all sides, feet near the bottom of the canvas at a consistent ground line (so this frame can later be aligned with other running-pose frames of the same size).
