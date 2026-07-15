@@ -1,0 +1,11 @@
+Using the attached approved Theo character image as the exact reference for design, proportions, palette, and identity details (taller grounded proportions, serious/focused expression, muted desaturated palette with cool ambient tone and warm copper/orange accents, goggles pushed up on forehead, terracotta/orange jacket with no shoulder emblem, dark teal undersuit, brown utility belt with pouches, copper/orange wrist chronometer, brown boots), generate a single running pose frame for a 2D side-scrolling platformer.
+
+Pose: side view (profile), character still facing right (do not flip or mirror the whole image/facing direction), mid-run "passing" pose but with legs reversed from the earlier passing frame — both legs crossing directly under the body again, but this time the other leg is the one bent and rising while the other is bent and trailing, torso upright, arms mid-swing crossing near the body (not fully extended forward or back). Keep the wrist chronometer on the same wrist as the reference image (do not swap which arm has it).
+
+Requirements:
+- Only the character, single isolated frame, centered, full body, no other pose or frame in the image.
+- The handheld lantern/scanner tool must be clipped to the utility belt (not held in hand), so both arms are free to pump naturally while running.
+- Same rendering as the attached reference: hard-edge pixel art, visible pixel grid, dithering, muted/desaturated grading with atmospheric depth — do not revert to a smaller, cuter, more cartoonish proportion; keep the same taller, serious redesign exactly.
+- No text, no labels, no frame, no scale references, no palette swatches.
+- Fully transparent background (or flat solid magenta #ff00ff if transparency is not supported, so it can be chroma-keyed later).
+- Character fully contained within the canvas with consistent padding on all sides, feet near the bottom of the canvas at the same ground line as the previous four frames (so all frames line up in a game engine).
