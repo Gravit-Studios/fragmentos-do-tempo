@@ -5,7 +5,7 @@ namespace FragmentosDoAmanha.Editor
 {
     public static class TheoSpriteSetup
     {
-        private const string SpritePath = "Assets/Art/Characters/Theo/theo-sprite-v01.png";
+        private const string SpritePath = "Assets/Art/Characters/Theo/theo-sprite-v02.png";
         private const float TargetWorldHeight = 1.9f;
 
         [MenuItem("Fragmentos do Amanha/Import Theo Sprite")]
