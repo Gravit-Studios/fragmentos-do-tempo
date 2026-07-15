@@ -14,6 +14,14 @@ namespace FragmentosDoAmanha.Editor
         private const float RunFrameRate = 10f;
         private const float RunToIdleThreshold = 0.05f;
 
+        // The run frames' character silhouette only fills ~475-567px of their
+        // 1536px canvas (average ~532px, measured via PIL) -- much smaller a
+        // proportion than the idle sprite (~1049px), so using canvas height
+        // for PPU made Theo shrink noticeably while running. Measured/
+        // hardcoded per asset; re-measure if the art is regenerated.
+        // 532 / TheoSpriteSetup.TargetWorldHeight.
+        private const float RunFramePixelsPerUnit = 221.6f;
+
         [MenuItem("Fragmentos do Amanha/Import Theo Run Frames")]
         public static void ImportRunFrames()
         {
@@ -35,20 +43,13 @@ namespace FragmentosDoAmanha.Editor
                     continue;
                 }
 
-                // GetSourceTextureWidthAndHeight reads the true source image
-                // dimensions regardless of current import state. Reading
-                // Texture2D.height instead (via AssetDatabase.LoadAssetAtPath)
-                // can return a stale NPOT-padded size the first time a texture
-                // is imported as a Sprite, producing a wrong PPU.
-                importer.GetSourceTextureWidthAndHeight(out int sourceWidth, out int sourceHeight);
-
                 importer.textureType = TextureImporterType.Sprite;
                 importer.spriteImportMode = SpriteImportMode.Single;
                 importer.filterMode = FilterMode.Point;
                 importer.textureCompression = TextureImporterCompression.Uncompressed;
                 importer.mipmapEnabled = false;
                 importer.alphaIsTransparency = true;
-                importer.spritePixelsPerUnit = sourceHeight / TheoSpriteSetup.TargetWorldHeight;
+                importer.spritePixelsPerUnit = RunFramePixelsPerUnit;
                 EditorUtility.SetDirty(importer);
                 importer.SaveAndReimport();
                 imported++;

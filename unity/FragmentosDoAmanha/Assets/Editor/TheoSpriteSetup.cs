@@ -13,6 +13,14 @@ namespace FragmentosDoAmanha.Editor
         // (rough estimates, not pixel-verified against the actual games).
         internal const float TargetWorldHeight = 2.4f;
 
+        // The character's actual silhouette height in theo-sprite-v02.png is
+        // ~1049px within its 1536px canvas (measured via PIL, excluding the
+        // lantern light-spray effect) -- NOT the same proportion as the run
+        // frames (~532px average), so PPU can't be derived from canvas height
+        // alone. This is measured/hardcoded per asset; re-measure if the art
+        // is regenerated. 1049 / TargetWorldHeight.
+        private const float IdleSpritePixelsPerUnit = 437.08f;
+
         [MenuItem("Fragmentos do Amanha/Import Theo Sprite")]
         public static void ImportTheoSprite()
         {
@@ -23,20 +31,13 @@ namespace FragmentosDoAmanha.Editor
                 return;
             }
 
-            // GetSourceTextureWidthAndHeight reads the true source image
-            // dimensions regardless of current import state. Reading
-            // Texture2D.height instead (via AssetDatabase.LoadAssetAtPath) can
-            // return a stale NPOT-padded size the first time a texture is
-            // imported as a Sprite, producing a wrong PPU.
-            importer.GetSourceTextureWidthAndHeight(out int sourceWidth, out int sourceHeight);
-
             importer.textureType = TextureImporterType.Sprite;
             importer.spriteImportMode = SpriteImportMode.Single;
             importer.filterMode = FilterMode.Point;
             importer.textureCompression = TextureImporterCompression.Uncompressed;
             importer.mipmapEnabled = false;
             importer.alphaIsTransparency = true;
-            importer.spritePixelsPerUnit = sourceHeight / TargetWorldHeight;
+            importer.spritePixelsPerUnit = IdleSpritePixelsPerUnit;
 
             EditorUtility.SetDirty(importer);
             importer.SaveAndReimport();
