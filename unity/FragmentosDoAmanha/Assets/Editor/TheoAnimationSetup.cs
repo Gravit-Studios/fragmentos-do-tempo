@@ -29,12 +29,18 @@ namespace FragmentosDoAmanha.Editor
             {
                 string path = AssetDatabase.GUIDToAssetPath(guid);
                 TextureImporter importer = AssetImporter.GetAtPath(path) as TextureImporter;
-                Texture2D texture = AssetDatabase.LoadAssetAtPath<Texture2D>(path);
-                if (importer == null || texture == null)
+                if (importer == null)
                 {
                     Debug.LogWarning($"Fragmentos do Amanha: could not read texture at {path}, skipping (LFS pointer not pulled?).");
                     continue;
                 }
+
+                // GetSourceTextureWidthAndHeight reads the true source image
+                // dimensions regardless of current import state. Reading
+                // Texture2D.height instead (via AssetDatabase.LoadAssetAtPath)
+                // can return a stale NPOT-padded size the first time a texture
+                // is imported as a Sprite, producing a wrong PPU.
+                importer.GetSourceTextureWidthAndHeight(out int sourceWidth, out int sourceHeight);
 
                 importer.textureType = TextureImporterType.Sprite;
                 importer.spriteImportMode = SpriteImportMode.Single;
@@ -42,7 +48,7 @@ namespace FragmentosDoAmanha.Editor
                 importer.textureCompression = TextureImporterCompression.Uncompressed;
                 importer.mipmapEnabled = false;
                 importer.alphaIsTransparency = true;
-                importer.spritePixelsPerUnit = texture.height / TheoSpriteSetup.TargetWorldHeight;
+                importer.spritePixelsPerUnit = sourceHeight / TheoSpriteSetup.TargetWorldHeight;
                 EditorUtility.SetDirty(importer);
                 importer.SaveAndReimport();
                 imported++;
