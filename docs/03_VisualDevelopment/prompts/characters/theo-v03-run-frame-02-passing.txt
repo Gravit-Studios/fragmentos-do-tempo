@@ -1,0 +1,12 @@
+Using the attached approved Theo idle+run reference (both poses) as the exact reference for identity, proportions, palette, and rendering style -- same head size relative to body, same body thickness, same color saturation and pixel art finish as both attached poses -- generate a single running pose frame for a 2D side-scrolling platformer.
+
+Pose: side view (profile), character facing right, mid-run "passing" pose -- the recoil moment right after ground contact, both legs crossing directly under the body (one knee bent and rising, the other knee bent and trailing), torso upright, arms mid-swing crossing near the body (not fully extended forward or back).
+
+Requirements:
+- Only the character, single isolated frame, centered, full body, no other pose or frame in the image.
+- Match the attached running pose exactly in proportions: same head-to-body ratio, same body thickness/build, same color saturation -- this is the same character in a different moment of the same stride, not a redraw.
+- The handheld lantern/scanner tool stays clipped to the utility belt (not held in hand), matching the attached running pose.
+- Hard-edge pixel art rendering: visible pixel grid, dithering for shading, no smooth painterly blending, consistent with both attached poses.
+- No text, no labels, no frame, no scale references, no palette swatches.
+- Fully transparent background (or flat solid magenta #ff00ff if transparency is not supported, so it can be chroma-keyed later).
+- Character fully contained within the canvas with consistent padding on all sides, feet near the bottom of the canvas at the same ground line as the attached running pose (so both frames line up in a game engine).
