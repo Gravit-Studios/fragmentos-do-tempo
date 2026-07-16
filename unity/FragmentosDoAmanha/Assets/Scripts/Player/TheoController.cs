@@ -55,6 +55,7 @@ namespace FragmentosDoAmanha.Player
             if (keyboard == null)
             {
                 horizontalInput = 0f;
+                UpdateVisual();
                 return;
             }
 
