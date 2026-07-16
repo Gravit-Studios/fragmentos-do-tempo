@@ -11,6 +11,9 @@
 [Uu]ser[Ss]ettings/
 [Mm]emoryCaptures/
 
+# Unity standalone build output (regenerate with File > Build Settings)
+unity/FragmentosDoAmanha/game/
+
 # Unity cache / generated files
 sysinfo.txt
 *.stackdump
