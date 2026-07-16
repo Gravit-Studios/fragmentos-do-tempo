@@ -14,14 +14,6 @@ namespace FragmentosDoAmanha.Editor
         private const float RunFrameRate = 10f;
         private const float RunToIdleThreshold = 0.05f;
 
-        // The run frames' character silhouette only fills ~475-567px of their
-        // 1536px canvas (average ~532px, measured via PIL) -- much smaller a
-        // proportion than the idle sprite (~1049px), so using canvas height
-        // for PPU made Theo shrink noticeably while running. Measured/
-        // hardcoded per asset; re-measure if the art is regenerated.
-        // 532 / TheoSpriteSetup.TargetWorldHeight.
-        private const float RunFramePixelsPerUnit = 221.6f;
-
         [MenuItem("Fragmentos do Amanha/Import Theo Run Frames")]
         public static void ImportRunFrames()
         {
@@ -49,7 +41,11 @@ namespace FragmentosDoAmanha.Editor
                 importer.textureCompression = TextureImporterCompression.Uncompressed;
                 importer.mipmapEnabled = false;
                 importer.alphaIsTransparency = true;
-                importer.spritePixelsPerUnit = RunFramePixelsPerUnit;
+                // The run frames were re-composited (see normalize_run_frames.py)
+                // to share the idle sprite's exact character scale and foot
+                // line within the same 1536px canvas height, so they use the
+                // same measured PPU constant.
+                importer.spritePixelsPerUnit = TheoSpriteSetup.IdleSpritePixelsPerUnit;
                 EditorUtility.SetDirty(importer);
                 importer.SaveAndReimport();
                 imported++;
