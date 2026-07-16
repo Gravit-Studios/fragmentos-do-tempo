@@ -1,0 +1,13 @@
+Using the attached approved Theo redesign image as the exact reference for identity, palette, and rendering style (taller grounded proportions, serious/focused expression, muted desaturated palette with cool ambient tone and warm copper/orange accents, goggles pushed up on forehead, terracotta/orange jacket with no shoulder emblem, dark teal undersuit, brown utility belt with pouches, copper/orange wrist chronometer, brown boots), generate a small reference sheet with exactly 2 poses of the same character, side by side:
+
+1. Idle pose: front-facing, standing straight, arms relaxed, holding the handheld lantern/scanner tool loosely in one hand with its warm light-spray glow, identical to the approved reference pose.
+2. Run pose: side view (profile), facing right, mid-stride "ground contact" running pose (one leg forward and planted, the other trailing back and bent, arms swinging opposite to the legs), lantern clipped to the belt instead of held (both arms free to pump while running).
+
+Critical requirement: both poses must be the exact same character at the exact same scale -- same head size relative to the body, same body thickness/build, same proportions, same color saturation and rendering style. Do not make the running pose's head bigger, body thicker, or colors flatter/more muted than the idle pose. If you are unsure, err on the side of keeping both poses as close to identical in proportion and finish as possible, only changing the pose itself.
+
+Requirements:
+- Two separate, clearly isolated character poses side by side, both fully visible, not overlapping.
+- No text, no labels, no frame numbers, no watermark, no scale references, no palette swatches.
+- Hard-edge pixel art rendering: visible pixel grid, dithering for shading, no smooth painterly blending, consistent between both poses.
+- Fully transparent background (or flat solid magenta #ff00ff if transparency is not supported, so it can be chroma-keyed later).
+- Both characters fully contained within the canvas with consistent padding, upright and straight (no rotation, no tilt).
