@@ -19,8 +19,7 @@ O jogo usa duas camadas de arte:
 - `artbook/` - tudo que NAO entra diretamente no jogo: concept art, ilustracao, branding, PDFs do concept book e material de referencia/estudo (inclui `pixel-reference/`, com sheets e crops usados como referencia de pose/estilo, nao como arte final).
 - `docs/` - Documentacao viva do projeto, organizada por area de producao.
 - `production/` - Planejamento pratico, vertical slice, pipeline com IA e roadmap.
-- `GDD.md` - Documento de game design existente, mantido como referencia historica e criativa.
-- `game-design/`, `narrativa/`, `personagens/`, `nomes/` - Documentos iniciais ja existentes no repositorio remoto, preservados.
+- `ChatGPT/` - Documentos de game design/narrativa vindos de outra sessao/ferramenta (`GDD.md`, `game-design/`, `narrativa/`, `personagens/`, `nomes/`), mantidos como referencia historica e criativa; nao sao arquivos do jogo.
 
 ## Documentos principais
 

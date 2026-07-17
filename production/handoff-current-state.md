@@ -78,9 +78,9 @@ Por pedido explicito do usuario em 2026-07-17 ("Preciso separar em uma pasta o q
 - `artbook/` — todo material de concept art, ilustracao, branding, PDFs do concept book e reference sheets/crops que NAO entram no jogo: `illustration/`, `concept-book/`, `pdf/`, `branding/`, `marketing/`, `pixel-reference/` (inclui agora os sheets completos de ambiente `-pixel-environment-v01/v03.png` que nunca foram importados na Unity — so os `-tiles-core-v02.png` fatiados sao usados de fato).
 - `unity/FragmentosDoAmanha/game/` — pasta de build standalone, foi commitada por acidente (~184 arquivos, incluindo `UnityPlayer.dll` de 37MB), removida do tracking (`git rm -r --cached`) e adicionada ao `.gitignore`. Continua existindo localmente, so nao e mais versionada.
 
-### Pendencia em aberto: pastas duplicadas de documentacao
+### Pastas de documentacao de outra sessao -- resolvido em 2026-07-17
 
-As pastas `game-design/`, `narrativa/`, `nomes/`, `personagens/` e o arquivo `GDD.md` (raiz) vieram de outra sessao/ferramenta (confirmado pelo usuario: "Sim"), e o conteudo se sobrepoe com o que ja existe em `docs/00_Project/`, `docs/04_Characters/` e `production/roadmap.md`. **Ainda sem decisao do usuario** sobre o que fazer: consolidar conteudo, descartar um dos conjuntos, ou manter os dois. Nao mexer nessas pastas sem alinhar antes.
+As pastas `game-design/`, `narrativa/`, `nomes/`, `personagens/` e o arquivo `GDD.md` vieram de outra sessao/ferramenta e se sobrepunham com `docs/00_Project/`, `docs/04_Characters/` e `production/roadmap.md`. Por instrucao do usuario ("o que nao for arquivos necessarios para o jogo, pode colocar em uma pasta chamada ChatGPT"), foram movidas para `ChatGPT/` na raiz (`ChatGPT/GDD.md`, `ChatGPT/game-design/`, `ChatGPT/narrativa/`, `ChatGPT/nomes/`, `ChatGPT/personagens/`), mantidas como referencia historica, sem consolidar conteudo com `docs/`/`production/`.
 
 Nota de coordenacao com a frente Unity:
 
