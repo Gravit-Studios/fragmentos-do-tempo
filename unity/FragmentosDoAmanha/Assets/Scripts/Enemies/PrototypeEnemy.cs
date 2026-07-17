@@ -13,7 +13,8 @@ namespace FragmentosDoAmanha.Enemies
             Patrol,
             Telegraph,
             Attacking,
-            Cooldown
+            Cooldown,
+            Dead
         }
 
         [SerializeField] private int maxHealth = 2;
@@ -85,7 +86,7 @@ namespace FragmentosDoAmanha.Enemies
 
         public void TakeHit(int damage, Vector2 sourcePosition)
         {
-            if (damage <= 0)
+            if (damage <= 0 || state == State.Dead)
             {
                 return;
             }
@@ -99,6 +100,8 @@ namespace FragmentosDoAmanha.Enemies
 
             if (currentHealth == 0)
             {
+                state = State.Dead;
+                trackedPlayer = null;
                 gameObject.SetActive(false);
             }
         }

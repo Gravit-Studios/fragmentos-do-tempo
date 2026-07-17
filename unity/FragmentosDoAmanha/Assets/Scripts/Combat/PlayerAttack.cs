@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using FragmentosDoAmanha.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -51,10 +52,11 @@ namespace FragmentosDoAmanha.Combat
 
             Vector2 center = GetHitboxCenter();
             Collider2D[] hits = Physics2D.OverlapBoxAll(center, hitboxSize, 0f);
+            HashSet<IDamageable> alreadyHit = new HashSet<IDamageable>();
             foreach (Collider2D hit in hits)
             {
                 IDamageable damageable = hit.GetComponentInParent<IDamageable>();
-                if (damageable != null)
+                if (damageable != null && alreadyHit.Add(damageable))
                 {
                     damageable.TakeHit(damage, transform.position);
                 }

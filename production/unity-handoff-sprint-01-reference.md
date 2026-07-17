@@ -10,35 +10,36 @@ Esta frente atual do Codex esta focada em ilustracao, concept art, artbook e vis
 - Fluxo desejado: GitHub -> commits -> testes.
 - O handoff original indicava que nao foi possivel editar o GitHub pelo conector na conversa anterior.
 
-## Sprint 1 Planejada
+## Sprint 1 -- executada em 2026-07-17 pela frente Unity (Claude)
 
-1. PlayerAttack.
-2. PlayerHealth.
-3. PrototypeEnemy.
-4. Refatoracao.
+1. PlayerAttack. `[x]`
+2. PlayerHealth. `[x]` (ja estava satisfeito antes desta sprint)
+3. PrototypeEnemy. `[x]`
+4. Refatoracao. Nao foi necessaria alem do que esta listado abaixo -- codigo ja estava organizado.
 
 ## Melhorias Planejadas
 
 ### PlayerAttack
 
-- Corrigir dano duplicado causado por multiplos `Collider2D`.
-- Utilizar `HashSet<IDamageable>`.
-- Garantir um `TakeHit()` por alvo por ataque.
-- Manter multiplos inimigos funcionando.
+- [x] Corrigir dano duplicado causado por multiplos `Collider2D`. Confirmado: `OverlapBoxAll` retornava um `Collider2D` por parte atingida, e cada um resolvia pro mesmo `IDamageable` via `GetComponentInParent`, chamando `TakeHit` mais de uma vez no mesmo ataque se o alvo tivesse mais de um collider.
+- [x] Utilizar `HashSet<IDamageable>`.
+- [x] Garantir um `TakeHit()` por alvo por ataque. `alreadyHit.Add(damageable)` so deixa passar a primeira vez que aquele alvo aparece nos hits do frame.
+- [x] Manter multiplos inimigos funcionando. Cada inimigo tem sua propria entrada no `HashSet`, sem alterar o comportamento existente de acertar varios alvos num unico swing.
 
 ### PlayerHealth
 
-- Invulnerabilidade temporaria.
-- Knockback consistente.
-- Fluxo unico de morte.
-- Preparacao para checkpoints.
+- [x] Invulnerabilidade temporaria. Ja implementado (`GrantInvulnerability`/`isInvulnerable`).
+- [x] Knockback consistente. Ja implementado (`ApplyKnockback`, direcao baseada na posicao relativa da fonte).
+- [x] Fluxo unico de morte. Ja implementado -- `TakeDamage` (dano de combate) e `RespawnNow` (queda) convergem no mesmo `RespawnRoutine`.
+- [x] Preparacao para checkpoints. Ja implementado (`SetRespawnPoint`/`respawnPoint`).
+- Nenhuma mudanca de codigo foi necessaria aqui; os itens ja estavam cobertos pelo trabalho anterior desta sessao (fix do exploit de dano de queda).
 
 ### PrototypeEnemy
 
-- Fluxo consistente de dano.
-- Estados de morte.
-- Limpeza de referencias.
-- Preparacao para IA.
+- [x] Fluxo consistente de dano. `TakeHit` agora ignora chamadas repetidas depois que o estado vira `Dead` (`if (damage <= 0 || state == State.Dead) return;`).
+- [x] Estados de morte. Adicionado `State.Dead` a maquina de estados (antes a morte so desativava o GameObject sem passar por um estado explicito).
+- [x] Limpeza de referencias. `trackedPlayer` e zerado (`null`) ao morrer.
+- [ ] Preparacao para IA. Nao enderecado -- a maquina de estados atual (Patrol/Telegraph/Attacking/Cooldown/Dead) ja e extensivel, mas nenhum sistema de IA foi desenhado ainda. Fica para uma sprint futura, junto com as "Proximas Sprints Citadas" abaixo.
 
 ## Proximas Sprints Citadas
 
