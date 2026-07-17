@@ -52,7 +52,15 @@ Bugs reais encontrados e corrigidos durante os testes (nao sao mais pendencias):
 
 Com isso fechado, o trabalho atual e **Fase 3 (Arte Integrada)** do roadmap: substituir os placeholders restantes (animacoes do Theo, Voss e Naiara) por arte final, dentro da fatia Era Zero + Egito.
 
-## Trabalho em andamento agora: ciclo de corrida do Theo (v03)
+## Decisao 2026-07-17: adotar o visual das fichas de personagem (v04) como definitivo
+
+O usuario confirmou ("Sim") que o visual das "fichas de personagem" do ChatGPT (jaqueta laranja com barra/forro, capuz, ficha completa com paleta/turnaround/ciclos -- ver `artbook/pixel-reference/characters/theo/chatgpt-2026-07-17/theo-character-sheet-v01.png` e as demais) e o design definitivo do Theo, **substituindo o v03** (idle+corrida atualmente integrados no Unity). Essas fichas continuam com os mesmos problemas tecnicos ja identificados (sem transparencia real, frames colados sem grade, escala diferente entre sub-imagens), entao nao dao pra recortar direto -- precisam ser regeradas como poses isoladas nesse estilo.
+
+Prompt ja escrito para a primeira geracao (parado + corrida juntos, mesmo metodo que funcionou pro v03): `docs/03_VisualDevelopment/prompts/characters/theo-v04-idle-and-run-reference-sheet.txt`, referenciando as fichas de personagem para identidade/estilo. **Ainda sem confirmacao/imagem gerada de volta.**
+
+Quando a imagem v04 chegar: medir bbox de personagem via PIL, repetir o processo ja feito pro v03 (`TheoSpriteSetup.SpritePath`/`IdleSpritePixelsPerUnit`, `TheoAnimationSetup.IdleSpritePath`/`RunFramesFolder`, `tools/art-pipeline/normalize_run_frames.py` se as escalas nao baterem), e então continuar o ciclo de corrida (passing, high-point, espelhamentos) e o pulo nesse novo estilo v04, seguindo o mesmo metodo de poses isoladas/pequenos grupos ancorados na imagem aprovada. O trabalho ja feito no v03 (secao abaixo) fica de referencia historica de como o pipeline funciona, mas os arquivos v03 devem ser tratados como superados assim que o v04 chegar.
+
+## Trabalho anterior (v03, superado pela decisao acima): ciclo de corrida do Theo
 
 Contexto: o sprite idle do Theo (`theo-sprite-v02.png`) e os primeiros frames de corrida foram gerados em conversas/prompts separados no ChatGPT, o que causou inconsistencia visual (tamanho de cabeca, espessura do corpo, saturacao de cor diferentes entre parado e corrida), mesmo depois de varias correcoes programaticas de escala (PPU, recomposicao de frames via `tools/art-pipeline/normalize_run_frames.py`). O usuario diagnosticou a causa raiz (seguindo medicoes proprias em ferramenta de design) e decidiu: **regerar parado + corrida juntos, no mesmo prompt/imagem**, em vez de seguir corrigindo por escala.
 

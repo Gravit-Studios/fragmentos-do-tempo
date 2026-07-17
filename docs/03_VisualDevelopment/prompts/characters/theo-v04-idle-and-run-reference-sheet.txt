@@ -1,0 +1,20 @@
+Using the attached Theo character sheets as the exact reference for identity, proportions, palette, and rendering style -- same face, same terracotta jacket with fur-lined hood, same goggles pushed up on the forehead, same dark teal undersuit, same brown utility belt and boots, same copper lantern/scanner, same painterly pixel-art rendering with visible linework and dithered shading -- generate a small reference sheet with exactly 2 poses of the same character, side by side, following the studio's sprite style guide below.
+
+Style base (mandatory):
+- Authentic pixel art, hard edges, no anti-aliasing.
+- Visible dithering where there is gradient or texture, matching the attached sheets.
+- Limited palette, matching the attached sheets exactly (rust/orange jacket, dark teal clothing, copper/warm accents).
+- Readable silhouette before detail.
+- Transparent background (real alpha transparency, not a checkerboard pattern drawn into the image -- the attached sheets have a checkerboard baked into the image itself, which this generation must NOT repeat).
+
+Character scale: playable character, approximately 64x96 (2x3 tiles) at in-game scale.
+
+Poses (both at the exact same scale and proportions -- same head-to-body ratio, same body thickness, same color saturation, this is the same character in two different poses, not a redraw):
+1. Idle pose: front-facing, standing straight, arms relaxed, matching the "IDLE" pose in the attached sheets.
+2. Run pose: side view (profile), facing right, mid-stride "ground contact" running pose (one leg forward and planted, the other trailing back and bent, arms swinging opposite to the legs), lantern clipped to the belt instead of held, matching the "CORRIDA/RUN" cycle in the attached sheets.
+
+Requirements:
+- Two separate, clearly isolated character poses side by side, both fully visible, not overlapping.
+- No text, no labels, no frame numbers, no watermark, no scale references, no palette swatches, no turnaround views, no UI panels -- only the two character poses, nothing else in the image.
+- Both characters fully contained within the canvas with consistent padding, upright and straight (no rotation, no tilt).
+- If real transparency is not supported, use a flat solid magenta background (#ff00ff) instead of a checkerboard pattern, so it can be chroma-keyed later.
