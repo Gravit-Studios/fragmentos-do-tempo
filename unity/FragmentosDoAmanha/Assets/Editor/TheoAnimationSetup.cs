@@ -102,6 +102,24 @@ namespace FragmentosDoAmanha.Editor
                 controller.AddParameter("Speed", AnimatorControllerParameterType.Float);
             }
 
+            // Grounded/VerticalSpeed are set by TheoController every frame so a
+            // Jump/Fall/Land state machine can be wired in later without touching
+            // the controller script again. No states consume them yet -- there is
+            // no approved jump art (the ChatGPT reference sheets have inconsistent
+            // scale versus idle/run and baked-in fake transparency, see
+            // docs/03_VisualDevelopment/prompts/characters/ for the regeneration
+            // plan) -- but declaring the parameters now avoids "no parameter"
+            // console warnings from TheoController.UpdateVisual().
+            if (controller.parameters.All(p => p.name != "Grounded"))
+            {
+                controller.AddParameter("Grounded", AnimatorControllerParameterType.Bool);
+            }
+
+            if (controller.parameters.All(p => p.name != "VerticalSpeed"))
+            {
+                controller.AddParameter("VerticalSpeed", AnimatorControllerParameterType.Float);
+            }
+
             AnimatorStateMachine stateMachine = controller.layers[0].stateMachine;
             AnimatorState idleState = FindOrAddState(stateMachine, "Idle", idleClip);
             AnimatorState runState = FindOrAddState(stateMachine, "Run", runClip);

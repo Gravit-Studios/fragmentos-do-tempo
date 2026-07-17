@@ -36,6 +36,7 @@ namespace FragmentosDoAmanha.Player
         private float dashTimer;
         private float dashCooldownTimer;
         private int dashDirection = 1;
+        private bool isGrounded;
 
         public int FacingDirection => facingDirection;
         public bool IsDashing => isDashing;
@@ -112,6 +113,7 @@ namespace FragmentosDoAmanha.Player
             dashPressed = false;
 
             bool grounded = IsGrounded();
+            isGrounded = grounded;
             groundedTimer = grounded ? coyoteTime : Mathf.Max(0f, groundedTimer - Time.fixedDeltaTime);
             int sideContactDirection = GetSideContactDirection();
             float desiredHorizontalVelocity = horizontalInput * moveSpeed;
@@ -145,6 +147,8 @@ namespace FragmentosDoAmanha.Player
             if (visualAnimator != null)
             {
                 visualAnimator.SetFloat("Speed", Mathf.Abs(horizontalInput));
+                visualAnimator.SetBool("Grounded", isGrounded);
+                visualAnimator.SetFloat("VerticalSpeed", body.linearVelocity.y);
             }
         }
 
