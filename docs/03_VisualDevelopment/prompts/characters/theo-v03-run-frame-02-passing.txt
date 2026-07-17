@@ -1,12 +1,34 @@
-Using the attached approved Theo idle+run reference (both poses) as the exact reference for identity, proportions, palette, and rendering style -- same head size relative to body, same body thickness, same color saturation and pixel art finish as both attached poses -- generate a single running pose frame for a 2D side-scrolling platformer.
+Using the attached approved Theo v03 idle and run reference images (theo-sprite-v03.png, Run-v03/theo-run-v03-01-contact.png) as the exact reference for identity, proportions, palette, and rendering style -- same head size relative to body, same body thickness, same color saturation and pixel art finish as both attached poses -- generate a single running pose frame for a 2D side-scrolling platformer, following the studio's sprite style guide below.
+
+Style base (mandatory):
+- Authentic pixel art, hard edges, no anti-aliasing.
+- Visible dithering where there is gradient or texture.
+- Limited palette, matching the attached references exactly.
+- Readable silhouette before detail.
+- Transparent background (real alpha transparency, not a checkerboard pattern drawn into the image).
+
+Character scale: playable character, approximately 64x96 (2x3 tiles) at in-game scale -- keep the same proportions as the attached idle/run references, do not redesign the body at a different scale.
+
+Theo -- mandatory character elements (must all be present, matching the attached references):
+- Scientist on the run.
+- Terracotta jacket, no emblem.
+- Goggles.
+- Brown hair.
+- Utility belt.
+- Copper temporal chronometer/device.
+- Scanner clipped to the belt (not held in hand).
+- Mature, practical, vulnerable look.
 
 Pose: side view (profile), character facing right, mid-run "passing" pose -- the recoil moment right after ground contact, both legs crossing directly under the body (one knee bent and rising, the other knee bent and trailing), torso upright, arms mid-swing crossing near the body (not fully extended forward or back).
+
+Run-cycle consistency rules (from the studio's animation guide):
+- Same ground line as the attached run reference frame.
+- Consistent silhouette between frames -- no scale change between poses.
+- Hair, jacket, and equipment may have subtle secondary motion, but identity/proportions stay fixed.
 
 Requirements:
 - Only the character, single isolated frame, centered, full body, no other pose or frame in the image.
 - Match the attached running pose exactly in proportions: same head-to-body ratio, same body thickness/build, same color saturation -- this is the same character in a different moment of the same stride, not a redraw.
-- The handheld lantern/scanner tool stays clipped to the utility belt (not held in hand), matching the attached running pose.
-- Hard-edge pixel art rendering: visible pixel grid, dithering for shading, no smooth painterly blending, consistent with both attached poses.
 - No text, no labels, no frame, no scale references, no palette swatches.
-- Fully transparent background (or flat solid magenta #ff00ff if transparency is not supported, so it can be chroma-keyed later).
+- Fully transparent background (or flat solid magenta #ff00ff if real transparency is not supported, so it can be chroma-keyed later).
 - Character fully contained within the canvas with consistent padding on all sides, feet near the bottom of the canvas at the same ground line as the attached running pose (so both frames line up in a game engine).
