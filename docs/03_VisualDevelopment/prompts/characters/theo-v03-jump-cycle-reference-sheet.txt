@@ -1,0 +1,18 @@
+Using the attached approved Theo v03 idle and run reference images as the exact reference for identity, proportions, palette, and rendering style -- same head size relative to body, same body thickness, same color saturation and pixel art finish as both attached poses -- generate a small reference sheet with exactly 5 poses of the same character, side by side, showing a full jump arc for a 2D side-scrolling platformer:
+
+1. Crouch/anticipation: side view, facing right, knees bent low, torso leaning slightly forward, arms pulled back, about to push off the ground.
+2. Rising: side view, facing right, legs extended pushing off the ground, one leg trailing, arms swinging up, body angled upward.
+3. Apex: side view, facing right, body at the peak of the jump, legs tucked/relaxed beneath the body, arms neutral, minimal vertical motion.
+4. Falling: side view, facing right, legs trailing loosely below the body, torso upright, arms slightly back, descending motion.
+5. Landing: side view, facing right, knees bent deeply absorbing the impact, torso leaning slightly forward, arms out for balance, feet planted.
+
+Critical requirement: all 5 poses must be the exact same character at the exact same scale -- same head size relative to the body, same body thickness/build, same proportions, same color saturation and rendering style as the attached idle and run poses. Do not make any pose's head bigger, body thicker, or colors flatter/more muted than the reference. If unsure, err on the side of keeping every pose as close to identical in proportion and finish as possible, only changing the pose itself.
+
+The handheld lantern/scanner tool stays clipped to the utility belt (not held in hand), matching the attached run pose.
+
+Requirements:
+- Five separate, clearly isolated character poses side by side, all fully visible, not overlapping, with clear empty space between each pose.
+- No text, no labels, no frame numbers, no watermark, no scale references, no palette swatches.
+- Hard-edge pixel art rendering: visible pixel grid, dithering for shading, no smooth painterly blending, consistent between all poses and with the attached references.
+- Fully transparent background (real alpha transparency, not a checkerboard pattern drawn into the image) -- if the tool cannot guarantee real transparency, use a flat solid magenta (#ff00ff) background instead so it can be chroma-keyed later.
+- Each character fully contained within its own canvas area with consistent padding, upright and straight (no rotation, no tilt), feet near the same ground line across all 5 poses so they line up in a game engine.
