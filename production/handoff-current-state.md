@@ -70,11 +70,15 @@ Estado atual (Idle + Run completos e integrados no codigo, pendente teste em Pla
 - `TheoAnimationSetup.cs`: `IdleFramesFolder`/`RunFramesFolder` apontam pras pastas novas (`Idle`, `Run`). `BuildAnimatorController()` agora monta o clip de Idle com os 6 frames (`IdleFrameRate = 6f`) em vez de 1 frame fixo, igual ja fazia pro Run.
 - Removidos: `theo-sprite-v03.png` e `Run-v03/` (visual anterior, totalmente superado).
 
-Proximo passo (ainda nao feito, precisa Unity local):
+Status em 2026-07-17 (sessao local, via Unity MCP): concluido no PC principal.
 
-1. Rodar `Import Theo Sprite`, `Import Theo Run Frames`, `Build Theo Animator Controller`, `Apply Theo Animator (Current Scene)` nas 3 cenas (`Prototype_Theo_Controller`, `VS_Egypt_Blockout`, `VS_EraZero_Lab`).
-2. Confirmar visualmente em Play Mode que idle e run batem em tamanho/proporcao/linha de chao (sem "pulo" ao trocar de animacao).
-3. Gerar os frames que faltam no mesmo padrao (canvas 1024x1024, pe em y=987): Pulo, Pouso, Ataque, Cair, e o item que a ficha de personagem NAO cobre -- reacao a dano/morte (`HitDeath/`, ver `production/roadmap.md` Fase 3). Agachar tem pasta pronta mas sem mecanica de jogo ainda, nao e prioridade.
+1. `Import Theo Sprite` (6 frames de Idle), `Import Theo Run Frames` (8 frames), `Build Theo Animator Controller` e `Apply Theo Animator (Current Scene)` rodados nas 3 cenas (`Prototype_Theo_Controller`, `VS_Egypt_Blockout`, `VS_EraZero_Lab`) sem erro de compilacao, todas salvas.
+2. Play Mode testado em `Prototype_Theo_Controller`: Idle renderiza corretamente com o sprite final (screenshot conferida), sem erros/warnings novos no console. Troca para animacao de Run **nao foi validada** nesta sessao -- o MCP nao tem input de teclado simulado, precisa teste manual (`A`/`D`) para confirmar que idle/run batem em tamanho/proporcao/linha de chao sem "pulo".
+3. Proximo passo: validar Run manualmente, depois gerar os frames que faltam no mesmo padrao (canvas 1024x1024, pe em y=987): Pulo, Pouso, Ataque, Cair, e reacao a dano/morte (`HitDeath/`, ver `production/roadmap.md` Fase 3). Agachar tem pasta pronta mas sem mecanica de jogo ainda, nao e prioridade.
+
+### Unity MCP (MCP for Unity, CoplayDev) conectado nesta sessao local
+
+Pacote `com.coplaydev.unity-mcp` adicionado ao `Packages/manifest.json` (resolvido via Git, `?path=/MCPForUnity#main`). Bridge HTTP local em `http://127.0.0.1:8080/mcp`, configurado em `.mcp.json` na raiz do repositorio (versionavel, mas o servidor so funciona com o Unity Editor aberto na mesma maquina). O bridge **nao inicia sozinho** por padrao -- precisa abrir `Window > MCP For Unity`, clicar em Start Server e, se quiser que persista entre sessoes, marcar "Auto-Start on Editor Load". Com isso ativo, sessoes futuras de Claude Code nesta pasta podem controlar cena, GameObjects, Play Mode, console etc. diretamente.
 
 ## Estrutura de pastas do repositorio (reorganizada em 2026-07-16, art/ eliminada em 2026-07-17)
 
