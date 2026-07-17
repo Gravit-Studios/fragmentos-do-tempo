@@ -7,8 +7,14 @@ namespace FragmentosDoAmanha.Editor
 {
     public static class TheoAnimationSetup
     {
+        // TODO: point at the new hand-crafted Photoshop idle sprite once it
+        // arrives (same 1024x1024 canvas / ~foot line y=925 spec as the run
+        // frames below). Still v03 for now, so IdleSpritePixelsPerUnit in
+        // TheoSpriteSetup does NOT yet match these run frames' scale --
+        // do not build/apply the animator controller until both are on the
+        // same reference.
         private const string IdleSpritePath = "Assets/Art/Characters/Theo/theo-sprite-v03.png";
-        private const string RunFramesFolder = "Assets/Art/Characters/Theo/Run-v03";
+        private const string RunFramesFolder = "Assets/Art/Characters/Theo/Run";
         private const string AnimationOutputFolder = "Assets/Animations/Theo";
         private const string ControllerPath = AnimationOutputFolder + "/Theo.controller";
         private const float RunFrameRate = 10f;
