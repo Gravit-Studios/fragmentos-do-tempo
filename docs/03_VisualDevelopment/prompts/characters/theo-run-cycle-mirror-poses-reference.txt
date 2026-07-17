@@ -1,0 +1,30 @@
+Reference for hand-drawing the missing run-cycle poses in Photoshop (not an AI prompt -- for the artist).
+
+Context: the 5 frames received (theo-sprite-run-01 to 05) all show the RIGHT leg leading the stride (the leg closer to the direction of travel, since Theo faces right), at different phases:
+
+- run-02 / run-03: "Reach-Right" -- right leg extended forward-down, about to contact the ground; left leg extended back, trailing. Widest stance of the set.
+- run-01 / run-04 / run-05: "Recovery-Right" -- right leg bent, knee driving up/forward under the body; left leg trailing back, extended. Narrower stance.
+
+A run cycle needs the SAME two phases mirrored with the LEFT leg leading, or the loop will always show the right leg stepping and never the left -- reads as hopping/limping instead of running.
+
+## Poses needed
+
+### 1. Reach-Left
+Mirror of run-02/run-03: same widest stance, same silhouette, but LEFT leg extended forward-down reaching for ground contact, RIGHT leg extended back trailing. Swap the arm swing too -- whichever arm was forward in run-02/03, put the OTHER arm forward here (opposite arm to opposite leg, same as the existing frames already do, just mirrored).
+
+### 2. Recovery-Left
+Mirror of run-01/run-04: LEFT leg bent, knee driving up/forward under the body; RIGHT leg trailing back, extended. Arms mirrored the same way as above.
+
+## Rules (same as the rest of the set)
+
+- Canvas 1024x1024, real alpha transparency (no checkerboard baked in).
+- Foot line at y=987 (same as every other Theo frame already delivered).
+- Same character scale as the existing frames (character height ~893-896px measured via alpha bbox) -- do not resize, just mirror the pose.
+- Facing right the whole time (do not flip the character to face left -- these are still right-facing poses, just with the opposite leg forward).
+- Same jacket/goggles/lantern/palette as the rest of the v04 set.
+
+## Suggested final order (10 frames, once these 2 are added)
+
+Reach-Right (run-02) -> Recovery-Right (run-01) -> Recovery-Right (run-04, slightly different phase) -> Recovery-Right (run-05) -> Reach-Left (new) -> Recovery-Left (new) -> back to Reach-Right.
+
+If you'd rather draw a clean, evenly-spaced 8-frame cycle from scratch instead of patching in 2 mirrored frames, that also works -- just keep the same alternating-leg rule and the same canvas/foot-line spec above.
