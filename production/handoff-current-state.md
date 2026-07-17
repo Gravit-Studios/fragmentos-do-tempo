@@ -59,7 +59,7 @@ Contexto: o sprite idle do Theo (`theo-sprite-v02.png`) e os primeiros frames de
 Estado atual:
 
 - Gerada com sucesso uma imagem de referencia combinada (parado + corrida) com consistencia interna validada (medicao de bbox mostrou alturas de personagem dentro de 0.5% de diferenca entre as poses).
-- `theo-sprite-v03.png` (idle) e `run-v03/theo-run-v03-01-contact.png` (frame 1 de 6 do ciclo de corrida, pose de contato com o chao) ja existem em `art/pixel/characters/theo/`.
+- `theo-sprite-v03.png` (idle) e `Run-v03/theo-run-v03-01-contact.png` (frame 1 de 6 do ciclo de corrida, pose de contato com o chao) ja existem em `unity/FragmentosDoAmanha/Assets/Art/Characters/Theo/` (ainda nao configurados/importados -- `TheoSpriteSetup.SpritePath` continua apontando pro v02, ver passo 2 abaixo).
 - Prompt do frame 2 (pose "passing"/recoil) ja escrito e entregue ao usuario em `docs/03_VisualDevelopment/prompts/characters/theo-v03-run-frame-02-passing.txt`, referenciando as duas imagens v03 anexadas. **Ainda sem confirmacao/imagem gerada de volta.**
 - Faltam gerar: passing, high-point, e os espelhamentos correspondentes (total de 6 frames no ciclo).
 
@@ -70,13 +70,12 @@ Proximo passo assim que os frames v03 restantes chegarem:
 3. Confirmar visualmente em Play Mode que idle e run batem em tamanho, proporcao e cor.
 4. Decidir com o usuario se os arquivos v01/v02 do Theo (sprite e frames de corrida antigos) devem ser removidos ou arquivados agora que v03 e a versao adotada.
 
-## Estrutura de pastas do repositorio (reorganizada em 2026-07-16)
+## Estrutura de pastas do repositorio (reorganizada em 2026-07-16, art/ eliminada em 2026-07-17)
 
-Por pedido explicito do usuario ("os arquivos que nao sao do jogo, pode colocar em uma pasta chamada artbook"):
+Por pedido explicito do usuario em 2026-07-17 ("Preciso separar em uma pasta o que realmente e arquivo do jogo... Todos os arquivos que serao criados devem ser inseridos nessa pasta, mesmo os sprites gerados via chatgpt que vao ser usados pra configurar no unity. Os demais arquivos podem ficar em uma pasta chamada artbook"), a pasta `art/` na raiz (criada em 2026-07-16) foi eliminada. Estrutura atual, so duas pastas de arte:
 
-- `art/` — **so** o que entra de fato no jogo / e importado na Unity: `pixel/` (sprites e tilesets aprovados), `animation/`, `ui/`, `fx/`.
-- `artbook/` (nova pasta na raiz) — todo material de concept art, ilustracao, branding, PDFs do concept book e crops de referencia/comparacao que NAO entram no jogo: `illustration/`, `concept-book/`, `pdf/`, `branding/`, `marketing/`, `pixel-reference/`.
-- `unity/FragmentosDoAmanha/` — projeto Unity real. Sprites/tiles usados no jogo devem ser salvos diretamente dentro de `Assets/Art/...` (nao mais mantidos como copia espelhada fora da Unity); o usuario confirmou que vai sempre subir os arquivos de arte do jogo dentro da pasta do projeto Unity.
+- `unity/FragmentosDoAmanha/Assets/Art/...` — **todo** arquivo necessario para o jogo funcionar, incluindo sprites/tilesets ainda nao configurados/importados (ex.: `theo-sprite-v03.png` e `Run-v03/theo-run-v03-01-contact.png` foram movidos pra dentro daqui mesmo antes de rodar `Import Theo Sprite`/`Import Theo Run Frames`). Nao existe mais copia espelhada fora da Unity — arte nova do jogo (mesmo gerada por IA) deve ser salva direto aqui.
+- `artbook/` — todo material de concept art, ilustracao, branding, PDFs do concept book e reference sheets/crops que NAO entram no jogo: `illustration/`, `concept-book/`, `pdf/`, `branding/`, `marketing/`, `pixel-reference/` (inclui agora os sheets completos de ambiente `-pixel-environment-v01/v03.png` que nunca foram importados na Unity — so os `-tiles-core-v02.png` fatiados sao usados de fato).
 - `unity/FragmentosDoAmanha/game/` — pasta de build standalone, foi commitada por acidente (~184 arquivos, incluindo `UnityPlayer.dll` de 37MB), removida do tracking (`git rm -r --cached`) e adicionada ao `.gitignore`. Continua existindo localmente, so nao e mais versionada.
 
 ### Pendencia em aberto: pastas duplicadas de documentacao

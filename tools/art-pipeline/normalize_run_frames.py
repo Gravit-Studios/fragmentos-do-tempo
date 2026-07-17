@@ -27,7 +27,7 @@ CANVAS_W, CANVAS_H = 1400, 1536
 
 # Idle sprite's own measured character bbox (excluding the lantern
 # light-spray effect), measured via PIL against
-# art/pixel/characters/theo/theo-sprite-v02.png (1024x1536 canvas).
+# unity/FragmentosDoAmanha/Assets/Art/Characters/Theo/theo-sprite-v02.png (1024x1536 canvas).
 IDLE_BBOX = (174, 92, 784, 1140)
 IDLE_CHAR_HEIGHT = IDLE_BBOX[3] - IDLE_BBOX[1]  # 1048
 IDLE_FOOT_Y = IDLE_BBOX[3]  # 1140, bottom edge in canvas space (PIL, y grows down)

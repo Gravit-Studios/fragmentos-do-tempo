@@ -193,21 +193,25 @@ docs/03_VisualDevelopment/character-image-prompts.md
 docs/03_VisualDevelopment/environment-image-prompts.md
 ```
 
-Assets de personagens:
+Nao existe mais uma pasta `art/` separada na raiz do repositorio. Regra atual (definida pelo usuario em 2026-07-17):
+
+- Qualquer arquivo necessario para o jogo funcionar -- sprites, tilesets, etc. -- vai direto para dentro do projeto Unity, mesmo antes de ser configurado/importado:
 
 ```text
-art/pixel/characters/
-art/illustration/characters/
+unity/FragmentosDoAmanha/Assets/Art/Characters/
+unity/FragmentosDoAmanha/Assets/Art/Tilesets/
 ```
 
-Assets de cenarios:
+- Tudo que nao entra no jogo (concept art, ilustracao, reference sheets do ChatGPT usados so como referencia de pose/estilo, crops de comparacao) vai para `artbook/` na raiz:
 
 ```text
-art/pixel/environments/
-art/illustration/environments/
+artbook/illustration/characters/
+artbook/illustration/environments/
+artbook/pixel-reference/characters/
+artbook/pixel-reference/environments/
 ```
 
-Ao gerar novas artes, salvar em pasta organizada por tipo, personagem/cenario e versao. Atualizar o `asset-index.md` correspondente.
+Ao gerar novas artes que vao ser usadas no jogo, salvar direto em `unity/FragmentosDoAmanha/Assets/Art/...`, nao numa pasta intermediaria.
 
 ## Antes de finalizar uma tarefa
 

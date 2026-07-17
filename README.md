@@ -15,10 +15,10 @@ O jogo usa duas camadas de arte:
 
 ## Estrutura do repositorio
 
+- `unity/FragmentosDoAmanha/` - o projeto Unity real. Tudo que e necessario para o jogo funcionar vive aqui, incluindo sprites/tilesets ja em `Assets/Art/` (mesmo os ainda nao configurados/importados). Nao existe mais uma pasta `art/` separada na raiz -- assets novos (incluindo os gerados por IA) devem ser salvos direto dentro de `unity/FragmentosDoAmanha/Assets/Art/...`.
+- `artbook/` - tudo que NAO entra diretamente no jogo: concept art, ilustracao, branding, PDFs do concept book e material de referencia/estudo (inclui `pixel-reference/`, com sheets e crops usados como referencia de pose/estilo, nao como arte final).
 - `docs/` - Documentacao viva do projeto, organizada por area de producao.
 - `production/` - Planejamento pratico, vertical slice, pipeline com IA e roadmap.
-- `art/` - Estrutura para concepts, pixel art, animacao, UI, FX e marketing.
-- `unity/` - Local reservado para o projeto Unity real quando ele for criado.
 - `GDD.md` - Documento de game design existente, mantido como referencia historica e criativa.
 - `game-design/`, `narrativa/`, `personagens/`, `nomes/` - Documentos iniciais ja existentes no repositorio remoto, preservados.
 
