@@ -5,7 +5,7 @@ namespace FragmentosDoAmanha.Editor
 {
     public static class TheoSpriteSetup
     {
-        private const string SpritePath = "Assets/Art/Characters/Theo/theo-sprite-v02.png";
+        private const string SpritePath = "Assets/Art/Characters/Theo/theo-sprite-v03.png";
 
         // With the camera's orthographicSize of 5 (10 world units tall visible
         // area), this puts Theo at ~24% of screen height -- between Symphony of
@@ -13,17 +13,17 @@ namespace FragmentosDoAmanha.Editor
         // (rough estimates, not pixel-verified against the actual games).
         internal const float TargetWorldHeight = 2.4f;
 
-        // The character's actual silhouette height in theo-sprite-v02.png is
-        // ~1049px within its 1536px canvas (measured via PIL, excluding the
+        // The character's actual silhouette height in theo-sprite-v03.png is
+        // 572px within its 1024px canvas (measured via PIL, excluding the
         // lantern light-spray effect). PPU can't be derived from canvas
         // height alone since that proportion isn't guaranteed across
-        // separately-generated art. The run frames were re-composited
+        // separately-generated art. The v03 run frames are re-composited
         // (cropped, rescaled, and re-pasted so the character fills the same
-        // ~1049px at the same foot line within their own 1536px-tall canvas,
+        // 572px at the same foot line within their own 1024px-tall canvas,
         // see normalize_run_frames.py) specifically so they can share this
         // same constant. This is measured/hardcoded per asset; re-measure if
-        // the art is regenerated. 1049 / TargetWorldHeight.
-        internal const float IdleSpritePixelsPerUnit = 437.08f;
+        // the art is regenerated. 572 / TargetWorldHeight.
+        internal const float IdleSpritePixelsPerUnit = 238.33f;
 
         [MenuItem("Fragmentos do Amanha/Import Theo Sprite")]
         public static void ImportTheoSprite()

@@ -23,14 +23,17 @@ are regenerated.
 import sys
 from PIL import Image
 
-CANVAS_W, CANVAS_H = 1400, 1536
+CANVAS_W, CANVAS_H = 900, 1024
 
 # Idle sprite's own measured character bbox (excluding the lantern
 # light-spray effect), measured via PIL against
-# unity/FragmentosDoAmanha/Assets/Art/Characters/Theo/theo-sprite-v02.png (1024x1536 canvas).
-IDLE_BBOX = (174, 92, 784, 1140)
-IDLE_CHAR_HEIGHT = IDLE_BBOX[3] - IDLE_BBOX[1]  # 1048
-IDLE_FOOT_Y = IDLE_BBOX[3]  # 1140, bottom edge in canvas space (PIL, y grows down)
+# unity/FragmentosDoAmanha/Assets/Art/Characters/Theo/theo-sprite-v03.png (368x1024 canvas).
+# Previous constants (v02, 1400x1536 canvas, bbox (174, 92, 784, 1140)) are
+# obsolete now that v03 is the adopted sprite -- re-measure again if the
+# idle sprite is regenerated.
+IDLE_BBOX = (29, 190, 336, 762)
+IDLE_CHAR_HEIGHT = IDLE_BBOX[3] - IDLE_BBOX[1]  # 572
+IDLE_FOOT_Y = IDLE_BBOX[3]  # 762, bottom edge in canvas space (PIL, y grows down)
 
 
 def character_bbox(img):

@@ -7,8 +7,8 @@ namespace FragmentosDoAmanha.Editor
 {
     public static class TheoAnimationSetup
     {
-        private const string IdleSpritePath = "Assets/Art/Characters/Theo/theo-sprite-v02.png";
-        private const string RunFramesFolder = "Assets/Art/Characters/Theo/Run";
+        private const string IdleSpritePath = "Assets/Art/Characters/Theo/theo-sprite-v03.png";
+        private const string RunFramesFolder = "Assets/Art/Characters/Theo/Run-v03";
         private const string AnimationOutputFolder = "Assets/Animations/Theo";
         private const string ControllerPath = AnimationOutputFolder + "/Theo.controller";
         private const float RunFrameRate = 10f;
