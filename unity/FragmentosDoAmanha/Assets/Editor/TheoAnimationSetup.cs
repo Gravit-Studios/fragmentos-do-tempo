@@ -7,16 +7,11 @@ namespace FragmentosDoAmanha.Editor
 {
     public static class TheoAnimationSetup
     {
-        // TODO: point at the new hand-crafted Photoshop idle sprite once it
-        // arrives (same 1024x1024 canvas / ~foot line y=925 spec as the run
-        // frames below). Still v03 for now, so IdleSpritePixelsPerUnit in
-        // TheoSpriteSetup does NOT yet match these run frames' scale --
-        // do not build/apply the animator controller until both are on the
-        // same reference.
-        private const string IdleSpritePath = "Assets/Art/Characters/Theo/theo-sprite-v03.png";
+        private const string IdleFramesFolder = "Assets/Art/Characters/Theo/Idle";
         private const string RunFramesFolder = "Assets/Art/Characters/Theo/Run";
         private const string AnimationOutputFolder = "Assets/Animations/Theo";
         private const string ControllerPath = AnimationOutputFolder + "/Theo.controller";
+        private const float IdleFrameRate = 6f;
         private const float RunFrameRate = 10f;
         private const float RunToIdleThreshold = 0.05f;
 
@@ -73,10 +68,17 @@ namespace FragmentosDoAmanha.Editor
                 AssetDatabase.CreateFolder("Assets/Animations", "Theo");
             }
 
-            Sprite idleSprite = AssetDatabase.LoadAssetAtPath<Sprite>(IdleSpritePath);
-            if (idleSprite == null)
+            Sprite[] idleSprites = AssetDatabase.FindAssets("t:Texture2D", new[] { IdleFramesFolder })
+                .Select(AssetDatabase.GUIDToAssetPath)
+                .Distinct()
+                .OrderBy(path => path)
+                .Select(AssetDatabase.LoadAssetAtPath<Sprite>)
+                .Where(sprite => sprite != null)
+                .ToArray();
+
+            if (idleSprites.Length == 0)
             {
-                Debug.LogError($"Fragmentos do Amanha: idle sprite not found at {IdleSpritePath}. Run 'Import Theo Sprite' first.");
+                Debug.LogError($"Fragmentos do Amanha: no sprites found in {IdleFramesFolder}. Run 'Import Theo Sprite' first.");
                 return;
             }
 
@@ -94,7 +96,7 @@ namespace FragmentosDoAmanha.Editor
                 return;
             }
 
-            AnimationClip idleClip = CreateClip("Theo_Idle", new[] { idleSprite }, 1f, AnimationOutputFolder);
+            AnimationClip idleClip = CreateClip("Theo_Idle", idleSprites, IdleFrameRate, AnimationOutputFolder);
             AnimationClip runClip = CreateClip("Theo_Run", runSprites, RunFrameRate, AnimationOutputFolder);
 
             AnimatorController controller = AssetDatabase.LoadAssetAtPath<AnimatorController>(ControllerPath);
@@ -136,7 +138,7 @@ namespace FragmentosDoAmanha.Editor
 
             EditorUtility.SetDirty(controller);
             AssetDatabase.SaveAssets();
-            Debug.Log($"Fragmentos do Amanha: Theo animator controller built at {ControllerPath} with {runSprites.Length} run frame(s). Run 'Apply Theo Animator (Current Scene)' next.");
+            Debug.Log($"Fragmentos do Amanha: Theo animator controller built at {ControllerPath} with {idleSprites.Length} idle frame(s) and {runSprites.Length} run frame(s). Run 'Apply Theo Animator (Current Scene)' next.");
         }
 
         [MenuItem("Fragmentos do Amanha/Apply Theo Animator (Current Scene)")]

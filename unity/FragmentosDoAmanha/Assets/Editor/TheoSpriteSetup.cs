@@ -5,7 +5,12 @@ namespace FragmentosDoAmanha.Editor
 {
     public static class TheoSpriteSetup
     {
-        private const string SpritePath = "Assets/Art/Characters/Theo/theo-sprite-v03.png";
+        private const string IdleFramesFolder = "Assets/Art/Characters/Theo/Idle";
+
+        // Representative frame used for the static blockout replacement
+        // (before the Animator takes over) and as the PPU measurement
+        // reference for the whole idle+run set below.
+        private const string SpritePath = IdleFramesFolder + "/theo-sprite-idle-01.png";
 
         // With the camera's orthographicSize of 5 (10 world units tall visible
         // area), this puts Theo at ~24% of screen height -- between Symphony of
@@ -13,40 +18,50 @@ namespace FragmentosDoAmanha.Editor
         // (rough estimates, not pixel-verified against the actual games).
         internal const float TargetWorldHeight = 2.4f;
 
-        // The character's actual silhouette height in theo-sprite-v03.png is
-        // 572px within its 1024px canvas (measured via PIL, excluding the
-        // lantern light-spray effect). PPU can't be derived from canvas
-        // height alone since that proportion isn't guaranteed across
-        // separately-generated art. The v03 run frames are re-composited
-        // (cropped, rescaled, and re-pasted so the character fills the same
-        // 572px at the same foot line within their own 1024px-tall canvas,
-        // see normalize_run_frames.py) specifically so they can share this
-        // same constant. This is measured/hardcoded per asset; re-measure if
-        // the art is regenerated. 572 / TargetWorldHeight.
-        internal const float IdleSpritePixelsPerUnit = 238.33f;
+        // Hand-crafted in Photoshop (v04 style, superseding the AI-generated
+        // v03 set): fixed 1024x1024 canvas across every pose, character foot
+        // line locked to canvas y=987 (idle's own average; the run frames
+        // were shifted with tools/art-pipeline/align_foot_line.py to match).
+        // theo-sprite-idle-01.png's character silhouette measures 947px tall
+        // (PIL alpha bbox, min>40). PPU can't be derived from canvas height
+        // alone -- this is measured/hardcoded per asset; re-measure if the
+        // idle art is redrawn. 947 / TargetWorldHeight.
+        internal const float IdleSpritePixelsPerUnit = 394.58f;
 
         [MenuItem("Fragmentos do Amanha/Import Theo Sprite")]
         public static void ImportTheoSprite()
         {
-            TextureImporter importer = AssetImporter.GetAtPath(SpritePath) as TextureImporter;
-            if (importer == null)
+            string[] guids = AssetDatabase.FindAssets("t:Texture2D", new[] { IdleFramesFolder });
+            if (guids.Length == 0)
             {
-                Debug.LogError($"Fragmentos do Amanha: texture not found at {SpritePath}. Make sure the file was imported by Unity first.");
+                Debug.LogError($"Fragmentos do Amanha: no textures found in {IdleFramesFolder}.");
                 return;
             }
 
-            importer.textureType = TextureImporterType.Sprite;
-            importer.spriteImportMode = SpriteImportMode.Single;
-            importer.filterMode = FilterMode.Point;
-            importer.textureCompression = TextureImporterCompression.Uncompressed;
-            importer.mipmapEnabled = false;
-            importer.alphaIsTransparency = true;
-            importer.spritePixelsPerUnit = IdleSpritePixelsPerUnit;
+            int imported = 0;
+            foreach (string guid in guids)
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+                TextureImporter importer = AssetImporter.GetAtPath(path) as TextureImporter;
+                if (importer == null)
+                {
+                    Debug.LogWarning($"Fragmentos do Amanha: could not read texture at {path}, skipping (LFS pointer not pulled?).");
+                    continue;
+                }
 
-            EditorUtility.SetDirty(importer);
-            importer.SaveAndReimport();
+                importer.textureType = TextureImporterType.Sprite;
+                importer.spriteImportMode = SpriteImportMode.Single;
+                importer.filterMode = FilterMode.Point;
+                importer.textureCompression = TextureImporterCompression.Uncompressed;
+                importer.mipmapEnabled = false;
+                importer.alphaIsTransparency = true;
+                importer.spritePixelsPerUnit = IdleSpritePixelsPerUnit;
+                EditorUtility.SetDirty(importer);
+                importer.SaveAndReimport();
+                imported++;
+            }
 
-            Debug.Log($"Fragmentos do Amanha: Theo sprite imported at {SpritePath}, targeting ~{TargetWorldHeight} world units tall. Run 'Replace Theo Blockout With Sprite' next, then tune the height visually in Play Mode if needed.");
+            Debug.Log($"Fragmentos do Amanha: imported {imported} idle frame(s) from {IdleFramesFolder}, targeting ~{TargetWorldHeight} world units tall. Run 'Replace Theo Blockout With Sprite' next, then tune the height visually in Play Mode if needed.");
         }
 
         [MenuItem("Fragmentos do Amanha/Replace Theo Blockout With Sprite (Current Scene)")]

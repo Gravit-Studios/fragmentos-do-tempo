@@ -52,37 +52,35 @@ Bugs reais encontrados e corrigidos durante os testes (nao sao mais pendencias):
 
 Com isso fechado, o trabalho atual e **Fase 3 (Arte Integrada)** do roadmap: substituir os placeholders restantes (animacoes do Theo, Voss e Naiara) por arte final, dentro da fatia Era Zero + Egito.
 
-## Decisao 2026-07-17: adotar o visual das fichas de personagem (v04) como definitivo
+## Decisao 2026-07-17: visual definitivo do Theo (v04), feito a mao no Photoshop
 
-O usuario confirmou ("Sim") que o visual das "fichas de personagem" do ChatGPT (jaqueta laranja com barra/forro, capuz, ficha completa com paleta/turnaround/ciclos -- ver `artbook/pixel-reference/characters/theo/chatgpt-2026-07-17/theo-character-sheet-v01.png` e as demais) e o design definitivo do Theo, **substituindo o v03** (idle+corrida atualmente integrados no Unity). Essas fichas continuam com os mesmos problemas tecnicos ja identificados (sem transparencia real, frames colados sem grade, escala diferente entre sub-imagens), entao nao dao pra recortar direto -- precisam ser regeradas como poses isoladas nesse estilo.
+O usuario confirmou ("Sim") que o visual das "fichas de personagem" do ChatGPT (jaqueta laranja com forro/capuz -- ver `artbook/pixel-reference/characters/theo/chatgpt-2026-07-17/theo-character-sheet-v01.png` e as demais) e o design definitivo do Theo, substituindo o v03 (era so referencia, nunca virou arte final). Como essas fichas nao dao pra recortar direto (sem transparencia real, frames colados, escala inconsistente entre sub-imagens), o usuario decidiu desenhar os frames a mao no Photoshop, um arquivo por pose/frame, em vez de continuar gerando via ChatGPT.
 
-Prompt ja escrito para a primeira geracao (parado + corrida juntos, mesmo metodo que funcionou pro v03): `docs/03_VisualDevelopment/prompts/characters/theo-v04-idle-and-run-reference-sheet.txt`, referenciando as fichas de personagem para identidade/estilo. **Ainda sem confirmacao/imagem gerada de volta.**
+Especificacao fixa combinada (documentada em `unity/FragmentosDoAmanha/Assets/Art/Characters/Theo/README.md`), com template de guia gerado e enviado ao usuario (`docs/03_VisualDevelopment/theo-sprite-canvas-template-1024.png`, grade de 64px + linha de centro + linha de chao):
 
-Quando a imagem v04 chegar: medir bbox de personagem via PIL, repetir o processo ja feito pro v03 (`TheoSpriteSetup.SpritePath`/`IdleSpritePixelsPerUnit`, `TheoAnimationSetup.IdleSpritePath`/`RunFramesFolder`, `tools/art-pipeline/normalize_run_frames.py` se as escalas nao baterem), e então continuar o ciclo de corrida (passing, high-point, espelhamentos) e o pulo nesse novo estilo v04, seguindo o mesmo metodo de poses isoladas/pequenos grupos ancorados na imagem aprovada. O trabalho ja feito no v03 (secao abaixo) fica de referencia historica de como o pipeline funciona, mas os arquivos v03 devem ser tratados como superados assim que o v04 chegar.
+- Canvas fixo `1024x1024` em todo arquivo.
+- Linha de chao (pes) sempre no mesmo Y do canvas -- adotado `y=987` (media medida no idle).
+- Transparencia real (alpha), sem xadrez pintado.
 
-## Trabalho anterior (v03, superado pela decisao acima): ciclo de corrida do Theo
+Estado atual (Idle + Run completos e integrados no codigo, pendente teste em Play Mode):
 
-Contexto: o sprite idle do Theo (`theo-sprite-v02.png`) e os primeiros frames de corrida foram gerados em conversas/prompts separados no ChatGPT, o que causou inconsistencia visual (tamanho de cabeca, espessura do corpo, saturacao de cor diferentes entre parado e corrida), mesmo depois de varias correcoes programaticas de escala (PPU, recomposicao de frames via `tools/art-pipeline/normalize_run_frames.py`). O usuario diagnosticou a causa raiz (seguindo medicoes proprias em ferramenta de design) e decidiu: **regerar parado + corrida juntos, no mesmo prompt/imagem**, em vez de seguir corrigindo por escala.
+- **Idle**: 6 frames recebidos (`unity/FragmentosDoAmanha/Assets/Art/Characters/Theo/Idle/theo-sprite-idle-01.png` a `06.png`). Medidos via PIL: altura de personagem 946-952px (0.6% de variacao), pe em y=985-989 -- excelente consistencia, sem necessidade de correcao.
+- **Run**: 8 frames recebidos (`.../Run/theo-sprite-run-01.png` a `08.png`). Mesmo canvas e escala do idle, mas pe em y=918-929 -- ~61px mais alto que o idle. Corrigido com um novo script, `tools/art-pipeline/align_foot_line.py` (desloca verticalmente sem redimensionar, ao contrario do `normalize_run_frames.py` usado antes pro v03/AI, que tambem reescalava), alinhando todos os 8 frames pro pe em y=987 igual ao idle. Nenhum frame ficou cortado apos o deslocamento (conferido via bbox).
+- `TheoSpriteSetup.cs`: `SpritePath` agora aponta pro primeiro frame do Idle (`Idle/theo-sprite-idle-01.png`), `IdleSpritePixelsPerUnit` recalculado (`394.58` = 947px / `TargetWorldHeight` 2.4). `ImportTheoSprite()` agora importa TODOS os frames da pasta `Idle/` (nao so um), pra alimentar a animacao.
+- `TheoAnimationSetup.cs`: `IdleFramesFolder`/`RunFramesFolder` apontam pras pastas novas (`Idle`, `Run`). `BuildAnimatorController()` agora monta o clip de Idle com os 6 frames (`IdleFrameRate = 6f`) em vez de 1 frame fixo, igual ja fazia pro Run.
+- Removidos: `theo-sprite-v03.png` e `Run-v03/` (visual anterior, totalmente superado).
 
-Estado atual:
+Proximo passo (ainda nao feito, precisa Unity local):
 
-- Gerada com sucesso uma imagem de referencia combinada (parado + corrida) com consistencia interna validada (medicao de bbox mostrou alturas de personagem dentro de 0.5% de diferenca entre as poses).
-- `theo-sprite-v03.png` (idle) e `Run-v03/theo-run-v03-01-contact.png` (frame 1 de 6 do ciclo de corrida, pose de contato com o chao) ja existem em `unity/FragmentosDoAmanha/Assets/Art/Characters/Theo/` (ainda nao configurados/importados -- `TheoSpriteSetup.SpritePath` continua apontando pro v02, ver passo 2 abaixo).
-- Prompt do frame 2 (pose "passing"/recoil) ja escrito e entregue ao usuario em `docs/03_VisualDevelopment/prompts/characters/theo-v03-run-frame-02-passing.txt`, referenciando as duas imagens v03 anexadas. **Ainda sem confirmacao/imagem gerada de volta.**
-- Faltam gerar: passing, high-point, e os espelhamentos correspondentes (total de 6 frames no ciclo).
-
-Proximo passo assim que os frames v03 restantes chegarem:
-
-1. Rodar `Import Theo Sprite`, `Import Theo Run Frames`, `Build Theo Animator Controller`, `Apply Theo Animator (Current Scene)` (menus em `Fragmentos do Amanha/...`, scripts em `Assets/Editor/TheoSpriteSetup.cs` e `TheoAnimationSetup.cs`) nas 3 cenas (`Prototype_Theo_Controller`, `VS_Egypt_Blockout`, `VS_EraZero_Lab`).
-2. Medir a nova altura de personagem em `theo-sprite-v03.png` via PIL (bbox de alpha) e atualizar `TheoSpriteSetup.IdleSpritePixelsPerUnit` (atualmente `437.08f`, calculado para o v02 — precisa remedir para o v03; `SpritePath` tambem aponta para `theo-sprite-v02.png` e precisa apontar para `theo-sprite-v03.png`).
-3. Confirmar visualmente em Play Mode que idle e run batem em tamanho, proporcao e cor.
-4. Decidir com o usuario se os arquivos v01/v02 do Theo (sprite e frames de corrida antigos) devem ser removidos ou arquivados agora que v03 e a versao adotada.
+1. Rodar `Import Theo Sprite`, `Import Theo Run Frames`, `Build Theo Animator Controller`, `Apply Theo Animator (Current Scene)` nas 3 cenas (`Prototype_Theo_Controller`, `VS_Egypt_Blockout`, `VS_EraZero_Lab`).
+2. Confirmar visualmente em Play Mode que idle e run batem em tamanho/proporcao/linha de chao (sem "pulo" ao trocar de animacao).
+3. Gerar os frames que faltam no mesmo padrao (canvas 1024x1024, pe em y=987): Pulo, Pouso, Ataque, Cair, e o item que a ficha de personagem NAO cobre -- reacao a dano/morte (`HitDeath/`, ver `production/roadmap.md` Fase 3). Agachar tem pasta pronta mas sem mecanica de jogo ainda, nao e prioridade.
 
 ## Estrutura de pastas do repositorio (reorganizada em 2026-07-16, art/ eliminada em 2026-07-17)
 
 Por pedido explicito do usuario em 2026-07-17 ("Preciso separar em uma pasta o que realmente e arquivo do jogo... Todos os arquivos que serao criados devem ser inseridos nessa pasta, mesmo os sprites gerados via chatgpt que vao ser usados pra configurar no unity. Os demais arquivos podem ficar em uma pasta chamada artbook"), a pasta `art/` na raiz (criada em 2026-07-16) foi eliminada. Estrutura atual, so duas pastas de arte:
 
-- `unity/FragmentosDoAmanha/Assets/Art/...` — **todo** arquivo necessario para o jogo funcionar, incluindo sprites/tilesets ainda nao configurados/importados (ex.: `theo-sprite-v03.png` e `Run-v03/theo-run-v03-01-contact.png` foram movidos pra dentro daqui mesmo antes de rodar `Import Theo Sprite`/`Import Theo Run Frames`). Nao existe mais copia espelhada fora da Unity — arte nova do jogo (mesmo gerada por IA) deve ser salva direto aqui.
+- `unity/FragmentosDoAmanha/Assets/Art/...` — **todo** arquivo necessario para o jogo funcionar, incluindo sprites/tilesets ainda nao configurados/importados (ex.: os frames do Theo em `Characters/Theo/Idle/` e `Characters/Theo/Run/` ficam ali assim que chegam do Photoshop, antes mesmo de rodar `Import Theo Sprite`/`Import Theo Run Frames`). Nao existe mais copia espelhada fora da Unity — arte nova do jogo deve ser salva direto aqui.
 - `artbook/` — todo material de concept art, ilustracao, branding, PDFs do concept book e reference sheets/crops que NAO entram no jogo: `illustration/`, `concept-book/`, `pdf/`, `branding/`, `marketing/`, `pixel-reference/` (inclui agora os sheets completos de ambiente `-pixel-environment-v01/v03.png` que nunca foram importados na Unity — so os `-tiles-core-v02.png` fatiados sao usados de fato).
 - `unity/FragmentosDoAmanha/game/` — pasta de build standalone, foi commitada por acidente (~184 arquivos, incluindo `UnityPlayer.dll` de 37MB), removida do tracking (`git rm -r --cached`) e adicionada ao `.gitignore`. Continua existindo localmente, so nao e mais versionada.
 
