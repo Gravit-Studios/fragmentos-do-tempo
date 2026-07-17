@@ -4,6 +4,12 @@
 
 Definir regras iniciais para que sprites, tilesets, FX e UI mantenham consistencia visual e sejam viaveis para animacao em uma producao independente.
 
+## Documentos De Apoio
+
+- docs/03_VisualDevelopment/sprite-prompt-guide.md - guia operacional para prompts de sprites, tiles e ciclo de corrida.
+- docs/03_VisualDevelopment/tileset-image-prompts.md - prompts oficiais de tilesets por era.
+- docs/03_VisualDevelopment/character-image-prompts.md - prompts de personagens em concept art e pixel art.
+
 ## Padroes iniciais
 
 - **Personagem base:** canvas sugerido de 64x96 px.

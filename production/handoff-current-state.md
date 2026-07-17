@@ -32,6 +32,8 @@ git pull --ff-only origin main
 3. `production/roadmap.md`
 4. Para Unity: `docs/08_UnityPipeline/prototype-theo-controller.md`
 5. Para arte de personagens: `docs/03_VisualDevelopment/prompts/characters/`
+6. Para concept book: `docs/03_VisualDevelopment/concept-book-art-direction.md`
+7. Para sprites/pixel art: `docs/03_VisualDevelopment/sprite-prompt-guide.md`
 
 ## Decisao de escopo em vigor
 
@@ -80,6 +82,12 @@ Por pedido explicito do usuario ("os arquivos que nao sao do jogo, pode colocar 
 ### Pendencia em aberto: pastas duplicadas de documentacao
 
 As pastas `game-design/`, `narrativa/`, `nomes/`, `personagens/` e o arquivo `GDD.md` (raiz) vieram de outra sessao/ferramenta (confirmado pelo usuario: "Sim"), e o conteudo se sobrepoe com o que ja existe em `docs/00_Project/`, `docs/04_Characters/` e `production/roadmap.md`. **Ainda sem decisao do usuario** sobre o que fazer: consolidar conteudo, descartar um dos conjuntos, ou manter os dois. Nao mexer nessas pastas sem alinhar antes.
+
+Nota de coordenacao com a frente Unity:
+
+```text
+production/unity-handoff-sprint-01-reference.md
+```
 
 ## Unity
 

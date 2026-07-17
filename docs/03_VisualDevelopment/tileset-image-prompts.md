@@ -13,6 +13,12 @@ Este documento cobre o item liberado no roadmap: "Criar tileset placeholder da E
 3. Gere, avalie contra o checklist de sprite/tileset pronto (`pixel-art-bible.md`), e salve o resultado aprovado em `art/pixel/environments/<epoca>/` com nome versionado (`-tileset-v01.png`), atualizando o `asset-index.md` da pasta.
 4. Validacao final e sempre manual — a IA e assistente de producao, nao diretora criativa.
 
+Para prompts curtos de sprites, single tiles e ciclo de corrida do Theo, use tambem:
+
+```text
+docs/03_VisualDevelopment/sprite-prompt-guide.md
+```
+
 ## Regras herdadas (nao repetir por epoca)
 
 - Canvas de personagem: 64x96 px. Tile grid: 32x32 px. PPU: 32.
