@@ -10,7 +10,9 @@ Esta frente atual do Codex esta focada em ilustracao, concept art, artbook e vis
 - Fluxo desejado: GitHub -> commits -> testes.
 - O handoff original indicava que nao foi possivel editar o GitHub pelo conector na conversa anterior.
 
-## Sprint 1 -- executada em 2026-07-17 pela frente Unity (Claude)
+## Sprint 1 -- executada e testada em 2026-07-17 pela frente Unity (Claude)
+
+Confirmado pelo usuario em Play Mode: "Tudo funcionando" (ataque sem dano duplicado, inimigo morre normalmente).
 
 1. PlayerAttack. `[x]`
 2. PlayerHealth. `[x]` (ja estava satisfeito antes desta sprint)
