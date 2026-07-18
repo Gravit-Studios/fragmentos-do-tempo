@@ -1,0 +1,27 @@
+Using the attached Theo master reference sheet (the panel titled "THEO / PROTAGONISTA - CIENTISTA" with IDLE, RUN, ATTACK and JUMP sections) as the exact reference for identity, proportions, palette, and rendering style -- same messy copper-brown hair, same goggles pushed up on the forehead, same quilted rust/orange jacket, same dark teal undershirt, same brown utility belt with pouches, same teal wrist guard/glove, same glowing copper lantern/scanner tool clipped to the belt, same dark navy/olive pants, same brown boots, same pixel-art rendering with clean linework and soft shading, same dark navy panel background with rounded border -- regenerate only the "RUN (8 FRAMES)" panel, keeping the exact same visual style, character design, and panel layout as the attached sheet, but fixing the leg alternation so it reads as a real run instead of a hop.
+
+Problem with the attached version: all 8 Run frames lead with the same (right) leg -- the left leg never reaches forward and plants on the ground. Regenerate the cycle so the stride alternates properly between both legs across the 8 frames.
+
+Layout (keep identical to the attached sheet's RUN panel):
+- Title text "RUN (8 FRAMES)" at the top left of the panel, same font/style as the attached sheet.
+- 8 poses arranged in a 4x2 grid (4 frames per row, 2 rows), each labeled with a boxed number "01" through "08" above the character, left to right, top row then bottom row.
+- Character facing right in every frame, side view (profile).
+- Same character scale and same ground line (feet baseline) across all 8 frames -- only the pose changes, not the size or vertical position of the character.
+- Same dark navy panel background and rounded border as the attached sheet, consistent padding around each frame.
+
+Pose progression for the 8 frames (standard alternating-leg run cycle -- use this exact sequence so the loop reads naturally):
+
+1. Contact-Right: right leg forward and planted on the ground, left leg trailing back fully extended. Widest stance. Left arm forward, right arm back.
+2. Passing-1: body at its lowest point, legs crossing directly under the body, right leg beginning to lift and move back, left leg swinging forward underneath. Arms passing near the body, roughly symmetrical.
+3. Recovery-Left: left knee driving up and forward, left leg bent and lifted; right leg extending back and up behind the body. Right arm forward, left arm back.
+4. Reach-Left: left leg reaching forward-down, about to make ground contact; right leg trailing far back, almost fully extended. Right arm forward, left arm back (same arm phase as frame 3, slightly more extended).
+5. Contact-Left: left leg forward and planted on the ground, right leg trailing back fully extended. Widest stance -- mirror of frame 1. Right arm forward, left arm back.
+6. Passing-2: body at its lowest point again, legs crossing under the body, left leg lifting and moving back, right leg swinging forward underneath -- mirror of frame 2.
+7. Recovery-Right: right knee driving up and forward, right leg bent and lifted; left leg extending back and up behind the body -- mirror of frame 3. Left arm forward, right arm back.
+8. Reach-Right: right leg reaching forward-down, about to make ground contact; left leg trailing far back, almost fully extended -- mirror of frame 4, and loops seamlessly back into frame 1. Left arm forward, right arm back.
+
+Rules:
+- Do not flip or mirror the character horizontally at any point -- Theo always faces right; only the leg/arm poses change, following the sequence above.
+- Keep the lantern/scanner tool clipped to the belt (not held) in every frame, so both arms are free to swing naturally with the stride.
+- Same head-to-body ratio, same body thickness, same color saturation and rendering finish in all 8 frames -- this is one character in 8 phases of the same stride, not 8 separate redraws.
+- No watermark, no scale references, no palette swatches -- only the title, the 8 numbered frames, and the character poses.
