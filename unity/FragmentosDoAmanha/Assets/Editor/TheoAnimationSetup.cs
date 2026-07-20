@@ -9,11 +9,60 @@ namespace FragmentosDoAmanha.Editor
     {
         private const string IdleFramesFolder = "Assets/Art/Characters/Theo/Idle";
         private const string RunFramesFolder = "Assets/Art/Characters/Theo/Run";
+        private const string JumpFramesFolder = "Assets/Art/Characters/Theo/Jump";
         private const string AnimationOutputFolder = "Assets/Animations/Theo";
         private const string ControllerPath = AnimationOutputFolder + "/Theo.controller";
         private const float IdleFrameRate = 6f;
         private const float RunFrameRate = 10f;
         private const float RunToIdleThreshold = 0.05f;
+
+        // Single non-looping clip covering the whole airborne arc (takeoff
+        // crouch -> rise -> apex -> fall -> landing reach/crouch), since there
+        // is no separate Fall art yet. 6 frames over ~0.6s; if Theo is airborne
+        // longer than that (e.g. off a tall ledge), the animator just holds on
+        // the last (landing-crouch) frame until Grounded flips back to true --
+        // acceptable placeholder behavior, revisit once Fall/Land art exists.
+        private const float JumpFrameRate = 10f;
+
+        [MenuItem("Fragmentos do Amanha/Import Theo Jump Frames")]
+        public static void ImportJumpFrames()
+        {
+            string[] guids = AssetDatabase.FindAssets("t:Texture2D", new[] { JumpFramesFolder });
+            if (guids.Length == 0)
+            {
+                Debug.LogError($"Fragmentos do Amanha: no textures found in {JumpFramesFolder}.");
+                return;
+            }
+
+            int imported = 0;
+            foreach (string guid in guids)
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+                TextureImporter importer = AssetImporter.GetAtPath(path) as TextureImporter;
+                if (importer == null)
+                {
+                    Debug.LogWarning($"Fragmentos do Amanha: could not read texture at {path}, skipping (LFS pointer not pulled?).");
+                    continue;
+                }
+
+                importer.textureType = TextureImporterType.Sprite;
+                importer.spriteImportMode = SpriteImportMode.Single;
+                importer.filterMode = FilterMode.Point;
+                importer.textureCompression = TextureImporterCompression.Uncompressed;
+                importer.mipmapEnabled = false;
+                importer.alphaIsTransparency = true;
+                // Same 1024px canvas / character scale as idle+run, but the
+                // foot line is NOT realigned to y=987 here: each jump frame's
+                // foot height within the canvas represents how high off the
+                // ground Theo actually is at that phase of the arc.
+                importer.spritePixelsPerUnit = TheoSpriteSetup.IdleSpritePixelsPerUnit;
+                EditorUtility.SetDirty(importer);
+                importer.SaveAndReimport();
+                imported++;
+            }
+
+            Debug.Log($"Fragmentos do Amanha: imported {imported} jump frame(s) from {JumpFramesFolder} at the same scale as the idle sprite.");
+        }
 
         [MenuItem("Fragmentos do Amanha/Import Theo Run Frames")]
         public static void ImportRunFrames()
@@ -96,8 +145,19 @@ namespace FragmentosDoAmanha.Editor
                 return;
             }
 
+            Sprite[] jumpSprites = AssetDatabase.FindAssets("t:Texture2D", new[] { JumpFramesFolder })
+                .Select(AssetDatabase.GUIDToAssetPath)
+                .Distinct()
+                .OrderBy(path => path)
+                .Select(AssetDatabase.LoadAssetAtPath<Sprite>)
+                .Where(sprite => sprite != null)
+                .ToArray();
+
             AnimationClip idleClip = CreateClip("Theo_Idle", idleSprites, IdleFrameRate, AnimationOutputFolder);
             AnimationClip runClip = CreateClip("Theo_Run", runSprites, RunFrameRate, AnimationOutputFolder);
+            AnimationClip jumpClip = jumpSprites.Length > 0
+                ? CreateClip("Theo_Jump", jumpSprites, JumpFrameRate, AnimationOutputFolder, loop: false)
+                : null;
 
             AnimatorController controller = AssetDatabase.LoadAssetAtPath<AnimatorController>(ControllerPath);
             if (controller == null)
@@ -110,14 +170,10 @@ namespace FragmentosDoAmanha.Editor
                 controller.AddParameter("Speed", AnimatorControllerParameterType.Float);
             }
 
-            // Grounded/VerticalSpeed are set by TheoController every frame so a
-            // Jump/Fall/Land state machine can be wired in later without touching
-            // the controller script again. No states consume them yet -- there is
-            // no approved jump art (the ChatGPT reference sheets have inconsistent
-            // scale versus idle/run and baked-in fake transparency, see
-            // docs/03_VisualDevelopment/prompts/characters/ for the regeneration
-            // plan) -- but declaring the parameters now avoids "no parameter"
-            // console warnings from TheoController.UpdateVisual().
+            // Grounded/VerticalSpeed are set by TheoController every frame.
+            // Grounded now drives the Jump state below; VerticalSpeed is still
+            // unused (no separate Fall/Land art yet), declared so
+            // TheoController.UpdateVisual() never hits a "no parameter" warning.
             if (controller.parameters.All(p => p.name != "Grounded"))
             {
                 controller.AddParameter("Grounded", AnimatorControllerParameterType.Bool);
@@ -136,9 +192,23 @@ namespace FragmentosDoAmanha.Editor
             EnsureTransition(idleState, runState, "Speed", AnimatorConditionMode.Greater, RunToIdleThreshold);
             EnsureTransition(runState, idleState, "Speed", AnimatorConditionMode.Less, RunToIdleThreshold);
 
+            string jumpStatus;
+            if (jumpClip != null)
+            {
+                AnimatorState jumpState = FindOrAddState(stateMachine, "Jump", jumpClip);
+                EnsureTransition(idleState, jumpState, "Grounded", AnimatorConditionMode.IfNot, 0f);
+                EnsureTransition(runState, jumpState, "Grounded", AnimatorConditionMode.IfNot, 0f);
+                EnsureTransition(jumpState, idleState, "Grounded", AnimatorConditionMode.If, 0f);
+                jumpStatus = $" and {jumpSprites.Length} jump frame(s)";
+            }
+            else
+            {
+                jumpStatus = " (no jump frames found, Jump state not built -- run 'Import Theo Jump Frames' first if you have art for it)";
+            }
+
             EditorUtility.SetDirty(controller);
             AssetDatabase.SaveAssets();
-            Debug.Log($"Fragmentos do Amanha: Theo animator controller built at {ControllerPath} with {idleSprites.Length} idle frame(s) and {runSprites.Length} run frame(s). Run 'Apply Theo Animator (Current Scene)' next.");
+            Debug.Log($"Fragmentos do Amanha: Theo animator controller built at {ControllerPath} with {idleSprites.Length} idle frame(s) and {runSprites.Length} run frame(s){jumpStatus}. Run 'Apply Theo Animator (Current Scene)' next.");
         }
 
         [MenuItem("Fragmentos do Amanha/Apply Theo Animator (Current Scene)")]
@@ -176,7 +246,7 @@ namespace FragmentosDoAmanha.Editor
             Debug.Log("Fragmentos do Amanha: Animator applied to 'Theo Sprite' in the open scene. Save the scene and test in Play Mode.");
         }
 
-        private static AnimationClip CreateClip(string name, Sprite[] sprites, float frameRate, string folder)
+        private static AnimationClip CreateClip(string name, Sprite[] sprites, float frameRate, string folder, bool loop = true)
         {
             string path = $"{folder}/{name}.anim";
             AnimationClip clip = AssetDatabase.LoadAssetAtPath<AnimationClip>(path);
@@ -207,7 +277,7 @@ namespace FragmentosDoAmanha.Editor
             AnimationUtility.SetObjectReferenceCurve(clip, binding, keyframes);
 
             AnimationClipSettings settings = AnimationUtility.GetAnimationClipSettings(clip);
-            settings.loopTime = true;
+            settings.loopTime = loop;
             AnimationUtility.SetAnimationClipSettings(clip, settings);
 
             EditorUtility.SetDirty(clip);

@@ -92,9 +92,15 @@ Referencias do que falta: `docs/03_VisualDevelopment/prompts/characters/theo-run
 - Removidos `theo-sprite-v03.png` e `Run-v03/` (visual anterior, superado).
 - O usuario ja rodou `Import Theo Sprite` / `Import Theo Run Frames` / `Build Theo Animator Controller` / `Apply Theo Animator` localmente pelo menos uma vez (confirmado pelos commits "." com `.meta` novos e `Theo.controller`/`Theo_Idle.anim`/`Theo_Run.anim` atualizados). Precisa rodar de novo depois que o ciclo de corrida corrigido chegar.
 
+### Jump -- integrado no codigo (2026-07-20), pendente de teste visual em Play Mode
+
+6 frames em `Jump/theo-sprite-jump-01.png` a `06.png`, cobrindo o arco inteiro (agachamento de saida -> subida -> apice -> queda -> agachamento de pouso). Ao contrario de Idle/Run, o pe NAO foi realinhado pra y=987 -- cada frame representa a altura real do personagem no ar. `TheoAnimationSetup.cs` ganhou `ImportJumpFrames()` (novo menu `Import Theo Jump Frames`) e `BuildAnimatorController()` agora monta um clip `Theo_Jump` nao-looping e liga `Idle/Run -> Jump` quando `Grounded == false` e `Jump -> Idle` quando `Grounded == true` (o parametro `Grounded` ja era calculado pelo `TheoController` desde a Sprint 1, so nao tinha nenhum estado consumindo).
+
+Rodado via Unity MCP nas 3 cenas, sem erro de compilacao. **Tentei validar em Play Mode simulando um pulo via `Rigidbody2D.linearVelocity` diretamente por `execute_code`, mas o Play Mode headless se mostrou instavel** (a fisica parou de avançar em tempo real em alguns momentos, e forçar `transform.position`/`RigidbodyType2D.Kinematic` manualmente quebrou a referencia ao GameObject e a câmera saiu de enquadramento) -- não é um bug do jogo, é limitação de testar Play Mode sem foco de janela real. **Precisa de um teste manual local**: abrir `Prototype_Theo_Controller`, rodar Play Mode, apertar Space/W/seta-cima e confirmar visualmente que a animação de pulo troca corretamente com Idle/Run e que a escala/proporcao bate.
+
 ### Pastas de pose (`unity/FragmentosDoAmanha/Assets/Art/Characters/Theo/`)
 
-`Idle/` e `Run/` completos (Run pendente de correcao acima). Vazias, aguardando arte no mesmo padrao: `Jump/`, `Land/`, `Attack/`, `Fall/`, `Crouch/` (sem mecanica de jogo ainda, nao prioritario), `HitDeath/` (a ficha de personagem NAO cobre essa pose -- precisa ser gerada a parte, item do roadmap Fase 3).
+`Idle/`, `Run/` (pendente de correcao de perna acima) e `Jump/` completos. Vazias, aguardando arte no mesmo padrao: `Land/`, `Attack/`, `Fall/`, `Crouch/` (sem mecanica de jogo ainda, nao prioritario), `HitDeath/` (a ficha de personagem NAO cobre essa pose -- precisa ser gerada a parte, item do roadmap Fase 3).
 
 ## Unity MCP -- configurado e funcionando no PC principal (2026-07-17)
 

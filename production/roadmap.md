@@ -75,7 +75,7 @@ Objetivo: validar sensacao de controle.
 Objetivo: substituir placeholders principais por assets direcionais.
 
 - [x] Sprite base do Theo. `theo-sprite-v02.png` (redesign mais alto, tom serio, iluminacao atmosferica, aprovado pelo usuario) integrado via `TheoSpriteSetup.cs`, ver nota na `Escopo da Demo Inicial`. Escala ajustada para ~24% da altura de tela (`TargetWorldHeight` 2.4), entre a proporcao do Symphony of the Night (~20%) e do Guacamelee (~28-30%), referencias pedidas pelo usuario.
-- [ ] Idle/run/jump/land.
+- [ ] Idle/run/jump/land. Idle, Run e Jump integrados e no codigo (Run com bug de alternancia de perna pendente, ver `production/handoff-current-state.md`); falta Land separado (Jump hoje cobre o arco inteiro incluindo o pouso).
 - [ ] Ataque basico.
 - [ ] Hit/death placeholder.
 - [ ] Props de Voss na Era Zero.

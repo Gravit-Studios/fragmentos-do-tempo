@@ -4,7 +4,7 @@ Cada pasta recebe os frames de cada pose, seguindo o visual definitivo confirmad
 
 - `Idle/` -- **completo**, 6 frames (`theo-sprite-idle-01.png` a `06.png`), pe em y=987. E a referencia de escala (`TheoSpriteSetup.IdleSpritePixelsPerUnit`).
 - `Run/` -- **completo**, 8 frames (`theo-sprite-run-01.png` a `08.png`). Vieram com o pe em y~918-929 (canvas identico, so deslocado verticalmente em relacao ao idle); realinhados para y=987 com `tools/art-pipeline/align_foot_line.py` antes de importar.
-- `Jump/` -- pulo (referencia: "PULO").
+- `Jump/` -- **completo**, 6 frames (`theo-sprite-jump-01.png` a `06.png`), cobrindo o arco inteiro (agachamento de saida -> subida -> apice -> queda -> agachamento de pouso). Pe NAO alinhado em y=987 -- cada frame representa a altura real do personagem no ar naquela fase do arco. Integrado como clip unico nao-looping (`Theo_Jump`, `TheoAnimationSetup.ImportJumpFrames`/`BuildAnimatorController`), com transicao Idle/Run -> Jump quando `Grounded == false` e Jump -> Idle quando `Grounded == true`. Sem Fall/Land separados ainda -- se o personagem ficar no ar mais que a duracao do clip (~0.6s), a animacao so segura no ultimo frame (agachamento de pouso) ate encostar no chao.
 - `Land/` -- pouso/aterrissagem (referencia: "POUSO").
 - `Attack/` -- ataque com lanterna (referencia: "ATAQUE COM LANTERNA").
 - `Fall/` -- queda/em voo antes de pousar (referencia: "CAIR"). Faz sentido pro jogo: `TheoController` ja expoe `Grounded`/`VerticalSpeed` pro Animator (preparado na Sprint 1), entao dá pra distinguir Pulo (subindo) de Fall (caindo) quando os frames chegarem.
