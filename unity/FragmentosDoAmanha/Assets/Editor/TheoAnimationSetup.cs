@@ -10,6 +10,7 @@ namespace FragmentosDoAmanha.Editor
         private const string IdleFramesFolder = "Assets/Art/Characters/Theo/Idle";
         private const string RunFramesFolder = "Assets/Art/Characters/Theo/Run";
         private const string JumpFramesFolder = "Assets/Art/Characters/Theo/Jump";
+        private const string AttackFramesFolder = "Assets/Art/Characters/Theo/Attack";
         private const string AnimationOutputFolder = "Assets/Animations/Theo";
         private const string ControllerPath = AnimationOutputFolder + "/Theo.controller";
         private const float IdleFrameRate = 6f;
@@ -23,6 +24,47 @@ namespace FragmentosDoAmanha.Editor
         // the last (landing-crouch) frame until Grounded flips back to true --
         // acceptable placeholder behavior, revisit once Fall/Land art exists.
         private const float JumpFrameRate = 10f;
+
+        // 3-frame punch (windup -> extend -> follow-through), timed to roughly
+        // match PlayerAttack's activeDuration+cooldownDuration (~0.4s) so the
+        // swing reads as connected to the hitbox window.
+        private const float AttackFrameRate = 8f;
+
+        [MenuItem("Fragmentos do Amanha/Import Theo Attack Frames")]
+        public static void ImportAttackFrames()
+        {
+            string[] guids = AssetDatabase.FindAssets("t:Texture2D", new[] { AttackFramesFolder });
+            if (guids.Length == 0)
+            {
+                Debug.LogError($"Fragmentos do Amanha: no textures found in {AttackFramesFolder}.");
+                return;
+            }
+
+            int imported = 0;
+            foreach (string guid in guids)
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+                TextureImporter importer = AssetImporter.GetAtPath(path) as TextureImporter;
+                if (importer == null)
+                {
+                    Debug.LogWarning($"Fragmentos do Amanha: could not read texture at {path}, skipping (LFS pointer not pulled?).");
+                    continue;
+                }
+
+                importer.textureType = TextureImporterType.Sprite;
+                importer.spriteImportMode = SpriteImportMode.Single;
+                importer.filterMode = FilterMode.Point;
+                importer.textureCompression = TextureImporterCompression.Uncompressed;
+                importer.mipmapEnabled = false;
+                importer.alphaIsTransparency = true;
+                importer.spritePixelsPerUnit = TheoSpriteSetup.IdleSpritePixelsPerUnit;
+                EditorUtility.SetDirty(importer);
+                importer.SaveAndReimport();
+                imported++;
+            }
+
+            Debug.Log($"Fragmentos do Amanha: imported {imported} attack frame(s) from {AttackFramesFolder} at the same scale as the idle sprite.");
+        }
 
         [MenuItem("Fragmentos do Amanha/Import Theo Jump Frames")]
         public static void ImportJumpFrames()
@@ -153,10 +195,21 @@ namespace FragmentosDoAmanha.Editor
                 .Where(sprite => sprite != null)
                 .ToArray();
 
+            Sprite[] attackSprites = AssetDatabase.FindAssets("t:Texture2D", new[] { AttackFramesFolder })
+                .Select(AssetDatabase.GUIDToAssetPath)
+                .Distinct()
+                .OrderBy(path => path)
+                .Select(AssetDatabase.LoadAssetAtPath<Sprite>)
+                .Where(sprite => sprite != null)
+                .ToArray();
+
             AnimationClip idleClip = CreateClip("Theo_Idle", idleSprites, IdleFrameRate, AnimationOutputFolder);
             AnimationClip runClip = CreateClip("Theo_Run", runSprites, RunFrameRate, AnimationOutputFolder);
             AnimationClip jumpClip = jumpSprites.Length > 0
                 ? CreateClip("Theo_Jump", jumpSprites, JumpFrameRate, AnimationOutputFolder, loop: false)
+                : null;
+            AnimationClip attackClip = attackSprites.Length > 0
+                ? CreateClip("Theo_Attack", attackSprites, AttackFrameRate, AnimationOutputFolder, loop: false)
                 : null;
 
             AnimatorController controller = AssetDatabase.LoadAssetAtPath<AnimatorController>(ControllerPath);
@@ -206,9 +259,30 @@ namespace FragmentosDoAmanha.Editor
                 jumpStatus = " (no jump frames found, Jump state not built -- run 'Import Theo Jump Frames' first if you have art for it)";
             }
 
+            string attackStatus;
+            if (attackClip != null)
+            {
+                if (controller.parameters.All(p => p.name != "Attack"))
+                {
+                    controller.AddParameter("Attack", AnimatorControllerParameterType.Trigger);
+                }
+
+                // Any-state entry so the swing can interrupt Idle/Run/Jump alike;
+                // exits back to Idle once the clip finishes playing (existing
+                // Idle->Run transition takes over immediately if still moving).
+                AnimatorState attackState = FindOrAddState(stateMachine, "Attack", attackClip);
+                EnsureAnyStateTransition(stateMachine, attackState, "Attack");
+                EnsureExitTimeTransition(attackState, idleState);
+                attackStatus = $" and {attackSprites.Length} attack frame(s)";
+            }
+            else
+            {
+                attackStatus = " (no attack frames found, Attack state not built -- run 'Import Theo Attack Frames' first if you have art for it)";
+            }
+
             EditorUtility.SetDirty(controller);
             AssetDatabase.SaveAssets();
-            Debug.Log($"Fragmentos do Amanha: Theo animator controller built at {ControllerPath} with {idleSprites.Length} idle frame(s) and {runSprites.Length} run frame(s){jumpStatus}. Run 'Apply Theo Animator (Current Scene)' next.");
+            Debug.Log($"Fragmentos do Amanha: Theo animator controller built at {ControllerPath} with {idleSprites.Length} idle frame(s) and {runSprites.Length} run frame(s){jumpStatus}{attackStatus}. Run 'Apply Theo Animator (Current Scene)' next.");
         }
 
         [MenuItem("Fragmentos do Amanha/Apply Theo Animator (Current Scene)")]
@@ -309,6 +383,33 @@ namespace FragmentosDoAmanha.Editor
             transition.hasExitTime = false;
             transition.duration = 0.05f;
             transition.AddCondition(mode, threshold, parameter);
+        }
+
+        private static void EnsureAnyStateTransition(AnimatorStateMachine stateMachine, AnimatorState to, string trigger)
+        {
+            if (stateMachine.anyStateTransitions.Any(t => t.destinationState == to))
+            {
+                return;
+            }
+
+            AnimatorStateTransition transition = stateMachine.AddAnyStateTransition(to);
+            transition.hasExitTime = false;
+            transition.duration = 0.03f;
+            transition.canTransitionToSelf = false;
+            transition.AddCondition(AnimatorConditionMode.If, 0f, trigger);
+        }
+
+        private static void EnsureExitTimeTransition(AnimatorState from, AnimatorState to)
+        {
+            if (from.transitions.Any(t => t.destinationState == to))
+            {
+                return;
+            }
+
+            AnimatorStateTransition transition = from.AddTransition(to);
+            transition.hasExitTime = true;
+            transition.exitTime = 1f;
+            transition.duration = 0.05f;
         }
     }
 }

@@ -92,15 +92,27 @@ Referencias do que falta: `docs/03_VisualDevelopment/prompts/characters/theo-run
 - Removidos `theo-sprite-v03.png` e `Run-v03/` (visual anterior, superado).
 - O usuario ja rodou `Import Theo Sprite` / `Import Theo Run Frames` / `Build Theo Animator Controller` / `Apply Theo Animator` localmente pelo menos uma vez (confirmado pelos commits "." com `.meta` novos e `Theo.controller`/`Theo_Idle.anim`/`Theo_Run.anim` atualizados). Precisa rodar de novo depois que o ciclo de corrida corrigido chegar.
 
-### Jump -- integrado no codigo (2026-07-20), pendente de teste visual em Play Mode
+### Jump -- integrado e confirmado (2026-07-20/22)
 
-6 frames em `Jump/theo-sprite-jump-01.png` a `06.png`, cobrindo o arco inteiro (agachamento de saida -> subida -> apice -> queda -> agachamento de pouso). Ao contrario de Idle/Run, o pe NAO foi realinhado pra y=987 -- cada frame representa a altura real do personagem no ar. `TheoAnimationSetup.cs` ganhou `ImportJumpFrames()` (novo menu `Import Theo Jump Frames`) e `BuildAnimatorController()` agora monta um clip `Theo_Jump` nao-looping e liga `Idle/Run -> Jump` quando `Grounded == false` e `Jump -> Idle` quando `Grounded == true` (o parametro `Grounded` ja era calculado pelo `TheoController` desde a Sprint 1, so nao tinha nenhum estado consumindo).
+6 frames em `Jump/theo-sprite-jump-01.png` a `06.png`, cobrindo o arco inteiro (agachamento de saida -> subida -> apice -> queda -> agachamento de pouso). Ao contrario de Idle/Run, o pe NAO foi realinhado pra y=987 -- cada frame representa a altura real do personagem no ar. `TheoAnimationSetup.cs` ganhou `ImportJumpFrames()` (novo menu `Import Theo Jump Frames`) e `BuildAnimatorController()` monta um clip `Theo_Jump` nao-looping e liga `Idle/Run -> Jump` quando `Grounded == false` e `Jump -> Idle` quando `Grounded == true` (o parametro `Grounded` ja era calculado pelo `TheoController` desde a Sprint 1, so nao tinha nenhum estado consumindo).
 
-Rodado via Unity MCP nas 3 cenas, sem erro de compilacao. **Tentei validar em Play Mode simulando um pulo via `Rigidbody2D.linearVelocity` diretamente por `execute_code`, mas o Play Mode headless se mostrou instavel** (a fisica parou de avançar em tempo real em alguns momentos, e forçar `transform.position`/`RigidbodyType2D.Kinematic` manualmente quebrou a referencia ao GameObject e a câmera saiu de enquadramento) -- não é um bug do jogo, é limitação de testar Play Mode sem foco de janela real. **Precisa de um teste manual local**: abrir `Prototype_Theo_Controller`, rodar Play Mode, apertar Space/W/seta-cima e confirmar visualmente que a animação de pulo troca corretamente com Idle/Run e que a escala/proporcao bate.
+**2026-07-22: usuario testou manualmente na cena `VS_Egypt_Blockout` e confirmou "funcionando normal"** -- pulo troca de animacao corretamente. Fechado.
+
+Nota de processo: uma tentativa anterior de validar isso via `execute_code`/`Rigidbody2D.linearVelocity` no MCP acabou vazando estado de teste (posicao/`RigidbodyType2D.Kinematic`) pra dentro da cena salva, deixando o Theo flutuando no spawn -- corrigido no commit seguinte (`b6d4e43`). Licao: **nao usar `execute_code` pra mexer em `transform.position`/`Rigidbody2D` direto em Play Mode e depois salvar a cena** sem antes conferir `git diff` no arquivo `.unity`; prefira Play Mode real (apertar as teclas) ou confirmar que o estado voltou ao normal antes de qualquer `manage_scene action=save`.
+
+### Ataque -- integrado e confirmado (2026-07-22)
+
+3 frames em `Attack/theo-sprite-attack-01.png` a `03.png`, pe realinhado pra y=987. `TheoAnimationSetup.cs` ganhou `ImportAttackFrames()` (menu `Import Theo Attack Frames`) e `BuildAnimatorController()` monta um clip `Theo_Attack` nao-looping (0.375s, 8fps) com um parametro Trigger `Attack`. Entrada via transicao "Any State" (interrompe Idle/Run/Jump), saida com `exitTime=1` de volta pro Idle. `PlayerAttack.cs` chama `visualAnimator.SetTrigger("Attack")` no inicio do `AttackRoutine()`.
+
+Confirmado em Play Mode via Unity MCP: disparado o trigger e capturados prints em sequencia rapida (o clip e curto, ~0.4s) mostrando a pose de soco e depois o retorno ao Idle. Desta vez o teste **nao** mexeu em `transform`/`Rigidbody2D`, so no Animator -- `git diff` confirmou que a cena nao foi alterada por engano.
+
+### Agachar -- arte recebida, sem integracao (2026-07-22)
+
+4 frames em `Crouch/theo-sprite-crouch-01.png` a `04.png`, pe realinhado pra y=987. Copiados pro projeto mas **nao integrados** -- `TheoController` nao tem nenhuma mecanica de agachar (sem input, sem colisor menor, sem estado). Guardado pra quando essa mecanica for priorizada.
 
 ### Pastas de pose (`unity/FragmentosDoAmanha/Assets/Art/Characters/Theo/`)
 
-`Idle/`, `Run/` (pendente de correcao de perna acima) e `Jump/` completos. Vazias, aguardando arte no mesmo padrao: `Land/`, `Attack/`, `Fall/`, `Crouch/` (sem mecanica de jogo ainda, nao prioritario), `HitDeath/` (a ficha de personagem NAO cobre essa pose -- precisa ser gerada a parte, item do roadmap Fase 3).
+`Idle/`, `Run/` (pendente de correcao de perna acima), `Jump/` e `Attack/` completos e integrados. `Crouch/` tem arte mas sem mecanica de jogo. Vazias, aguardando arte no mesmo padrao: `Land/`, `Fall/`, `HitDeath/` (a ficha de personagem NAO cobre essa pose -- precisa ser gerada a parte, item do roadmap Fase 3).
 
 ## Unity MCP -- configurado e funcionando no PC principal (2026-07-17)
 

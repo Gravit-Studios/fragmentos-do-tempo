@@ -17,12 +17,14 @@ namespace FragmentosDoAmanha.Combat
         [SerializeField] private Transform hitboxPreview;
 
         private TheoController controller;
+        private Animator visualAnimator;
         private bool isAttacking;
         private float nextAttackTime;
 
         private void Awake()
         {
             controller = GetComponent<TheoController>();
+            visualAnimator = GetComponentInChildren<Animator>();
             SetPreviewVisible(false);
         }
 
@@ -49,6 +51,11 @@ namespace FragmentosDoAmanha.Combat
             isAttacking = true;
             nextAttackTime = Time.time + cooldownDuration;
             SetPreviewVisible(true);
+
+            if (visualAnimator != null)
+            {
+                visualAnimator.SetTrigger("Attack");
+            }
 
             Vector2 center = GetHitboxCenter();
             Collider2D[] hits = Physics2D.OverlapBoxAll(center, hitboxSize, 0f);
